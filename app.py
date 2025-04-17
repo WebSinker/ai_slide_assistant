@@ -33,17 +33,23 @@ def extract_text_from_pptx(file_path):
             "text": ""
         }
         
+        # First pass: extract the title if it exists
         for shape in slide.shapes:
             try:
                 if hasattr(shape, 'text') and shape.text.strip():
-                    # Check for title placeholder
                     if hasattr(shape, 'is_placeholder') and shape.is_placeholder:
-                        if shape.placeholder_format.type == 1:
+                        if shape.placeholder_format.type == 1:  # Title placeholder
                             slide_data["title"] = shape.text.strip()
-                        else:
-                            slide_data["content"].append(shape.text.strip())
-                    else:
-                        slide_data["content"].append(shape.text.strip())
+                            break  # Found the title, exit the loop
+            except AttributeError:
+                continue
+        
+        # Second pass: extract all content including the title
+        for shape in slide.shapes:
+            try:
+                if hasattr(shape, 'text') and shape.text.strip():
+                    # Add all text content
+                    slide_data["content"].append(shape.text.strip())
             except AttributeError:
                 if hasattr(shape, 'text') and shape.text.strip():
                     slide_data["content"].append(shape.text.strip())
@@ -55,7 +61,7 @@ def extract_text_from_pptx(file_path):
         except AttributeError:
             pass
 
-        # Combine all text
+        # Combine all text with title at the beginning
         slide_data["text"] = (
             (slide_data["title"] + "\n" if slide_data["title"] else "") +
             "\n".join(slide_data["content"])
@@ -90,15 +96,27 @@ def convert_ppt_to_pptx(ppt_path):
         return None
 
 def save_extracted_text(slide_data, filename):
+    # Create a JSON object that contains all slides
+    presentation_data = {
+        "filename": filename,
+        "total_slides": len(slide_data),
+        "extraction_time": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "slides": slide_data
+    }
+    
+    # Save to a single JSON file
     with open(f'slides/{filename}_slides.json', 'w', encoding='utf-8') as f:
-        json.dump(slide_data, f, indent=2)
+        json.dump(presentation_data, f, indent=2)
         
 def call_gemini(question, context, slide_number=None):
     try:
+        # Extract slides array from the context object
+        slides = context.get("slides", [])
+        
         if slide_number is not None:
-            context_text = next((slide["text"] for slide in context if slide["slide_number"] == slide_number), "")
+            context_text = next((slide["text"] for slide in slides if slide["slide_number"] == slide_number), "")
         else:
-            context_text = "\n\n".join(slide["text"] for slide in context)
+            context_text = "\n\n".join([f"Slide {slide['slide_number']}:\n{slide['text']}" for slide in slides])
 
         prompt = f"""As an AI tutor, please answer this question based on the slide content:
 
@@ -111,7 +129,7 @@ Question: {question}"""
             model=model,
             contents=prompt
         )
-        return response.text  # Use `response.text` to get the generated content
+        return response.text
 
     except Exception as e:
         print(f"Gemini API error: {str(e)}")
@@ -143,15 +161,15 @@ def upload_slide():
             save_path = converted_path
 
         # Extract text
-        text = extract_text_from_pptx(save_path)
+        slides = extract_text_from_pptx(save_path)
         
         # Save extracted text to JSON file
-        save_extracted_text(text, file.filename.rsplit('.', 1)[0])
+        save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
         
         return jsonify({
             "message": "File uploaded and text extracted",
             "filename": file.filename,
-            "slides": text
+            "slides": slides
         })
 
     except Exception as e:
@@ -167,11 +185,12 @@ def ask_question():
     filename = data.get("filename")
 
     try:
+        # Load the single JSON file containing all slides
         with open(f'slides/{filename}_slides.json', 'r', encoding='utf-8') as f:
-            slides = json.load(f)
+            presentation_data = json.load(f)
 
-        # Call Gemini instead of OpenAI
-        response = call_gemini(question, slides, slide_num)
+        # Call Gemini with the entire presentation data
+        response = call_gemini(question, presentation_data, slide_num)
 
         return jsonify({
             "question": question,
@@ -190,3 +209,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
