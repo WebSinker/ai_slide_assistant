@@ -25,18 +25,39 @@ function uploadFile() {
         if (data.error) {
             throw new Error(data.error);
         }
-        
-        // Store the entire presentation data
-        currentPresentationData = data;
-        slides = data.slides;
-        currentFilename = data.filename.split('.')[0];
-        
-        // Update the sidebar to show just the presentation name
-        updatePresentationList();
-        
-        // Show the first slide by default
-        if (slides.length > 0) {
-            displayPresentation();
+        if (data.filenumber > 0){
+            alert(`File uploaded successfully! ${data.filenumber} file found., ${data.slides} slides found.`);
+            // Store the presentation data in a global variable
+            currentPresentationData = data;
+            slides = data.slides;
+            currentFilename = data.filename.split('.')[0];
+
+
+            // Update the sidebar to show the presentation name
+            const list = document.getElementById('slideList');
+            list.innerHTML = '';
+            const li = document.createElement('li');
+            li.textContent = currentFilename;
+            li.onclick = () => displayPresentation();
+            list.appendChild(li);
+
+            // Show the first slide by default
+            if (slides.length > 0) {
+                displayPresentation();
+            }
+        }else{
+            // Store the entire presentation data
+            currentPresentationData = data;
+            slides = data.slides;
+            currentFilename = data.filename.split('.')[0];
+            
+            // Update the sidebar to show just the presentation name
+            updatePresentationList();
+            
+            // Show the first slide by default
+            if (slides.length > 0) {
+                displayPresentation();
+            }
         }
         
         alert("File uploaded successfully!");

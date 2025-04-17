@@ -1,0 +1,348 @@
+{
+  "filename": "Lecture 02-Datatype-operators-expression",
+  "total_slides": 30,
+  "extraction_time": "2025-04-18 02:29:02",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Data Types, Operators and Expressions",
+      "content": [
+        "Data Types, Operators and Expressions",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Data Types, Operators and Expressions\nData Types, Operators and Expressions\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Topic & Structure of the lesson",
+        "Overview of\nIdentifiers\nData types\nOperators\nExpressions"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nTopic & Structure of the lesson\nOverview of\nIdentifiers\nData types\nOperators\nExpressions"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nDefine and differentiate the various data types in Java\nUse operators in Java programs and subsequently write expressions that make up a Java program"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nLearning Outcomes\nAt the end of this topic, you should be able to:\nDefine and differentiate the various data types in Java\nUse operators in Java programs and subsequently write expressions that make up a Java program"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Identifiers/Variables",
+        "int temperature;  // The Fahrenheit temperature",
+        "Variables",
+        "temperature",
+        "Think of variable like a container for a value :",
+        "temperature = 32;    // temperature contains the value 32",
+        "The above is an assignment statement and \u201c=\u201c is the assignment operator."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nIdentifiers/Variables\nint temperature;  // The Fahrenheit temperature\nVariables\ntemperature\nThink of variable like a container for a value :\ntemperature = 32;    // temperature contains the value 32\nThe above is an assignment statement and \u201c=\u201c is the assignment operator."
+    },
+    {
+      "slide_number": 5,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Identifiers/Variables",
+        "To declare > 1 variable :\n                   int fahrTemp, centTemp;\n\nint is the type name\n\nLegal variable name must consists of a letter (upper- or lowercase) followed by any number (including zero) of letters & digits.\n\nIllegal variable names : 4.7    !%--\n\nLegal variable names :\n        temperature    TEMP23  T    $temp_1    T$$1"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nIdentifiers/Variables\nTo declare > 1 variable :\n                   int fahrTemp, centTemp;\n\nint is the type name\n\nLegal variable name must consists of a letter (upper- or lowercase) followed by any number (including zero) of letters & digits.\n\nIllegal variable names : 4.7    !%--\n\nLegal variable names :\n        temperature    TEMP23  T    $temp_1    T$$1"
+    },
+    {
+      "slide_number": 6,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Identifiers/Variables",
+        "cause Java to give the error\n\n    Undefined variable; temp\n\nTo declare a constant value :\n\n      final  double PI = 3.14159;",
+        "int Temp;\ntemp=3;"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nIdentifiers/Variables\ncause Java to give the error\n\n    Undefined variable; temp\n\nTo declare a constant value :\n\n      final  double PI = 3.14159;\nint Temp;\ntemp=3;"
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Scope of Variables",
+        "A variable's scope is the block of code within which the variable is accessible and determines when the variable is created and destroyed. The location of the variable declaration within your program establishes its scope and places it into one of these 4 categories: \nMember variable  \nLocal variable  \nMethod parameter  \nException-handler\n   parameter"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nScope of Variables\nA variable's scope is the block of code within which the variable is accessible and determines when the variable is created and destroyed. The location of the variable declaration within your program establishes its scope and places it into one of these 4 categories: \nMember variable  \nLocal variable  \nMethod parameter  \nException-handler\n   parameter"
+    },
+    {
+      "slide_number": 8,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Keywords",
+        "Keywords ~ words that may seems to be legal variable names but they are not because they are reserved by the language for special uses.\nList of Keywords in Java  :",
+        "abstract\ncatch\ndo\nfinally\nif\ninterface\nouter\nreturn\nthis\nvar",
+        "boolean char\ndouble\nfloat\nimplements\nlong\npackage\nshort\nthrow\nvoid",
+        "break\nclass\nelse\nfor\nimport\nnative\nprivate\nstatic\nthrows\nvolatile",
+        "byte\nconst\nextends\nfuture\ninner\nnew\nprotected\nsure\ntransient\nwhile",
+        "case\ncontinue\nfalse\ngeneric\ninstanceof\nnull\npublic\nswitch\ntrue",
+        "cast\ndefault\nfinal\ngoto\nint\noperator\nrest\nsynchronized\ntry"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nKeywords\nKeywords ~ words that may seems to be legal variable names but they are not because they are reserved by the language for special uses.\nList of Keywords in Java  :\nabstract\ncatch\ndo\nfinally\nif\ninterface\nouter\nreturn\nthis\nvar\nboolean char\ndouble\nfloat\nimplements\nlong\npackage\nshort\nthrow\nvoid\nbreak\nclass\nelse\nfor\nimport\nnative\nprivate\nstatic\nthrows\nvolatile\nbyte\nconst\nextends\nfuture\ninner\nnew\nprotected\nsure\ntransient\nwhile\ncase\ncontinue\nfalse\ngeneric\ninstanceof\nnull\npublic\nswitch\ntrue\ncast\ndefault\nfinal\ngoto\nint\noperator\nrest\nsynchronized\ntry"
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types",
+        "All variables must have a data type and must be initialized.\n      Eg.       int  count=3;\n             or\n                   int count;\n                   count=3;"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types\nAll variables must have a data type and must be initialized.\n      Eg.       int  count=3;\n             or\n                   int count;\n                   count=3;"
+    },
+    {
+      "slide_number": 10,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types",
+        "Java language is rich in its data types.\n  The variety of data types available allow the \u000b    programmer to select the type appropriate to\u000b    the needs of the application.\n  Two major categories of data type :\n Primitive (Built in types)\n Reference / Object (Derived Types)"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types\nJava language is rich in its data types.\n  The variety of data types available allow the \u000b    programmer to select the type appropriate to\u000b    the needs of the application.\n  Two major categories of data type :\n Primitive (Built in types)\n Reference / Object (Derived Types)"
+    },
+    {
+      "slide_number": 11,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types \u2013 primitive data types"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types \u2013 primitive data types"
+    },
+    {
+      "slide_number": 12,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types \u2013 primitive data types",
+        "Examples of double values in Java :\n3.14159      7.12     9.0     0.5e001    -16.3e+002\nThe e is called the e-notation in Java; \u000be separates the number from the exponent.\n2.829281 x 108  <=> 2.829281e8\n2. 13898121 x 10-15  <=> 2. 13898121e-15"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types \u2013 primitive data types\nExamples of double values in Java :\n3.14159      7.12     9.0     0.5e001    -16.3e+002\nThe e is called the e-notation in Java; \u000be separates the number from the exponent.\n2.829281 x 108  <=> 2.829281e8\n2. 13898121 x 10-15  <=> 2. 13898121e-15"
+    },
+    {
+      "slide_number": 13,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types \u2013 reference data types",
+        "Reference types :\nArrays\nClasses\n\nThe value of a reference type variable, is a reference to the actual value or set of values represented by the variable."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types \u2013 reference data types\nReference types :\nArrays\nClasses\n\nThe value of a reference type variable, is a reference to the actual value or set of values represented by the variable."
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types \u2013 reference data types",
+        "Example \u2013 class references\n\nClasses are the templates for creating objects.\n     class A\n     {\n\t\tvariables\n\t\tconstructors \n        \tmethods\n     }\n\n  A a = new A( )       a is a reference to an object of class A"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types \u2013 reference data types\nExample \u2013 class references\n\nClasses are the templates for creating objects.\n     class A\n     {\n\t\tvariables\n\t\tconstructors \n        \tmethods\n     }\n\n  A a = new A( )       a is a reference to an object of class A"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Data types \u2013 reference data types",
+        "Example \u2013 Array references\n\n\n    int myArray [ ] = new int [4];"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nData types \u2013 reference data types\nExample \u2013 Array references\n\n\n    int myArray [ ] = new int [4];"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "What is an operator?\nAn operator takes one or more arguments (operands) and produces a new value\nAn operator in Java can be \nUnary: operates on a single operand\nBinary: operates on 2 operands\nTernary: operates on 3 operands\nA Java operator can be further classified in accordance with the scheme as shown in the slide that follows"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nWhat is an operator?\nAn operator takes one or more arguments (operands) and produces a new value\nAn operator in Java can be \nUnary: operates on a single operand\nBinary: operates on 2 operands\nTernary: operates on 3 operands\nA Java operator can be further classified in accordance with the scheme as shown in the slide that follows"
+    },
+    {
+      "slide_number": 17,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "Java supports a rich set of operators which can be \nclassified into five categories:\n1.  \tArithmetic operators\n2.  \tRelational operators\n3. \tLogical operators\nIncrement/Decrement operators\nAssignment operators"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nJava supports a rich set of operators which can be \nclassified into five categories:\n1.  \tArithmetic operators\n2.  \tRelational operators\n3. \tLogical operators\nIncrement/Decrement operators\nAssignment operators"
+    },
+    {
+      "slide_number": 18,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java"
+    },
+    {
+      "slide_number": 19,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "Relational\nA relational operator compares 2 values and determines the relationship between them."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nRelational\nA relational operator compares 2 values and determines the relationship between them."
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "Logical Operators\nRelational operators are often used with logical operators to construct more complex decision-making expressions."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nLogical Operators\nRelational operators are often used with logical operators to construct more complex decision-making expressions."
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "Increment/decrement Operators",
+        "++  increase value by 1\n-    decrease value by 1\nEg.  \ni++    OR   ++i\nk- -    OR   - -k"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nIncrement/decrement Operators\n++  increase value by 1\n-    decrease value by 1\nEg.  \ni++    OR   ++i\nk- -    OR   - -k"
+    },
+    {
+      "slide_number": 22,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Operators in Java",
+        "Assignment Operators\nAssignment operators are used to assign one value to another.  Listed below are the basic assignment operators (=) as well as the shortcut assignment operators."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nOperators in Java\nAssignment Operators\nAssignment operators are used to assign one value to another.  Listed below are the basic assignment operators (=) as well as the shortcut assignment operators."
+    },
+    {
+      "slide_number": 23,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Expressions",
+        "Definition : An expression is a series of variables,\noperators and method calls (constructed according to \nthe syntax of the language) that evaluates to a single \nvalue.\nExpression perform the work of a Java program.\nExpressions are used to :\n compute  (eg. totalPrice = productCost + shippingCost) \n  assign values to variables (eg. count = 10)\n  to help control the execution flow of a program \n      (eg   while (count <10)   count++;)"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nExpressions\nDefinition : An expression is a series of variables,\noperators and method calls (constructed according to \nthe syntax of the language) that evaluates to a single \nvalue.\nExpression perform the work of a Java program.\nExpressions are used to :\n compute  (eg. totalPrice = productCost + shippingCost) \n  assign values to variables (eg. count = 10)\n  to help control the execution flow of a program \n      (eg   while (count <10)   count++;)"
+    },
+    {
+      "slide_number": 24,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Expressions",
+        "Basically, there are 2 types of expressions :\nExpression with operators\n\t\teg.\ntemperature = 98;\ntotal = (count + 10)* 25 / 4; \ncount++;"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nExpressions\nBasically, there are 2 types of expressions :\nExpression with operators\n\t\teg.\ntemperature = 98;\ntotal = (count + 10)* 25 / 4; \ncount++;"
+    },
+    {
+      "slide_number": 25,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Expressions",
+        "Method call expression\neg.  keyboard.nextInt(), \u000b       Integer.parseInt()\nA method(function) call evaluates to the return value of the method.\nThe return data type of a method expression call is the same as the data type of the return value of that method."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nExpressions\nMethod call expression\neg.  keyboard.nextInt(), \u000b       Integer.parseInt()\nA method(function) call evaluates to the return value of the method.\nThe return data type of a method expression call is the same as the data type of the return value of that method."
+    },
+    {
+      "slide_number": 26,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Follow Up Assignment",
+        "Write an expression that returns the solution for the general form of the quadratic equation as shown below\n\t\t\n\tax2 + bx + c = 0"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nFollow Up Assignment\nWrite an expression that returns the solution for the general form of the quadratic equation as shown below\n\t\t\n\tax2 + bx + c = 0"
+    },
+    {
+      "slide_number": 27,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Quick Review Question",
+        "We are going to work together to write some more Java programs that we can test in the lab.\n\n1.  Write a Java program to display the lines:\n\tThis is the first line.\n\tThis is the second line.\n\n2. Write a Java program to \n\tAssign the value 45.35 to the float variable price, 10 to the integer variable units and calculate and display the total value of price * units"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nQuick Review Question\nWe are going to work together to write some more Java programs that we can test in the lab.\n\n1.  Write a Java program to display the lines:\n\tThis is the first line.\n\tThis is the second line.\n\n2. Write a Java program to \n\tAssign the value 45.35 to the float variable price, 10 to the integer variable units and calculate and display the total value of price * units"
+    },
+    {
+      "slide_number": 28,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Topic & Structure of the lesson",
+        "Overview of\nIdentifiers\nData types\nOperators\nExpressions"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nTopic & Structure of the lesson\nOverview of\nIdentifiers\nData types\nOperators\nExpressions"
+    },
+    {
+      "slide_number": 29,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nQ & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 30,
+      "title": "",
+      "content": [
+        "Slide <number> of 35",
+        "Next Session",
+        "Conditional constructs\nIf\u2026 else construct\nNested if\u2026else constructs\nSwitch\u2026. Case\nBreak and continue statements"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 35\nNext Session\nConditional constructs\nIf\u2026 else construct\nNested if\u2026else constructs\nSwitch\u2026. Case\nBreak and continue statements"
+    }
+  ]
+}
