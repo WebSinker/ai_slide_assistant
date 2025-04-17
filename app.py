@@ -138,74 +138,51 @@ Question: {question}"""
 @app.route('/upload', methods=['POST'])
 def upload_slide():
     try:
-        if 'file' not in request.files:
-            return jsonify({"error": "No file uploaded"}), 400
+        # Accept multiple files
+        uploaded_files = request.files.getlist('files[]')
         
-        file = request.files['file']
-        if file.filename == '':
-            return jsonify({"error": "Empty filename"}), 400
-
-        # Verify file extension
-        if not file.filename.lower().endswith(('.ppt', '.pptx')):
-            return jsonify({"error": "Invalid file format. Only .ppt and .pptx files are allowed"}), 400
+        if not uploaded_files:
+            return jsonify({"error": "No files uploaded"}), 400
         
-        numoffiles = 0
-        for f in request.files.getlist('file'):
-            if f.filename:
-                numoffiles += 1
+        presentations = []
 
+        for file in uploaded_files:
+            if file.filename == '':
+                continue  # Skip empty file inputs
 
-        # handle multiple files
-        if numoffiles > 1:
-            for (i, file) in enumerate(request.files.getlist('file')):
-                # Save each file with a unique name
-                save_path = os.path.join(UPLOAD_FOLDER, f"{file.filename}_{i}")
-                file.save(save_path)
-                # Convert .ppt to .pptx if necessary
-                if file.filename.lower().endswith('.ppt'):
-                    converted_path = convert_ppt_to_pptx(save_path)
-                    if not converted_path:
-                        return jsonify({"error": "Failed to convert .ppt to .pptx"}), 500
-                    save_path = converted_path
-                # Extract text
-                slides = extract_text_from_pptx(save_path)
-                
-                # Save extracted text to JSON file
-                save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
-            return jsonify({
-                "message": "Files uploaded and text extracted",
-                "filenames": [file.filename for file in request.files.getlist('file')],
-                "slides": slides,
-                "filenumber": numoffiles
-            })
-        # If only one file is uploaded
-        else:
-        # Save file
+            # Verify file extension
+            if not file.filename.lower().endswith(('.ppt', '.pptx')):
+                continue  # Skip invalid files
+
+            # Save file
             save_path = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(save_path)
 
-            # Convert .ppt to .pptx if necessary
-            if file.filename.lower().endswith('.ppt'):
-                converted_path = convert_ppt_to_pptx(save_path)
-                if not converted_path:
-                    return jsonify({"error": "Failed to convert .ppt to .pptx"}), 500
-                save_path = converted_path
+        # Convert .ppt to .pptx if necessary
+        if file.filename.lower().endswith('.ppt'):
+            converted_path = convert_ppt_to_pptx(save_path)
+            if not converted_path:
+                return jsonify({"error": "Failed to convert .ppt to .pptx"}), 500
+            save_path = converted_path
 
-            # Extract text
-            slides = extract_text_from_pptx(save_path)
-            
-            # Save extracted text to JSON file
-            save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
-            
-            return jsonify({
-                "message": "File uploaded and text extracted",
-                "filename": file.filename,
-                "slides": slides,
-                "filenumber": numoffiles
-            })
+        # Extract text
+        slides = extract_text_from_pptx(save_path)
+        
+        # Save extracted text to JSON file
+        save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
+        
+        return jsonify({
+            "message": "File uploaded and text extracted",
+            "filename": file.filename,
+            "slides": slides
+        })
+
+        if not presentations:
+            return jsonify({"error": "No valid presentations uploaded"}), 400
+
+        return jsonify({"presentations": presentations})
 
     except Exception as e:
-        # Log the error for debugging
         print(f"Error in upload_slide: {str(e)}")
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 
