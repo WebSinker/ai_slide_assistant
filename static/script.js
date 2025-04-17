@@ -4,7 +4,7 @@ let currentPresentationData = null;
 
 function uploadFile() {
     const input = document.getElementById('fileInput');
-    const file = input.files;
+    const file = input.files[0];
 
     if (!file) {
         alert("Please select a file first!");
