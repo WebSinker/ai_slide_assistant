@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Slide Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Slides</h2>
+            <ul id="slideList"></ul>
+        </div>
+        <div class="main">
+            <div class="upload-section">
+                <input type="file" id="fileInput">
+                <button onclick="uploadFile()">Upload</button>
+            </div>
+            <div class="slide-content">
+                <h2 id="slideTitle">Select a Slide</h2>
+                <div id="slideText"></div>
+            </div>
+            <div class="qa-section">
+                <textarea id="questionInput" placeholder="Ask a question..."></textarea>
+                <button onclick="askQuestion()">Ask AI</button>
+                <div id="answer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
