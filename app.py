@@ -138,42 +138,51 @@ Question: {question}"""
 @app.route('/upload', methods=['POST'])
 def upload_slide():
     try:
-        if 'file' not in request.files:
-            return jsonify({"error": "No file uploaded"}), 400
+        # Accept multiple files
+        uploaded_files = request.files.getlist('files[]')
         
-        file = request.files['file']
-        if file.filename == '':
-            return jsonify({"error": "Empty filename"}), 400
-
-        # Verify file extension
-        if not file.filename.lower().endswith(('.ppt', '.pptx')):
-            return jsonify({"error": "Invalid file format. Only .ppt and .pptx files are allowed"}), 400
-
-        # Save file
-        save_path = os.path.join(UPLOAD_FOLDER, file.filename)
-        file.save(save_path)
-
-        # Convert .ppt to .pptx if necessary
-        if file.filename.lower().endswith('.ppt'):
-            converted_path = convert_ppt_to_pptx(save_path)
-            if not converted_path:
-                return jsonify({"error": "Failed to convert .ppt to .pptx"}), 500
-            save_path = converted_path
-
-        # Extract text
-        slides = extract_text_from_pptx(save_path)
+        if not uploaded_files:
+            return jsonify({"error": "No files uploaded"}), 400
         
-        # Save extracted text to JSON file
-        save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
-        
-        return jsonify({
-            "message": "File uploaded and text extracted",
-            "filename": file.filename,
-            "slides": slides
-        })
+        presentations = []
+
+        for file in uploaded_files:
+            if file.filename == '':
+                continue  # Skip empty file inputs
+
+            # Verify file extension
+            if not file.filename.lower().endswith(('.ppt', '.pptx')):
+                continue  # Skip invalid files
+
+            # Save file
+            save_path = os.path.join(UPLOAD_FOLDER, file.filename)
+            file.save(save_path)
+
+            # Convert .ppt to .pptx if needed
+            if file.filename.lower().endswith('.ppt'):
+                converted_path = convert_ppt_to_pptx(save_path)
+                if not converted_path:
+                    continue  # Skip if conversion fails
+                save_path = converted_path
+
+            # Extract text
+            slides = extract_text_from_pptx(save_path)
+
+            # Save extracted text to JSON
+            save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
+
+            # Store this presentation's data
+            presentations.append({
+                "filename": file.filename,
+                "slides": slides
+            })
+
+        if not presentations:
+            return jsonify({"error": "No valid presentations uploaded"}), 400
+
+        return jsonify({"presentations": presentations})
 
     except Exception as e:
-        # Log the error for debugging
         print(f"Error in upload_slide: {str(e)}")
         return jsonify({"error": f"Server error: {str(e)}"}), 500
 

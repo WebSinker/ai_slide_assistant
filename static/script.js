@@ -1,18 +1,21 @@
 let slides = [];
 let currentFilename = '';
 let currentPresentationData = null;
+let currentPresentationList = []; // Store multiple presentations
 
 function uploadFile() {
     const input = document.getElementById('fileInput');
-    const file = input.files[0];
+    const fileList = input.files; // ← FIX: renamed 'files' to 'fileList'
 
-    if (!file) {
-        alert("Please select a file first!");
+    if (!fileList.length) {
+        alert("Please select at least one file!");
         return;
     }
 
     const formData = new FormData();
-    formData.append("file", file);
+    for (let i = 0; i < fileList.length; i++) {
+        formData.append("files[]", fileList[i]);
+    }
 
     fetch('/upload', {
         method: 'POST',
@@ -25,22 +28,31 @@ function uploadFile() {
         if (data.error) {
             throw new Error(data.error);
         }
-        
-        // Store the entire presentation data
-        currentPresentationData = data;
-        slides = data.slides;
-        currentFilename = data.filename.split('.')[0];
-        
-        // Update the sidebar to show just the presentation name
-        updatePresentationList();
-        
-        // Show the first slide by default
-        if (slides.length > 0) {
-            displayPresentation();
+    
+        if (Array.isArray(data.presentations)) {
+            currentPresentationList = data.presentations; // Store all
+            currentPresentationData = currentPresentationList[0];
+            slides = currentPresentationData.slides;
+            currentFilename = currentPresentationData.filename.split('.')[0];
+    
+            updatePresentationList(); // Update sidebar/list
+    
+            if (slides.length > 0) {
+                displayPresentation();
+            }
+        } else {
+            // Fallback if server returns single file structure
+            currentPresentationData = data;
+            slides = data.slides;
+            currentFilename = data.filename.split('.')[0];
+            updatePresentationList();
+            if (slides.length > 0) {
+                displayPresentation();
+            }
         }
-        
-        alert("File uploaded successfully!");
-    })
+    
+        alert("Files uploaded successfully!");
+    })    
     .catch(err => {
         console.error('Upload error:', err);
         alert(`Upload failed: ${err.message}`);
@@ -50,14 +62,21 @@ function uploadFile() {
 function updatePresentationList() {
     const list = document.getElementById('slideList');
     list.innerHTML = '';
-    
-    // Create a single entry for the presentation
-    if (currentFilename) {
+
+    currentPresentationList.forEach((presentation, index) => {
         const li = document.createElement('li');
-        li.textContent = currentFilename;
-        li.onclick = () => displayPresentation();
+        const filename = presentation.filename.split('.')[0];
+        li.textContent = filename;
+
+        li.onclick = () => {
+            currentPresentationData = presentation;
+            slides = presentation.slides;
+            currentFilename = filename;
+            displayPresentation();
+        };
+
         list.appendChild(li);
-    }
+    });
 }
 
 function displayPresentation() {
