@@ -134,6 +134,7 @@ function showSlideDetails(index) {
     // Create content for the slide
     const slideContent = document.createElement('div');
     slideContent.className = 'slide-details';
+    slideContent.id = `slide-${index + 1}`;
     
     // Add slide number and title
     const headerDiv = document.createElement('div');
@@ -162,6 +163,16 @@ function showSlideDetails(index) {
     slideContent.appendChild(backButton);
     
     slideText.appendChild(slideContent);
+
+    // Optional: Scroll into view
+    setTimeout(() => {
+        const el = document.getElementById(`slide-${index + 1}`);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' }); // ✅ Smooth scroll
+            el.classList.add('flash');                 // ✅ Flash highlight
+            setTimeout(() => el.classList.remove('flash'), 1000);
+        }
+    }, 100);
 }
 
 function askQuestion() {
@@ -198,10 +209,176 @@ function askQuestion() {
             alert(data.error);
             return;
         }
-        document.getElementById('answer').textContent = data.answer;
+        document.getElementById('answer').innerHTML = data.answer;
     })
     .catch(err => {
         console.error(err);
         alert("Failed to get an answer!");
     });
 }
+
+document.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+        // Handle individual slide links
+        if (e.target.getAttribute('href')?.startsWith('#slide-')) {
+            e.preventDefault();
+            const slideNum = parseInt(e.target.getAttribute('href').replace('#slide-', ''));
+            if (!isNaN(slideNum)) {
+                showSlideDetails(slideNum - 1);
+            }
+        }
+    }
+});
+
+// Focus on improving the popup functionality
+function createSlideRangePopup() {
+    // Create popup element if it doesn't exist
+    if (!document.getElementById('slideRangePopup')) {
+        const popup = document.createElement('div');
+        popup.id = 'slideRangePopup';
+        popup.className = 'slide-range-popup';
+        popup.style.display = 'none';
+        document.body.appendChild(popup);
+        
+        // Add event listener to popup for when mouse leaves
+        popup.addEventListener('mouseleave', function() {
+            this.style.display = 'none';
+        });
+    }
+    
+    // Add event listeners to all range links that don't already have them
+    document.querySelectorAll('a[href="#slide-range"]:not([data-initialized])').forEach(link => {
+        link.setAttribute('data-initialized', 'true'); // Mark as initialized
+        
+        link.addEventListener('mouseenter', function(e) {
+            const range = this.getAttribute('data-range').split('-');
+            if (range.length === 2) {
+                const startSlide = parseInt(range[0]);
+                const endSlide = parseInt(range[1]);
+                
+                if (!isNaN(startSlide) && !isNaN(endSlide)) {
+                    showSlideRangePopup(startSlide, endSlide, e);
+                }
+            }
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            setTimeout(() => {
+                const popup = document.getElementById('slideRangePopup');
+                if (popup && !popup.matches(':hover')) {
+                    popup.style.display = 'none';
+                }
+            }, 200);
+        });
+        
+        // When clicked, don't show the range view but just open the first slide
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const range = this.getAttribute('data-range').split('-');
+            if (range.length === 2) {
+                const startSlide = parseInt(range[0]);
+                
+                if (!isNaN(startSlide) && startSlide > 0 && startSlide <= slides.length) {
+                    showSlideDetails(startSlide - 1);
+                    
+                    // Hide popup after clicking
+                    const popup = document.getElementById('slideRangePopup');
+                    if (popup) {
+                        popup.style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+}
+
+function showSlideRangePopup(startSlide, endSlide, event) {
+    // Get valid slide range
+    const validStart = Math.max(1, Math.min(startSlide, slides.length));
+    const validEnd = Math.max(validStart, Math.min(endSlide, slides.length));
+    
+    // Get popup element
+    const popup = document.getElementById('slideRangePopup');
+    
+    // Clear previous content
+    popup.innerHTML = '';
+    
+    // Add title
+    const title = document.createElement('div');
+    title.className = 'popup-title';
+    title.textContent = `Go to slide:`;
+    popup.appendChild(title);
+    
+    // Add numbered buttons for each slide
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'popup-buttons';
+    
+    for (let i = validStart; i <= validEnd; i++) {
+        const button = document.createElement('a');
+        button.href = '#slide-' + i;
+        button.className = 'popup-slide-btn';
+        button.textContent = i;
+        
+        // When clicked, show that specific slide
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            showSlideDetails(i - 1);
+            popup.style.display = 'none';
+        });
+        
+        buttonContainer.appendChild(button);
+    }
+    
+    popup.appendChild(buttonContainer);
+    
+    // Position the popup near the mouse
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    
+    popup.style.left = `${mouseX}px`;
+    popup.style.top = `${mouseY + 20}px`;
+    popup.style.display = 'block';
+    
+    // Make sure popup is in viewport
+    setTimeout(() => {
+        const rect = popup.getBoundingClientRect();
+        if (rect.right > window.innerWidth) {
+            popup.style.left = `${window.innerWidth - rect.width - 10}px`;
+        }
+        if (rect.bottom > window.innerHeight) {
+            popup.style.top = `${mouseY - rect.height - 10}px`;
+        }
+    }, 0);
+}
+
+// Call this function after the DOM is loaded or any time new content with slide range links is added
+document.addEventListener('DOMContentLoaded', function() {
+    // Initial setup
+    createSlideRangePopup();
+    
+    // For dynamically added content
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                createSlideRangePopup();
+            }
+        });
+    });
+    
+    // Start observing the document with the configured parameters
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+
+// Add this to existing functions that update the DOM with new slide links
+function updateSlideLinks() {
+    createSlideRangePopup();
+}
+
+// Call this after any function that adds new content with slide links
+// For example, after displayPresentation() or call to the AI assistant
+function callAskQuestion() {
+    askQuestion();
+    // Wait for the answer to be displayed
+    setTimeout(createSlideRangePopup, 500);
+}
+

@@ -6,6 +6,7 @@ import subprocess
 import os
 import json
 import time
+import re
 
 # Load environment variables
 load_dotenv()
@@ -110,9 +111,8 @@ def save_extracted_text(slide_data, filename):
         
 def call_gemini(question, context, slide_number=None):
     try:
-        # Extract slides array from the context object
         slides = context.get("slides", [])
-        
+
         if slide_number is not None:
             context_text = next((slide["text"] for slide in slides if slide["slide_number"] == slide_number), "")
         else:
@@ -123,13 +123,65 @@ def call_gemini(question, context, slide_number=None):
 Context from slides:
 {context_text}
 
-Question: {question}"""
+Question: {question}
+
+Important formatting guidelines:
+1. Do not use asterisks (*) for emphasis. Use HTML tags like <strong> or <em> instead.
+2. When referencing individual slides, use the format "Slide X" (not "slide X").
+3. When referencing a range of slides, use the format "Slides X-Y" (like "Slides 10-13").
+4. Format any lists as proper HTML lists with <ul> and <li> tags.
+5. Present your answer in clear, well-formatted paragraphs with proper spacing."""
 
         response = client.models.generate_content(
             model=model,
             contents=prompt
         )
-        return response.text
+
+        processed_text = response.text
+        
+        # Replace any remaining asterisks for emphasis
+        processed_text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', processed_text)
+        processed_text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', processed_text)
+        
+        # Process multiple patterns for slide ranges with different formats
+        
+        # Pattern: "Slides X-Y" (like "Slides 8-18" or "Slides 10-13")
+        processed_text = re.sub(
+            r'Slides (\d+)-(\d+)', 
+            r'<a href="#slide-range" data-range="\1-\2">Slides \1-\2</a>', 
+            processed_text
+        )
+        
+        # Pattern: "Slide X to Y" (handle another possible format)
+        processed_text = re.sub(
+            r'Slide (\d+) to (\d+)', 
+            r'<a href="#slide-range" data-range="\1-\2">Slides \1 to \2</a>', 
+            processed_text
+        )
+        
+        # Pattern: "Slides X and Y" (not a range, but individual slides)
+        processed_text = re.sub(
+            r'Slides (\d+) and (\d+)(?!\d)', 
+            r'<a href="#slide-\1">Slide \1</a> and <a href="#slide-\2">Slide \2</a>', 
+            processed_text
+        )
+        
+        # Handle capitalization variations like "slide" instead of "Slide"
+        processed_text = re.sub(
+            r'slide (\d+)', 
+            r'<a href="#slide-\1">Slide \1</a>', 
+            processed_text,
+            flags=re.IGNORECASE
+        )
+
+        # Process individual slide references - must come last
+        processed_text = re.sub(
+            r'Slide (\d+)', 
+            r'<a href="#slide-\1">Slide \1</a>', 
+            processed_text
+        )
+        
+        return processed_text
 
     except Exception as e:
         print(f"Gemini API error: {str(e)}")
