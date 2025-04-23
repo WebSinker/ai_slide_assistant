@@ -355,7 +355,7 @@ Important formatting guidelines:
         print(f"Gemini API error: {str(e)}")
         return f"Error: Failed to get response from Gemini. {str(e)}"
 
-# Update the ask_question route to handle presentation-specific queries with visual elements
+# Update the ask_question route in app.py to handle presentation-specific queries with image support for math content
 @app.route('/ask', methods=['POST'])
 def ask_question():
     data = request.json
@@ -377,24 +377,53 @@ def ask_question():
             with open(enhanced_file_path, 'r', encoding='utf-8') as f:
                 presentation_data = json.load(f)
             
-            # Check if we have images in the enhanced data
-            has_images = "images" in presentation_data and len(presentation_data["images"]) > 0
-            print(f"Enhanced data found. Contains images: {has_images}")
+            # Check if we have math content on specific slides
+            math_pages = []
+            if "slides" in presentation_data:
+                math_pages = [slide["slide_number"] for slide in presentation_data["slides"] 
+                             if slide.get("has_math_content", False)]
+                
+            print(f"Detected math content on pages: {math_pages}")
+                
+            # Determine if we need to include page images in the query
+            include_page_images = False
+            page_images_to_include = []
             
-            # If asking about specific image in a specific slide, make sure that image is available
-            if slide_num is not None and include_visual and has_images:
-                page_images = [img for img in presentation_data.get("images", []) if img["page"] == slide_num]
-                print(f"Found {len(page_images)} images on slide/page {slide_num}")
+            if include_visual:
+                if slide_num is not None:
+                    # Check if the specific slide has math content
+                    slide_data = next((slide for slide in presentation_data.get("slides", []) 
+                                     if slide["slide_number"] == slide_num), None)
+                    if slide_data and slide_data.get("has_math_content", False) and slide_data.get("page_image"):
+                        include_page_images = True
+                        page_images_to_include.append({
+                            "page": slide_num,
+                            "image": slide_data["page_image"],
+                            "description": f"Full page {slide_num} containing mathematical content"
+                        })
+                else:
+                    # If searching all slides, include all math-containing pages (up to a reasonable limit)
+                    for slide in presentation_data.get("slides", []):
+                        if slide.get("has_math_content", False) and slide.get("page_image"):
+                            include_page_images = True
+                            # Limit to first 5 pages with math to keep request size reasonable
+                            if len(page_images_to_include) < 5:
+                                page_images_to_include.append({
+                                    "page": slide["slide_number"],
+                                    "image": slide["page_image"],
+                                    "description": f"Full page {slide['slide_number']} containing mathematical content"
+                                })
             
-            # Call Gemini with the enhanced PDF data
-            response = call_gemini(question, presentation_data, slide_num, include_visual)
+            # Call Gemini with the enhanced PDF data, including page images if needed
+            response = call_gemini_with_math_support(question, presentation_data, slide_num, 
+                                                     include_visual, page_images_to_include)
         elif os.path.exists(standard_file_path):
             # Fall back to standard text-only data
             print("Using standard text-only data")
             with open(standard_file_path, 'r', encoding='utf-8') as f:
                 presentation_data = json.load(f)
                 
-            # Call Gemini with the presentation data
+            # Call Gemini with the presentation data (no page images in standard mode)
             response = call_gemini(question, presentation_data, slide_num, False)
         else:
             return jsonify({"error": f"Presentation '{filename}' not found"}), 404
@@ -410,6 +439,198 @@ def ask_question():
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+# New function to handle Gemini calls with math content page images
+def call_gemini_with_math_support(question, context, slide_number=None, include_visual_elements=True, page_images=None):
+    try:
+        slides = context.get("slides", [])
+        has_visual_references = False
+        visual_elements_context = ""
+        image_data_to_include = []
+
+        if slide_number is not None:
+            # If a specific slide is selected, only use that slide's content
+            slide_data = next((slide for slide in slides if slide["slide_number"] == slide_number), None)
+            if slide_data:
+                context_text = slide_data["text"]
+                
+                # Check if this is a page with math content
+                if slide_data.get("has_math_content", False) and include_visual_elements:
+                    has_visual_references = True
+                    visual_elements_context = "\nThis page contains mathematical content that may not be accurately represented as text.\n"
+                
+                # Check if this is from an enhanced PDF with visual elements
+                if include_visual_elements and context.get("images"):
+                    # Get images for this page/slide
+                    page_images = [img for img in context.get("images", []) if img["page"] == slide_number]
+                    
+                    if page_images:
+                        has_visual_references = True
+                        if not visual_elements_context:
+                            visual_elements_context = "\nVisual Elements on this page:\n"
+                        
+                        visual_elements_context += f"- {len(page_images)} images on page {slide_number}\n"
+                        
+                        # Store image data for direct inclusion (limit to first 3 for performance)
+                        for i, image in enumerate(page_images[:3]):
+                            image_desc = f"Image {i+1}: "
+                            if "width" in image and "height" in image:
+                                image_desc += f"Dimensions: {image['width']}x{image['height']}px. "
+                            image_desc += f"Located on page {slide_number}. "
+                            
+                            # Store image data for direct inclusion
+                            image_data_to_include.append({
+                                "image_number": i+1,
+                                "data_uri": image.get("data_uri", ""),
+                                "description": image_desc
+                            })
+                
+                # Also check for formulas
+                if include_visual_elements and context.get("formulas"):
+                    page_formulas = [f for f in context.get("formulas", []) if f["page"] == slide_number]
+                    if page_formulas:
+                        has_visual_references = True
+                        if not visual_elements_context:
+                            visual_elements_context = "\nVisual Elements on this page:\n"
+                        
+                        visual_elements_context += f"- {len(page_formulas)} mathematical formulas detected on page {slide_number}\n"
+                
+                scope_notice = f"Answer based on content from Slide/Page {slide_number}:"
+            else:
+                context_text = ""
+                scope_notice = f"No content found for Slide/Page {slide_number}."
+        else:
+            # If no specific slide is selected, use all slides' content
+            context_text = "\n\n".join([f"Slide/Page {slide['slide_number']}:\n{slide['text']}" for slide in slides])
+            
+            # Add summary of visual elements for the whole document
+            if include_visual_elements:
+                # Check for pages with math content
+                math_pages = [slide["slide_number"] for slide in slides if slide.get("has_math_content", False)]
+                
+                if math_pages:
+                    has_visual_references = True
+                    visual_elements_context = "\nMathematical Content:\n"
+                    visual_elements_context += f"- Mathematical notation detected on pages: {', '.join(map(str, sorted(math_pages)))}\n"
+                
+                # Add info about other visual elements
+                if context.get("formulas") or context.get("images"):
+                    has_visual_references = True
+                    if not visual_elements_context:
+                        visual_elements_context = "\nVisual Elements Summary:\n"
+                    
+                    if context.get("formulas"):
+                        formula_pages = set(f["page"] for f in context.get("formulas", []))
+                        visual_elements_context += f"- Mathematical formulas found on pages: {', '.join(map(str, sorted(formula_pages)))}\n"
+                    
+                    if context.get("images"):
+                        image_pages = set(img["page"] for img in context.get("images", []))
+                        total_images = len(context.get("images", []))
+                        visual_elements_context += f"- Total of {total_images} images found, distributed on pages: {', '.join(map(str, sorted(image_pages)))}\n"
+            
+            scope_notice = "Answer based on content from all slides/pages:"
+
+        # Combine the context with visual elements
+        full_context = context_text
+        if has_visual_references:
+            full_context += visual_elements_context
+
+        # Prepare the multimodal content
+        prompt_parts = [
+            f"""As an AI tutor, please answer this question based on the slide/PDF content:
+
+{scope_notice}
+{full_context}
+
+Question: {question}
+
+Important notes:
+1. Some pages contain mathematical notation and formulas that might not be accurately represented as text.
+2. I will provide images of pages with mathematical content to help you understand the notation correctly.
+3. Please analyze both the text and the page images to provide an accurate answer.
+
+Important formatting guidelines:
+1. Do not use asterisks (*) for emphasis. Use HTML tags like <strong> or <em> instead.
+2. When referencing individual slides or pages, use the format "Slide X" or "Page X".
+3. When referencing a range of slides or pages, use the format "Slides X-Y" or "Pages X-Y".
+4. Format any lists as proper HTML lists with <ul> and <li> tags.
+5. Present your answer in clear, well-formatted paragraphs with proper spacing.
+6. When referencing mathematical formulas, describe them accurately based on the page images."""
+        ]
+        
+        # If we have specific page images for math content, prioritize those
+        if page_images:
+            for img_data in page_images:
+                if "image" in img_data and img_data["image"]:
+                    # Determine image MIME type
+                    mime_type = "image/png"  # Default
+                    if img_data["image"].startswith("data:image/jpeg"):
+                        mime_type = "image/jpeg"
+                    elif img_data["image"].startswith("data:image/png"):
+                        mime_type = "image/png"
+                        
+                    # Extract base64 data
+                    base64_data = img_data["image"].split(',')[1] if ',' in img_data["image"] else img_data["image"]
+                    
+                    # Add the image to prompt parts
+                    prompt_parts.append({
+                        "inlineData": {
+                            "mimeType": mime_type,
+                            "data": base64_data
+                        }
+                    })
+                    prompt_parts.append(f"This is page {img_data['page']} containing mathematical content. Please analyze the mathematical notation in this image.")
+        
+        # Include other images if needed and we haven't already added too many
+        elif len(image_data_to_include) > 0:
+            for img_data in image_data_to_include[:3]:  # Limit to 3 images
+                if img_data["data_uri"]:
+                    # Create multimodal content with both text and image
+                    # Format: prompt text, then image data
+                    prompt_parts.append({
+                        "inlineData": {
+                            "mimeType": "image/jpeg" if img_data["data_uri"].startswith("data:image/jpeg") else "image/png",
+                            "data": img_data["data_uri"].split(',')[1]  # Extract base64 data
+                        }
+                    })
+                    prompt_parts.append(f"This is {img_data['description']} Please analyze this image for the answer.")
+        
+        # Check if we have any image data
+        has_images = len(page_images) > 0 or len(image_data_to_include) > 0
+        
+        # Use different model for image analysis if needed
+        selected_model = "gemini-1.5-pro" if has_images else model
+        
+        print(f"Using model: {selected_model}, Request has images: {has_images}")
+        
+        # Call appropriate Gemini API based on content
+        if has_images:
+            # Use multimodal generation for image content
+            response = client.models.generate_content(
+                model=selected_model,
+                contents=prompt_parts
+            )
+        else:
+            # Use text-only generation
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt_parts[0]  # Just the text prompt
+            )
+
+        processed_text = response.text
+        
+        # Replace any remaining asterisks for emphasis
+        processed_text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', processed_text)
+        processed_text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', processed_text)
+        
+        # Process links to slides and pages
+        processed_text = process_slide_references(processed_text)
+        
+        return processed_text
+
+    except Exception as e:
+        print(f"Gemini API error: {str(e)}")
+        return f"Error: Failed to get response from Gemini. {str(e)}"
 
 # This will help pinpoint where the PDF loading is failing
 @app.route('/original-file/<path:filename>')

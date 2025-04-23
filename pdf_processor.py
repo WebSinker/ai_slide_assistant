@@ -31,10 +31,15 @@ def extract_text_from_pdf(file_path):
                 "notes": "",  # PDFs don't have notes like PowerPoint
                 "text": text.strip(),
                 "original_file": os.path.basename(file_path),
-                "page_number": idx  # For PDF we use page number instead of slide number
+                "page_number": idx,  # For PDF we use page number instead of slide number
+                "has_math_content": False,  # Will be updated during formula detection
+                "page_image": ""  # Will be filled with page image if math content is detected
             }
             
             slides.append(slide_data)
+        
+        # Now capture images of pages with formulas
+        slides = capture_page_images_with_formulas(file_path, slides)
         
         return slides
         
@@ -42,33 +47,130 @@ def extract_text_from_pdf(file_path):
         print(f"Error extracting text from PDF: {str(e)}")
         return []
 
+def detect_math_content(text):
+    """Detect potential mathematical content in text."""
+    # Math symbols and patterns to check for
+    math_symbols = r'[=+\-*/^√∫∑∏πα-ωΑ-Ω∈∉⊂⊃∪∩≈≠≤≥±∞{}()\[\]]'
+    math_patterns = [
+        r'\$.*?\$',  # LaTeX inline mode
+        r'\$\$.*?\$\$',  # LaTeX display mode
+        r'\\begin\{equation\}.*?\\end\{equation\}',  # LaTeX equation environment
+        r'\\frac\{.*?\}\{.*?\}',  # LaTeX fractions
+        r'[A-Za-z]_\{[^\}]+\}',  # Subscripts
+        r'[A-Za-z]\^[A-Za-z0-9]',  # Superscripts
+        r'\\[a-zA-Z]+',  # LaTeX commands
+        r'[A-Z]\s*∩\s*[A-Z]',  # Set intersection
+        r'[A-Z]\s*∪\s*[A-Z]',  # Set union
+        r'[a-z]\s*∈\s*[A-Z]',  # Element of
+        r'\(.*?\)',  # Parentheses (often used in math)
+        r'\{.*?\}',  # Curly braces (often used in math)
+        r'\[.*?\]',  # Square brackets
+        r'CHAPTER \d+\. NUMBER SETS',  # Context clue for math content
+        r'Figure \d+\.',  # Figures often contain mathematical notation
+    ]
+    
+    # Check for math symbols
+    if re.search(math_symbols, text):
+        return True
+    
+    # Check for math patterns
+    for pattern in math_patterns:
+        if re.search(pattern, text):
+            return True
+    
+    # Check for special sequences that often indicate garbled math notation
+    garbled_patterns = [
+        r'çää',
+        r'ïäïäïó',
+        r'^ _ _ \^',
+        r'∅',
+        r'∧',
+        r'∀',
+        r'∃',
+        r'≡',
+    ]
+    
+    for pattern in garbled_patterns:
+        if pattern in text:
+            return True
+    
+    return False
+
+def capture_page_images_with_formulas(file_path, slides):
+    """Capture images of pages that contain mathematical formulas."""
+    try:
+        # Open the PDF with PyMuPDF
+        doc = fitz.open(file_path)
+        
+        for i, slide in enumerate(slides):
+            page_num = slide["slide_number"] - 1  # 0-based page index
+            
+            # Check if this page has mathematical content
+            has_math = detect_math_content(slide["text"])
+            
+            # Mark the slide as containing math
+            slide["has_math_content"] = has_math
+            
+            # If it has math content, capture an image of the entire page
+            if has_math and page_num < len(doc):
+                try:
+                    page = doc[page_num]
+                    # Render the page at a higher resolution for better quality
+                    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+                    img_data = pix.tobytes("png")
+                    img_b64 = base64.b64encode(img_data).decode('utf-8')
+                    slide["page_image"] = f"data:image/png;base64,{img_b64}"
+                    print(f"Captured image for page {page_num + 1} with math content")
+                except Exception as e:
+                    print(f"Error capturing page image: {e}")
+        
+        return slides
+    except Exception as e:
+        print(f"Error in capturing page images: {str(e)}")
+        return slides
+
 def extract_formulas_from_pdf(file_path):
-    """Extract mathematical formulas from PDF using pattern recognition."""
+    """Extract areas that likely contain mathematical formulas from PDF for visual reference."""
     try:
         doc = fitz.open(file_path)
         formula_data = []
         
         for page_num, page in enumerate(doc):
-            # Extract text with positioning information
+            # Get the page text with detailed layout information
             text_blocks = page.get_text("dict")["blocks"]
             
-            # Look for potential formula patterns
+            # Identify potential formula areas
             for block in text_blocks:
                 if "lines" in block:
                     for line in block["lines"]:
                         line_text = "".join([span["text"] for span in line["spans"]])
                         
-                        # Simple heuristic for detecting formulas
-                        # Look for mathematical symbols and patterns
-                        if re.search(r'[=+\-*/^√∫∑∏πα-ωΑ-Ω≈≠≤≥±∞]', line_text) and any(c.isalpha() for c in line_text):
-                            bbox = line["bbox"]  # Bounding box of the line
-                            
-                            formula_data.append({
-                                "page": page_num + 1,
-                                "text": line_text,
-                                "bbox": bbox,
-                                "type": "potential_formula"
-                            })
+                        # Check if this line contains math content
+                        if detect_math_content(line_text):
+                            # Capture this area as an image
+                            try:
+                                # Get the bounding box of the line
+                                rect = fitz.Rect(line["bbox"])
+                                # Expand slightly to ensure full formula capture
+                                rect.x0 = max(0, rect.x0 - 10)
+                                rect.y0 = max(0, rect.y0 - 10)
+                                rect.x1 = min(page.rect.width, rect.x1 + 10)
+                                rect.y1 = min(page.rect.height, rect.y1 + 10)
+                                
+                                # Render just this area of the page
+                                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2), clip=rect)
+                                img_data = pix.tobytes("png")
+                                img_b64 = base64.b64encode(img_data).decode('utf-8')
+                                
+                                formula_data.append({
+                                    "page": page_num + 1,
+                                    "text": line_text,  # Still include the text for context
+                                    "bbox": list(line["bbox"]),  # Convert to list for JSON serialization
+                                    "type": "potential_formula",
+                                    "image": f"data:image/png;base64,{img_b64}"
+                                })
+                            except Exception as e:
+                                print(f"Error capturing formula image: {e}")
         
         return formula_data
     
@@ -192,13 +294,16 @@ def extract_pdf_metadata(file_path):
         }
 
 def save_enhanced_pdf_extraction(file_path, filename):
-    """Save comprehensive PDF information including text, formulas, and image references."""
+    """Save comprehensive PDF information including text, formulas as images, and embedded images."""
     try:
         # Extract all the different components
         text_data = extract_text_from_pdf(file_path)
         formula_data = extract_formulas_from_pdf(file_path)
         image_data = extract_images_from_pdf(file_path)
         metadata = extract_pdf_metadata(file_path)
+        
+        # Update metadata to indicate if mathematical content was found
+        metadata["has_mathematical_content"] = any(slide.get("has_math_content", False) for slide in text_data)
         
         # Combine into a comprehensive structure
         pdf_data = {

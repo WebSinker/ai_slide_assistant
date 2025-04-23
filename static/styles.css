@@ -562,3 +562,141 @@ canvas {
 .popup-slide-btn:hover {
     background: #2980b9;
 }
+
+/* Add these styles to your styles.css file */
+
+/* Math content display */
+.math-content-container {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.math-content-notice {
+    margin-bottom: 15px;
+}
+
+.math-content-notice strong {
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.math-content-notice p {
+    margin-top: 5px;
+    color: #34495e;
+    font-size: 14px;
+}
+
+.page-image-container {
+    text-align: center;
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.math-page-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+}
+
+/* Formula display with images */
+.formula-with-image {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.formula-text {
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.formula-image {
+    flex-basis: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+.formula-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Enhanced visual elements styling */
+.visual-elements.formulas ul {
+    padding-left: 0;
+}
+
+.visual-elements.formulas li {
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #3498db;
+}
+
+/* Analyze button positioning */
+.analyze-formula-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.analyze-formula-btn:hover {
+    background: #2980b9;
+}
+
+/* Image grid responsiveness */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+/* Make sure PDFs with math are more easily readable */
+.pdf-viewer-container {
+    background: white;
+}
+
+.extracted-data-container {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Improve formatting for AI responses with math content */
+.search-result-content .math-content-reference {
+    background: #f0f8ff;
+    padding: 12px;
+    border-left: 3px solid #3498db;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.math-content-reference img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border: 1px solid #eee;
+}

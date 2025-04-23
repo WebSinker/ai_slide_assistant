@@ -480,7 +480,7 @@ function displayCombinedResults(question, results) {
     }
 }
 
-// Modified showSlideDetails for better PDF handling
+// Modified function to display slide details with better math content support
 function showSlideDetails(index) {
     const slide = slides[index];
     
@@ -498,6 +498,9 @@ function showSlideDetails(index) {
         pdfViewerContainer.className = 'pdf-viewer-container';
         slideText.appendChild(pdfViewerContainer);
         
+        // Check if this slide/page has a pre-captured page image (for math content)
+        const hasMathContent = slide.has_math_content || false;
+        
         // Create a container for the extracted text and visual elements
         const textDataContainer = document.createElement('div');
         textDataContainer.className = 'extracted-data-container';
@@ -507,6 +510,23 @@ function showSlideDetails(index) {
         headerDiv.className = 'slide-header';
         headerDiv.innerHTML = `<h3>Page ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
         textDataContainer.appendChild(headerDiv);
+        
+        // If we have a page image captured (for math content), show it first
+        if (hasMathContent && slide.page_image) {
+            const mathContentDiv = document.createElement('div');
+            mathContentDiv.className = 'math-content-container';
+            mathContentDiv.innerHTML = `
+                <div class="math-content-notice">
+                    <strong>Mathematical Content Detected</strong>
+                    <p>This page contains mathematical notation that may not display correctly as text. 
+                    A page image has been captured for better visualization.</p>
+                </div>
+                <div class="page-image-container">
+                    <img src="${slide.page_image}" alt="Page ${index + 1} with mathematical content" class="math-page-image">
+                </div>
+            `;
+            textDataContainer.appendChild(mathContentDiv);
+        }
         
         // Add extracted text content
         const contentDiv = document.createElement('div');
@@ -523,10 +543,23 @@ function showSlideDetails(index) {
                     if (data.formulas && data.formulas.length > 0) {
                         const formulasDiv = document.createElement('div');
                         formulasDiv.className = 'visual-elements formulas';
-                        formulasDiv.innerHTML = '<h4>Detected Formulas:</h4><ul>';
+                        formulasDiv.innerHTML = `<h4>Detected Formulas (${data.formulas.length}):</h4><ul>`;
                         
                         data.formulas.forEach(formula => {
-                            formulasDiv.innerHTML += `<li>${formula.text}</li>`;
+                            // Check if we have an image of the formula
+                            let formulaHtml = formula.text;
+                            if (formula.image) {
+                                formulaHtml = `
+                                    <div class="formula-with-image">
+                                        <div class="formula-text">${formula.text}</div>
+                                        <div class="formula-image">
+                                            <img src="${formula.image}" alt="Formula image">
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                            
+                            formulasDiv.innerHTML += `<li>${formulaHtml}</li>`;
                         });
                         
                         formulasDiv.innerHTML += '</ul>';
