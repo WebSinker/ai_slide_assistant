@@ -79,49 +79,275 @@ function updatePresentationList() {
     });
 }
 
-function displayPresentation() {
-    // Update the title to show the presentation name
-    document.getElementById('slideTitle').textContent = currentFilename;
+// Modified askQuestion function to search across all presentations
+function askQuestion() {
+    const question = document.getElementById('questionInput').value.trim();
+    if (!question) {
+        alert("Please enter a question!");
+        return;
+    }
+    if (currentPresentationList.length === 0) {
+        alert("Please upload at least one slide presentation!");
+        return;
+    }
+
+    // Get the query scope based on radio button selection
+    const searchAllPresentations = document.getElementById('scopeAll').checked;
+    const searchCurrentPresentation = document.getElementById('scopeCurrentPresentation').checked;
+    const searchCurrentSlideOnly = document.getElementById('scopeCurrentSlide').checked;
     
-    // Display a summary of the presentation
-    const slideText = document.getElementById('slideText');
-    slideText.innerHTML = '';
+    let slideNumber = null;
+    let searchFilename = currentFilename;
     
-    // Create a presentation summary
-    const summaryDiv = document.createElement('div');
-    summaryDiv.className = 'presentation-summary';
-    
-    // Add presentation info
-    const infoP = document.createElement('p');
-    infoP.innerHTML = `<strong>Presentation:</strong> ${currentFilename}<br>` +
-                      `<strong>Total Slides:</strong> ${slides.length}`;
-    summaryDiv.appendChild(infoP);
-    
-    // Add a table of contents
-    const tocDiv = document.createElement('div');
-    tocDiv.className = 'table-of-contents';
-    tocDiv.innerHTML = '<h3>Table of Contents</h3>';
-    
-    const tocList = document.createElement('ol');
-    slides.forEach((slide, index) => {
-        const tocItem = document.createElement('li');
-        // Use the slide title if available, otherwise use "Slide X"
-        const slideTitle = slide.title ? slide.title : `Slide ${index + 1}`;
-        tocItem.textContent = slideTitle;
+    if (searchCurrentSlideOnly) {
+        // Get the currently displayed slide number from the title
+        const titleText = document.getElementById('slideTitle').textContent;
+        const slideMatch = titleText.match(/Slide (\d+)/);
         
-        // Make each TOC item clickable to show that specific slide
-        tocItem.style.cursor = 'pointer';
-        tocItem.onclick = () => showSlideDetails(index);
-        
-        tocList.appendChild(tocItem);
-    });
+        if (slideMatch) {
+            slideNumber = parseInt(slideMatch[1]);
+        } else {
+            // If we're not on a specific slide but "current slide only" is selected,
+            // show a warning and fall back to current presentation
+            alert("You've selected 'Current slide only' but aren't viewing a specific slide. Searching current presentation instead.");
+        }
+    }
     
-    tocDiv.appendChild(tocList);
-    summaryDiv.appendChild(tocDiv);
+    // Show loading indicator
+    document.getElementById('answer').innerHTML = "<p>Thinking...</p>";
     
-    slideText.appendChild(summaryDiv);
+    if (searchAllPresentations && currentPresentationList.length > 1) {
+        // Search across all presentations
+        performCrossPresentationSearch(question);
+    } else {
+        // Either search current presentation or current slide
+        performSinglePresentationSearch(question, slideNumber, searchFilename);
+    }
 }
 
+// Search through a single presentation (optionally limited to a specific slide)
+function performSinglePresentationSearch(question, slideNumber, filename) {
+    fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            question: question,
+            slide_number: slideNumber,  // This will be null if searching the whole presentation
+            filename: filename
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        
+        // Create a container with presentation source info
+        const answerHTML = `
+            <div class="search-result-section">
+                <span class="search-scope-indicator">${slideNumber ? 'Slide ' + slideNumber + ' of ' : ''}${filename}</span>
+                <div class="search-result-content">
+                    ${data.answer}
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('answer').innerHTML = answerHTML;
+        
+        // Initialize slide range popup functionality
+        createSlideRangePopup();
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Failed to get an answer!");
+    });
+}
+
+// Modified function to search across all loaded presentations with ranking
+function performCrossPresentationSearch(question) {
+    // First gather all filenames from the loaded presentations
+    const filenames = currentPresentationList.map(presentation => 
+        presentation.filename.split('.')[0]);
+    
+    const totalPresentations = filenames.length;
+    let completedQueries = 0;
+    let combinedResults = [];
+    
+    // Display a "searching..." message with the presentations being searched
+    const searchingHTML = `
+        <p>Searching across ${totalPresentations} presentations...</p>
+        <div class="searched-presentations">
+            ${filenames.map(name => `<span>${name}</span>`).join('')}
+        </div>
+        <div class="searching-status">
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    `;
+    document.getElementById('answer').innerHTML = searchingHTML;
+    
+    // Process each presentation
+    filenames.forEach(filename => {
+        fetch('/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                question: question,
+                slide_number: null, // Search full presentation
+                filename: filename
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            completedQueries++;
+            
+            if (!data.error) {
+                // Add the result with the presentation name
+                combinedResults.push({
+                    presentationName: filename,
+                    answer: data.answer,
+                    relevanceScore: calculateRelevanceScore(question, data.answer, filename)
+                });
+            }
+            
+            // If all queries are complete, display the combined results
+            if (completedQueries === totalPresentations) {
+                // Sort results by relevance score (highest first)
+                combinedResults.sort((a, b) => b.relevanceScore - a.relevanceScore);
+                displayCombinedResults(question, combinedResults);
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            completedQueries++;
+            
+            // If all queries are complete (even with errors), display what we have
+            if (completedQueries === totalPresentations) {
+                // Sort results by relevance score (highest first)
+                combinedResults.sort((a, b) => b.relevanceScore - a.relevanceScore);
+                displayCombinedResults(question, combinedResults);
+            }
+        });
+    });
+}
+
+// Function to calculate relevance score based on multiple factors
+function calculateRelevanceScore(question, answer, filename) {
+    let score = 0;
+    
+    // Factor 1: Keyword matches between question and answer
+    const keywords = extractKeywords(question);
+    const answerLower = answer.toLowerCase();
+    
+    keywords.forEach(keyword => {
+        const regex = new RegExp(keyword, 'gi');
+        const matches = (answer.match(regex) || []).length;
+        
+        // More matches = higher score
+        score += matches * 5;
+        
+        // Also check for matches in the presentation name
+        if (filename.toLowerCase().includes(keyword.toLowerCase())) {
+            score += 10; // Higher weight for presentations whose name matches the query
+        }
+    });
+    
+    // Factor 2: Length of the answer (longer answers might have more detail)
+    // but we don't want to overly reward verbosity
+    const wordCount = answer.split(/\s+/).length;
+    if (wordCount > 10 && wordCount < 300) {
+        score += 5;
+    } else if (wordCount >= 300) {
+        score += 10;
+    }
+    
+    // Factor 3: Check for direct mentions of slide numbers
+    // More slide references suggests the answer is grounded in the content
+    const slideRefs = (answer.match(/Slide \d+/g) || []).length;
+    score += slideRefs * 3;
+    
+    // Factor 4: Check if the answer contains phrases like "I found" or "the answer is"
+    // which might indicate a more direct answer
+    if (answerLower.includes("i found") || 
+        answerLower.includes("the answer is") || 
+        answerLower.includes("according to the slides")) {
+        score += 15;
+    }
+    
+    // Factor 5: Check if answer contains phrases suggesting uncertainty
+    if (answerLower.includes("not found") || 
+        answerLower.includes("couldn't find") || 
+        answerLower.includes("no information")) {
+        score -= 20;
+    }
+    
+    return score;
+}
+
+// Function to extract keywords from the question
+function extractKeywords(question) {
+    // Convert to lowercase and remove punctuation
+    const cleanQuestion = question.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    
+    // Split into words
+    const words = cleanQuestion.split(/\s+/);
+    
+    // Filter out common stop words
+    const stopWords = ["a", "an", "the", "and", "or", "but", "is", "are", "in", 
+                      "to", "of", "for", "with", "on", "at", "from", "by", "about", 
+                      "as", "what", "when", "where", "who", "how", "why", "which"];
+    
+    const keywords = words.filter(word => !stopWords.includes(word) && word.length > 2);
+    
+    return keywords;
+}
+
+// Function to display the combined search results from all presentations
+function displayCombinedResults(question, results) {
+    const answerDiv = document.getElementById('answer');
+    
+    // No results found
+    if (results.length === 0) {
+        answerDiv.innerHTML = "<p>No answers found across presentations.</p>";
+        return;
+    }
+    
+    // Create a nice display of results grouped by presentation
+    let combinedHTML = `<h3>Results for: "${question}"</h3>`;
+    
+    // Add a section for each presentation's results
+    results.forEach((result, index) => {
+        // Add a badge to the top result
+        const topResultBadge = index === 0 ? 
+            '<span class="top-result-badge">Most Relevant</span>' : '';
+            
+        combinedHTML += `
+            <div class="search-result-section ${index === 0 ? 'top-result' : ''}">
+                <h4>From: ${result.presentationName} ${topResultBadge}</h4>
+                <div class="search-result-content">
+                    ${result.answer}
+                </div>
+                <hr>
+            </div>
+        `;
+    });
+    
+    answerDiv.innerHTML = combinedHTML;
+    
+    // Initialize slide range popup functionality for the combined results
+    createSlideRangePopup();
+    
+    // Highlight the top result
+    const topResult = document.querySelector('.top-result');
+    if (topResult) {
+        topResult.classList.add('highlight-top-result');
+        topResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Update the function that shows a slide to set up proper context
 function showSlideDetails(index) {
     const slide = slides[index];
     
@@ -168,67 +394,67 @@ function showSlideDetails(index) {
     setTimeout(() => {
         const el = document.getElementById(`slide-${index + 1}`);
         if (el) {
-            el.scrollIntoView({ behavior: 'smooth' }); // ✅ Smooth scroll
-            el.classList.add('flash');                 // ✅ Flash highlight
+            el.scrollIntoView({ behavior: 'smooth' });
+            el.classList.add('flash');
             setTimeout(() => el.classList.remove('flash'), 1000);
         }
     }, 100);
+    
+    // Update radio button state - if on a slide, enable "current slide only" option
+    document.getElementById('scopeCurrentSlide').disabled = false;
 }
 
-function askQuestion() {
-    const question = document.getElementById('questionInput').value.trim();
-    if (!question) {
-        alert("Please enter a question!");
-        return;
+// Update the displayPresentation function to disable "current slide only" option
+function displayPresentation() {
+    // Update the title to show the presentation name
+    document.getElementById('slideTitle').textContent = currentFilename;
+    
+    // Since we're not on a specific slide, disable the "current slide only" option
+    document.getElementById('scopeCurrentSlide').disabled = true;
+    
+    // If "current slide only" was selected, switch to "current presentation only"
+    if (document.getElementById('scopeCurrentSlide').checked) {
+        document.getElementById('scopeCurrentPresentation').checked = true;
     }
-    if (!currentFilename) {
-        alert("Please upload a slide first!");
-        return;
-    }
-
-    // Get the currently displayed slide number from the title
-    let slideNumber = null;
-    const titleText = document.getElementById('slideTitle').textContent;
-    const slideMatch = titleText.match(/Slide (\d+)/);
-    if (slideMatch) {
-        slideNumber = parseInt(slideMatch[1]);
-    }
-
-    fetch('/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            question: question,
-            slide_number: slideNumber,
-            filename: currentFilename
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.error) {
-            alert(data.error);
-            return;
-        }
-        document.getElementById('answer').innerHTML = data.answer;
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Failed to get an answer!");
+    
+    // Rest of the function remains the same...
+    const slideText = document.getElementById('slideText');
+    slideText.innerHTML = '';
+    
+    // Create a presentation summary
+    const summaryDiv = document.createElement('div');
+    summaryDiv.className = 'presentation-summary';
+    
+    // Add presentation info
+    const infoP = document.createElement('p');
+    infoP.innerHTML = `<strong>Presentation:</strong> ${currentFilename}<br>` +
+                      `<strong>Total Slides:</strong> ${slides.length}`;
+    summaryDiv.appendChild(infoP);
+    
+    // Add a table of contents
+    const tocDiv = document.createElement('div');
+    tocDiv.className = 'table-of-contents';
+    tocDiv.innerHTML = '<h3>Table of Contents</h3>';
+    
+    const tocList = document.createElement('ol');
+    slides.forEach((slide, index) => {
+        const tocItem = document.createElement('li');
+        // Use the slide title if available, otherwise use "Slide X"
+        const slideTitle = slide.title ? slide.title : `Slide ${index + 1}`;
+        tocItem.textContent = slideTitle;
+        
+        // Make each TOC item clickable to show that specific slide
+        tocItem.style.cursor = 'pointer';
+        tocItem.onclick = () => showSlideDetails(index);
+        
+        tocList.appendChild(tocItem);
     });
+    
+    tocDiv.appendChild(tocList);
+    summaryDiv.appendChild(tocDiv);
+    
+    slideText.appendChild(summaryDiv);
 }
-
-document.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') {
-        // Handle individual slide links
-        if (e.target.getAttribute('href')?.startsWith('#slide-')) {
-            e.preventDefault();
-            const slideNum = parseInt(e.target.getAttribute('href').replace('#slide-', ''));
-            if (!isNaN(slideNum)) {
-                showSlideDetails(slideNum - 1);
-            }
-        }
-    }
-});
 
 // Focus on improving the popup functionality
 function createSlideRangePopup() {

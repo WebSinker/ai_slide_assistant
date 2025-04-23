@@ -1,0 +1,481 @@
+{
+  "filename": "Lecture 03-if-else,switch-case",
+  "total_slides": 41,
+  "extraction_time": "2025-04-23 14:56:06",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Conditional Constructs",
+      "content": [
+        "Conditional Constructs",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Conditional Constructs\nConditional Constructs\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Topic & Structure of the lesson",
+        "Conditional constructs\nif\u2026 else construct\nNested if\u2026else constructs\nSwitch\u2026. Case\nBreak and continue statements"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nTopic & Structure of the lesson\nConditional constructs\nif\u2026 else construct\nNested if\u2026else constructs\nSwitch\u2026. Case\nBreak and continue statements"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nWrite Java programs implementing the conditional constructs"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nLearning Outcomes\nAt the end of this topic, you should be able to:\nWrite Java programs implementing the conditional constructs"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Flow control \u2013 Program statements (including Java)\u000b  execute in sequence only unless a flow control permits \u000b  the change of the default sequential flow. \n\n switch - Java has a shorthand for certain types of \u000b   multiple if statements, called the switch-case statement.\u000b   In certain situations, the switch-case statement will be \u000b   much more effective than multiple if statements."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nKey Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Flow control \u2013 Program statements (including Java)\u000b  execute in sequence only unless a flow control permits \u000b  the change of the default sequential flow. \n\n switch - Java has a shorthand for certain types of \u000b   multiple if statements, called the switch-case statement.\u000b   In certain situations, the switch-case statement will be \u000b   much more effective than multiple if statements."
+    },
+    {
+      "slide_number": 5,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "Generally, the simple form of if can be written like this:  \n\n\n\n\nSo, what if you wanted to perform a different set of statements if the expression is false? Well, you can use the else statement for that. Consider another example. Suppose that your program needs to perform different actions depending on whether the user clicks on the OK button or the Cancel button in an alert window. Your program could do this using an if statement:",
+        "if (expression) \n           statement;"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nGenerally, the simple form of if can be written like this:  \n\n\n\n\nSo, what if you wanted to perform a different set of statements if the expression is false? Well, you can use the else statement for that. Consider another example. Suppose that your program needs to perform different actions depending on whether the user clicks on the OK button or the Cancel button in an alert window. Your program could do this using an if statement:\nif (expression) \n           statement;"
+    },
+    {
+      "slide_number": 6,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "if (conditional expression) \n{ \n\t// statements when true \n}\nelse\n{ \n\t// statements when false  \n}"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nif (conditional expression) \n{ \n\t// statements when true \n}\nelse\n{ \n\t// statements when false  \n}"
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "// response is either OK or CANCEL depending \n        // on the button that the user pressed \n        . . . \n        if (response == \u201cOK\u201d) { \n           . . . \n           // code to perform OK action \n           . . . \n        } else { \n           . . . \n           // code to perform Cancel action \n           . . . \n        }"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\n// response is either OK or CANCEL depending \n        // on the button that the user pressed \n        . . . \n        if (response == \u201cOK\u201d) { \n           . . . \n           // code to perform OK action \n           . . . \n        } else { \n           . . . \n           // code to perform Cancel action \n           . . . \n        }"
+    },
+    {
+      "slide_number": 8,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "Example\nSocial Security tax on wages is calculated as follows:\n\nTax   =   0.124 x wages      if wages <=  $57600\n         =   0.124 x $57600 \tif wages >    $57600\n\nWrite an application to accept wages, calculate and display the Social Security tax."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nExample\nSocial Security tax on wages is calculated as follows:\n\nTax   =   0.124 x wages      if wages <=  $57600\n         =   0.124 x $57600 \tif wages >    $57600\n\nWrite an application to accept wages, calculate and display the Social Security tax."
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "if (wages <= 57600)\n   tax = 0.124 * wages;\nelse\n   tax = 0.124 * 57600;",
+        "Example 1",
+        "This computation can be expressed neatly in Java by the if statement :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nif (wages <= 57600)\n   tax = 0.124 * wages;\nelse\n   tax = 0.124 * 57600;\nExample 1\nThis computation can be expressed neatly in Java by the if statement :"
+    },
+    {
+      "slide_number": 10,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "This computation will be embedded in the  following complete Java application with the values 0.124 and 57600 replaced by suitably named symbolic constants.\n\nTax_Calculation.java"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nThis computation will be embedded in the  following complete Java application with the values 0.124 and 57600 replaced by suitably named symbolic constants.\n\nTax_Calculation.java"
+    },
+    {
+      "slide_number": 11,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "import java.util.Scanner; \n\npublic class Tax_Calculation {\n    public static void main(String[] args) \n    {\n        final double MAXIMUM_WAGE = 57600, TAX_RATE = 0.124;\n        double wages, tax;\n        Scanner input= new Scanner( System.in );\n        System.out.print(\"Your wages subject to Social Security Tax are : $ \");\n        wages=input.nextInt();\n        if (wages <= 57600)\n\t tax = TAX_RATE * wages;\n        else\n\t tax = TAX_RATE * MAXIMUM_WAGE;\n       System.out.println(\"Your Security Tax is :$ \" + tax);\n    }\n}"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nimport java.util.Scanner; \n\npublic class Tax_Calculation {\n    public static void main(String[] args) \n    {\n        final double MAXIMUM_WAGE = 57600, TAX_RATE = 0.124;\n        double wages, tax;\n        Scanner input= new Scanner( System.in );\n        System.out.print(\"Your wages subject to Social Security Tax are : $ \");\n        wages=input.nextInt();\n        if (wages <= 57600)\n\t tax = TAX_RATE * wages;\n        else\n\t tax = TAX_RATE * MAXIMUM_WAGE;\n       System.out.println(\"Your Security Tax is :$ \" + tax);\n    }\n}"
+    },
+    {
+      "slide_number": 12,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Your wages subject to Social Security Tax are : $20000\nYour Security Tax is : $2480.0\n\nYour wages subject to Social Security\n Tax are : $60000\nYour Security Tax is : $7142.4",
+        "The if \u2013 else statement",
+        "Output:"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nYour wages subject to Social Security Tax are : $20000\nYour Security Tax is : $2480.0\n\nYour wages subject to Social Security\n Tax are : $60000\nYour Security Tax is : $7142.4\nThe if \u2013 else statement\nOutput:"
+    },
+    {
+      "slide_number": 13,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Quick Review Question",
+        "You have seen and done the following examples:\nTax calculation\nYou should now be in a position to write a Java program that accepts data from the keyboard, uses the select statement and displays  appropriate results.\nThis is your task:\nAccept the temperature in degrees Fahrenheit from the user, convert and display the temperature in degrees centigrade. Display a message if the centigrade (Celsius) temperature exceeds 75 degrees.\nHere is the formula to use\ndegree C = 5 ( F \u2013 32) / 9"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nQuick Review Question\nYou have seen and done the following examples:\nTax calculation\nYou should now be in a position to write a Java program that accepts data from the keyboard, uses the select statement and displays  appropriate results.\nThis is your task:\nAccept the temperature in degrees Fahrenheit from the user, convert and display the temperature in degrees centigrade. Display a message if the centigrade (Celsius) temperature exceeds 75 degrees.\nHere is the formula to use\ndegree C = 5 ( F \u2013 32) / 9"
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "There is another form of the else statement, \nelse if\nwhich executes a statement based on another expression. \n\nExample\nGrades are assigned  based on the value of a test score:\n\nA for a score of 70% or more\nB for a score of 60% or more but not in the ranges above\nC for a score of 50% or more but not in the ranges above\nD for a score of 40% or more but not in the ranges above\nF for a score below 40%\n\nWrite an appropriate select statement"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nThere is another form of the else statement, \nelse if\nwhich executes a statement based on another expression. \n\nExample\nGrades are assigned  based on the value of a test score:\n\nA for a score of 70% or more\nB for a score of 60% or more but not in the ranges above\nC for a score of 50% or more but not in the ranges above\nD for a score of 40% or more but not in the ranges above\nF for a score below 40%\n\nWrite an appropriate select statement"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "Example 2"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nExample 2"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "int testscore; \n        char grade; \n        if (testscore >= 70) { \n           grade = 'A'; \n        } else if (testscore >= 60) { \n           grade = 'B'; \n        } else if (testscore >= 50) { \n           grade = 'C'; \n        } else if (testscore >= 40) { \n           grade = 'D'; \n        } else { \n           grade = 'F'; \n        }"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nint testscore; \n        char grade; \n        if (testscore >= 70) { \n           grade = 'A'; \n        } else if (testscore >= 60) { \n           grade = 'B'; \n        } else if (testscore >= 50) { \n           grade = 'C'; \n        } else if (testscore >= 40) { \n           grade = 'D'; \n        } else { \n           grade = 'F'; \n        }"
+    },
+    {
+      "slide_number": 17,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "When writing else if statements, the rule to always remember is:\n\n\u201cNo else without parent if\u201d"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nWhen writing else if statements, the rule to always remember is:\n\n\u201cNo else without parent if\u201d"
+    },
+    {
+      "slide_number": 18,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "if (condition-1) \n             if (condition-2)\n                   statement-1\n            else\n                   statement-2",
+        "BUG ALERT : Dangling else",
+        "Nested if statements can become quite complicated.  Indentation alone is not sufficient such as the example below :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nif (condition-1) \n             if (condition-2)\n                   statement-1\n            else\n                   statement-2\nBUG ALERT : Dangling else\nNested if statements can become quite complicated.  Indentation alone is not sufficient such as the example below :"
+    },
+    {
+      "slide_number": 19,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "The rule is that an else is paired with the nearest unmatched if preceding.",
+        "if (condition-1) \n             if (condition-2)\n                   statement-1\n            else\n                   statement-2",
+        "may be interpreted as below :",
+        "BUG ALERT : Dangling else (cont\u2019d)"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nThe rule is that an else is paired with the nearest unmatched if preceding.\nif (condition-1) \n             if (condition-2)\n                   statement-1\n            else\n                   statement-2\nmay be interpreted as below :\nBUG ALERT : Dangling else (cont\u2019d)"
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "if (condition-1) \n             if (condition-2)\n                   statement-1\n             else;\n       else\n             statement-2",
+        "BUG ALERT : Dangling else (cont\u2019d)",
+        "To get the desired effect, the programmer can either insert a dummy else as in :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nif (condition-1) \n             if (condition-2)\n                   statement-1\n             else;\n       else\n             statement-2\nBUG ALERT : Dangling else (cont\u2019d)\nTo get the desired effect, the programmer can either insert a dummy else as in :"
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "BUG ALERT : Dangling else (cont\u2019d)",
+        "if (condition-1)   {\n             if (condition-2)\n                   statement-1\n       }      \n       else\n             statement-2",
+        "Or the \u201cthen\u201d clause can be enclosed in a pair of braces :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nBUG ALERT : Dangling else (cont\u2019d)\nif (condition-1)   {\n             if (condition-2)\n                   statement-1\n       }      \n       else\n             statement-2\nOr the \u201cthen\u201d clause can be enclosed in a pair of braces :"
+    },
+    {
+      "slide_number": 22,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "The if \u2013 else statement",
+        "Remember to match each else with the correct if.   The rule is that an else is paired with the nearest unmatched if preceding.",
+        "if (not condition-1)   \n              statement-2 \n       else if (condition-2)\n             statement-1",
+        "The best solution, however, is to reorganize the code to  :",
+        "BUG ALERT : Dangling else (cont\u2019d)"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nThe if \u2013 else statement\nRemember to match each else with the correct if.   The rule is that an else is paired with the nearest unmatched if preceding.\nif (not condition-1)   \n              statement-2 \n       else if (condition-2)\n             statement-1\nThe best solution, however, is to reorganize the code to  :\nBUG ALERT : Dangling else (cont\u2019d)"
+    },
+    {
+      "slide_number": 23,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Quick Review Question",
+        "Let us test what you have just learned:\n\nWrite a program segment to find the largest of 2 double numbers x and y.\n\nWrite a program segment to find the largest of 3 double numbers x, y and z."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nQuick Review Question\nLet us test what you have just learned:\n\nWrite a program segment to find the largest of 2 double numbers x and y.\n\nWrite a program segment to find the largest of 3 double numbers x, y and z."
+    },
+    {
+      "slide_number": 24,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "Use the switch statement to conditionally perform statements based on some expression.  \n\nFor example, suppose that your program contained an integer named month whose value indicated the month in some date. Suppose also that you wanted to display the name of the month based on its integer equivalent. You could use Java's switch statement to perform this feat:"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nUse the switch statement to conditionally perform statements based on some expression.  \n\nFor example, suppose that your program contained an integer named month whose value indicated the month in some date. Suppose also that you wanted to display the name of the month based on its integer equivalent. You could use Java's switch statement to perform this feat:"
+    },
+    {
+      "slide_number": 25,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "int month; \n        . . . \n        switch (month) { \n           case 1:  {System.out.println(\"January\");\n\t\tSystem.out.println(\u201cHello!!\u201d); } break; \n           case 2:  System.out.println(\"February\"); break; \n           case 3:  System.out.println(\"March\"); break; \n           case 4:  System.out.println(\"April\"); break; \n           case 5:  System.out.println(\"May\"); break; \n           case 6:  System.out.println(\"June\"); break; \n           case 7:  System.out.println(\"July\"); break; \n           case 8:  System.out.println(\"August\"); break; \n           case 9:  System.out.println(\"September\"); break; \n           case 10: System.out.println(\"October\"); break; \n           case 11: System.out.println(\"November\"); break; \n           case 12: System.out.println(\"December\"); break; \n        }"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nint month; \n        . . . \n        switch (month) { \n           case 1:  {System.out.println(\"January\");\n\t\tSystem.out.println(\u201cHello!!\u201d); } break; \n           case 2:  System.out.println(\"February\"); break; \n           case 3:  System.out.println(\"March\"); break; \n           case 4:  System.out.println(\"April\"); break; \n           case 5:  System.out.println(\"May\"); break; \n           case 6:  System.out.println(\"June\"); break; \n           case 7:  System.out.println(\"July\"); break; \n           case 8:  System.out.println(\"August\"); break; \n           case 9:  System.out.println(\"September\"); break; \n           case 10: System.out.println(\"October\"); break; \n           case 11: System.out.println(\"November\"); break; \n           case 12: System.out.println(\"December\"); break; \n        }"
+    },
+    {
+      "slide_number": 26,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "The switch statement evaluates its expression, in this case, the value of month, and executes the  appropriate case statement. Of course, you could implement this as an if statement:",
+        "int month; \n        . . . \n        if (month == 1) { \n           System.out.println(\"January\"); \n        } else if (month == 2) { \n           System.out.println(\"February\"); \n        . . . \n        // you get the idea \n        . . ."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nThe switch statement evaluates its expression, in this case, the value of month, and executes the  appropriate case statement. Of course, you could implement this as an if statement:\nint month; \n        . . . \n        if (month == 1) { \n           System.out.println(\"January\"); \n        } else if (month == 2) { \n           System.out.println(\"February\"); \n        . . . \n        // you get the idea \n        . . ."
+    },
+    {
+      "slide_number": 27,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "switch Vs else-if  : Deciding whether to use an if statement or a switch statement is a judgment call. You can decide  which to use based on readability and other factors. Each case statement must be unique and the value provided to each case statement must be of the same data type as the data type returned by the expression provided to the switch statement."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nswitch Vs else-if  : Deciding whether to use an if statement or a switch statement is a judgment call. You can decide  which to use based on readability and other factors. Each case statement must be unique and the value provided to each case statement must be of the same data type as the data type returned by the expression provided to the switch statement."
+    },
+    {
+      "slide_number": 28,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "break statements  : The break statements cause control to break out of the switch and continue with the first statement following the switch. The break statements are necessary because case statements fall through. That is, without an explicit break control will flow sequentially through subsequent case statements."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nbreak statements  : The break statements cause control to break out of the switch and continue with the first statement following the switch. The break statements are necessary because case statements fall through. That is, without an explicit break control will flow sequentially through subsequent case statements."
+    },
+    {
+      "slide_number": 29,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "However, there are certain scenarios when you do want control to proceed sequentially through case statements. Like in the following Java code that computes the number of days in a month :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nHowever, there are certain scenarios when you do want control to proceed sequentially through case statements. Like in the following Java code that computes the number of days in a month :"
+    },
+    {
+      "slide_number": 30,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "int month; \n        int numDays; \n        . . . \n        switch (month) { \n        case 1: \n        case 3: \n        case 5: \n        case 7: \n        case 8: \n        case 10: \n        case 12: \n           numDays = 31; \n           break; \n        case 4: \n        case 6: \n        case 9: \n        case 11: \n           numDays = 30; \n           break; \n        case 2: \n           if ( ((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0) ) \n              numDays = 29; \n           else \n              numDays = 28; \n              break; \n           }"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nint month; \n        int numDays; \n        . . . \n        switch (month) { \n        case 1: \n        case 3: \n        case 5: \n        case 7: \n        case 8: \n        case 10: \n        case 12: \n           numDays = 31; \n           break; \n        case 4: \n        case 6: \n        case 9: \n        case 11: \n           numDays = 30; \n           break; \n        case 2: \n           if ( ((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0) ) \n              numDays = 29; \n           else \n              numDays = 28; \n              break; \n           }"
+    },
+    {
+      "slide_number": 31,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "Finally, you can use the default statement at the end of the switch to handle all values that aren't explicitly handled  by one of the case statements."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nFinally, you can use the default statement at the end of the switch to handle all values that aren't explicitly handled  by one of the case statements."
+    },
+    {
+      "slide_number": 32,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Java\u2019s switch statement",
+        "int month; \n        . . . \n        switch (month) { \n        case 1:  System.out.println(\"January\"); break; \n        case 2:  System.out.println(\"February\"); break; \n        case 3:  System.out.println(\"March\"); break; \n        case 4:  System.out.println(\"April\"); break; \n        case 5:  System.out.println(\"May\"); break; \n        case 6:  System.out.println(\"June\"); break; \n        case 7:  System.out.println(\"July\"); break; \n        case 8:  System.out.println(\"August\"); break; \n        case 9:  System.out.println(\"September\"); break; \n        case 10: System.out.println(\"October\"); break; \n        case 11: System.out.println(\"November\"); break; \n        case 12: System.out.println(\"December\"); break; \n        default: System.out.println(\"Hey, that's not a valid month!\"); \n        break; \n        }"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nJava\u2019s switch statement\nint month; \n        . . . \n        switch (month) { \n        case 1:  System.out.println(\"January\"); break; \n        case 2:  System.out.println(\"February\"); break; \n        case 3:  System.out.println(\"March\"); break; \n        case 4:  System.out.println(\"April\"); break; \n        case 5:  System.out.println(\"May\"); break; \n        case 6:  System.out.println(\"June\"); break; \n        case 7:  System.out.println(\"July\"); break; \n        case 8:  System.out.println(\"August\"); break; \n        case 9:  System.out.println(\"September\"); break; \n        case 10: System.out.println(\"October\"); break; \n        case 11: System.out.println(\"November\"); break; \n        case 12: System.out.println(\"December\"); break; \n        default: System.out.println(\"Hey, that's not a valid month!\"); \n        break; \n        }"
+    },
+    {
+      "slide_number": 33,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Quick Review Question",
+        "The entry fee for the local art museum is calculated as follows : children under 5 years, free; adults 65 years and older, $1.50; all others, $2.50.  Write an if statement to print the entryFee (of type double) based on the variable ageOfEntrant (of type int)."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nQuick Review Question\nThe entry fee for the local art museum is calculated as follows : children under 5 years, free; adults 65 years and older, $1.50; all others, $2.50.  Write an if statement to print the entryFee (of type double) based on the variable ageOfEntrant (of type int)."
+    },
+    {
+      "slide_number": 34,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Quick Review Question",
+        "Are you self-employed (Enter 1 for yes, 0 for no) : 1\nYour annual earnings : 91450\nYour FICA tax is $10327.500\nYour Medicare tax is $694.550\nYour total security tax is $11022.050",
+        "The current rule for Social Security contributions is this: 7.65% of your salary, up to $67500, is taken as Social Security (FICA) tax, then 1.45% of everything above that is taken as Medicare tax.  However, if you are self-employed, it is 15.3% up to $67,500, then 2.9% above that.  Write a program that first asks the user whether he or she is self-employed and then asks for the annual salary, and calculates the FICA tax, the Medicare tax, and the total.  For example :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nQuick Review Question\nAre you self-employed (Enter 1 for yes, 0 for no) : 1\nYour annual earnings : 91450\nYour FICA tax is $10327.500\nYour Medicare tax is $694.550\nYour total security tax is $11022.050\nThe current rule for Social Security contributions is this: 7.65% of your salary, up to $67500, is taken as Social Security (FICA) tax, then 1.45% of everything above that is taken as Medicare tax.  However, if you are self-employed, it is 15.3% up to $67,500, then 2.9% above that.  Write a program that first asks the user whether he or she is self-employed and then asks for the annual salary, and calculates the FICA tax, the Medicare tax, and the total.  For example :"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Follow Up Assignment",
+        "The Center for Disease Control in Atlanta, Georgia, has computed various \u201crecommended values\u201d for a person\u2019s body mass index.  The body mass index is a person\u2019s weight in kilograms divided by the square of his or her height in meters.  For men, an index of 27.8 or more is considered high; for nonpregnant women, the cutoff is 27.3.  Write an application to read a person\u2019s gender, height and weight, determine the bodyMassIndex, and print a message as to whether it is high or not.  Your application should convert height from inches to meters ( 1 inch is 0.0254 meters) and weight from pounds to kilograms ( 1 pound is 0.454 Kgs).",
+        "Work on this assignment for discussion in the next lesson."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nFollow Up Assignment\nThe Center for Disease Control in Atlanta, Georgia, has computed various \u201crecommended values\u201d for a person\u2019s body mass index.  The body mass index is a person\u2019s weight in kilograms divided by the square of his or her height in meters.  For men, an index of 27.8 or more is considered high; for nonpregnant women, the cutoff is 27.3.  Write an application to read a person\u2019s gender, height and weight, determine the bodyMassIndex, and print a message as to whether it is high or not.  Your application should convert height from inches to meters ( 1 inch is 0.0254 meters) and weight from pounds to kilograms ( 1 pound is 0.454 Kgs).\nWork on this assignment for discussion in the next lesson."
+    },
+    {
+      "slide_number": 36,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Follow Up Assignment",
+        "BODY MASS CALCULATION\n\nEnter your gender (0 for male, 1 for female) : 1\nEnter your height in inches : 69\nEnter your weight in pounds : 141\n\nYour body-mass-index is 20.90; this is not considered high.",
+        "BODY MASS CALCULATION\n\nEnter your gender (0 for male, 1 for female) : 1\nEnter your height in inches : 61\nEnter your weight in pounds : 145\n\nYour body-mass-index is 27.47; this is considered high.",
+        "Your output should look like this :"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nFollow Up Assignment\nBODY MASS CALCULATION\n\nEnter your gender (0 for male, 1 for female) : 1\nEnter your height in inches : 69\nEnter your weight in pounds : 141\n\nYour body-mass-index is 20.90; this is not considered high.\nBODY MASS CALCULATION\n\nEnter your gender (0 for male, 1 for female) : 1\nEnter your height in inches : 61\nEnter your weight in pounds : 145\n\nYour body-mass-index is 27.47; this is considered high.\nYour output should look like this :"
+    },
+    {
+      "slide_number": 37,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Write a program to accept a date from user, the program should validate the date entered.\n\nThe program should ask the user to enter day, month, and year separately and display a message if the date entered is a valid date or not.",
+        "Example 1: \n\nEnter Day: 20\nEnter Month: 13\nEnter Year: 2020\n\nThe date entered is not a valid date!!",
+        "Example 2: \n\nEnter Day: 29\nEnter Month: 2\nEnter Year: 2020\n\nThe date entered is a valid date.",
+        "Exercise \u2013 Date Validation"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nWrite a program to accept a date from user, the program should validate the date entered.\n\nThe program should ask the user to enter day, month, and year separately and display a message if the date entered is a valid date or not.\nExample 1: \n\nEnter Day: 20\nEnter Month: 13\nEnter Year: 2020\n\nThe date entered is not a valid date!!\nExample 2: \n\nEnter Day: 29\nEnter Month: 2\nEnter Year: 2020\n\nThe date entered is a valid date.\nExercise \u2013 Date Validation"
+    },
+    {
+      "slide_number": 38,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Write four different JAVA statements that each add 1 to integer variable x.\nWrite a single JAVA statement to accomplish each of the following:\na) Assign the sum of x and y to z and increment the value of x by 1 after the calculation.\nb) Multiply the variable product by 2 using the *= operator.\nc) Multiply the variable product by 2 using the = and * operators.\nd) Test if the value of the variable count is greater than 10. If it is, print \u201cCount is greater than 10.\u201d\ne) Decrement the variable x by 1, then subtract it from the variable total.\nf) Add the variable x to the variable total, then decrement x by 1.\ng) Calculate the remainder after q is divided by divisor and assign the result to q. Write this statement in two different ways.\nh) Print the value 123.4567 with 2 digits of precision. What value is printed?\ni) Print the floating-point value 3.14159 with three digits to the right of the decimal point. What value is printed?",
+        "More Exercises"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nWrite four different JAVA statements that each add 1 to integer variable x.\nWrite a single JAVA statement to accomplish each of the following:\na) Assign the sum of x and y to z and increment the value of x by 1 after the calculation.\nb) Multiply the variable product by 2 using the *= operator.\nc) Multiply the variable product by 2 using the = and * operators.\nd) Test if the value of the variable count is greater than 10. If it is, print \u201cCount is greater than 10.\u201d\ne) Decrement the variable x by 1, then subtract it from the variable total.\nf) Add the variable x to the variable total, then decrement x by 1.\ng) Calculate the remainder after q is divided by divisor and assign the result to q. Write this statement in two different ways.\nh) Print the value 123.4567 with 2 digits of precision. What value is printed?\ni) Print the floating-point value 3.14159 with three digits to the right of the decimal point. What value is printed?\nMore Exercises"
+    },
+    {
+      "slide_number": 39,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Summary of Main Teaching Points",
+        "Flow Control\nThe if-else Statement\nExamples\nNested if\u2026else constructs.\nExamples\nThe else if statement\nDangling else case (No parent, no child rule)\nJava\u2019s switch Statement\nUsing the break statement\nNot using the break statement\nThe default clause"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nSummary of Main Teaching Points\nFlow Control\nThe if-else Statement\nExamples\nNested if\u2026else constructs.\nExamples\nThe else if statement\nDangling else case (No parent, no child rule)\nJava\u2019s switch Statement\nUsing the break statement\nNot using the break statement\nThe default clause"
+    },
+    {
+      "slide_number": 40,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nQ & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 41,
+      "title": "",
+      "content": [
+        "Slide <number> of 39",
+        "Next Session",
+        "Iteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 39\nNext Session\nIteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+    }
+  ]
+}

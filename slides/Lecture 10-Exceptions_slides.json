@@ -1,0 +1,480 @@
+{
+  "filename": "Lecture 10-Exceptions",
+  "total_slides": 41,
+  "extraction_time": "2025-04-23 14:15:54",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Exceptions",
+      "content": [
+        "Exceptions",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Exceptions\nExceptions\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "Exceptions & Exception Handling",
+      "content": [
+        "Slide <number> of 41",
+        "Exceptions & Exception Handling",
+        "Introduction to Exceptions\nException Classes\nThe Exception Handler\nThe throws & throw clause\nThe finally clause"
+      ],
+      "notes": "",
+      "text": "Exceptions & Exception Handling\nSlide <number> of 41\nExceptions & Exception Handling\nIntroduction to Exceptions\nException Classes\nThe Exception Handler\nThe throws & throw clause\nThe finally clause"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Slide <number> of 41",
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nState and explain the different types of errors\nWrite programs using the exception handling techniques"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 41\nLearning Outcomes\nAt the end of this topic, you should be able to:\nState and explain the different types of errors\nWrite programs using the exception handling techniques"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Slide <number> of 41",
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Exceptions"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 41\nKey Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Exceptions"
+    },
+    {
+      "slide_number": 5,
+      "title": "Introduction to Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Introduction to Exceptions",
+        "Exceptions indicate to a calling method that an abnormal condition has occurred.\nWhen a method encounters an abnormal condition (an exception condition) that it can\u2019t handle itself, it may throw an exception."
+      ],
+      "notes": "",
+      "text": "Introduction to Exceptions\nSlide <number> of 41\nIntroduction to Exceptions\nExceptions indicate to a calling method that an abnormal condition has occurred.\nWhen a method encounters an abnormal condition (an exception condition) that it can\u2019t handle itself, it may throw an exception."
+    },
+    {
+      "slide_number": 6,
+      "title": "Introduction to Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Throwing an exception is like throwing a beeping, flashing red ball to indicate there is a problem that can\u2019t be handled where it occurred.\nSomewhere, you hope, this ball will be caught and the problem will be dealt with.\nExceptions are caught by handlers positioned along the thread\u2019s method invocation stack.",
+        "Introduction to Exceptions"
+      ],
+      "notes": "",
+      "text": "Introduction to Exceptions\nSlide <number> of 41\nThrowing an exception is like throwing a beeping, flashing red ball to indicate there is a problem that can\u2019t be handled where it occurred.\nSomewhere, you hope, this ball will be caught and the problem will be dealt with.\nExceptions are caught by handlers positioned along the thread\u2019s method invocation stack.\nIntroduction to Exceptions"
+    },
+    {
+      "slide_number": 7,
+      "title": "Definition of Exception",
+      "content": [
+        "Slide <number> of 41",
+        "An exception is an event that occurs during the execution of a program  that disrupts the normal flow of instructions.\n\nThrowing an exception:\nIt happens when an error occurs the method creates an exception object and hands it off to the runtime system.",
+        "Definition of Exception"
+      ],
+      "notes": "",
+      "text": "Definition of Exception\nSlide <number> of 41\nAn exception is an event that occurs during the execution of a program  that disrupts the normal flow of instructions.\n\nThrowing an exception:\nIt happens when an error occurs the method creates an exception object and hands it off to the runtime system.\nDefinition of Exception"
+    },
+    {
+      "slide_number": 8,
+      "title": "Definition of Exception",
+      "content": [
+        "Slide <number> of 41",
+        "The exception object:\nThe exception object contains information about the exception,including its type and the state  of the program when the error occurred.",
+        "Definition of Exception"
+      ],
+      "notes": "",
+      "text": "Definition of Exception\nSlide <number> of 41\nThe exception object:\nThe exception object contains information about the exception,including its type and the state  of the program when the error occurred.\nDefinition of Exception"
+    },
+    {
+      "slide_number": 9,
+      "title": "Definition of Exception",
+      "content": [
+        "Slide <number> of 41",
+        "Catching an exception:\nIt happens when the exception object bubbles up through the call stack until an appropriate exception handler is found.The handler catches the exception.",
+        "Definition of Exception"
+      ],
+      "notes": "",
+      "text": "Definition of Exception\nSlide <number> of 41\nCatching an exception:\nIt happens when the exception object bubbles up through the call stack until an appropriate exception handler is found.The handler catches the exception.\nDefinition of Exception"
+    },
+    {
+      "slide_number": 10,
+      "title": "Errors",
+      "content": [
+        "Slide <number> of 41",
+        "Errors",
+        "When a dynamic linking failure or some other \u201chard\u201d failure in the virtual machine occurs, the virtual machine throws an Error."
+      ],
+      "notes": "",
+      "text": "Errors\nSlide <number> of 41\nErrors\nWhen a dynamic linking failure or some other \u201chard\u201d failure in the virtual machine occurs, the virtual machine throws an Error."
+    },
+    {
+      "slide_number": 11,
+      "title": "A Partial view of the Throwable family",
+      "content": [
+        "Slide <number> of 41",
+        "A Partial view of the Throwable family",
+        "Throwable",
+        "Error",
+        "Exception",
+        "ThreadDeath",
+        "Runtime\n exception",
+        "Interrupted\n exception",
+        "Arithmetic\nException",
+        "NullPointer\nException",
+        "Classcast\nException",
+        "java.lang"
+      ],
+      "notes": "",
+      "text": "A Partial view of the Throwable family\nSlide <number> of 41\nA Partial view of the Throwable family\nThrowable\nError\nException\nThreadDeath\nRuntime\n exception\nInterrupted\n exception\nArithmetic\nException\nNullPointer\nException\nClasscast\nException\njava.lang"
+    },
+    {
+      "slide_number": 12,
+      "title": "The Throwable class",
+      "content": [
+        "Slide <number> of 41",
+        "The Throwable class",
+        "Object",
+        "Throwable",
+        "Error",
+        "Exception",
+        "Object",
+        "Object",
+        "\u2026",
+        "Object",
+        "Object",
+        "\u2026",
+        "Object",
+        "Object",
+        "\u2026",
+        "RuntimeException"
+      ],
+      "notes": "",
+      "text": "The Throwable class\nSlide <number> of 41\nThe Throwable class\nObject\nThrowable\nError\nException\nObject\nObject\n\u2026\nObject\nObject\n\u2026\nObject\nObject\n\u2026\nRuntimeException"
+    },
+    {
+      "slide_number": 13,
+      "title": "Exception Classes",
+      "content": [
+        "Slide <number> of 41",
+        "Exception Classes",
+        "In Java, exceptions are objects.  When you throw an exception, you throw an object.\nYou can\u2019t throw just any object as an exception, however\u2014only those objects whose classes descend from Throwable.\nThrowable serves as the base class for an entire family of classes, declared in java.lang, that your program can instantiate and throw."
+      ],
+      "notes": "",
+      "text": "Exception Classes\nSlide <number> of 41\nException Classes\nIn Java, exceptions are objects.  When you throw an exception, you throw an object.\nYou can\u2019t throw just any object as an exception, however\u2014only those objects whose classes descend from Throwable.\nThrowable serves as the base class for an entire family of classes, declared in java.lang, that your program can instantiate and throw."
+    },
+    {
+      "slide_number": 14,
+      "title": "Throwing Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "To throw an exception, you simply use the throw keyword with an object reference,as in:\nthrow someThrowableObject;\nExample:\npublic Object pop() throws EmptyStackException{\nObject obj;",
+        "Throwing Exceptions"
+      ],
+      "notes": "",
+      "text": "Throwing Exceptions\nSlide <number> of 41\nTo throw an exception, you simply use the throw keyword with an object reference,as in:\nthrow someThrowableObject;\nExample:\npublic Object pop() throws EmptyStackException{\nObject obj;\nThrowing Exceptions"
+    },
+    {
+      "slide_number": 15,
+      "title": "Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Exceptions",
+        "Most programs throw and catch objects that derive from the Exception class.\nRuntime Exceptions\nThe RuntimeException class represents exceptions that occur within the Java Virtual Machine(during runtime)."
+      ],
+      "notes": "",
+      "text": "Exceptions\nSlide <number> of 41\nExceptions\nMost programs throw and catch objects that derive from the Exception class.\nRuntime Exceptions\nThe RuntimeException class represents exceptions that occur within the Java Virtual Machine(during runtime)."
+    },
+    {
+      "slide_number": 16,
+      "title": "Catch Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Catch Exceptions",
+        "To catch an exception in java ,we have to write a try block with one or more catch clauses.\nEach clause specifies one exception type that it is prepared to handle.\nThe try block places a fence around a bit of code that is under the watchful eye of the associated catchers."
+      ],
+      "notes": "",
+      "text": "Catch Exceptions\nSlide <number> of 41\nCatch Exceptions\nTo catch an exception in java ,we have to write a try block with one or more catch clauses.\nEach clause specifies one exception type that it is prepared to handle.\nThe try block places a fence around a bit of code that is under the watchful eye of the associated catchers."
+    },
+    {
+      "slide_number": 17,
+      "title": "Catch Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "If the bit of code delimited by the try block \u000b throws an exception, the associated catch\u000b clauses will be examined by the Java Virtual\u000b Machine.\n If the Virtual Machine finds a catch clause that \u000b is prepared to handle the thrown exception, the\u000b program continues execution starting with the \u000b first statement of that catch clause.",
+        "Catch Exceptions"
+      ],
+      "notes": "",
+      "text": "Catch Exceptions\nSlide <number> of 41\nIf the bit of code delimited by the try block \u000b throws an exception, the associated catch\u000b clauses will be examined by the Java Virtual\u000b Machine.\n If the Virtual Machine finds a catch clause that \u000b is prepared to handle the thrown exception, the\u000b program continues execution starting with the \u000b first statement of that catch clause.\nCatch Exceptions"
+    },
+    {
+      "slide_number": 18,
+      "title": "Format of the try\u2014catch block",
+      "content": [
+        "Slide <number> of 41",
+        "Format of the try\u2014catch block",
+        "The try block\n try  { Java statements}\n\nThe catch block\ntry{    \u2026}\ncatch( \u2026 ){   \u2026}\u2026\u2026\ncatch (SomeThrowableObject variablename)\n    { Java Statements }"
+      ],
+      "notes": "",
+      "text": "Format of the try\u2014catch block\nSlide <number> of 41\nFormat of the try\u2014catch block\nThe try block\n try  { Java statements}\n\nThe catch block\ntry{    \u2026}\ncatch( \u2026 ){   \u2026}\u2026\u2026\ncatch (SomeThrowableObject variablename)\n    { Java Statements }"
+    },
+    {
+      "slide_number": 19,
+      "title": "Exception Hierarchy for coffee sipping",
+      "content": [
+        "Slide <number> of 41",
+        "Exception Hierarchy for coffee sipping",
+        "As an example, imagine you are writing a Java program that simulates a customer of  a virtual caf\u00e9 drinking  a cup of coffee. \nWe will first write this in the usual manner."
+      ],
+      "notes": "",
+      "text": "Exception Hierarchy for coffee sipping\nSlide <number> of 41\nException Hierarchy for coffee sipping\nAs an example, imagine you are writing a Java program that simulates a customer of  a virtual caf\u00e9 drinking  a cup of coffee. \nWe will first write this in the usual manner."
+    },
+    {
+      "slide_number": 20,
+      "title": "Throwing Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Throwing Exceptions",
+        "/*\nExercise:\nWrite a Java program that simulates a customer\nof a virtual caf\u00e9 drinking  a cup of coffee.\n*/\nclass CoffeeCup\n{\n\tprivate int temperature = 75;\n\tpublic void setTemperature(int val)\n\t{\n\t\ttemperature = val;\n\t}\n\tpublic int getTemperature()\n\t{\n\t\treturn temperature;\n\t}\n}//...class CoffeeCup"
+      ],
+      "notes": "",
+      "text": "Throwing Exceptions\nSlide <number> of 41\nThrowing Exceptions\n/*\nExercise:\nWrite a Java program that simulates a customer\nof a virtual caf\u00e9 drinking  a cup of coffee.\n*/\nclass CoffeeCup\n{\n\tprivate int temperature = 75;\n\tpublic void setTemperature(int val)\n\t{\n\t\ttemperature = val;\n\t}\n\tpublic int getTemperature()\n\t{\n\t\treturn temperature;\n\t}\n}//...class CoffeeCup"
+    },
+    {
+      "slide_number": 21,
+      "title": "Throwing Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Throwing Exceptions",
+        "class VirtualPersonTest\n{\n\tpublic void drinkCoffee(CoffeeCup cup)\n\t{\n\t\tint temperature = cup.getTemperature();\n\t\tSystem.out.println(\"Coffee temperature is \" + temperature);\n\t}\n\tpublic static void main(String args[])\n\t{\n\t\tint temperature = 95;\n\t\tCoffeeCup cup = new CoffeeCup();\n\t\tcup.setTemperature(temperature);\n\t\tVirtualPersonTest cust = new VirtualPersonTest();\n\t\tcust.drinkCoffee(cup);\n\t}\n}//...class VirtualPerson"
+      ],
+      "notes": "",
+      "text": "Throwing Exceptions\nSlide <number> of 41\nThrowing Exceptions\nclass VirtualPersonTest\n{\n\tpublic void drinkCoffee(CoffeeCup cup)\n\t{\n\t\tint temperature = cup.getTemperature();\n\t\tSystem.out.println(\"Coffee temperature is \" + temperature);\n\t}\n\tpublic static void main(String args[])\n\t{\n\t\tint temperature = 95;\n\t\tCoffeeCup cup = new CoffeeCup();\n\t\tcup.setTemperature(temperature);\n\t\tVirtualPersonTest cust = new VirtualPersonTest();\n\t\tcust.drinkCoffee(cup);\n\t}\n}//...class VirtualPerson"
+    },
+    {
+      "slide_number": 22,
+      "title": "Exception Hierarchy for coffee sipping",
+      "content": [
+        "Slide <number> of 41",
+        "Exception Hierarchy for coffee sipping",
+        "We will consider the situation where the coffee must be served with the temperature just right; neither too hot nor too cold. \nThis can be handled in the normal way using select statements.\nHowever, we can use the powerful exception handling mechanism available in Java, which is what we will do here."
+      ],
+      "notes": "",
+      "text": "Exception Hierarchy for coffee sipping\nSlide <number> of 41\nException Hierarchy for coffee sipping\nWe will consider the situation where the coffee must be served with the temperature just right; neither too hot nor too cold. \nThis can be handled in the normal way using select statements.\nHowever, we can use the powerful exception handling mechanism available in Java, which is what we will do here."
+    },
+    {
+      "slide_number": 23,
+      "title": "Exception Hierarchy for coffee sipping",
+      "content": [
+        "Slide <number> of 41",
+        "Exception Hierarchy for coffee sipping",
+        "Exception hierarchy for the problem"
+      ],
+      "notes": "",
+      "text": "Exception Hierarchy for coffee sipping\nSlide <number> of 41\nException Hierarchy for coffee sipping\nException hierarchy for the problem"
+    },
+    {
+      "slide_number": 24,
+      "title": "Exception Hierarchy for coffee sipping",
+      "content": [
+        "Slide <number> of 41",
+        "The code for your new exception classes might look\u000b like this:\n      Class TemperatureException extends Exception{  }\n\n     Class TooColdException extends \u000b      TemperatureException {     }\n\n     Class TooHotException extends\u000b     TemperatureException {    }",
+        "Exception Hierarchy for coffee sipping"
+      ],
+      "notes": "",
+      "text": "Exception Hierarchy for coffee sipping\nSlide <number> of 41\nThe code for your new exception classes might look\u000b like this:\n      Class TemperatureException extends Exception{  }\n\n     Class TooColdException extends \u000b      TemperatureException {     }\n\n     Class TooHotException extends\u000b     TemperatureException {    }\nException Hierarchy for coffee sipping"
+    },
+    {
+      "slide_number": 25,
+      "title": "Exception Hierarchy for coffee sipping",
+      "content": [
+        "Slide <number> of 41",
+        "This family of classes, the TemperatureException family, declares three new types of exceptions for your program to throw.\nTemperatureException indicates some kind of problem with temperature.\nTooColdException indicates something was too cold;\nTooHotException indicates something was too hot.",
+        "Exception Hierarchy for coffee sipping"
+      ],
+      "notes": "",
+      "text": "Exception Hierarchy for coffee sipping\nSlide <number> of 41\nThis family of classes, the TemperatureException family, declares three new types of exceptions for your program to throw.\nTemperatureException indicates some kind of problem with temperature.\nTooColdException indicates something was too cold;\nTooHotException indicates something was too hot.\nException Hierarchy for coffee sipping"
+    },
+    {
+      "slide_number": 26,
+      "title": "Throwing Exceptions",
+      "content": [
+        "Slide <number> of 41",
+        "Throwing Exceptions",
+        "To throw an exception,you simply use the throw keyword with an object reference, as in:\nthrow new TooColdException();\nThe type of the reference must be Throwable or one of its subclasses.\nThe following code the class that represents the customer, class VirtualPerson, might throw exceptions if the coffee didn\u2019t meet the customer\u2019s temperature preferences."
+      ],
+      "notes": "",
+      "text": "Throwing Exceptions\nSlide <number> of 41\nThrowing Exceptions\nTo throw an exception,you simply use the throw keyword with an object reference, as in:\nthrow new TooColdException();\nThe type of the reference must be Throwable or one of its subclasses.\nThe following code the class that represents the customer, class VirtualPerson, might throw exceptions if the coffee didn\u2019t meet the customer\u2019s temperature preferences."
+    },
+    {
+      "slide_number": 27,
+      "title": "Example of a try-catch block",
+      "content": [
+        "Slide <number> of 41",
+        "Example of a try-catch block",
+        "import java.util.*;\nclass Coffee{\n\tprivate int temperature;\n\tpublic void setTemperature(int val){\n\t\ttemperature = val;\n\t}\n\tpublic int getTemperature(){\n\t\treturn temperature;\n\t}\n}\nabstract class TemperatureException extends Exception{\n\tString msg;\n\tTemperatureException(String msg){\n\t\tsuper(msg);\n\t}\n}"
+      ],
+      "notes": "",
+      "text": "Example of a try-catch block\nSlide <number> of 41\nExample of a try-catch block\nimport java.util.*;\nclass Coffee{\n\tprivate int temperature;\n\tpublic void setTemperature(int val){\n\t\ttemperature = val;\n\t}\n\tpublic int getTemperature(){\n\t\treturn temperature;\n\t}\n}\nabstract class TemperatureException extends Exception{\n\tString msg;\n\tTemperatureException(String msg){\n\t\tsuper(msg);\n\t}\n}"
+    },
+    {
+      "slide_number": 28,
+      "title": "Example of a try-catch block",
+      "content": [
+        "Slide <number> of 41",
+        "Example of a try-catch block",
+        "class TooColdException extends TemperatureException{\n\tpublic TooColdException(){\n\t\tsuper(\"It's too cold\");\n\t}\n}\nclass TooHotException extends TemperatureException{\n\tpublic TooHotException(){\n\t\tsuper(\"It's too hot\");\n\t}\n}"
+      ],
+      "notes": "",
+      "text": "Example of a try-catch block\nSlide <number> of 41\nExample of a try-catch block\nclass TooColdException extends TemperatureException{\n\tpublic TooColdException(){\n\t\tsuper(\"It's too cold\");\n\t}\n}\nclass TooHotException extends TemperatureException{\n\tpublic TooHotException(){\n\t\tsuper(\"It's too hot\");\n\t}\n}"
+    },
+    {
+      "slide_number": 29,
+      "title": "Example of a try-catch block",
+      "content": [
+        "Slide <number> of 41",
+        "Example of a try-catch block",
+        "class VirtualPerson{\n\tprivate static final int tooCold = 65;\n\tprivate static final int tooHot = 85;\n\t\n\tpublic void serveCustomer(Coffee coffee){\n\t\tint temperature;\n\t\ttemperature\t= coffee.getTemperature();\n\t\ttry{\t\n\t\t\tif (temperature <= tooCold){\n\t\t\t\tthrow new TooColdException();\n\t\t\t}\n\t\t\telse if (temperature >= tooHot){\n\t\t\t\tthrow new TooHotException();\n\t\t\t}\n\t\t\t//If no exception thrown\n\t\t\tdrinkCoffee(coffee);\n\t\t}\n\t\tcatch(TooColdException e){\n\t\t\tSystem.out.println(e.getMessage());\n\t\t}\n\t\tcatch(TooHotException e){\n\t\t\tSystem.out.println(e.getMessage());\n\t\t}\n\t\tfinally{\n\t\t\t;\t\t\t\n\t\t}\n\t}\n\tpublic void drinkCoffee(Coffee coffee){\n\t\tSystem.out.println(\"Hmm ... that was just nice, thank you!\");\n\t}\n}"
+      ],
+      "notes": "",
+      "text": "Example of a try-catch block\nSlide <number> of 41\nExample of a try-catch block\nclass VirtualPerson{\n\tprivate static final int tooCold = 65;\n\tprivate static final int tooHot = 85;\n\t\n\tpublic void serveCustomer(Coffee coffee){\n\t\tint temperature;\n\t\ttemperature\t= coffee.getTemperature();\n\t\ttry{\t\n\t\t\tif (temperature <= tooCold){\n\t\t\t\tthrow new TooColdException();\n\t\t\t}\n\t\t\telse if (temperature >= tooHot){\n\t\t\t\tthrow new TooHotException();\n\t\t\t}\n\t\t\t//If no exception thrown\n\t\t\tdrinkCoffee(coffee);\n\t\t}\n\t\tcatch(TooColdException e){\n\t\t\tSystem.out.println(e.getMessage());\n\t\t}\n\t\tcatch(TooHotException e){\n\t\t\tSystem.out.println(e.getMessage());\n\t\t}\n\t\tfinally{\n\t\t\t;\t\t\t\n\t\t}\n\t}\n\tpublic void drinkCoffee(Coffee coffee){\n\t\tSystem.out.println(\"Hmm ... that was just nice, thank you!\");\n\t}\n}"
+    },
+    {
+      "slide_number": 30,
+      "title": "Example of a try-catch block",
+      "content": [
+        "Slide <number> of 41",
+        "Example of a try-catch block",
+        "class VirtualDemo{\n\tpublic static void main(String args[]){\n\t\tint temperature;\n                          Scanner keyboard = new Scanner(System.in);\n\t\tSystem.out.print(\"Enter coffee temperature: \");\n\t\ttemperature = keyboard.nextInt();\n\n\t\tCoffee coffee = new Coffee();\n\t\t\n\t\tcoffee.setTemperature(temperature);\n\t\t\n\t\tVirtualPerson cust = new VirtualPerson();\n\t\tcust.serveCustomer(coffee);\n\t\tSystem.out.println(\"End of program\");\n\t}\n}"
+      ],
+      "notes": "",
+      "text": "Example of a try-catch block\nSlide <number> of 41\nExample of a try-catch block\nclass VirtualDemo{\n\tpublic static void main(String args[]){\n\t\tint temperature;\n                          Scanner keyboard = new Scanner(System.in);\n\t\tSystem.out.print(\"Enter coffee temperature: \");\n\t\ttemperature = keyboard.nextInt();\n\n\t\tCoffee coffee = new Coffee();\n\t\t\n\t\tcoffee.setTemperature(temperature);\n\t\t\n\t\tVirtualPerson cust = new VirtualPerson();\n\t\tcust.serveCustomer(coffee);\n\t\tSystem.out.println(\"End of program\");\n\t}\n}"
+    },
+    {
+      "slide_number": 31,
+      "title": "The finally block",
+      "content": [
+        "Slide <number> of 41",
+        "The finally block",
+        "The statement within the finally block are always executed.\nTo use finally clause,use simply: \nEnclose the code with multiple exit points in a try block\nPlace the code that must me executed when the try block is exited in a finally clause."
+      ],
+      "notes": "",
+      "text": "The finally block\nSlide <number> of 41\nThe finally block\nThe statement within the finally block are always executed.\nTo use finally clause,use simply: \nEnclose the code with multiple exit points in a try block\nPlace the code that must me executed when the try block is exited in a finally clause."
+    },
+    {
+      "slide_number": 32,
+      "title": "The finally block",
+      "content": [
+        "Slide <number> of 41",
+        "try {\u000b\u00a0\u00a0\u00a0\u00a0// Block of code with multiple exit points\u000b}\u000bfinally {\u000b\u00a0\u00a0\u00a0\u00a0// Block of code that must always be executed when the try block\u000b\u00a0\u00a0\u00a0\u00a0// is exited, no matter how the try block is exited\u000b}",
+        "The finally block"
+      ],
+      "notes": "",
+      "text": "The finally block\nSlide <number> of 41\ntry {\u000b\u00a0\u00a0\u00a0\u00a0// Block of code with multiple exit points\u000b}\u000bfinally {\u000b\u00a0\u00a0\u00a0\u00a0// Block of code that must always be executed when the try block\u000b\u00a0\u00a0\u00a0\u00a0// is exited, no matter how the try block is exited\u000b}\nThe finally block"
+    },
+    {
+      "slide_number": 33,
+      "title": "Example for finally clause",
+      "content": [
+        "Slide <number> of 41",
+        "Example for finally clause",
+        "class VirtualPerson {\u000bpublic void drinkCoffee(CoffeeCup cup) {\u000btry {\u000b\u00a0\u00a0\u00a0\u00a0\u00a0int i = (int) (Math.random() * 4.0);\u000b\u00a0\u00a0\u00a0\u00a0\u00a0switch (i) {\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0case 0:\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0throw new TooHotException();\u000b      case 1:\u000b   \u00a0          \u00a0throw new TooColdException();"
+      ],
+      "notes": "",
+      "text": "Example for finally clause\nSlide <number> of 41\nExample for finally clause\nclass VirtualPerson {\u000bpublic void drinkCoffee(CoffeeCup cup) {\u000btry {\u000b\u00a0\u00a0\u00a0\u00a0\u00a0int i = (int) (Math.random() * 4.0);\u000b\u00a0\u00a0\u00a0\u00a0\u00a0switch (i) {\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0case 0:\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0throw new TooHotException();\u000b      case 1:\u000b   \u00a0          \u00a0throw new TooColdException();"
+    },
+    {
+      "slide_number": 34,
+      "title": "Example for finally clause",
+      "content": [
+        "Slide <number> of 41",
+        "case 2:\u000b\u00a0\u00a0\u00a0\u00a0\u00a0throw new UnusualTasteException();\u000b\u00a0default:\u000b\u00a0\u00a0\u00a0System.out.println(\"This coffee is great!\");\u000b\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0\u00a0}\u000bcatch (TooHotException e) \n   {\u000bSystem.out.println(\"This coffee is too hot.\");\u000b\u00a0}",
+        "Example for finally clause"
+      ],
+      "notes": "",
+      "text": "Example for finally clause\nSlide <number> of 41\ncase 2:\u000b\u00a0\u00a0\u00a0\u00a0\u00a0throw new UnusualTasteException();\u000b\u00a0default:\u000b\u00a0\u00a0\u00a0System.out.println(\"This coffee is great!\");\u000b\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0\u00a0}\u000bcatch (TooHotException e) \n   {\u000bSystem.out.println(\"This coffee is too hot.\");\u000b\u00a0}\nExample for finally clause"
+    },
+    {
+      "slide_number": 35,
+      "title": "Example for finally clause",
+      "content": [
+        "Slide <number> of 41",
+        "catch (TooColdException e) \n  {\u000b\u00a0System.out.println(\"This coffee is too cold.\");\u000b}\u000bcatch (UnusualTasteException e)\n   {\u000bSystem.out.println(\"This coffee is too strong.\");\u000b\u00a0}\n   finally {\u000bSystem.out.println(\"Can I please have another cup?\");\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0//...\u000b}",
+        "Example for finally clause"
+      ],
+      "notes": "",
+      "text": "Example for finally clause\nSlide <number> of 41\ncatch (TooColdException e) \n  {\u000b\u00a0System.out.println(\"This coffee is too cold.\");\u000b}\u000bcatch (UnusualTasteException e)\n   {\u000bSystem.out.println(\"This coffee is too strong.\");\u000b\u00a0}\n   finally {\u000bSystem.out.println(\"Can I please have another cup?\");\u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0}\u000b\u00a0\u00a0\u00a0\u00a0//...\u000b}\nExample for finally clause"
+    },
+    {
+      "slide_number": 36,
+      "title": "Example for finally clause",
+      "content": [
+        "Slide <number> of 41",
+        "For example, if a TooColdException exception is thrown during execution of the try block above, the program would print the following: \u000b     This coffee is too cold.\u000b     Can I please have another cup?\nIf an exception is thrown that is not handled by a catch clause associated with the try block, the finally clause is still executed.",
+        "Example for finally clause"
+      ],
+      "notes": "",
+      "text": "Example for finally clause\nSlide <number> of 41\nFor example, if a TooColdException exception is thrown during execution of the try block above, the program would print the following: \u000b     This coffee is too cold.\u000b     Can I please have another cup?\nIf an exception is thrown that is not handled by a catch clause associated with the try block, the finally clause is still executed.\nExample for finally clause"
+    },
+    {
+      "slide_number": 37,
+      "title": "Exception Handler Example",
+      "content": [
+        "Slide <number> of 41",
+        "Exception Handler Example",
+        "public class ExceptionTester  {\n    public static void main(String [] args)  {\n            int a =-10;\n            double f=-10;\ntry\n{  a=Integer.parseInt(args[0]);\n    f=factorial(a);\n    System.out.println(\u201cthe factorial of \u201c+a+\u201d is \u201c+f);\n}\ncatch (ArrayIndexOutOfBoundsException ex)\n{System.out.println(\u201cthere are no value\u201d);}"
+      ],
+      "notes": "",
+      "text": "Exception Handler Example\nSlide <number> of 41\nException Handler Example\npublic class ExceptionTester  {\n    public static void main(String [] args)  {\n            int a =-10;\n            double f=-10;\ntry\n{  a=Integer.parseInt(args[0]);\n    f=factorial(a);\n    System.out.println(\u201cthe factorial of \u201c+a+\u201d is \u201c+f);\n}\ncatch (ArrayIndexOutOfBoundsException ex)\n{System.out.println(\u201cthere are no value\u201d);}"
+    },
+    {
+      "slide_number": 38,
+      "title": "Exception Handler Example",
+      "content": [
+        "Slide <number> of 41",
+        "catch (IllegalArgumentException ex)\n{ System.out.println(\u201cno negative numbers are allowed\u201d);}\n}\npublic static double factorial(int a)\n{  double fact;\n    if (a < 0) throw new IllegalArgumentException(\u201cnumber must be nonnegative\u201d);\n    for (fact=1.0;a>1;fact*=a,a--);\n  return fact;\n }\n}",
+        "Exception Handler Example"
+      ],
+      "notes": "",
+      "text": "Exception Handler Example\nSlide <number> of 41\ncatch (IllegalArgumentException ex)\n{ System.out.println(\u201cno negative numbers are allowed\u201d);}\n}\npublic static double factorial(int a)\n{  double fact;\n    if (a < 0) throw new IllegalArgumentException(\u201cnumber must be nonnegative\u201d);\n    for (fact=1.0;a>1;fact*=a,a--);\n  return fact;\n }\n}\nException Handler Example"
+    },
+    {
+      "slide_number": 39,
+      "title": "",
+      "content": [
+        "Slide <number> of 41",
+        "Summary of Main Teaching Points",
+        "Introduction to Exceptions\nException Classes\nThe Exception Handler\nThe throws & throw clause\nThe finally clause"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 41\nSummary of Main Teaching Points\nIntroduction to Exceptions\nException Classes\nThe Exception Handler\nThe throws & throw clause\nThe finally clause"
+    },
+    {
+      "slide_number": 40,
+      "title": "",
+      "content": [
+        "Slide <number> of 41",
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 41\nQ & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 41,
+      "title": "",
+      "content": [
+        "Slide <number> of 41",
+        "Next Session",
+        "Java API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 41\nNext Session\nJava API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class"
+    }
+  ]
+}

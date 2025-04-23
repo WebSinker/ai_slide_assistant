@@ -1,0 +1,469 @@
+{
+  "filename": "Lecture 06-Class-Excercise",
+  "total_slides": 41,
+  "extraction_time": "2025-04-23 14:16:04",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "",
+      "content": [
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2",
+        "Object Oriented Programming in Java"
+      ],
+      "notes": "",
+      "text": "Copyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2\nObject Oriented Programming in Java"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Topic & Structure of the lesson",
+        "Introduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, unspecified\nStatic/Instance members"
+      ],
+      "notes": "",
+      "text": "Topic & Structure of the lesson\nIntroduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, unspecified\nStatic/Instance members"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nExplain object-oriented programming concepts using appropriate examples\nWrite class definitions with members"
+      ],
+      "notes": "",
+      "text": "Learning Outcomes\nAt the end of this topic, you should be able to:\nExplain object-oriented programming concepts using appropriate examples\nWrite class definitions with members"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n  Class - The prototype for an object in an object-oriented language; \u000b   analogous to a derived type in a procedural language. A class may \u000b   also be considered to be a set of objects which share a common \u000b   structure and behaviour. The structure of a class is determined by the\u000b   class variables which represent the state of an object of that class and \u000b   the behaviour is given by a set of methods associated with the class. \n\n  Object  - In object-oriented programming, an instance of the data \u000b   structure and behaviour defined by the object's class. Each object has \u000b   its own values for the instance variables of its class and can respond \u000b   to the methods defined by its class"
+      ],
+      "notes": "",
+      "text": "Key Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n  Class - The prototype for an object in an object-oriented language; \u000b   analogous to a derived type in a procedural language. A class may \u000b   also be considered to be a set of objects which share a common \u000b   structure and behaviour. The structure of a class is determined by the\u000b   class variables which represent the state of an object of that class and \u000b   the behaviour is given by a set of methods associated with the class. \n\n  Object  - In object-oriented programming, an instance of the data \u000b   structure and behaviour defined by the object's class. Each object has \u000b   its own values for the instance variables of its class and can respond \u000b   to the methods defined by its class"
+    },
+    {
+      "slide_number": 5,
+      "title": "",
+      "content": [
+        "Key Terms you must be able to use",
+        "Encapsulation - The ability to provide users with a well-defined \u000b   interface to a set of functions in a way which hides their internal\u000b   workings. In object-oriented programming, the technique of keeping \u000b   together data structures and the methods (procedures) which act on \u000b   them."
+      ],
+      "notes": "",
+      "text": "Key Terms you must be able to use\nEncapsulation - The ability to provide users with a well-defined \u000b   interface to a set of functions in a way which hides their internal\u000b   workings. In object-oriented programming, the technique of keeping \u000b   together data structures and the methods (procedures) which act on \u000b   them."
+    },
+    {
+      "slide_number": 6,
+      "title": "",
+      "content": [
+        "Key Terms you must be able to use",
+        "Information hiding \u2013 This is related to Encapsulation. This is the\u000b   principle of hiding the implementations and only allowing interfaces to\u000b   be visible to the programmer.\n \n  State \u2013 The state of an object is all the data it currently encapsulates. \u000b   State is usually represented by named attributes (variables).\n\n  Behaviour -   Behaviour is the way an object acts and reacts.  \u000b   Behaviour is modelled by methods.\n\n  Method - The name given in Smalltalk and other object-oriented \u000b   languages to a procedure or routine associated with one or more \u000b  classes."
+      ],
+      "notes": "",
+      "text": "Key Terms you must be able to use\nInformation hiding \u2013 This is related to Encapsulation. This is the\u000b   principle of hiding the implementations and only allowing interfaces to\u000b   be visible to the programmer.\n \n  State \u2013 The state of an object is all the data it currently encapsulates. \u000b   State is usually represented by named attributes (variables).\n\n  Behaviour -   Behaviour is the way an object acts and reacts.  \u000b   Behaviour is modelled by methods.\n\n  Method - The name given in Smalltalk and other object-oriented \u000b   languages to a procedure or routine associated with one or more \u000b  classes."
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Objects are things",
+        "Objects may be simple or complex\nObjects may be real or imaginary"
+      ],
+      "notes": "",
+      "text": "What are objects?\nObjects are things\nObjects may be simple or complex\nObjects may be real or imaginary"
+    },
+    {
+      "slide_number": 8,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "What are not objects?\nSome things are not objects but are attributes, values or characteristics of objects.",
+        "Some things are merely attributes of objects such as color, size or speed.\nAttributes reflect an object\u2019s state, the speed of the car or, size of the object ~ thus, \u201cspeed\u201d is not considered an object in its own right."
+      ],
+      "notes": "",
+      "text": "What are objects?\nWhat are not objects?\nSome things are not objects but are attributes, values or characteristics of objects.\nSome things are merely attributes of objects such as color, size or speed.\nAttributes reflect an object\u2019s state, the speed of the car or, size of the object ~ thus, \u201cspeed\u201d is not considered an object in its own right."
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "The \u201cCar\u201d Object",
+        "In order to define the car object, we need to be able to abstract the states/attributes and behaviours/functions of the car.  We need to define the car in terms of :\nState\t\tWhat features/current state distinguish \u000b                 \tit from other objects?\nBehaviour  \tWhat it can do"
+      ],
+      "notes": "",
+      "text": "What are objects?\nThe \u201cCar\u201d Object\nIn order to define the car object, we need to be able to abstract the states/attributes and behaviours/functions of the car.  We need to define the car in terms of :\nState\t\tWhat features/current state distinguish \u000b                 \tit from other objects?\nBehaviour  \tWhat it can do"
+    },
+    {
+      "slide_number": 10,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Behaviour\nFunctionally, a car can do the following:\nGo\nStop/Brake\nTurn right\nTurn left",
+        "The \u201cCar\u201d Object (cont\u2019d)",
+        "State\nA car may have the following features or attributes :\nColor\nSpeed\nSize\nFuel\nmoving\nstopped",
+        "Attributes",
+        "Current states"
+      ],
+      "notes": "",
+      "text": "What are objects?\nBehaviour\nFunctionally, a car can do the following:\nGo\nStop/Brake\nTurn right\nTurn left\nThe \u201cCar\u201d Object (cont\u2019d)\nState\nA car may have the following features or attributes :\nColor\nSpeed\nSize\nFuel\nmoving\nstopped\nAttributes\nCurrent states"
+    },
+    {
+      "slide_number": 11,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "An object (a software object) is a software bundle of variables and related methods.\nA software object maintains its state in variables and implements its behaviour with methods.\nState \t\t==>\t variables\nBehaviour \t==>\t methods\nWe can represent real-world objects using software objects.  \nFor eg.  We may represent real-world dogs as software objects in an animation program."
+      ],
+      "notes": "",
+      "text": "What are objects?\nAn object (a software object) is a software bundle of variables and related methods.\nA software object maintains its state in variables and implements its behaviour with methods.\nState \t\t==>\t variables\nBehaviour \t==>\t methods\nWe can represent real-world objects using software objects.  \nFor eg.  We may represent real-world dogs as software objects in an animation program."
+    },
+    {
+      "slide_number": 12,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Object Encapsulation",
+        "Encapsulation\n\tis the grouping together of related states and behaviors  to form objects, whereby some parts of the object remain visible while some parts are hidden. Encapsulation involves information hiding.\n\nInformation Hiding\nOnly necessary information to accompish a task is provided to the user (in this case, the programmer). This is the principle of information hiding and is a related principle of encapsulation. \nSome parts are visible (the public interface\nOther parts are hidden (or private)"
+      ],
+      "notes": "",
+      "text": "What are objects?\nObject Encapsulation\nEncapsulation\n\tis the grouping together of related states and behaviors  to form objects, whereby some parts of the object remain visible while some parts are hidden. Encapsulation involves information hiding.\n\nInformation Hiding\nOnly necessary information to accompish a task is provided to the user (in this case, the programmer). This is the principle of information hiding and is a related principle of encapsulation. \nSome parts are visible (the public interface\nOther parts are hidden (or private)"
+    },
+    {
+      "slide_number": 13,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Object Encapsulation\nE.g. The car steering wheel",
+        "The steering wheel presents a public interface to the turn \u000b  mechanism on a car.\n How steering is implemented is private and may only be acted \u000b  upon by the steering wheel."
+      ],
+      "notes": "",
+      "text": "What are objects?\nObject Encapsulation\nE.g. The car steering wheel\nThe steering wheel presents a public interface to the turn \u000b  mechanism on a car.\n How steering is implemented is private and may only be acted \u000b  upon by the steering wheel."
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "change gears",
+        "60 mph",
+        "turn steering",
+        "brake",
+        "Public API",
+        "5th gear",
+        "Gear implementation",
+        "Steering implementation",
+        "Private implementation details",
+        "Brake implementation",
+        "The \u201cCar\u201d Object"
+      ],
+      "notes": "",
+      "text": "What are objects?\nchange gears\n60 mph\nturn steering\nbrake\nPublic API\n5th gear\nGear implementation\nSteering implementation\nPrivate implementation details\nBrake implementation\nThe \u201cCar\u201d Object"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Encapsulation is used to hide unimportant implementation details from other objects.  \nWhen you want to change gears on your car, you don\u2019t need to know how the gear mechanism works, you merely need to know which lever to move.\nSimilarly, in software programs, you don\u2019t need to know how the class is implemented, you just need to know which method to invoke. (For eg. Keyboard.readInt() )\nThus, the implementation details can change anytime without affecting other parts of program.",
+        "The \u201cCar\u201d Object"
+      ],
+      "notes": "",
+      "text": "What are objects?\nEncapsulation is used to hide unimportant implementation details from other objects.  \nWhen you want to change gears on your car, you don\u2019t need to know how the gear mechanism works, you merely need to know which lever to move.\nSimilarly, in software programs, you don\u2019t need to know how the class is implemented, you just need to know which method to invoke. (For eg. Keyboard.readInt() )\nThus, the implementation details can change anytime without affecting other parts of program.\nThe \u201cCar\u201d Object"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Another example\nThe filament light bulb.\nThe public interface is the threaded or pin-type bulb head that connects to the socket. Over the years the technology has changed tremendously but the interface remains unchanged. The user (the homemaker in the house) doesn\u2019t need to knw the technology within the bulb. He or she merely needs to know how to screw on the bulb to the socket. This skill doesn\u2019t need to be relearnt because the public interface hasn\u2019t changed at all."
+      ],
+      "notes": "",
+      "text": "What are objects?\nAnother example\nThe filament light bulb.\nThe public interface is the threaded or pin-type bulb head that connects to the socket. Over the years the technology has changed tremendously but the interface remains unchanged. The user (the homemaker in the house) doesn\u2019t need to knw the technology within the bulb. He or she merely needs to know how to screw on the bulb to the socket. This skill doesn\u2019t need to be relearnt because the public interface hasn\u2019t changed at all."
+    },
+    {
+      "slide_number": 17,
+      "title": "",
+      "content": [
+        "What are objects?"
+      ],
+      "notes": "",
+      "text": "What are objects?"
+    },
+    {
+      "slide_number": 18,
+      "title": "",
+      "content": [
+        "What are objects?",
+        "Modularity  - The source code for an object can be written and maintained independently of the source code for other objects.  Also, an object can be easily passed around in the system.  You can give your car to someone else and it\u2019ll still work.\n\nInformation hiding  - An object has a public interface that other objects can use to communicate with it.  But the object can maintain private information and methods that can be changed anytime without affecting the other objects that depend on it.  You don\u2019t need to understand the gear mechanism on your bike to use it.",
+        "Benefits"
+      ],
+      "notes": "",
+      "text": "What are objects?\nModularity  - The source code for an object can be written and maintained independently of the source code for other objects.  Also, an object can be easily passed around in the system.  You can give your car to someone else and it\u2019ll still work.\n\nInformation hiding  - An object has a public interface that other objects can use to communicate with it.  But the object can maintain private information and methods that can be changed anytime without affecting the other objects that depend on it.  You don\u2019t need to understand the gear mechanism on your bike to use it.\nBenefits"
+    },
+    {
+      "slide_number": 19,
+      "title": "Example",
+      "content": [
+        "Example",
+        "Slide <number> of 38",
+        "Define a class Box with length, breadth and height as member variables. Also define setDimension() and showDimension() as member function.\nCreate classes of students, customers, employee, cars with member variables and member methods/functions to set the values for member variables and also to get the values of member variables."
+      ],
+      "notes": "",
+      "text": "Example\nExample\nSlide <number> of 38\nDefine a class Box with length, breadth and height as member variables. Also define setDimension() and showDimension() as member function.\nCreate classes of students, customers, employee, cars with member variables and member methods/functions to set the values for member variables and also to get the values of member variables."
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "What are classes?",
+        "In the real world, we can have many objects of the same kind.  For eg.  Ferrari is just one type of car while Honda is another type of car but we classified them under \u201ccar\u201d.  \nThus, in OOP, we can say that :\ncar  ==> class,  \n\t\t\tFerrari1  ==> object, \n\t\t\tHonda1  ==> object\n==> An object  is an instance of a class"
+      ],
+      "notes": "",
+      "text": "What are classes?\nIn the real world, we can have many objects of the same kind.  For eg.  Ferrari is just one type of car while Honda is another type of car but we classified them under \u201ccar\u201d.  \nThus, in OOP, we can say that :\ncar  ==> class,  \n\t\t\tFerrari1  ==> object, \n\t\t\tHonda1  ==> object\n==> An object  is an instance of a class"
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "What are classes?",
+        "Objects Vs Classes",
+        "-   Class\n\n   A class defines a real world or abstract entity.  It is the\u000b    type or classification of data.  A class defines both the \u000b    behavior and attributes of a group of objects with similar\u000b    characteristics."
+      ],
+      "notes": "",
+      "text": "What are classes?\nObjects Vs Classes\n-   Class\n\n   A class defines a real world or abstract entity.  It is the\u000b    type or classification of data.  A class defines both the \u000b    behavior and attributes of a group of objects with similar\u000b    characteristics."
+    },
+    {
+      "slide_number": 22,
+      "title": "",
+      "content": [
+        "What are classes?",
+        "-   Object\n\n   An object is an instance of a class.  It is \u000b    said to belong to the class.  An object can be \u000b   distinguished from other members by its attributes."
+      ],
+      "notes": "",
+      "text": "What are classes?\n-   Object\n\n   An object is an instance of a class.  It is \u000b    said to belong to the class.  An object can be \u000b   distinguished from other members by its attributes."
+    },
+    {
+      "slide_number": 23,
+      "title": "",
+      "content": [
+        "Class methods",
+        "is a set of program statements\nfundamental unit of execution\nexists as part of a classs",
+        "Example of a method:",
+        "Method Structure",
+        "returnType methodName (paramList)  {  \u000b// body of method\u000b}",
+        "returnType \u2013 return type (value)\u000b                             declare void if no value returned\u000b methodName \u2013 name of method\u000b paramList \u2013 optional list of parameters"
+      ],
+      "notes": "",
+      "text": "Class methods\nis a set of program statements\nfundamental unit of execution\nexists as part of a classs\nExample of a method:\nMethod Structure\nreturnType methodName (paramList)  {  \u000b// body of method\u000b}\nreturnType \u2013 return type (value)\u000b                             declare void if no value returned\u000b methodName \u2013 name of method\u000b paramList \u2013 optional list of parameters"
+    },
+    {
+      "slide_number": 24,
+      "title": "",
+      "content": [
+        "Class methods",
+        "To invoke a method :",
+        "methodName(args);\ninvoke the method by using its name and passing it an optional set of arguments",
+        "Example :",
+        "boolean process(int i, String s){\u000b//body of method\n  return true/false;\u000b}\nmethod that accepts int and String parameters and returns a boolean type"
+      ],
+      "notes": "",
+      "text": "Class methods\nTo invoke a method :\nmethodName(args);\ninvoke the method by using its name and passing it an optional set of arguments\nExample :\nboolean process(int i, String s){\u000b//body of method\n  return true/false;\u000b}\nmethod that accepts int and String parameters and returns a boolean type"
+    },
+    {
+      "slide_number": 25,
+      "title": "",
+      "content": [
+        "Class methods",
+        "Write the program necessary to create a small application \u201ccalSqrt\u201d that print out \u201cHello Malaysia\u201d and has one calculateSqrt() method.  The  main() method will call the calculateSqrt() method which calculates the square root of  5 and then prints out the answer on a new line.",
+        "class calSqrt {\n  \n  public static void main (String[] args) {\n      System.out.println(\u201cHello Malaysia\u201d);  \n      calculateSqrt(5);\n  }\n\n  static void calculateSqrt(double num)  {\n      double numSqrt;\n\n     numSqrt = Math.sqrt(num);\n     System.out.println(\u201cThe squareroot of 5 :\u201d + numSqrt);\n  }   \n}",
+        "Sample program :"
+      ],
+      "notes": "",
+      "text": "Class methods\nWrite the program necessary to create a small application \u201ccalSqrt\u201d that print out \u201cHello Malaysia\u201d and has one calculateSqrt() method.  The  main() method will call the calculateSqrt() method which calculates the square root of  5 and then prints out the answer on a new line.\nclass calSqrt {\n  \n  public static void main (String[] args) {\n      System.out.println(\u201cHello Malaysia\u201d);  \n      calculateSqrt(5);\n  }\n\n  static void calculateSqrt(double num)  {\n      double numSqrt;\n\n     numSqrt = Math.sqrt(num);\n     System.out.println(\u201cThe squareroot of 5 :\u201d + numSqrt);\n  }   \n}\nSample program :"
+    },
+    {
+      "slide_number": 26,
+      "title": "",
+      "content": [
+        "Messages",
+        "A single object alone is generally not very useful and usually appears as a component of a larger program or application that contains many other objects ~ thus, object needs to interact with each other. \nHow do objects interact? \n    Objects interact by sending messages to each other."
+      ],
+      "notes": "",
+      "text": "Messages\nA single object alone is generally not very useful and usually appears as a component of a larger program or application that contains many other objects ~ thus, object needs to interact with each other. \nHow do objects interact? \n    Objects interact by sending messages to each other."
+    },
+    {
+      "slide_number": 27,
+      "title": "",
+      "content": [
+        "Messages",
+        "3 components comprise a message :\n1.  The object to whom the message is addressed  \u000b      (Your Car)\n2.  The name of the method to perform \u000b      (changeGears)\n3.  Any parameters needed by the method \n        (lower gear)",
+        "Complete Message (Method call): yourCar.changeGears(lowerGear)"
+      ],
+      "notes": "",
+      "text": "Messages\n3 components comprise a message :\n1.  The object to whom the message is addressed  \u000b      (Your Car)\n2.  The name of the method to perform \u000b      (changeGears)\n3.  Any parameters needed by the method \n        (lower gear)\nComplete Message (Method call): yourCar.changeGears(lowerGear)"
+    },
+    {
+      "slide_number": 28,
+      "title": "",
+      "content": [
+        "Visibility control",
+        "Term\t\tMeaning\u000b\u000bprivate\tcan be invoked only by code in the \u000b                  \tsame class\u000b\u000bprotected\tcan be invoked only by code in a subclass or \u000b\t\tthe same package\u000b\u000bpublic\t\tcan be invoked by any other class \nUnspecified\taccessible within the same package only"
+      ],
+      "notes": "",
+      "text": "Visibility control\nTerm\t\tMeaning\u000b\u000bprivate\tcan be invoked only by code in the \u000b                  \tsame class\u000b\u000bprotected\tcan be invoked only by code in a subclass or \u000b\t\tthe same package\u000b\u000bpublic\t\tcan be invoked by any other class \nUnspecified\taccessible within the same package only"
+    },
+    {
+      "slide_number": 29,
+      "title": "",
+      "content": [
+        "Static modifier",
+        "Static Variables\neg.\nprivate static final int April = 4, May = 5, June = 6;",
+        "static modifier may only be used on members at\u000b     the class level, not on variables and arguments \u000b     within methods.\n   also known as class variable"
+      ],
+      "notes": "",
+      "text": "Static modifier\nStatic Variables\neg.\nprivate static final int April = 4, May = 5, June = 6;\nstatic modifier may only be used on members at\u000b     the class level, not on variables and arguments \u000b     within methods.\n   also known as class variable"
+    },
+    {
+      "slide_number": 30,
+      "title": "",
+      "content": [
+        "Static modifier",
+        "Static Methods\n  referenced through the class itself\n  eg.  main method of a Java program must be \u000b   declared static so that main can be executed by \u000b   the interpreter without instantiating an object from\u000b   the class containing main\n eg. Math class in the java.lang package"
+      ],
+      "notes": "",
+      "text": "Static modifier\nStatic Methods\n  referenced through the class itself\n  eg.  main method of a Java program must be \u000b   declared static so that main can be executed by \u000b   the interpreter without instantiating an object from\u000b   the class containing main\n eg. Math class in the java.lang package"
+    },
+    {
+      "slide_number": 31,
+      "title": "",
+      "content": [
+        "Classes and objects in Java",
+        "Declaring Objects (Instance of Class) & Using It in Java\nThe Car Class\nCreate an instance of a Class - Declare variables to contain Car object :\n\n\nwhen a variable of type Car is declared, it creates a container that is empty.\nCreate an actual object using the operator new\n\n\n\n==> creates a new object and invokes a method called the constructor to initialize the new object.",
+        "Car ferrari1, ferrari2, honda;",
+        "ferrari1 = new Car(arguments)"
+      ],
+      "notes": "",
+      "text": "Classes and objects in Java\nDeclaring Objects (Instance of Class) & Using It in Java\nThe Car Class\nCreate an instance of a Class - Declare variables to contain Car object :\n\n\nwhen a variable of type Car is declared, it creates a container that is empty.\nCreate an actual object using the operator new\n\n\n\n==> creates a new object and invokes a method called the constructor to initialize the new object.\nCar ferrari1, ferrari2, honda;\nferrari1 = new Car(arguments)"
+    },
+    {
+      "slide_number": 32,
+      "title": "",
+      "content": [
+        "Classes and objects in Java",
+        "Declaring Objects (Instance of Class) & Using It in Java\nThe Car Class\n\nEach object has a certain set of methods (the instance methods) and a certain set of variables (the instance variables)\n\nInstance variables\n\n\n\nInstance methods",
+        "ferrari1.speed=170;",
+        "ferrari1.turn(right);"
+      ],
+      "notes": "",
+      "text": "Classes and objects in Java\nDeclaring Objects (Instance of Class) & Using It in Java\nThe Car Class\n\nEach object has a certain set of methods (the instance methods) and a certain set of variables (the instance variables)\n\nInstance variables\n\n\n\nInstance methods\nferrari1.speed=170;\nferrari1.turn(right);"
+    },
+    {
+      "slide_number": 33,
+      "title": "",
+      "content": [
+        "Classes and objects in Java",
+        "public class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}",
+        "class Greetings {\n \n       \n       public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n}",
+        "Greetings\nClass",
+        "Example 1 :",
+        "TestGreetings\nclass"
+      ],
+      "notes": "",
+      "text": "Classes and objects in Java\npublic class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}\nclass Greetings {\n \n       \n       public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n}\nGreetings\nClass\nExample 1 :\nTestGreetings\nclass"
+    },
+    {
+      "slide_number": 34,
+      "title": "",
+      "content": [
+        "Classes and objects in Java",
+        "public class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings(\"Hello,\");\n                welcome.greet(\"Lai Kuan\");\n        }\n}",
+        "class Greetings {\n        String salutation;\n \n        Greetings(String s)  {\n                salutation=s;\n        }\n\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}",
+        "Greetings\nclass",
+        "Example 2 :",
+        "TestGreetings\nclass"
+      ],
+      "notes": "",
+      "text": "Classes and objects in Java\npublic class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings(\"Hello,\");\n                welcome.greet(\"Lai Kuan\");\n        }\n}\nclass Greetings {\n        String salutation;\n \n        Greetings(String s)  {\n                salutation=s;\n        }\n\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}\nGreetings\nclass\nExample 2 :\nTestGreetings\nclass"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "Classes and objects in Java",
+        "public class TestGreetings {\n\n        public static void main(String[] args)  {\n               Greetings.showTitle(); \n\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}",
+        "class Greetings {\n        String salutation;\n\n        \n        public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n\n        public static void showTitle()  {\n                System.out.println(\"Testing Modular Programming in Java \");\n        }\n}",
+        "Greetings\nclass",
+        "TestGreetings\nclass"
+      ],
+      "notes": "",
+      "text": "Classes and objects in Java\npublic class TestGreetings {\n\n        public static void main(String[] args)  {\n               Greetings.showTitle(); \n\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}\nclass Greetings {\n        String salutation;\n\n        \n        public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n\n        public static void showTitle()  {\n                System.out.println(\"Testing Modular Programming in Java \");\n        }\n}\nGreetings\nclass\nTestGreetings\nclass"
+    },
+    {
+      "slide_number": 36,
+      "title": "",
+      "content": [
+        "Sample 1",
+        "class Person{\n    String name;\n    int age;\n    \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name);\n    }\n    public void calculateAge(int b)\n    {\n        age= 2024-b;\n       System.out.println(\"Age : \"+age); \n    }\n}",
+        "public class testPerson {\n\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      obj1.name = \"Nancy\";\n      obj1.displayInfo();\n      obj1.calculateAge(2005);       \n    }\n}"
+      ],
+      "notes": "",
+      "text": "Sample 1\nclass Person{\n    String name;\n    int age;\n    \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name);\n    }\n    public void calculateAge(int b)\n    {\n        age= 2024-b;\n       System.out.println(\"Age : \"+age); \n    }\n}\npublic class testPerson {\n\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      obj1.name = \"Nancy\";\n      obj1.displayInfo();\n      obj1.calculateAge(2005);       \n    }\n}"
+    },
+    {
+      "slide_number": 37,
+      "title": "",
+      "content": [
+        "Sample 2",
+        "class Person{\n    private String name;\n    private int age;\n    \n    public void setName(String n)\n    {\n        name= n;\n    }\n    \n    public void setAge(int a)\n    {\n        age = a;\n    }\n \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name);\n    }\n    \n    public int getAge()\n    {\n        return age;\n    }\n}",
+        "public class testPerson {\n\u00a0\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      obj1.setName(\"Alicia\");\n      obj1.displayInfo();\n      obj1.setAge(18);\n      System.out.println(\"Age : \"+obj1.getAge());\n    }\n}"
+      ],
+      "notes": "",
+      "text": "Sample 2\nclass Person{\n    private String name;\n    private int age;\n    \n    public void setName(String n)\n    {\n        name= n;\n    }\n    \n    public void setAge(int a)\n    {\n        age = a;\n    }\n \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name);\n    }\n    \n    public int getAge()\n    {\n        return age;\n    }\n}\npublic class testPerson {\n\u00a0\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      obj1.setName(\"Alicia\");\n      obj1.displayInfo();\n      obj1.setAge(18);\n      System.out.println(\"Age : \"+obj1.getAge());\n    }\n}"
+    },
+    {
+      "slide_number": 38,
+      "title": "",
+      "content": [
+        "Sample 3",
+        "class Person{\n    private String name;\n    private int age;\n    \n   Person()\n   {\n       name= \"Bond\";\n       age = 99;\n   }\n   \n   Person(String n)\n   {\n       name= n;\n       age = 0;\n   }\n   \n   Person(String n, int a)\n   {\n       name= n;\n       age = a;\n   }\n \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name+ \"\\nAge : \"+age);\n    }\n}",
+        "public class testPerson {\n\u00a0\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      Person obj2 = new Person(\"James\");\n      Person obj3 = new Person(\"Jackie\",40);\n      \n      obj1.displayInfo();\n      obj2.displayInfo();\n      obj3.displayInfo();     \n    }\n}"
+      ],
+      "notes": "",
+      "text": "Sample 3\nclass Person{\n    private String name;\n    private int age;\n    \n   Person()\n   {\n       name= \"Bond\";\n       age = 99;\n   }\n   \n   Person(String n)\n   {\n       name= n;\n       age = 0;\n   }\n   \n   Person(String n, int a)\n   {\n       name= n;\n       age = a;\n   }\n \n    public void displayInfo()\n    {\n        System.out.println(\"Name : \"+name+ \"\\nAge : \"+age);\n    }\n}\npublic class testPerson {\n\u00a0\n    public static void main(String[] args) {\n      Person obj1 = new Person();\n      Person obj2 = new Person(\"James\");\n      Person obj3 = new Person(\"Jackie\",40);\n      \n      obj1.displayInfo();\n      obj2.displayInfo();\n      obj3.displayInfo();     \n    }\n}"
+    },
+    {
+      "slide_number": 39,
+      "title": "",
+      "content": [
+        "Topic & Structure of the lesson",
+        "Introduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, unspecified\nStatic/Instance members"
+      ],
+      "notes": "",
+      "text": "Topic & Structure of the lesson\nIntroduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, unspecified\nStatic/Instance members"
+    },
+    {
+      "slide_number": 40,
+      "title": "",
+      "content": [
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Q & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 41,
+      "title": "",
+      "content": [
+        "Next Session",
+        "Inheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+      ],
+      "notes": "",
+      "text": "Next Session\nInheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+    }
+  ]
+}

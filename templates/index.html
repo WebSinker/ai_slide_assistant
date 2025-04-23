@@ -22,6 +22,21 @@
             </div>
             <div class="qa-section">
                 <textarea id="questionInput" placeholder="Ask a question..."></textarea>
+                <div class="query-scope">
+                    <h4>Search Scope:</h4>
+                    <label>
+                        <input type="radio" name="scope" id="scopeAll" checked> 
+                        <span>Search all presentations</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="scope" id="scopeCurrentPresentation"> 
+                        <span>Current presentation only</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="scope" id="scopeCurrentSlide" disabled> 
+                        <span>Current slide only</span>
+                    </label>
+                </div>
                 <button onclick="askQuestion()">Ask AI</button>
                 <div id="answer"></div>
             </div>

@@ -1,0 +1,564 @@
+{
+  "filename": "Lecture 11-API",
+  "total_slides": 54,
+  "extraction_time": "2025-04-23 14:15:53",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Java API and Class Libraries",
+      "content": [
+        "Java API and Class Libraries",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Java API and Class Libraries\nJava API and Class Libraries\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Java API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class",
+        "Topic & Structure of the lesson"
+      ],
+      "notes": "",
+      "text": "Java API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class\nTopic & Structure of the lesson"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nImplement the usage of various classes \nUse the drawing methods available"
+      ],
+      "notes": "",
+      "text": "Learning Outcomes\nAt the end of this topic, you should be able to:\nImplement the usage of various classes \nUse the drawing methods available"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Java API"
+      ],
+      "notes": "",
+      "text": "Key Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n Java API"
+    },
+    {
+      "slide_number": 5,
+      "title": "A Tour of the Java API",
+      "content": [
+        "A Tour of the Java API",
+        "An API User\u2019s Guide, in HTML, is bundled with Java\nMuch of the \u201clearning curve\u201d is in the API\nLet\u2019s look at some packages"
+      ],
+      "notes": "",
+      "text": "A Tour of the Java API\nA Tour of the Java API\nAn API User\u2019s Guide, in HTML, is bundled with Java\nMuch of the \u201clearning curve\u201d is in the API\nLet\u2019s look at some packages"
+    },
+    {
+      "slide_number": 6,
+      "title": "The Java API",
+      "content": [
+        "The Java API",
+        "java.applet\nApplet class\njava.awt\nWindows, buttons, mouse, etc.\njava.awt.image\nimage processing\njava.awt.peer\nGUI toolkit",
+        "java.io\nSystem.out.print\njava.lang\nlength method for arrays\n exceptions\njava.net\nsockets\njava.util\nSystem.getProperty",
+        "See https://docs.oracle.com/en/java/javase/18/docs/api/index.html for the current APIs"
+      ],
+      "notes": "",
+      "text": "The Java API\nThe Java API\njava.applet\nApplet class\njava.awt\nWindows, buttons, mouse, etc.\njava.awt.image\nimage processing\njava.awt.peer\nGUI toolkit\njava.io\nSystem.out.print\njava.lang\nlength method for arrays\n exceptions\njava.net\nsockets\njava.util\nSystem.getProperty\nSee https://docs.oracle.com/en/java/javase/18/docs/api/index.html for the current APIs"
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "Sample API"
+      ],
+      "notes": "",
+      "text": "Sample API"
+    },
+    {
+      "slide_number": 8,
+      "title": "",
+      "content": [
+        "Sample API"
+      ],
+      "notes": "",
+      "text": "Sample API"
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "Sample API"
+      ],
+      "notes": "",
+      "text": "Sample API"
+    },
+    {
+      "slide_number": 10,
+      "title": "",
+      "content": [
+        "Random numbers are extremely useful, for eg.,in generating moves in a game or as test data for computer programs.\nAlgorithms that generate random numbers,admittedly, provide \u201cpseudorandom\u201d numbers.\nJava\u2019s Random  class in the java.util package includes a variety of methods to generate pseudo-random numbers.",
+        "Random Class"
+      ],
+      "notes": "",
+      "text": "Random numbers are extremely useful, for eg.,in generating moves in a game or as test data for computer programs.\nAlgorithms that generate random numbers,admittedly, provide \u201cpseudorandom\u201d numbers.\nJava\u2019s Random  class in the java.util package includes a variety of methods to generate pseudo-random numbers.\nRandom Class"
+    },
+    {
+      "slide_number": 11,
+      "title": "Methods of the Random Class",
+      "content": [
+        "Methods of the Random Class",
+        "Constructor:\nRandom() \uf0e0 creates a new random number generator; returns a reference to the new object.\n\nInstance Methods:\nnextBoolean() \uf0e0 returns a boolean;the next pseudo-random,uniformly distributed boolean value from this random number generator\u2019s sequence."
+      ],
+      "notes": "",
+      "text": "Methods of the Random Class\nMethods of the Random Class\nConstructor:\nRandom() \uf0e0 creates a new random number generator; returns a reference to the new object.\n\nInstance Methods:\nnextBoolean() \uf0e0 returns a boolean;the next pseudo-random,uniformly distributed boolean value from this random number generator\u2019s sequence."
+    },
+    {
+      "slide_number": 12,
+      "title": "Methods of the Random Class",
+      "content": [
+        "nextDouble()  \uf0e0 returns a double: the next pseudo-random,uniformly distributed double value between 0.0 to 1.0 from this random number generator\u2019s sequence.\nnextInt()    \uf0e0 returns an int: the next pseudo-random,uniformly distributed int value from this random number generator\u2019s sequence.\nnextInt(int n) \uf0e0 returns an int: a pseudo-random,uniformly distributed int value between 0 and the specified value, drawn from this random number generator\u2019s sequence.",
+        "Methods of the Random Class"
+      ],
+      "notes": "",
+      "text": "Methods of the Random Class\nnextDouble()  \uf0e0 returns a double: the next pseudo-random,uniformly distributed double value between 0.0 to 1.0 from this random number generator\u2019s sequence.\nnextInt()    \uf0e0 returns an int: the next pseudo-random,uniformly distributed int value from this random number generator\u2019s sequence.\nnextInt(int n) \uf0e0 returns an int: a pseudo-random,uniformly distributed int value between 0 and the specified value, drawn from this random number generator\u2019s sequence.\nMethods of the Random Class"
+    },
+    {
+      "slide_number": 13,
+      "title": "Example 1: Random Bits",
+      "content": [
+        "Example 1: Random Bits",
+        "The RandomBits program generates a series of random bits (0 or 1).\nEach bit is represented as a character and placed in a 10-character string buffer at a random location in the string.\nAfter each bit is inserted, the string buffer is printed."
+      ],
+      "notes": "",
+      "text": "Example 1: Random Bits\nExample 1: Random Bits\nThe RandomBits program generates a series of random bits (0 or 1).\nEach bit is represented as a character and placed in a 10-character string buffer at a random location in the string.\nAfter each bit is inserted, the string buffer is printed."
+    },
+    {
+      "slide_number": 14,
+      "title": "Program :Random Bits",
+      "content": [
+        "Program :Random Bits",
+        "import java.util.*;\n\npublic class RandomBits {\n\n    public static void main(String args[]) {\n        long t1 = System.currentTimeMillis();\n        int temp = 0;\n        StringBuffer sb = new StringBuffer(\"             \");\n        Random r = new Random();\n        while (true) {\n            int t2 = (int) (System.currentTimeMillis() - t1) / 100;\n            if (t2 != temp) {\n                int i = r.nextInt(10);\n                String bit = r.nextBoolean() ? \"1\" : \"0\";\n                System.out.println(sb);\n                sb.replace(i, i+1, bit);\n                \n                temp = t2;\n            }\n        }\n    }\n}"
+      ],
+      "notes": "",
+      "text": "Program :Random Bits\nProgram :Random Bits\nimport java.util.*;\n\npublic class RandomBits {\n\n    public static void main(String args[]) {\n        long t1 = System.currentTimeMillis();\n        int temp = 0;\n        StringBuffer sb = new StringBuffer(\"             \");\n        Random r = new Random();\n        while (true) {\n            int t2 = (int) (System.currentTimeMillis() - t1) / 100;\n            if (t2 != temp) {\n                int i = r.nextInt(10);\n                String bit = r.nextBoolean() ? \"1\" : \"0\";\n                System.out.println(sb);\n                sb.replace(i, i+1, bit);\n                \n                temp = t2;\n            }\n        }\n    }\n}"
+    },
+    {
+      "slide_number": 15,
+      "title": "Output from RandomBits",
+      "content": [
+        "Output from RandomBits"
+      ],
+      "notes": "",
+      "text": "Output from RandomBits\nOutput from RandomBits"
+    },
+    {
+      "slide_number": 16,
+      "title": "Random Bits",
+      "content": [
+        "The currentTimeMillis() method of the System class is used in creating the 100ms delay between successive print statements.\n\nTo generate a random index between 0 and 9, the nextInt() method is called with \u201c10\u201d as an argument.",
+        "Random Bits"
+      ],
+      "notes": "",
+      "text": "Random Bits\nThe currentTimeMillis() method of the System class is used in creating the 100ms delay between successive print statements.\n\nTo generate a random index between 0 and 9, the nextInt() method is called with \u201c10\u201d as an argument.\nRandom Bits"
+    },
+    {
+      "slide_number": 17,
+      "title": "Date Class",
+      "content": [
+        "Date Class",
+        "The  Date class encapsulates the current date and time, with millisecond precision. \nDate  supports the following constructors:\nDate()  \uf0e0 initializes the object with the current date and time.\nDate(long millisec) \uf0e0 accepts one argument that equals the number of milliseconds that have elapsed since midnight, January 1, 1970."
+      ],
+      "notes": "",
+      "text": "Date Class\nDate Class\nThe  Date class encapsulates the current date and time, with millisecond precision. \nDate  supports the following constructors:\nDate()  \uf0e0 initializes the object with the current date and time.\nDate(long millisec) \uf0e0 accepts one argument that equals the number of milliseconds that have elapsed since midnight, January 1, 1970."
+    },
+    {
+      "slide_number": 18,
+      "title": "Date Class",
+      "content": [
+        "Methods:\nboolean after(Date date)\nTests if this date is after the specified date\n boolean before(Date date)\nTests if this date is before the specified date\nint compareTo(Date date)\nCompares two dates for ordering\nboolean equals(Object date)\nCompares two dates for equality",
+        "Date Class"
+      ],
+      "notes": "",
+      "text": "Date Class\nMethods:\nboolean after(Date date)\nTests if this date is after the specified date\n boolean before(Date date)\nTests if this date is before the specified date\nint compareTo(Date date)\nCompares two dates for ordering\nboolean equals(Object date)\nCompares two dates for equality\nDate Class"
+    },
+    {
+      "slide_number": 19,
+      "title": "Date Class",
+      "content": [
+        "long getTime()\nReturns the number of milliseconds since January 1, 1970, 00:00:00 GMT represented by this Date object.\nvoid setTime(long time)\nSets this Date object to represent a point in time that is time milliseconds after January 1, 1970 00:00:00 GMT.\nstring to string()\nConverts this Date object to a String of the form.",
+        "Date Class"
+      ],
+      "notes": "",
+      "text": "Date Class\nlong getTime()\nReturns the number of milliseconds since January 1, 1970, 00:00:00 GMT represented by this Date object.\nvoid setTime(long time)\nSets this Date object to represent a point in time that is time milliseconds after January 1, 1970 00:00:00 GMT.\nstring to string()\nConverts this Date object to a String of the form.\nDate Class"
+    },
+    {
+      "slide_number": 20,
+      "title": "Example",
+      "content": [
+        "Example",
+        "//Program to show date and time using only Date methods\nimport java.util.Date;\nclass DateDemo{\npublic static void main(String args[])\n{ Date date1=new Date();\n System.out.println(date);\nlong msec=date.getTime();\nSystem.out.println(\u201cMilliseconds since Jan 1,1970 GMT=\u201c+msec);\n}\n}"
+      ],
+      "notes": "",
+      "text": "Example\nExample\n//Program to show date and time using only Date methods\nimport java.util.Date;\nclass DateDemo{\npublic static void main(String args[])\n{ Date date1=new Date();\n System.out.println(date);\nlong msec=date.getTime();\nSystem.out.println(\u201cMilliseconds since Jan 1,1970 GMT=\u201c+msec);\n}\n}"
+    },
+    {
+      "slide_number": 21,
+      "title": "Calendar Class",
+      "content": [
+        "Calendar Class",
+        "The abstract Calendar class provides a set of methods that allows you to convert a time in milliseconds to a number of useful components.\nSome examples of the type of information that can be provided are:\nYear,month,day,hour, minute and second.\nIt is intended that subclasses of Calendar will provide the specific functionality to interpret time information according to their own rules."
+      ],
+      "notes": "",
+      "text": "Calendar Class\nCalendar Class\nThe abstract Calendar class provides a set of methods that allows you to convert a time in milliseconds to a number of useful components.\nSome examples of the type of information that can be provided are:\nYear,month,day,hour, minute and second.\nIt is intended that subclasses of Calendar will provide the specific functionality to interpret time information according to their own rules."
+    },
+    {
+      "slide_number": 22,
+      "title": "Calendar Class",
+      "content": [
+        "Java class library enables us to write programs that can operate in several international environments.\nAn example of such a subclass is Gregorian Calendar.\nCalendar provides no public constructors.\nCalendar defines several protected instance variables.",
+        "Calendar Class"
+      ],
+      "notes": "",
+      "text": "Calendar Class\nJava class library enables us to write programs that can operate in several international environments.\nAn example of such a subclass is Gregorian Calendar.\nCalendar provides no public constructors.\nCalendar defines several protected instance variables.\nCalendar Class"
+    },
+    {
+      "slide_number": 23,
+      "title": "Calendar Class",
+      "content": [
+        "Calendar defines the following int constants which are used when you get or set components of the calendar:\nAM             \nAM-PM\nHOUR-OF-DAY\nFIELD-COUNT\nDAY-OF-YEAR",
+        "Calendar Class"
+      ],
+      "notes": "",
+      "text": "Calendar Class\nCalendar defines the following int constants which are used when you get or set components of the calendar:\nAM             \nAM-PM\nHOUR-OF-DAY\nFIELD-COUNT\nDAY-OF-YEAR\nCalendar Class"
+    },
+    {
+      "slide_number": 24,
+      "title": "Calendar Class",
+      "content": [
+        "Methods:\nabstract void add(int which,int val)\nAdds val to the time or date component specified by which.\nTo subtract, add a negative value which must be one of the fields defined by Calendar,such as Calendar.HOUR",
+        "Calendar Class"
+      ],
+      "notes": "",
+      "text": "Calendar Class\nMethods:\nabstract void add(int which,int val)\nAdds val to the time or date component specified by which.\nTo subtract, add a negative value which must be one of the fields defined by Calendar,such as Calendar.HOUR\nCalendar Class"
+    },
+    {
+      "slide_number": 25,
+      "title": "Calendar Class",
+      "content": [
+        "Boolean after(Object calendar Obj)\nReturns true if the invoking Calendar object contains a date that is later than one specified by calendar obj.otherwise it returns false.",
+        "Calendar Class"
+      ],
+      "notes": "",
+      "text": "Calendar Class\nBoolean after(Object calendar Obj)\nReturns true if the invoking Calendar object contains a date that is later than one specified by calendar obj.otherwise it returns false.\nCalendar Class"
+    },
+    {
+      "slide_number": 26,
+      "title": "Example for Calendar",
+      "content": [
+        "Example for Calendar",
+        "//Demonstrate Calendar\nimport java.util.Calendar;\nclass CalendarDemo{\npublic static void main(String args[])\n{ String months[ ]={\u201cJan\u201d,\u201dFeb\u201d,\u201dMar\u201d,\u201dApr\u201d,\n                                  \u201cMay\u201d,\u201dJune\u201d,\u201dJul\u201d,\u201dAug\u201d,\n                                  \u201cSep\u201d,\u201dOct\u201d,\u201dNov\u201d,\u201dDec\u201d};\nCalendar  calender1=Calendar.getInstance();\nSystem.out.print(\u201cDate:\u201d);\nSystem.out.print(months[calendar1.get(Calendar.MONTH]);\nSystem.out.print(\u201c  \u201d+calendar1.get(Calendar.DATE)+\u201d  \u201c);\nSystem.out.println(calendar1.get(Calendar.YEAR));"
+      ],
+      "notes": "",
+      "text": "Example for Calendar\nExample for Calendar\n//Demonstrate Calendar\nimport java.util.Calendar;\nclass CalendarDemo{\npublic static void main(String args[])\n{ String months[ ]={\u201cJan\u201d,\u201dFeb\u201d,\u201dMar\u201d,\u201dApr\u201d,\n                                  \u201cMay\u201d,\u201dJune\u201d,\u201dJul\u201d,\u201dAug\u201d,\n                                  \u201cSep\u201d,\u201dOct\u201d,\u201dNov\u201d,\u201dDec\u201d};\nCalendar  calender1=Calendar.getInstance();\nSystem.out.print(\u201cDate:\u201d);\nSystem.out.print(months[calendar1.get(Calendar.MONTH]);\nSystem.out.print(\u201c  \u201d+calendar1.get(Calendar.DATE)+\u201d  \u201c);\nSystem.out.println(calendar1.get(Calendar.YEAR));"
+    },
+    {
+      "slide_number": 27,
+      "title": "Example for Calendar",
+      "content": [
+        "System.out.Print(\u201cTime:\u201d);\nSystem.out.print(calendar1.get(Calendar.HOUR+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.MINUTE)+\u201d:\u201d)\nSystem.out.print(calendar1.get(Calendar.SECOND));\n//set the time and date information and display it\ncalendar1.set(Calendar.HOUR,10);\ncalendar1.set(Calendar.MINUTE,29);\ncalendar1.set(Calendar.SECOND,22);\nSystem.out.print(\u201cUpdate time:\u201d);\nSystem.out.print(calendar1.get(Calendar.HOUR)+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.MINUTE)+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.SECOND));",
+        "Example for Calendar"
+      ],
+      "notes": "",
+      "text": "Example for Calendar\nSystem.out.Print(\u201cTime:\u201d);\nSystem.out.print(calendar1.get(Calendar.HOUR+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.MINUTE)+\u201d:\u201d)\nSystem.out.print(calendar1.get(Calendar.SECOND));\n//set the time and date information and display it\ncalendar1.set(Calendar.HOUR,10);\ncalendar1.set(Calendar.MINUTE,29);\ncalendar1.set(Calendar.SECOND,22);\nSystem.out.print(\u201cUpdate time:\u201d);\nSystem.out.print(calendar1.get(Calendar.HOUR)+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.MINUTE)+\u201d:\u201d);\nSystem.out.print(calendar1.get(Calendar.SECOND));\nExample for Calendar"
+    },
+    {
+      "slide_number": 28,
+      "title": "OUTPUT",
+      "content": [
+        "OUTPUT",
+        "Date : Feb 26 2003\nTime: 11:24:25\n\nUpdate time: 10:29:22"
+      ],
+      "notes": "",
+      "text": "OUTPUT\nOUTPUT\nDate : Feb 26 2003\nTime: 11:24:25\n\nUpdate time: 10:29:22"
+    },
+    {
+      "slide_number": 29,
+      "title": "Gregorian Calendar",
+      "content": [
+        "Gregorian Calendar",
+        "Gregorian calendar is a concrete implementation of a Calendar.\nMethods:\nThe getInstance() method of calendar returns a GregorianCalendar initialized with the current date and time in the default locale and  time zone.\nGregorian calendar defines two fields: AD and BC\nThese represent the two eras defined by the Gregorian calendar."
+      ],
+      "notes": "",
+      "text": "Gregorian Calendar\nGregorian Calendar\nGregorian calendar is a concrete implementation of a Calendar.\nMethods:\nThe getInstance() method of calendar returns a GregorianCalendar initialized with the current date and time in the default locale and  time zone.\nGregorian calendar defines two fields: AD and BC\nThese represent the two eras defined by the Gregorian calendar."
+    },
+    {
+      "slide_number": 30,
+      "title": "Gregorian Calendar",
+      "content": [
+        "Constructor:\nGregorianCalendar()\nInitializes the object with the current date and time in the default locale and time zone.\nGregorianCalender(int year,int month,int dayOfMonth)\nGregorianCalender(int year,int month,int dayOfMonth,int hours,int minutes)\nGregorianCalender(int year,int month,intdayOfMonth,int hours,int minutes,int seconds)\nboolean isLeapYear(int year)\nIs a abstract method, which tests if the year is a leap year.",
+        "Gregorian Calendar"
+      ],
+      "notes": "",
+      "text": "Gregorian Calendar\nConstructor:\nGregorianCalendar()\nInitializes the object with the current date and time in the default locale and time zone.\nGregorianCalender(int year,int month,int dayOfMonth)\nGregorianCalender(int year,int month,int dayOfMonth,int hours,int minutes)\nGregorianCalender(int year,int month,intdayOfMonth,int hours,int minutes,int seconds)\nboolean isLeapYear(int year)\nIs a abstract method, which tests if the year is a leap year.\nGregorian Calendar"
+    },
+    {
+      "slide_number": 31,
+      "title": "Example for Gregorian Calendar",
+      "content": [
+        "Example for Gregorian Calendar",
+        "//to display the GregorianCalender current time and date\nimport java.util.Calendar;\nimport java.util.GregorianCalendar;\n\nclass gcalendardemo {\n\n    public static void main(String args[]) {\n        String months[] = {\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"};\n        int year;\n        GregorianCalendar gcalendar = new GregorianCalendar();\n        System.out.print(\"Date:\");\n        System.out.print(months[gcalendar.get(Calendar.MONTH)]);\n        System.out.print(\"  \" + gcalendar.get(Calendar.DATE) + \" \");\n        System.out.println(year = gcalendar.get(Calendar.YEAR));\n        System.out.print(\"Time:\");"
+      ],
+      "notes": "",
+      "text": "Example for Gregorian Calendar\nExample for Gregorian Calendar\n//to display the GregorianCalender current time and date\nimport java.util.Calendar;\nimport java.util.GregorianCalendar;\n\nclass gcalendardemo {\n\n    public static void main(String args[]) {\n        String months[] = {\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"};\n        int year;\n        GregorianCalendar gcalendar = new GregorianCalendar();\n        System.out.print(\"Date:\");\n        System.out.print(months[gcalendar.get(Calendar.MONTH)]);\n        System.out.print(\"  \" + gcalendar.get(Calendar.DATE) + \" \");\n        System.out.println(year = gcalendar.get(Calendar.YEAR));\n        System.out.print(\"Time:\");"
+    },
+    {
+      "slide_number": 32,
+      "title": "Example for Gregorian Calendar",
+      "content": [
+        "Example for Gregorian Calendar",
+        "System.out.print(gcalendar.get(Calendar.HOUR) + \":\");\n        System.out.print(gcalendar.get(Calendar.MINUTE) + \":\");\n        System.out.println(gcalendar.get(Calendar.SECOND));\n        //test if given year is a leapyear\n        if (gcalendar.isLeapYear(year)) {\n            System.out.println(\"The current year is a leap year\");\n        } else {\n            System.out.println(\"The current year is not a leap year\");\n        }\n    }\n}"
+      ],
+      "notes": "",
+      "text": "Example for Gregorian Calendar\nExample for Gregorian Calendar\nSystem.out.print(gcalendar.get(Calendar.HOUR) + \":\");\n        System.out.print(gcalendar.get(Calendar.MINUTE) + \":\");\n        System.out.println(gcalendar.get(Calendar.SECOND));\n        //test if given year is a leapyear\n        if (gcalendar.isLeapYear(year)) {\n            System.out.println(\"The current year is a leap year\");\n        } else {\n            System.out.println(\"The current year is not a leap year\");\n        }\n    }\n}"
+    },
+    {
+      "slide_number": 33,
+      "title": "Output",
+      "content": [
+        "Output",
+        "Date : Jan 25 2001\nTime: 11:25:27\nThe current year is not a leap year."
+      ],
+      "notes": "",
+      "text": "Output\nOutput\nDate : Jan 25 2001\nTime: 11:25:27\nThe current year is not a leap year."
+    },
+    {
+      "slide_number": 34,
+      "title": "Characters",
+      "content": [
+        "Definition  : A character is  any key you can strike on the keyboard or that can show up on the computer screen.\nThis includes upper- and lower-case letters, punctuation, marks, and even digits.\nTo store characters, we declare variables of type char.\nEg.  char      vitamin, chromosome;\nCharacters literals can be assigned to char variables using single quotes :\nEg.  char      vitamin = \u2018A\u2019,  chromosome = \u2018y\u2019,  middleInitial = \u2018N\u2019;",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nDefinition  : A character is  any key you can strike on the keyboard or that can show up on the computer screen.\nThis includes upper- and lower-case letters, punctuation, marks, and even digits.\nTo store characters, we declare variables of type char.\nEg.  char      vitamin, chromosome;\nCharacters literals can be assigned to char variables using single quotes :\nEg.  char      vitamin = \u2018A\u2019,  chromosome = \u2018y\u2019,  middleInitial = \u2018N\u2019;\nCharacters"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "class CharTest {\n  \n  public static void main (String[] args) {\n    char vitamin = 'A',  chromosome = 'y',    middleInitial = 'N';\n\n    System.out.print(vitamin);\n    if (chromosome == middleInitial)\n      System.out.println(chromosome);\n    else\n      System.out.println(middleInitial);\n  }\n}",
+        "Prints :\nAN",
+        "Sample_01_CharTest:",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "class CharTest {\n  \n  public static void main (String[] args) {\n    char vitamin = 'A',  chromosome = 'y',    middleInitial = 'N';\n\n    System.out.print(vitamin);\n    if (chromosome == middleInitial)\n      System.out.println(chromosome);\n    else\n      System.out.println(middleInitial);\n  }\n}\nPrints :\nAN\nSample_01_CharTest:\nCharacters"
+    },
+    {
+      "slide_number": 36,
+      "title": "Characters",
+      "content": [
+        "Space character, \u2018 \u2018 \n    A space is considered a real character.\nIn the previous example, there\u2019s no space between A & N.  To add one, we need to add :\n        System.out.print(\u2018  \u2018);\nCommon mistake \n     assign integer to a character variable.\nEg.       char   level = 3;    (WRONG!!!)\n     \u20180\u2019, \u20181\u2019, \u2026.., \u20189\u2019     and     0,1, \u2026.., 9  are completely   different.  \nThus the corect way : \nEg.       char   level = \u20183\u2019;    (CORRECT!!!)",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nSpace character, \u2018 \u2018 \n    A space is considered a real character.\nIn the previous example, there\u2019s no space between A & N.  To add one, we need to add :\n        System.out.print(\u2018  \u2018);\nCommon mistake \n     assign integer to a character variable.\nEg.       char   level = 3;    (WRONG!!!)\n     \u20180\u2019, \u20181\u2019, \u2026.., \u20189\u2019     and     0,1, \u2026.., 9  are completely   different.  \nThus the corect way : \nEg.       char   level = \u20183\u2019;    (CORRECT!!!)\nCharacters"
+    },
+    {
+      "slide_number": 37,
+      "title": "Characters",
+      "content": [
+        "Non-printing character  \n    Eg.  \\t (tab), \\n (newline)\nwhere \\ is the escape character.\nHow do we write a backslash as an escape character???\n==>  \u2018\\\\\u2019  represents a (single) backslash character.\n==>  \u2018\\\u2019\u2019 represents a single quote character",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nNon-printing character  \n    Eg.  \\t (tab), \\n (newline)\nwhere \\ is the escape character.\nHow do we write a backslash as an escape character???\n==>  \u2018\\\\\u2019  represents a (single) backslash character.\n==>  \u2018\\\u2019\u2019 represents a single quote character\nCharacters"
+    },
+    {
+      "slide_number": 38,
+      "title": "Characters",
+      "content": [
+        "\u2018A\u2019, \u2026, \u2018Z\u2019\t\tUpper-case letters\n\u2018a\u2019, \u2026, \u2018z\u2019\t\tLower-case letters\n\u20180\u2019, \u2026, \u20189\u2019\t\tDigits\n\u2018.\u2019, \u2018,\u2019, \u2018!\u2019, \u2018\u201d\u2019, etc\tPunctuation marks\n\u2018\\n\u2019\t\t\tNewline\n\u2018\\t\u2019\t\t\tTab\n\u2018\\\\\u2019\t\t\tBackslash\n\u2018\\\u2019\u2019\t\t\tSingle right quote",
+        "Here are the character literals that we need to know :",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\n\u2018A\u2019, \u2026, \u2018Z\u2019\t\tUpper-case letters\n\u2018a\u2019, \u2026, \u2018z\u2019\t\tLower-case letters\n\u20180\u2019, \u2026, \u20189\u2019\t\tDigits\n\u2018.\u2019, \u2018,\u2019, \u2018!\u2019, \u2018\u201d\u2019, etc\tPunctuation marks\n\u2018\\n\u2019\t\t\tNewline\n\u2018\\t\u2019\t\t\tTab\n\u2018\\\\\u2019\t\t\tBackslash\n\u2018\\\u2019\u2019\t\t\tSingle right quote\nHere are the character literals that we need to know :\nCharacters"
+    },
+    {
+      "slide_number": 39,
+      "title": "Characters",
+      "content": [
+        "The == compares characters for exact equality; thus the case is significant !!!\u000b\t\t\u2018e\u2019 == \u2018E\u2019   ==>  FALSE",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nThe == compares characters for exact equality; thus the case is significant !!!\u000b\t\t\u2018e\u2019 == \u2018E\u2019   ==>  FALSE\nCharacters"
+    },
+    {
+      "slide_number": 40,
+      "title": "Characters",
+      "content": [
+        "When an integer operation is applied to a character, the character automatically is converted to a number.\nEg.       \t\u2018a\u2019 + 1\t\t\u20180\u2019 <= ch\t\t\u2018A\u2019-\u2019a\u2019\nThe number to which any character is converted is based on an international convention, called Unicode \n==> which assigns a number between 0 and 65,535.",
+        "Important Point to note :",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nWhen an integer operation is applied to a character, the character automatically is converted to a number.\nEg.       \t\u2018a\u2019 + 1\t\t\u20180\u2019 <= ch\t\t\u2018A\u2019-\u2019a\u2019\nThe number to which any character is converted is based on an international convention, called Unicode \n==> which assigns a number between 0 and 65,535.\nImportant Point to note :\nCharacters"
+    },
+    {
+      "slide_number": 41,
+      "title": "Characters",
+      "content": [
+        "The first 128 codes, from 0 to 127, are used for the English letters and punctuation as well as digits and non-printing characters.\n==> these first 128 codes are inherited from ASCII (American Standard Code Information Interchange)",
+        "Important Point to note :",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nThe first 128 codes, from 0 to 127, are used for the English letters and punctuation as well as digits and non-printing characters.\n==> these first 128 codes are inherited from ASCII (American Standard Code Information Interchange)\nImportant Point to note :\nCharacters"
+    },
+    {
+      "slide_number": 42,
+      "title": "Characters",
+      "content": [
+        "class CharTest1 {\n  public static void main (String[] args) {\n    int i;\n    i = (int)'a';\n    System.out.println(\"The ASCII code for 'a' is \" + i);\n  }\n}",
+        "Sample_03_CharTest1: Converting a character to an integer",
+        "Output  : \n The ASCII code for \u2018a\u2019 is 97.",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nclass CharTest1 {\n  public static void main (String[] args) {\n    int i;\n    i = (int)'a';\n    System.out.println(\"The ASCII code for 'a' is \" + i);\n  }\n}\nSample_03_CharTest1: Converting a character to an integer\nOutput  : \n The ASCII code for \u2018a\u2019 is 97.\nCharacters"
+    },
+    {
+      "slide_number": 43,
+      "title": "Characters",
+      "content": [
+        "class CharTest3 {\n  public static void main (String[] args) {\n    char ch = (char)85;\n    System.out.println(\"85 is the ASCII code for \" + ch);\n  }\n}",
+        "Sampel_04_CharTest: Converting an integer to a character",
+        "Output  :  \n85 is the ASCII code for U.",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nclass CharTest3 {\n  public static void main (String[] args) {\n    char ch = (char)85;\n    System.out.println(\"85 is the ASCII code for \" + ch);\n  }\n}\nSampel_04_CharTest: Converting an integer to a character\nOutput  :  \n85 is the ASCII code for U.\nCharacters"
+    },
+    {
+      "slide_number": 44,
+      "title": "Characters",
+      "content": [
+        "class UCtoLC {\n  static char upperToLower (char ch) {\n    // Convert upper case to lower case    \n    if ('A' <= ch && ch <= 'Z')\n      // ch is an upper-case letter\n      return (char)(ch + ('a'-'A'));\n    else\n      return ch;\n  }  \n  public static void main (String[] args) {\n    System.out.println(upperToLower('D') + \" \" + upperToLower('m'));\n  }\n}",
+        "Sample_05_UCtoLC : Converting upper-case letters to lower-case letters",
+        "Output  : \n d m",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nclass UCtoLC {\n  static char upperToLower (char ch) {\n    // Convert upper case to lower case    \n    if ('A' <= ch && ch <= 'Z')\n      // ch is an upper-case letter\n      return (char)(ch + ('a'-'A'));\n    else\n      return ch;\n  }  \n  public static void main (String[] args) {\n    System.out.println(upperToLower('D') + \" \" + upperToLower('m'));\n  }\n}\nSample_05_UCtoLC : Converting upper-case letters to lower-case letters\nOutput  : \n d m\nCharacters"
+    },
+    {
+      "slide_number": 45,
+      "title": "Characters",
+      "content": [
+        "class CharOps {\n  static boolean isDigit (char ch) { \n    return (ch >= '0' && ch <= '9');\n  }  \n  static int charToInt (char ch) {\n    return ch - '0';\n  }\n    public static void main (String[] args) {\n    System.out.println(\"isDigit('3')=\"+isDigit('3'));\n    System.out.println(\"isDigit('X')=\"+isDigit('X'));  \u000b    System.out.println(\"charToInt('3')=\"+charToInt('3'));\n  }\n}",
+        "Sample_06_CharOps: Other character operations",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nclass CharOps {\n  static boolean isDigit (char ch) { \n    return (ch >= '0' && ch <= '9');\n  }  \n  static int charToInt (char ch) {\n    return ch - '0';\n  }\n    public static void main (String[] args) {\n    System.out.println(\"isDigit('3')=\"+isDigit('3'));\n    System.out.println(\"isDigit('X')=\"+isDigit('X'));  \u000b    System.out.println(\"charToInt('3')=\"+charToInt('3'));\n  }\n}\nSample_06_CharOps: Other character operations\nCharacters"
+    },
+    {
+      "slide_number": 46,
+      "title": "Characters",
+      "content": [
+        "Some Methods of Character\n\nboolean isDigit (char c)\t\tReturns true if c is a digit; returns false\n\t\t\t\totherwise\nboolean isLowerCase (char c)\tReturns true if c is a lower-case letter; \t\t\t\t\treturns false otherwise\nboolean isSpace (char c)\t\tReturns true if c is a \u201cwhite space\u201d\n\t\t\t\tcharacter (space, tab, newline and so on) boolean isUpperCase (char c)\tReturns true if c is an upper-case letter; \t\t\t\t\treturns false otherwise\nchar toUpperCase (char c)\tReturns the lower-case equivalent of an\n\t\t\t\tupper-case letter c; if c is not an \n\t\t\t\tupper-case, returns c\t\nchar toLowerCase (char c)\tReturns the upper-case equivalent of an\n\t\t\t\tlower-case letter c; if c is not an \n\t\t\t\tlower-case, returns c",
+        "Characters"
+      ],
+      "notes": "",
+      "text": "Characters\nSome Methods of Character\n\nboolean isDigit (char c)\t\tReturns true if c is a digit; returns false\n\t\t\t\totherwise\nboolean isLowerCase (char c)\tReturns true if c is a lower-case letter; \t\t\t\t\treturns false otherwise\nboolean isSpace (char c)\t\tReturns true if c is a \u201cwhite space\u201d\n\t\t\t\tcharacter (space, tab, newline and so on) boolean isUpperCase (char c)\tReturns true if c is an upper-case letter; \t\t\t\t\treturns false otherwise\nchar toUpperCase (char c)\tReturns the lower-case equivalent of an\n\t\t\t\tupper-case letter c; if c is not an \n\t\t\t\tupper-case, returns c\t\nchar toLowerCase (char c)\tReturns the upper-case equivalent of an\n\t\t\t\tlower-case letter c; if c is not an \n\t\t\t\tlower-case, returns c\nCharacters"
+    },
+    {
+      "slide_number": 47,
+      "title": "The Classes String and StringBuffer",
+      "content": [
+        "The Classes String and StringBuffer",
+        "Methods of String & StringBuffer\nint length()\t\t\tReturns the present length\nchar charAt(int index)\t\tReturns the character the index\n\nMethods of String\nString concat(String s)\t\tConcatenates receiver and s\nboolean equals (String s)\t\tCompares receiver to s\nboolean equalsIgnoreCase (String s) Compares receiver to s, ignoring case\nint compareTo (String s)\t\t Compares receiver to s lexicographically;\n\t\t\t\treturn 0 if equal, return -1 if not found.\nOthers : indexOf,  substring, toLowerCase, toUpperCase",
+        "The String Class is immutable (can\u2019t change, add or append).\nThe StringBuffer Class which is mutable (can change, add or append)."
+      ],
+      "notes": "",
+      "text": "The Classes String and StringBuffer\nThe Classes String and StringBuffer\nMethods of String & StringBuffer\nint length()\t\t\tReturns the present length\nchar charAt(int index)\t\tReturns the character the index\n\nMethods of String\nString concat(String s)\t\tConcatenates receiver and s\nboolean equals (String s)\t\tCompares receiver to s\nboolean equalsIgnoreCase (String s) Compares receiver to s, ignoring case\nint compareTo (String s)\t\t Compares receiver to s lexicographically;\n\t\t\t\treturn 0 if equal, return -1 if not found.\nOthers : indexOf,  substring, toLowerCase, toUpperCase\nThe String Class is immutable (can\u2019t change, add or append).\nThe StringBuffer Class which is mutable (can change, add or append)."
+    },
+    {
+      "slide_number": 48,
+      "title": "The Classes String and StringBuffer",
+      "content": [
+        "The Classes String and StringBuffer",
+        "Methods of StringBuffer\nvoid setCharAt(int index, char ch)\tReplace the character at index \t\t\t\t\t\twith ch\nStringBuffer insert(int index, String str)\tInserts the string str at index\nStringBuffer insert(int index, char ch)\tInserts the character ch at index\nStringBuffer append(String str)\t\tAppend the string str at index\nStringBuffer append(char ch)\t\tAppend the string str at index"
+      ],
+      "notes": "",
+      "text": "The Classes String and StringBuffer\nThe Classes String and StringBuffer\nMethods of StringBuffer\nvoid setCharAt(int index, char ch)\tReplace the character at index \t\t\t\t\t\twith ch\nStringBuffer insert(int index, String str)\tInserts the string str at index\nStringBuffer insert(int index, char ch)\tInserts the character ch at index\nStringBuffer append(String str)\t\tAppend the string str at index\nStringBuffer append(char ch)\t\tAppend the string str at index"
+    },
+    {
+      "slide_number": 49,
+      "title": "The Classes String and StringBuffer",
+      "content": [
+        "The Classes String and StringBuffer",
+        "class Hello {\n  public static void main(String[] args) {\n\n       String s=\"Hello, Sailor!\";\n       StringBuffer sb = new StringBuffer(s);\n \n      sb.setCharAt(7, 'T');\n      System.out.println(sb);\n  }\n}",
+        "The String Class method : public char charAt( int index)\nThe StringBuffer Class method : public char setCharAt( int index, char ch)\nSample_07_Hello"
+      ],
+      "notes": "",
+      "text": "The Classes String and StringBuffer\nThe Classes String and StringBuffer\nclass Hello {\n  public static void main(String[] args) {\n\n       String s=\"Hello, Sailor!\";\n       StringBuffer sb = new StringBuffer(s);\n \n      sb.setCharAt(7, 'T');\n      System.out.println(sb);\n  }\n}\nThe String Class method : public char charAt( int index)\nThe StringBuffer Class method : public char setCharAt( int index, char ch)\nSample_07_Hello"
+    },
+    {
+      "slide_number": 50,
+      "title": "The Classes String and StringBuffer",
+      "content": [
+        "The Classes String and StringBuffer",
+        "Comparing Strings : \n2 ways to convert strings to be compared to lower case and then compare them :\n1.  Using existing  methods from String Class :",
+        "s1.toLowerCase().compareTo(s2.toLowerCase())"
+      ],
+      "notes": "",
+      "text": "The Classes String and StringBuffer\nThe Classes String and StringBuffer\nComparing Strings : \n2 ways to convert strings to be compared to lower case and then compare them :\n1.  Using existing  methods from String Class :\ns1.toLowerCase().compareTo(s2.toLowerCase())"
+    },
+    {
+      "slide_number": 51,
+      "title": "The Classes String and StringBuffer",
+      "content": [
+        "The Classes String and StringBuffer",
+        "static int compare (String a, String b) {\n    char ai, bi;\n    for (int i = 0; i<b.length(); i++) {\n      if ( i == a.length() ) return -1;\n      else {\n        ai = upperToLower(a.charAt(i));\n        bi = upperToLower(b.charAt(i));\n        if (ai != bi) \n\t\t  if (ai < bi) return -1;\n\t\t  else         return 1; \n      }\n    }\n    if (a.length() == b.length()) return 0;\n    return 1;\n  }",
+        "Write your own function :Sample_08"
+      ],
+      "notes": "",
+      "text": "The Classes String and StringBuffer\nThe Classes String and StringBuffer\nstatic int compare (String a, String b) {\n    char ai, bi;\n    for (int i = 0; i<b.length(); i++) {\n      if ( i == a.length() ) return -1;\n      else {\n        ai = upperToLower(a.charAt(i));\n        bi = upperToLower(b.charAt(i));\n        if (ai != bi) \n\t\t  if (ai < bi) return -1;\n\t\t  else         return 1; \n      }\n    }\n    if (a.length() == b.length()) return 0;\n    return 1;\n  }\nWrite your own function :Sample_08"
+    },
+    {
+      "slide_number": 52,
+      "title": "",
+      "content": [
+        "Quick Review Question",
+        "1.  Write an application that uses String method \u000b     compareTo to compare two string input by the user.  \u000b     Output whether the first string is less than, equal to\u000b     or greater than the second.",
+        "Roman numbers are made up of characters M, D, C,  \u000b L X, V and I, where:-\n\tM = 1000\u000bD =   500\u000bC =   100\u000bL =     50\u000bX =     10\u000bV =       5\u000bI  =       1",
+        "Write a program that takes a Roman number as a command line argument and displays the Arabic equivalent.  The program should be insensitive to case."
+      ],
+      "notes": "",
+      "text": "Quick Review Question\n1.  Write an application that uses String method \u000b     compareTo to compare two string input by the user.  \u000b     Output whether the first string is less than, equal to\u000b     or greater than the second.\nRoman numbers are made up of characters M, D, C,  \u000b L X, V and I, where:-\n\tM = 1000\u000bD =   500\u000bC =   100\u000bL =     50\u000bX =     10\u000bV =       5\u000bI  =       1\nWrite a program that takes a Roman number as a command line argument and displays the Arabic equivalent.  The program should be insensitive to case."
+    },
+    {
+      "slide_number": 53,
+      "title": "",
+      "content": [
+        "Summary of Main Teaching Points",
+        "Java API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class"
+      ],
+      "notes": "",
+      "text": "Summary of Main Teaching Points\nJava API\n  Random Class\n  Date class\n  Calender class\n  Gregorian Calender classes\n  String class\n  StringBuffer Class"
+    },
+    {
+      "slide_number": 54,
+      "title": "",
+      "content": [
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Q & A\nQuestion and Answer Session"
+    }
+  ]
+}

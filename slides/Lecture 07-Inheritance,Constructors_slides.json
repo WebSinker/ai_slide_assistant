@@ -1,0 +1,266 @@
+{
+  "filename": "Lecture 07-Inheritance,Constructors",
+  "total_slides": 21,
+  "extraction_time": "2025-04-23 14:15:57",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Inheritance",
+      "content": [
+        "Inheritance",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Inheritance\nInheritance\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "Inheritance",
+        "Inheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nInheritance\nInheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nState the advantages of using constructors in programs\nWrite class definitions implementing inheritance\nWrite Java programs implementing the object-oriented concepts"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nLearning Outcomes\nAt the end of this topic, you should be able to:\nState the advantages of using constructors in programs\nWrite class definitions implementing inheritance\nWrite Java programs implementing the object-oriented concepts"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Slide <number> of 38",
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n  Inheritence - In object-oriented programming, the ability to derive new \u000b   classes from existing classes. A derived class (or \"subclass\") inherits the \u000b   instance variables and methods of the \"base class\" (or \"superclass\"), and \u000b   may add new instance variables and methods. New methods may be \u000b   defined with the same names as those in the base class, in which case they\u000b   override the original one. \n   \n  For example, bytes might belong to the class of integers for which an add \u000b   method might be defined. The byte class would inherit the add method from \u000b   the integer class.\n\n Multiple inheritence - In object-oriented programming, the possibility that a \u000b  sub-class may be derived from multiple parent classes which are \u000b  themselves not derived one from the other."
+      ],
+      "notes": "",
+      "text": "Slide <number> of 38\nKey Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n  Inheritence - In object-oriented programming, the ability to derive new \u000b   classes from existing classes. A derived class (or \"subclass\") inherits the \u000b   instance variables and methods of the \"base class\" (or \"superclass\"), and \u000b   may add new instance variables and methods. New methods may be \u000b   defined with the same names as those in the base class, in which case they\u000b   override the original one. \n   \n  For example, bytes might belong to the class of integers for which an add \u000b   method might be defined. The byte class would inherit the add method from \u000b   the integer class.\n\n Multiple inheritence - In object-oriented programming, the possibility that a \u000b  sub-class may be derived from multiple parent classes which are \u000b  themselves not derived one from the other."
+    },
+    {
+      "slide_number": 5,
+      "title": "What is Inheritance?",
+      "content": [
+        "Slide <number> of 21",
+        "What is Inheritance?",
+        "Definition :  Inheritance is a mechanism for defining a new class in terms of an existing class.\nInheritance allows a group of related classes to come together under a single umbrella, so that they can be considered and managed collectively.",
+        "ball",
+        "tennis ball",
+        "softball",
+        "football",
+        "basketball",
+        "Parent class\n(superclass)",
+        "Child class\n(subclass)",
+        "==> ball is the superclass of basketball, football, softball \u000b       and tennis ball.\n\t==> basketball, football, softball and tennis ball are the \u000b       subclass of ball."
+      ],
+      "notes": "",
+      "text": "What is Inheritance?\nSlide <number> of 21\nWhat is Inheritance?\nDefinition :  Inheritance is a mechanism for defining a new class in terms of an existing class.\nInheritance allows a group of related classes to come together under a single umbrella, so that they can be considered and managed collectively.\nball\ntennis ball\nsoftball\nfootball\nbasketball\nParent class\n(superclass)\nChild class\n(subclass)\n==> ball is the superclass of basketball, football, softball \u000b       and tennis ball.\n\t==> basketball, football, softball and tennis ball are the \u000b       subclass of ball."
+    },
+    {
+      "slide_number": 6,
+      "title": "What is Inheritance?",
+      "content": [
+        "Slide <number> of 21",
+        "Subclass inherits state and methods from the superclass.  \n       (for eg. states : size, color;  methods : throw, catch\nSubclasses are not limited by the states and methods provided by the superclass.  Subclasses can add own variables and methods.  (for eg. Football can add in a method : kick)\nSubclasses can also override inherited methods and provide specialized implementations for those methods.  (for eg. Football can override the method throw by its own implementation)",
+        "What is Inheritance?"
+      ],
+      "notes": "",
+      "text": "What is Inheritance?\nSlide <number> of 21\nSubclass inherits state and methods from the superclass.  \n       (for eg. states : size, color;  methods : throw, catch\nSubclasses are not limited by the states and methods provided by the superclass.  Subclasses can add own variables and methods.  (for eg. Football can add in a method : kick)\nSubclasses can also override inherited methods and provide specialized implementations for those methods.  (for eg. Football can override the method throw by its own implementation)\nWhat is Inheritance?"
+    },
+    {
+      "slide_number": 7,
+      "title": "What is Inheritance?",
+      "content": [
+        "Slide <number> of 21",
+        "To define a subclass of football from a supper class ball, the keyword extends is used",
+        "What is Inheritance?"
+      ],
+      "notes": "",
+      "text": "What is Inheritance?\nSlide <number> of 21\nTo define a subclass of football from a supper class ball, the keyword extends is used\nWhat is Inheritance?"
+    },
+    {
+      "slide_number": 8,
+      "title": "What is Inheritance?",
+      "content": [
+        "Slide <number> of 21",
+        "class football extends ball  {\n}",
+        "Example:",
+        "football inherits the members of its superclass, ball",
+        "What is Inheritance?"
+      ],
+      "notes": "",
+      "text": "What is Inheritance?\nSlide <number> of 21\nclass football extends ball  {\n}\nExample:\nfootball inherits the members of its superclass, ball\nWhat is Inheritance?"
+    },
+    {
+      "slide_number": 9,
+      "title": "Sample program using Inheritance",
+      "content": [
+        "Slide <number> of 21",
+        "public class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}",
+        "Sample program using Inheritance",
+        "class Greetings {\n \n       \n        public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n}",
+        "Greetings\nClass",
+        "TestGreetings\nclass",
+        "Example 1 :"
+      ],
+      "notes": "",
+      "text": "Sample program using Inheritance\nSlide <number> of 21\npublic class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings();\n                welcome.greet(\"Lai Kuan\");\n        }\n}\nSample program using Inheritance\nclass Greetings {\n \n       \n        public void greet(String name)  {\n                System.out.println(\"Welcome To \" + name + \"'s Web Site\");\n        }\n}\nGreetings\nClass\nTestGreetings\nclass\nExample 1 :"
+    },
+    {
+      "slide_number": 10,
+      "title": "Sample program using Inheritance",
+      "content": [
+        "Slide <number> of 21",
+        "public class TestGreetings2 {\n\n        public static void main(String[] args)  {\n                GreetingsSub welcome = new GreetingsSub();\n                welcome.greet(\"Lai Kuan\");\n                welcome.sayGoodBye(\u201cYap\u201d);\t\n        }\n}",
+        "class GreetingsSub extends Greetings {\n\n        \n         public void sayGoodBye(String name)  {\n            System.out.println(\u201cSayonara, \" + name + \"\u2018.  Visit us\u000b            again next time !!!\");\n        }\n}",
+        "GreetingsSub\nclass",
+        "TestGreetings2\nclass",
+        "Subclassing & Inheritance",
+        "(subclass of Greetings)",
+        "Sample program using Inheritance"
+      ],
+      "notes": "",
+      "text": "Sample program using Inheritance\nSlide <number> of 21\npublic class TestGreetings2 {\n\n        public static void main(String[] args)  {\n                GreetingsSub welcome = new GreetingsSub();\n                welcome.greet(\"Lai Kuan\");\n                welcome.sayGoodBye(\u201cYap\u201d);\t\n        }\n}\nclass GreetingsSub extends Greetings {\n\n        \n         public void sayGoodBye(String name)  {\n            System.out.println(\u201cSayonara, \" + name + \"\u2018.  Visit us\u000b            again next time !!!\");\n        }\n}\nGreetingsSub\nclass\nTestGreetings2\nclass\nSubclassing & Inheritance\n(subclass of Greetings)\nSample program using Inheritance"
+    },
+    {
+      "slide_number": 11,
+      "title": "Sample program using Inheritance",
+      "content": [
+        "Slide <number> of 21",
+        "public class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings(\"Hello,\");\n                welcome.greet(\"Lai Kuan\");\n        }\n}",
+        "class Greetings {\n        String salutation;\n \n       Greetings(String s)  {\n                salutation=s;\n        }\n\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}",
+        "Greetings\nclass",
+        "TestGreetings\nclass",
+        "Example 2 :",
+        "Sample program using Inheritance"
+      ],
+      "notes": "",
+      "text": "Sample program using Inheritance\nSlide <number> of 21\npublic class TestGreetings {\n\n        public static void main(String[] args)  {\n                Greetings welcome = new Greetings(\"Hello,\");\n                welcome.greet(\"Lai Kuan\");\n        }\n}\nclass Greetings {\n        String salutation;\n \n       Greetings(String s)  {\n                salutation=s;\n        }\n\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}\nGreetings\nclass\nTestGreetings\nclass\nExample 2 :\nSample program using Inheritance"
+    },
+    {
+      "slide_number": 12,
+      "title": "Sample program using Inheritance",
+      "content": [
+        "Slide <number> of 21",
+        "public class TestGreetings2 {\n        public static void main(String[] args)  {\n                GreetingsSub welcome = new GreetingsSub(\u201cHello \u201c);\n                welcome.greet(\"Lai Kuan\");\n                welcome.sayGoodBye(\u201cYap\u201d);\t\n        }\n}",
+        "class GreetingsSub extends Greetings {\n        GreetingsSub(String s)  {\n\tsuper(s);\n         }\n        public void sayGoodBye(String name)  {\n                System.out.println(\u201cSayonara, \" + name + \"\u2018.  Visit us again next time !!!\");\n        }\n}",
+        "Sample program using Inheritance",
+        "class Greetings {\n        String salutation;\n        Greetings(String s)  {\n                salutation=s;\n        }\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}"
+      ],
+      "notes": "",
+      "text": "Sample program using Inheritance\nSlide <number> of 21\npublic class TestGreetings2 {\n        public static void main(String[] args)  {\n                GreetingsSub welcome = new GreetingsSub(\u201cHello \u201c);\n                welcome.greet(\"Lai Kuan\");\n                welcome.sayGoodBye(\u201cYap\u201d);\t\n        }\n}\nclass GreetingsSub extends Greetings {\n        GreetingsSub(String s)  {\n\tsuper(s);\n         }\n        public void sayGoodBye(String name)  {\n                System.out.println(\u201cSayonara, \" + name + \"\u2018.  Visit us again next time !!!\");\n        }\n}\nSample program using Inheritance\nclass Greetings {\n        String salutation;\n        Greetings(String s)  {\n                salutation=s;\n        }\n        public void greet(String name)  {\n                System.out.println(salutation + \"Welcome To \" + name + \"'s Web Site\");\n        }\n}"
+    },
+    {
+      "slide_number": 13,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "class Book \u000b{ \u000b\u00a0  protected int pages; \n\u00a0 \u000bBook(int num_pages) \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 pages = num_pages; \u000b\u00a0 } \n\u00a0 public void page_message() \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 System.out.println(\"Number of pages: \" + pages); \u000b\u00a0 }\n}",
+        "Constructors",
+        "Book class has a \nconstructor\u000bthat initializes  pages"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nclass Book \u000b{ \u000b\u00a0  protected int pages; \n\u00a0 \u000bBook(int num_pages) \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 pages = num_pages; \u000b\u00a0 } \n\u00a0 public void page_message() \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 System.out.println(\"Number of pages: \" + pages); \u000b\u00a0 }\n}\nConstructors\nBook class has a \nconstructor\u000bthat initializes  pages"
+    },
+    {
+      "slide_number": 14,
+      "title": "Constructors",
+      "content": [
+        "Slide <number> of 21",
+        "class Dictionary extends Book { \u000b \u000b\u00a0 private int definitions; \n\u00a0 \u000b\u00a0 Dictionary(int num_pages, int num_definitions) \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 super(num_pages); \u000b\u00a0\u00a0\u00a0 definitions = num_definitions; \u000b\u00a0 } \n\u00a0 public void definition_message() \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 System.out.println (\"Number of definitions: \" + definitions); \u000b\u00a0 }\n}",
+        "Constructors",
+        "Dictionary inherits \nvariable pages from \nBook"
+      ],
+      "notes": "",
+      "text": "Constructors\nSlide <number> of 21\nclass Dictionary extends Book { \u000b \u000b\u00a0 private int definitions; \n\u00a0 \u000b\u00a0 Dictionary(int num_pages, int num_definitions) \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 super(num_pages); \u000b\u00a0\u00a0\u00a0 definitions = num_definitions; \u000b\u00a0 } \n\u00a0 public void definition_message() \u000b\u00a0 { \u000b\u00a0\u00a0\u00a0 System.out.println (\"Number of definitions: \" + definitions); \u000b\u00a0 }\n}\nConstructors\nDictionary inherits \nvariable pages from \nBook"
+    },
+    {
+      "slide_number": 15,
+      "title": "Constructors",
+      "content": [
+        "Slide <number> of 21",
+        "public class Words \u000b{ \u000b\u00a0 public static void main(String[] args) \u000b\u00a0\u00a0\u00a0 { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 Dictionary webster = new Dictionary(1500,52500); \u000b\u00a0 \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 webster.page_message(); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 webster.definition_message(); \u000b\u00a0\u00a0\u00a0 }\n}",
+        "Constructors"
+      ],
+      "notes": "",
+      "text": "Constructors\nSlide <number> of 21\npublic class Words \u000b{ \u000b\u00a0 public static void main(String[] args) \u000b\u00a0\u00a0\u00a0 { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 Dictionary webster = new Dictionary(1500,52500); \u000b\u00a0 \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 webster.page_message(); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 webster.definition_message(); \u000b\u00a0\u00a0\u00a0 }\n}\nConstructors"
+    },
+    {
+      "slide_number": 16,
+      "title": "Constructors",
+      "content": [
+        "Slide <number> of 21",
+        "constructors are not inherited\n  Book constructor cannot be invoked directly in \u000b   Dictionary\n  super reference is used to invoke a constructor of \u000b    the superclass\n  super reference is used in the Dictionary \u000b    constructor to invoke the constructor of the Book\u000b  class, passing in the initial value of the pages \u000b    variable to be initialized.  Dictionary constructor \u000b    then proceeds to initialize its own variable, \u000b    definitions",
+        "Constructors"
+      ],
+      "notes": "",
+      "text": "Constructors\nSlide <number> of 21\nconstructors are not inherited\n  Book constructor cannot be invoked directly in \u000b   Dictionary\n  super reference is used to invoke a constructor of \u000b    the superclass\n  super reference is used in the Dictionary \u000b    constructor to invoke the constructor of the Book\u000b  class, passing in the initial value of the pages \u000b    variable to be initialized.  Dictionary constructor \u000b    then proceeds to initialize its own variable, \u000b    definitions\nConstructors"
+    },
+    {
+      "slide_number": 17,
+      "title": "Method Overloading",
+      "content": [
+        "Slide <number> of 21",
+        "Method Overloading",
+        "technique to use the same method name for multiple methods\n  the different versions of an overloaded method are distinguished\n   by their signature, which is the number, type, and order of the\u000b   parameters \n  constructors are primary candidate for overloading"
+      ],
+      "notes": "",
+      "text": "Method Overloading\nSlide <number> of 21\nMethod Overloading\ntechnique to use the same method name for multiple methods\n  the different versions of an overloaded method are distinguished\n   by their signature, which is the number, type, and order of the\u000b   parameters \n  constructors are primary candidate for overloading"
+    },
+    {
+      "slide_number": 18,
+      "title": "Method Overloading",
+      "content": [
+        "Slide <number> of 21",
+        "Method Overloading",
+        "Example:",
+        "public void Rectangle()  {\u000b  length = 10;\u000b  width = 20;  }\u000b\u000bpublic void Rectangle (int side1, int side2)  {\u000b  length = side1;\u000b  width = side2;  }\npublic void Rectangle (int side1, int side2, int level) {\u000b  length = side1;\u000b  width = side2;\u000b  shade = level;  }"
+      ],
+      "notes": "",
+      "text": "Method Overloading\nSlide <number> of 21\nMethod Overloading\nExample:\npublic void Rectangle()  {\u000b  length = 10;\u000b  width = 20;  }\u000b\u000bpublic void Rectangle (int side1, int side2)  {\u000b  length = side1;\u000b  width = side2;  }\npublic void Rectangle (int side1, int side2, int level) {\u000b  length = side1;\u000b  width = side2;\u000b  shade = level;  }"
+    },
+    {
+      "slide_number": 19,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "Summary of Main Teaching Points",
+        "Inheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nSummary of Main Teaching Points\nInheritance\nsuperclass and subclass\nsingle level inheritance\nusing extends\nConstructors and creating them\nMethod overloading\nSample programs"
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nQ & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "Slide <number> of 21",
+        "Next Session",
+        "Concept of Streams\nInput/output streams\nBuffered character streams"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 21\nNext Session\nConcept of Streams\nInput/output streams\nBuffered character streams"
+    }
+  ]
+}

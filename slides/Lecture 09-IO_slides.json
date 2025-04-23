@@ -1,0 +1,188 @@
+{
+  "filename": "Lecture 09-IO",
+  "total_slides": 16,
+  "extraction_time": "2025-04-23 14:15:55",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Input and Output Streams",
+      "content": [
+        "Input and Output Streams",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Input and Output Streams\nInput and Output Streams\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Topic & Structure of the lesson",
+        "Concept of Streams\nInput/output streams\nBuffered character streams"
+      ],
+      "notes": "",
+      "text": "Topic & Structure of the lesson\nConcept of Streams\nInput/output streams\nBuffered character streams"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nWrite Java programs to open a file for reading, writing and closing a file."
+      ],
+      "notes": "",
+      "text": "Learning Outcomes\nAt the end of this topic, you should be able to:\nWrite Java programs to open a file for reading, writing and closing a file."
+    },
+    {
+      "slide_number": 4,
+      "title": "The File class",
+      "content": [
+        "The File class",
+        "Java provides a very useful class in the java.io package to enables the programmer to work with files and directories\nThe File class encapsulates information about a file and directory\nIt includes facilities such as \nread/permissions\nlength of file\nCreate directories\nRename files"
+      ],
+      "notes": "",
+      "text": "The File class\nThe File class\nJava provides a very useful class in the java.io package to enables the programmer to work with files and directories\nThe File class encapsulates information about a file and directory\nIt includes facilities such as \nread/permissions\nlength of file\nCreate directories\nRename files"
+    },
+    {
+      "slide_number": 5,
+      "title": "Concept of Streams",
+      "content": [
+        "Concept of Streams",
+        "What is a Stream?\nA stream is a sequence of data of undetermined length. It\u2019s called a stream because it\u2019s like a stream of water that continues to flow. There\u2019s no definite end to it.\nIn Java, it may be \nA Character Stream or \nA Byte Stream"
+      ],
+      "notes": "",
+      "text": "Concept of Streams\nConcept of Streams\nWhat is a Stream?\nA stream is a sequence of data of undetermined length. It\u2019s called a stream because it\u2019s like a stream of water that continues to flow. There\u2019s no definite end to it.\nIn Java, it may be \nA Character Stream or \nA Byte Stream"
+    },
+    {
+      "slide_number": 6,
+      "title": "I/O Streams",
+      "content": [
+        "I/O Streams",
+        "Definition:\nA stream is a flowing sequence of characters.\nA program can get input by reading characters from a stream attached to a source.\nA program can produce output by writing characters to a stream attached to a destination.\nInput and output sources can be anything that can contain data:a file, a string, or memory."
+      ],
+      "notes": "",
+      "text": "I/O Streams\nI/O Streams\nDefinition:\nA stream is a flowing sequence of characters.\nA program can get input by reading characters from a stream attached to a source.\nA program can produce output by writing characters to a stream attached to a destination.\nInput and output sources can be anything that can contain data:a file, a string, or memory."
+    },
+    {
+      "slide_number": 7,
+      "title": "Overview of I/O Streams",
+      "content": [
+        "Overview of I/O Streams",
+        "To bring in information,a program opens a stream on an information source(a file,memory,a socket) and reads the information sequentially, as shown here:",
+        "Source",
+        "Program",
+        "Information",
+        "A Stream",
+        "reads"
+      ],
+      "notes": "",
+      "text": "Overview of I/O Streams\nOverview of I/O Streams\nTo bring in information,a program opens a stream on an information source(a file,memory,a socket) and reads the information sequentially, as shown here:\nSource\nProgram\nInformation\nA Stream\nreads"
+    },
+    {
+      "slide_number": 8,
+      "title": "Overview of I/O Streams",
+      "content": [
+        "Similarly,A program can send information to an external destination by opening a stream to a destination and writing the information out sequentially.",
+        "Destination",
+        "Program",
+        "Information",
+        "A Stream",
+        "writes",
+        "Overview of I/O Streams"
+      ],
+      "notes": "",
+      "text": "Overview of I/O Streams\nSimilarly,A program can send information to an external destination by opening a stream to a destination and writing the information out sequentially.\nDestination\nProgram\nInformation\nA Stream\nwrites\nOverview of I/O Streams"
+    },
+    {
+      "slide_number": 9,
+      "title": "Text I/O",
+      "content": [
+        "Text I/O",
+        "Object",
+        "Reader",
+        "Writer",
+        "InputStreamReader",
+        "BufferedReader",
+        "BufferedWriter",
+        "OutputStreamWriter",
+        "PrintWriter",
+        "FileReader",
+        "FileWriter",
+        "<number>"
+      ],
+      "notes": "",
+      "text": "Text I/O\nText I/O\nObject\nReader\nWriter\nInputStreamReader\nBufferedReader\nBufferedWriter\nOutputStreamWriter\nPrintWriter\nFileReader\nFileWriter\n<number>"
+    },
+    {
+      "slide_number": 10,
+      "title": "Concept of Streams",
+      "content": [
+        "Concept of Streams",
+        "FileWriteDemo.java\nFileReadDemo.java\nBuffered"
+      ],
+      "notes": "",
+      "text": "Concept of Streams\nConcept of Streams\nFileWriteDemo.java\nFileReadDemo.java\nBuffered"
+    },
+    {
+      "slide_number": 11,
+      "title": "Concept of Streams",
+      "content": [
+        "Concept of Streams",
+        "import java.util.Scanner;   \t\nimport java.io.*;           \t\t\npublic class FileWriteDemo{\n   public static void main(String[] args) throws IOException{\n      String filename;      // File name\n      String friendName;    // Friend's name\n      int numFriends;       // Number of friends\n      Scanner keyboard = new Scanner(System.in);\n      System.out.print(\"How many friends do you have? \");\n      numFriends = keyboard.nextInt();\n      keyboard.nextLine();\n      System.out.print(\"Enter the filename: \");\n      filename = keyboard.nextLine();\n      PrintWriter outputFile = new PrintWriter(filename);\n      for (int i = 1; i <= numFriends; i++){\n         System.out.print(\"Enter the name of friend \" + \"number \" + i + \": \");\n         friendName = keyboard.nextLine();\n         outputFile.println(friendName);\n      }\n      outputFile.close();\n      System.out.println(\"Data written to the file.\");\n   }\n}"
+      ],
+      "notes": "",
+      "text": "Concept of Streams\nConcept of Streams\nimport java.util.Scanner;   \t\nimport java.io.*;           \t\t\npublic class FileWriteDemo{\n   public static void main(String[] args) throws IOException{\n      String filename;      // File name\n      String friendName;    // Friend's name\n      int numFriends;       // Number of friends\n      Scanner keyboard = new Scanner(System.in);\n      System.out.print(\"How many friends do you have? \");\n      numFriends = keyboard.nextInt();\n      keyboard.nextLine();\n      System.out.print(\"Enter the filename: \");\n      filename = keyboard.nextLine();\n      PrintWriter outputFile = new PrintWriter(filename);\n      for (int i = 1; i <= numFriends; i++){\n         System.out.print(\"Enter the name of friend \" + \"number \" + i + \": \");\n         friendName = keyboard.nextLine();\n         outputFile.println(friendName);\n      }\n      outputFile.close();\n      System.out.println(\"Data written to the file.\");\n   }\n}"
+    },
+    {
+      "slide_number": 12,
+      "title": "Concept of Streams",
+      "content": [
+        "Concept of Streams",
+        "import java.util.Scanner; \nimport java.io.*;         \npublic class FileReadDemo{\n   public static void main(String[] args) throws IOException{\n      Scanner keyboard = new Scanner(System.in);\n      System.out.print(\"Enter the filename: \");\n      String filename = keyboard.nextLine();\n      File file = new File(filename);\n      Scanner inputFile = new Scanner(file);\n      while (inputFile.hasNext()){\n         String friendName = inputFile.nextLine();\n         System.out.println(friendName);\n      }\n      inputFile.close();\n   }\n}"
+      ],
+      "notes": "",
+      "text": "Concept of Streams\nConcept of Streams\nimport java.util.Scanner; \nimport java.io.*;         \npublic class FileReadDemo{\n   public static void main(String[] args) throws IOException{\n      Scanner keyboard = new Scanner(System.in);\n      System.out.print(\"Enter the filename: \");\n      String filename = keyboard.nextLine();\n      File file = new File(filename);\n      Scanner inputFile = new Scanner(file);\n      while (inputFile.hasNext()){\n         String friendName = inputFile.nextLine();\n         System.out.println(friendName);\n      }\n      inputFile.close();\n   }\n}"
+    },
+    {
+      "slide_number": 13,
+      "title": "Concept of Streams",
+      "content": [
+        "Concept of Streams",
+        "import java.io.*;\npublic class KeyboardInput {\n  public static void main (String args[]) {\n    String s;\n    InputStreamReader ir = new InputStreamReader(System.in);\n    BufferedReader in = new BufferedReader(ir);\n    System.out.println(\"Unix: Type ctrl-d or ctrl-c to exit.\" + \"\\nWindows: Type ctrl-z to exit.\");\n    try {\n      while ((s = in.readLine()) != null) {\n      System.out.println(\"Read: \" + s);\n      }\n      in.close();\n    } catch (IOException e) { // Catch any IO exceptions.\n      e.printStackTrace();\n    }\n  }\n}"
+      ],
+      "notes": "",
+      "text": "Concept of Streams\nConcept of Streams\nimport java.io.*;\npublic class KeyboardInput {\n  public static void main (String args[]) {\n    String s;\n    InputStreamReader ir = new InputStreamReader(System.in);\n    BufferedReader in = new BufferedReader(ir);\n    System.out.println(\"Unix: Type ctrl-d or ctrl-c to exit.\" + \"\\nWindows: Type ctrl-z to exit.\");\n    try {\n      while ((s = in.readLine()) != null) {\n      System.out.println(\"Read: \" + s);\n      }\n      in.close();\n    } catch (IOException e) { // Catch any IO exceptions.\n      e.printStackTrace();\n    }\n  }\n}"
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "Summary of Main Teaching Points",
+        "Concept of Streams\nInput/output streams\nBuffered character streams"
+      ],
+      "notes": "",
+      "text": "Summary of Main Teaching Points\nConcept of Streams\nInput/output streams\nBuffered character streams"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Q & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "Next Session",
+        "Abstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+      ],
+      "notes": "",
+      "text": "Next Session\nAbstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+    }
+  ]
+}

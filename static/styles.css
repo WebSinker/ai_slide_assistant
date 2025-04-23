@@ -315,3 +315,164 @@ body {
 .quick-nav-link:hover {
     background: #2980b9;
 }
+
+/* Scope */
+/* Enhanced styles for the query scope options */
+.query-scope {
+    margin: 15px 0;
+    padding: 12px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.query-scope h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.query-scope label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.query-scope label:hover {
+    background-color: #e5e5e5;
+}
+
+.query-scope input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Style for disabled option */
+.query-scope label input[type="radio"]:disabled + span {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Search result metadata */
+.search-scope-indicator {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Searched presentations pills */
+.searched-presentations {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.searched-presentations span {
+    background: #2c3e50;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* New styles for cross-presentation search results */
+.search-result-section {
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-result-section h4 {
+    color: #2c3e50;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    margin-top: 0;
+}
+
+.search-result-content {
+    padding: 10px 0;
+}
+
+/* Add these styles to your existing styles.css file */
+
+/* Highlight the top search result */
+.search-result-section.top-result {
+    border: 2px solid #27ae60;
+    box-shadow: 0 2px 10px rgba(39, 174, 96, 0.2);
+    position: relative;
+}
+
+.highlight-top-result {
+    animation: highlight-pulse 2s ease-out;
+}
+
+@keyframes highlight-pulse {
+    0% { background-color: rgba(39, 174, 96, 0.2); }
+    100% { background-color: transparent; }
+}
+
+.top-result-badge {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/* Improve searching animation */
+.searching-status {
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 5px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.searching-status .progress {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.searching-status .progress-bar {
+    height: 100%;
+    background: #3498db;
+    width: 10%;
+    animation: progress-search 1.5s infinite ease-in-out;
+}
+
+@keyframes progress-search {
+    0% { width: 10%; transform: translateX(0); }
+    50% { width: 40%; transform: translateX(100%); }
+    100% { width: 10%; transform: translateX(250%); }
+}
+
+/* Add indicator for active presentation in the sidebar */
+.sidebar ul li.active {
+    background: #2980b9;
+    border-left: 4px solid #1abc9c;
+}
+
+/* Style for the search scope radio buttons */
+.query-scope h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-size: 14px;
+}

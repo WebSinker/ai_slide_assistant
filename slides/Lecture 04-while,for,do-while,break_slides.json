@@ -1,0 +1,383 @@
+{
+  "filename": "Lecture 04-while,for,do-while,break",
+  "total_slides": 35,
+  "extraction_time": "2025-04-23 14:16:06",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Java Iterative Constructs",
+      "content": [
+        "Java Iterative Constructs",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Java Iterative Constructs\nJava Iterative Constructs\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Topic & Structure of the lesson",
+        "Iteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+      ],
+      "notes": "",
+      "text": "Topic & Structure of the lesson\nIteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nWrite Java programs implementing the looping constructs"
+      ],
+      "notes": "",
+      "text": "Learning Outcomes\nAt the end of this topic, you should be able to:\nWrite Java programs implementing the looping constructs"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n initialization\n termination\n increment"
+      ],
+      "notes": "",
+      "text": "Key Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n initialization\n termination\n increment"
+    },
+    {
+      "slide_number": 5,
+      "title": "",
+      "content": [
+        "while statement",
+        "Generally speaking, a while statement performs some action while a certain condition remains true. The general syntax of the while statement is:  \n\n\n\n\n\nThat is, while condition is true, do statement.",
+        "while (condition) {\n           \t  statements;  \n       }"
+      ],
+      "notes": "",
+      "text": "while statement\nGenerally speaking, a while statement performs some action while a certain condition remains true. The general syntax of the while statement is:  \n\n\n\n\n\nThat is, while condition is true, do statement.\nwhile (condition) {\n           \t  statements;  \n       }"
+    },
+    {
+      "slide_number": 6,
+      "title": "",
+      "content": [
+        "while statement",
+        "while (condition)   {\n           \t  statement-1;            \n \t  \t  statement-2;            \n      }",
+        "If we\u2019re careless in writing the loop and the condition never becomes false, the loop will continue to execute forever - an infinite loop.",
+        "If more than 1 statements to be executed :"
+      ],
+      "notes": "",
+      "text": "while statement\nwhile (condition)   {\n           \t  statement-1;            \n \t  \t  statement-2;            \n      }\nIf we\u2019re careless in writing the loop and the condition never becomes false, the loop will continue to execute forever - an infinite loop.\nIf more than 1 statements to be executed :"
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "Here is an expanded program from the previous Temperature program.  When executed, produces the table of equivalent Centigrade and Fahrenheit.",
+        "class Temperature {\n \n    public static void main (String[] args) {\n      final double \n         LOW_TEMP = -10.0,\n         HIGH_TEMP = 10.0;\n       // The Centigrade ,Fahrenheit temperature.\n      double cent, fahr; \n  \n         System.out.println(\"DEGREES C\\tDEGREES F\");\n         cent = LOW_TEMP;\n         while (cent <= HIGH_TEMP) {\n              fahr = (9.0/5.0) * cent + 32.0;       // Convert C to F\n              System.out.println(\"\\t\" + cent  + \"\\t\\t\" + fahr);\n              cent = cent + 1.0;   // Increment the Centigrade value.\n         }\n} }",
+        "while statement"
+      ],
+      "notes": "",
+      "text": "Here is an expanded program from the previous Temperature program.  When executed, produces the table of equivalent Centigrade and Fahrenheit.\nclass Temperature {\n \n    public static void main (String[] args) {\n      final double \n         LOW_TEMP = -10.0,\n         HIGH_TEMP = 10.0;\n       // The Centigrade ,Fahrenheit temperature.\n      double cent, fahr; \n  \n         System.out.println(\"DEGREES C\\tDEGREES F\");\n         cent = LOW_TEMP;\n         while (cent <= HIGH_TEMP) {\n              fahr = (9.0/5.0) * cent + 32.0;       // Convert C to F\n              System.out.println(\"\\t\" + cent  + \"\\t\\t\" + fahr);\n              cent = cent + 1.0;   // Increment the Centigrade value.\n         }\n} }\nwhile statement"
+    },
+    {
+      "slide_number": 8,
+      "title": "",
+      "content": [
+        "Suppose we want the computer to print :\n\t10 in a bed and the little one said,\n                        \u201cRoll over, roll over.\u201d\n\tThey all rolled over and one fell out,\n\t9 in a bed and the little one said,\n                        \u201cRoll over, roll over.\u201d\n\tThey all rolled over and one fell out,\n\t8 in a bed and the little one said,\n                \t:\n\t1 in a bed and the little one said,\n\t       \u201cAlone at last.\u201d",
+        "Example 2",
+        "while statement"
+      ],
+      "notes": "",
+      "text": "Suppose we want the computer to print :\n\t10 in a bed and the little one said,\n                        \u201cRoll over, roll over.\u201d\n\tThey all rolled over and one fell out,\n\t9 in a bed and the little one said,\n                        \u201cRoll over, roll over.\u201d\n\tThey all rolled over and one fell out,\n\t8 in a bed and the little one said,\n                \t:\n\t1 in a bed and the little one said,\n\t       \u201cAlone at last.\u201d\nExample 2\nwhile statement"
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "Example 2",
+        "The 1st thing to do is to decide :\n\t1.  which pieces of the song are to be printed just once and\n\t2.  which pieces will be repeated.\n==>  the pieces to be printed once will go either before or after the loop;\n==>  the ones that are repeated can be put inside the loop.\nWe organize our program schematically as :",
+        "while statement"
+      ],
+      "notes": "",
+      "text": "Example 2\nThe 1st thing to do is to decide :\n\t1.  which pieces of the song are to be printed just once and\n\t2.  which pieces will be repeated.\n==>  the pieces to be printed once will go either before or after the loop;\n==>  the ones that are repeated can be put inside the loop.\nWe organize our program schematically as :\nwhile statement"
+    },
+    {
+      "slide_number": 10,
+      "title": "",
+      "content": [
+        "Example 2",
+        "We organize our program schematically as :",
+        "print first line of verse\n  \twhile (more verses)  {\n     \t\tprint rest of verse\n\t\tprint first line of next verse\n      \t}\n\tprint first line of next verse",
+        "while statement"
+      ],
+      "notes": "",
+      "text": "Example 2\nWe organize our program schematically as :\nprint first line of verse\n  \twhile (more verses)  {\n     \t\tprint rest of verse\n\t\tprint first line of next verse\n      \t}\n\tprint first line of next verse\nwhile statement"
+    },
+    {
+      "slide_number": 11,
+      "title": "",
+      "content": [
+        "while statement",
+        "class TenInABed {\n  \n    final int MAX_NUMBER_IN_BED = 10;\n  \n    public static void main (String[] args) {\n    \n         int numberInBed;\n    \n         System.out.println(MAX_NUMBER_IN_BED + \" in a bed and the little one said,\");\n         numberInBed = MAX_NUMBER_IN_BED - 1;\n  \n         while (numberInBed > 0) {\n              System.out.println(\"     \\\"Roll over, roll over.\\\"\");\n              System.out.println(\"They all rolled over and one fell out,\");\n              System.out.println(numberInBed + \" in a bed and the little one said,\");\n              numberInBed = numberInBed - 1;\n         } \n  \n         System.out.println(\"     \\\"Alone at last.\\\"\");\n    }\n}",
+        "Example 2 : Sample Program"
+      ],
+      "notes": "",
+      "text": "while statement\nclass TenInABed {\n  \n    final int MAX_NUMBER_IN_BED = 10;\n  \n    public static void main (String[] args) {\n    \n         int numberInBed;\n    \n         System.out.println(MAX_NUMBER_IN_BED + \" in a bed and the little one said,\");\n         numberInBed = MAX_NUMBER_IN_BED - 1;\n  \n         while (numberInBed > 0) {\n              System.out.println(\"     \\\"Roll over, roll over.\\\"\");\n              System.out.println(\"They all rolled over and one fell out,\");\n              System.out.println(numberInBed + \" in a bed and the little one said,\");\n              numberInBed = numberInBed - 1;\n         } \n  \n         System.out.println(\"     \\\"Alone at last.\\\"\");\n    }\n}\nExample 2 : Sample Program"
+    },
+    {
+      "slide_number": 12,
+      "title": "",
+      "content": [
+        "for statement",
+        "Use the for loop when you know the constraints of the loop (its initialization instruction, termination criteria, and increment instruction). The general form of the for statement can be expressed like this:",
+        "for (initialization; termination; increment) \n        \t  statements"
+      ],
+      "notes": "",
+      "text": "for statement\nUse the for loop when you know the constraints of the loop (its initialization instruction, termination criteria, and increment instruction). The general form of the for statement can be expressed like this:\nfor (initialization; termination; increment) \n        \t  statements"
+    },
+    {
+      "slide_number": 13,
+      "title": "",
+      "content": [
+        "for statement",
+        "initialization ==> a statement that initializes the loop--its executed once at the beginning of the loop. \n\ntermination ==> expression that determines when to terminate the loop. This expression is evaluated at the top of each iteration of the loop. When the expression evaluates to false, the for loop terminates. \n\nincrement ==> expression that gets invoked for each iteration through the loop."
+      ],
+      "notes": "",
+      "text": "for statement\ninitialization ==> a statement that initializes the loop--its executed once at the beginning of the loop. \n\ntermination ==> expression that determines when to terminate the loop. This expression is evaluated at the top of each iteration of the loop. When the expression evaluates to false, the for loop terminates. \n\nincrement ==> expression that gets invoked for each iteration through the loop."
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "for statement",
+        "For instance, for loops are often used to iterate over the elements in an array, or the characters\nin a string.",
+        "// a is an array of some kind \n        . . . \n        int i; \n        int length = a.length; \n        for (i = 0; i < length; i++) { \n           . . . \n           // do something to the i th element of a \n           . . . \n        }"
+      ],
+      "notes": "",
+      "text": "for statement\nFor instance, for loops are often used to iterate over the elements in an array, or the characters\nin a string.\n// a is an array of some kind \n        . . . \n        int i; \n        int length = a.length; \n        for (i = 0; i < length; i++) { \n           . . . \n           // do something to the i th element of a \n           . . . \n        }"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        "for statement",
+        "Example 1",
+        "while (cent <= HIGH_TEMP) {\n\n    fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n\n      System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n\n         cent = cent + 1.0;   // Increment the Centigrade value.     }"
+      ],
+      "notes": "",
+      "text": "for statement\nExample 1\nwhile (cent <= HIGH_TEMP) {\n\n    fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n\n      System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n\n         cent = cent + 1.0;   // Increment the Centigrade value.     }"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "for statement",
+        "Using a for statement, our temperature table loop can \nbe rewritten as",
+        "for (cent = LOW_TEMP; cent <= HIGH_TEMP; cent =cent+1.0 ) {\n\n              fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n\n              System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n         }",
+        "Example 1"
+      ],
+      "notes": "",
+      "text": "for statement\nUsing a for statement, our temperature table loop can \nbe rewritten as\nfor (cent = LOW_TEMP; cent <= HIGH_TEMP; cent =cent+1.0 ) {\n\n              fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n\n              System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n         }\nExample 1"
+    },
+    {
+      "slide_number": 17,
+      "title": "",
+      "content": [
+        "for statement",
+        "class Temperature {\n \n    public static void main (String[] args) {\n      final double LOW_TEMP = -10.0, HIGH_TEMP = 10.0;\n  \n      double cent, fahr;  \n  \n         System.out.println(\"DEGREES C\\tDEGREES F\");\n         cent = LOW_TEMP;\n         for (cent = HIGH_TEMP; cent <= HIGH_TEMP; cent =cent+1.0 ) {\n              fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n              System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n         }\n    }\n}",
+        "Example 1 : Sample Program"
+      ],
+      "notes": "",
+      "text": "for statement\nclass Temperature {\n \n    public static void main (String[] args) {\n      final double LOW_TEMP = -10.0, HIGH_TEMP = 10.0;\n  \n      double cent, fahr;  \n  \n         System.out.println(\"DEGREES C\\tDEGREES F\");\n         cent = LOW_TEMP;\n         for (cent = HIGH_TEMP; cent <= HIGH_TEMP; cent =cent+1.0 ) {\n              fahr = (9.0/5.0) * cent + 32.0; // Convert C to F\n              System.out.println(\"\\t\" + cent + \"\\t\\t\" + fahr);\n         }\n    }\n}\nExample 1 : Sample Program"
+    },
+    {
+      "slide_number": 18,
+      "title": "",
+      "content": [
+        "do \u2026 while statement",
+        "Java provides another loop, the do-while loop, which is similar to the while loop :",
+        "do { \n                  statements \n     } while (condition);",
+        "do-while Vs while  :  The main difference between these two is that in do-while loop the expression is evaluated at the bottom of the loop, thus, the body of the loop is always executed AT LEAST ONCE."
+      ],
+      "notes": "",
+      "text": "do \u2026 while statement\nJava provides another loop, the do-while loop, which is similar to the while loop :\ndo { \n                  statements \n     } while (condition);\ndo-while Vs while  :  The main difference between these two is that in do-while loop the expression is evaluated at the bottom of the loop, thus, the body of the loop is always executed AT LEAST ONCE."
+    },
+    {
+      "slide_number": 19,
+      "title": "",
+      "content": [
+        "do \u2026 while statement",
+        "The do-while statement is a less commonly used loop construct in programming but does have its uses. For example, the do-while is convenient to use when the statements within the loop must be executed at least once."
+      ],
+      "notes": "",
+      "text": "do \u2026 while statement\nThe do-while statement is a less commonly used loop construct in programming but does have its uses. For example, the do-while is convenient to use when the statements within the loop must be executed at least once."
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "do \u2026 while statement",
+        "int c; \n        Scanner in = new Scanner(System.in); \n        . . . \n        do { \n              c = in.nextInt(); \n               . . . \n        } while (c != -1);",
+        "Example 1",
+        "When reading information from a file, you know that you will always have to read at least one character.  Therefore, the do-while loop will be appropriate to be used in this case :"
+      ],
+      "notes": "",
+      "text": "do \u2026 while statement\nint c; \n        Scanner in = new Scanner(System.in); \n        . . . \n        do { \n              c = in.nextInt(); \n               . . . \n        } while (c != -1);\nExample 1\nWhen reading information from a file, you know that you will always have to read at least one character.  Therefore, the do-while loop will be appropriate to be used in this case :"
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "Quick Review Question",
+        "Write and run a program that prints the average of 5\nrandom double value.  Your output should look like \nthis :\nAverage = 0.533764716823967\n(hint : use the method Math.random() )"
+      ],
+      "notes": "",
+      "text": "Quick Review Question\nWrite and run a program that prints the average of 5\nrandom double value.  Your output should look like \nthis :\nAverage = 0.533764716823967\n(hint : use the method Math.random() )"
+    },
+    {
+      "slide_number": 22,
+      "title": "",
+      "content": [
+        "Quick Review Question",
+        "public class averageRandom  {\n    public static void main(String[] args)  {\n   \tdouble randNo, sum=0.0;\n \tfor(int i=0; i<5; i++)  {\n\t\trandNo = Math.random();\n\t\tsum = sum + randNo;\n\t\tSystem.out.println(randNo+\"\");\n\t}\n\tSystem.out.println(\u201caverage = \u201c + sum/5); \n    }\n}",
+        "Sample answer"
+      ],
+      "notes": "",
+      "text": "Quick Review Question\npublic class averageRandom  {\n    public static void main(String[] args)  {\n   \tdouble randNo, sum=0.0;\n \tfor(int i=0; i<5; i++)  {\n\t\trandNo = Math.random();\n\t\tsum = sum + randNo;\n\t\tSystem.out.println(randNo+\"\");\n\t}\n\tSystem.out.println(\u201caverage = \u201c + sum/5); \n    }\n}\nSample answer"
+    },
+    {
+      "slide_number": 23,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "Write a program to read test scores and compute the minimum, maximum and average scores.  Imagine someone at a computer entering a sequence of scores; after entering the scores, the  person signals the end of the data by entering a special character."
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nWrite a program to read test scores and compute the minimum, maximum and average scores.  Imagine someone at a computer entering a sequence of scores; after entering the scores, the  person signals the end of the data by entering a special character."
+    },
+    {
+      "slide_number": 24,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "Enter score (\u2018-1\u2019 ends the data) : 85\nEnter score (\u2018-1\u2019 ends the data) : 62\nEnter score (\u2018-1\u2019 ends the data) : 93\nEnter score (\u2018-1\u2019 ends the data) : 87\nEnter score (\u2018-1\u2019 ends the data) : 51\nEnter score (\u2018-1\u2019 ends the data) : -1\n\nThe average of the 5 scores was 75.6\nThe maximum score was 93\nThe minimum score was 51",
+        "Sample Output"
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nEnter score (\u2018-1\u2019 ends the data) : 85\nEnter score (\u2018-1\u2019 ends the data) : 62\nEnter score (\u2018-1\u2019 ends the data) : 93\nEnter score (\u2018-1\u2019 ends the data) : 87\nEnter score (\u2018-1\u2019 ends the data) : 51\nEnter score (\u2018-1\u2019 ends the data) : -1\n\nThe average of the 5 scores was 75.6\nThe maximum score was 93\nThe minimum score was 51\nSample Output"
+    },
+    {
+      "slide_number": 25,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "Questions ??????",
+        "How do we calculate the average?\n  The maximum?\n  The minimum?\nBut before these answering this question:\n  What should the loop look like?"
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nQuestions ??????\nHow do we calculate the average?\n  The maximum?\n  The minimum?\nBut before these answering this question:\n  What should the loop look like?"
+    },
+    {
+      "slide_number": 26,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "What should the loop look like?",
+        "read score\nwhile (not end of data)  {\n        process score\n        read score\n}"
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nWhat should the loop look like?\nread score\nwhile (not end of data)  {\n        process score\n        read score\n}"
+    },
+    {
+      "slide_number": 27,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "import java.util.Scanner;\nclass Scores {\n       // Author: Arthur L. Reingold, October 31, 1994.\n       public static void main (String[] args) {\n   \tint score, sumOfScores = 0, numberOfScores = 0;\n  \tScanner keyboard = new Scanner(System.in);\n    \tSystem.out.print(\"Enter score (\u2018-1\u2019 ends the data): \");\n    \tscore=keyboard.nextInt();\n    \tint maxOfScores = score;\n    \tint minOfScores = score;\n  \n    \twhile (score != -1) {\n      \t\tnumberOfScores++;                   \t// new score\n      \t\tsumOfScores = sumOfScores + score;  // update sum\n      \t\t\ncontd."
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nimport java.util.Scanner;\nclass Scores {\n       // Author: Arthur L. Reingold, October 31, 1994.\n       public static void main (String[] args) {\n   \tint score, sumOfScores = 0, numberOfScores = 0;\n  \tScanner keyboard = new Scanner(System.in);\n    \tSystem.out.print(\"Enter score (\u2018-1\u2019 ends the data): \");\n    \tscore=keyboard.nextInt();\n    \tint maxOfScores = score;\n    \tint minOfScores = score;\n  \n    \twhile (score != -1) {\n      \t\tnumberOfScores++;                   \t// new score\n      \t\tsumOfScores = sumOfScores + score;  // update sum\n      \t\t\ncontd."
+    },
+    {
+      "slide_number": 28,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "if (maxOfScores < score)        \t// new largest score\n       \t\t\tmaxOfScores = score;\n      \t\tif (minOfScores > score)          // new smallest score\n        \t\t\tminOfScores = score;\n  \n\t\tSystem.out.print(\"Enter score (\u2018-1\u2019 ends the data): \");\n      \t\tscore=keyboard.nextInt();\n        \t}"
+      ],
+      "notes": "",
+      "text": "Reading in a loop\nif (maxOfScores < score)        \t// new largest score\n       \t\t\tmaxOfScores = score;\n      \t\tif (minOfScores > score)          // new smallest score\n        \t\t\tminOfScores = score;\n  \n\t\tSystem.out.print(\"Enter score (\u2018-1\u2019 ends the data): \");\n      \t\tscore=keyboard.nextInt();\n        \t}"
+    },
+    {
+      "slide_number": 29,
+      "title": "",
+      "content": [
+        "Reading in a loop",
+        "// Printing out the result\nif (numberOfScores == 0)\n    System.out.println(\"No scores were entered.\");\n        else if (numberOfScores == 1)\n      \tSystem.out.println(\"Only one score was entered.  It was \"\n           \t\t+ sumOfScores);\n    \telse  {\n      \tSystem.out.println(\u201c\\n\\n\u201d +numberOfScores + \" scores were \n                     entered.\");\n      \t System.out.println(\"The average score was \"\n          \t       + ((double)sumOfScores)/numberOfScores);\n      \t System.out.println(\"The maximum score was \" \n                    + maxOfScores);\n      \t System.out.println(\"The minimum score was \" \n                    + minOfScores);\n\t}\n        }\n}"
+      ],
+      "notes": "",
+      "text": "Reading in a loop\n// Printing out the result\nif (numberOfScores == 0)\n    System.out.println(\"No scores were entered.\");\n        else if (numberOfScores == 1)\n      \tSystem.out.println(\"Only one score was entered.  It was \"\n           \t\t+ sumOfScores);\n    \telse  {\n      \tSystem.out.println(\u201c\\n\\n\u201d +numberOfScores + \" scores were \n                     entered.\");\n      \t System.out.println(\"The average score was \"\n          \t       + ((double)sumOfScores)/numberOfScores);\n      \t System.out.println(\"The maximum score was \" \n                    + maxOfScores);\n      \t System.out.println(\"The minimum score was \" \n                    + minOfScores);\n\t}\n        }\n}"
+    },
+    {
+      "slide_number": 30,
+      "title": "",
+      "content": [
+        "break statement",
+        "As in switch statements, the break statement can also be used terminate the execution of the iteration statements while and for.",
+        "The use of a break in loops can simplify writing code in what is sometimes called the loop-and-a-half problem.  For example :"
+      ],
+      "notes": "",
+      "text": "break statement\nAs in switch statements, the break statement can also be used terminate the execution of the iteration statements while and for.\nThe use of a break in loops can simplify writing code in what is sometimes called the loop-and-a-half problem.  For example :"
+    },
+    {
+      "slide_number": 31,
+      "title": "",
+      "content": [
+        "break statement",
+        "read score\nwhile (not end of data)  {\n        process score\n        read score\n}",
+        "while (true) {\n        read score\n        if (end of data)    break;\n        process score\n}"
+      ],
+      "notes": "",
+      "text": "break statement\nread score\nwhile (not end of data)  {\n        process score\n        read score\n}\nwhile (true) {\n        read score\n        if (end of data)    break;\n        process score\n}"
+    },
+    {
+      "slide_number": 32,
+      "title": "",
+      "content": [
+        "Follow Up Assignment",
+        "Write an application that accepts a sequence of inputs that describe the quantities and types of coins held by a person. The application should then process the inputs and display the total value of these coins.\nNote:\nHalf-dollar\t= 50 cents\nQuarter\t= 25 cents\nDime\t\t= 10 cents\nNickel\t\t= 5 cents"
+      ],
+      "notes": "",
+      "text": "Follow Up Assignment\nWrite an application that accepts a sequence of inputs that describe the quantities and types of coins held by a person. The application should then process the inputs and display the total value of these coins.\nNote:\nHalf-dollar\t= 50 cents\nQuarter\t= 25 cents\nDime\t\t= 10 cents\nNickel\t\t= 5 cents"
+    },
+    {
+      "slide_number": 33,
+      "title": "",
+      "content": [
+        "Summary of Main Teaching Points",
+        "Iteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+      ],
+      "notes": "",
+      "text": "Summary of Main Teaching Points\nIteration / Loop\nThe while Statement\nThe for Statement\nThe do \u2026 while Statement\nReading Input In A Loop\nThe break statements in Loops"
+    },
+    {
+      "slide_number": 34,
+      "title": "",
+      "content": [
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Q & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "Next Session",
+        "Arrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+      ],
+      "notes": "",
+      "text": "Next Session\nArrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+    }
+  ]
+}

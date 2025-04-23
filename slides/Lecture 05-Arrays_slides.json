@@ -1,0 +1,471 @@
+{
+  "filename": "Lecture 05-Arrays",
+  "total_slides": 37,
+  "extraction_time": "2025-04-23 14:16:05",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Arrays",
+      "content": [
+        "Arrays",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Arrays\nArrays\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Topic & Structure of the lesson",
+        "Arrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nTopic & Structure of the lesson\nArrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+    },
+    {
+      "slide_number": 3,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Learning Outcomes",
+        "At the end of this topic, you should be able to:\nDefine, initialise and access array data types\nWrite Java programs using arrays"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nLearning Outcomes\nAt the end of this topic, you should be able to:\nDefine, initialise and access array data types\nWrite Java programs using arrays"
+    },
+    {
+      "slide_number": 4,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Key Terms you must be able to use",
+        "If you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n array"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nKey Terms you must be able to use\nIf you have mastered this topic, you should be able to use the following terms correctly in your assignments and exams:\n\n array"
+    },
+    {
+      "slide_number": 5,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "Definition \nAn array contains a fixed number (called its length) of variables of identical type.\n\nIn Java, it is a specialized kind of object and it must be declared in 2 steps :",
+        "type[]  array_name;",
+        "1.  Declare the object :",
+        "Eg.      int[] counts;\n            double[] scores;\n            Time[]  appointmentTime;"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\nDefinition \nAn array contains a fixed number (called its length) of variables of identical type.\n\nIn Java, it is a specialized kind of object and it must be declared in 2 steps :\ntype[]  array_name;\n1.  Declare the object :\nEg.      int[] counts;\n            double[] scores;\n            Time[]  appointmentTime;"
+    },
+    {
+      "slide_number": 6,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "array_name = new type [size];",
+        "2. Allocate the object :",
+        "Eg.      counts= new int[10];\n            scores= new double[15];\n            appointmentTime = new Time[10];",
+        "Combination of 2 steps :           \n\ttype [] array_name = new type [size];",
+        "Eg.      int[] counts = new int[10];",
+        "Array Basics"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\narray_name = new type [size];\n2. Allocate the object :\nEg.      counts= new int[10];\n            scores= new double[15];\n            appointmentTime = new Time[10];\nCombination of 2 steps :           \n\ttype [] array_name = new type [size];\nEg.      int[] counts = new int[10];\nArray Basics"
+    },
+    {
+      "slide_number": 7,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "The bracketed no. is the length (which states how many variables in each array.",
+        "counts",
+        "0    1    2    3    4    5    6    7    8    9",
+        "} index / subscript",
+        "int variables",
+        "Arrays can contain any type of value : simple values or \n      references to objects  \n     To obtain a specific variable, we use subscripts, for eg.",
+        "Array Basics"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nThe bracketed no. is the length (which states how many variables in each array.\ncounts\n0    1    2    3    4    5    6    7    8    9\n} index / subscript\nint variables\nArrays can contain any type of value : simple values or \n      references to objects  \n     To obtain a specific variable, we use subscripts, for eg.\nArray Basics"
+    },
+    {
+      "slide_number": 8,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "counts[0]            // the first variable in counts\ncounts[1]            // the second variable in counts\ncounts[9]            // the last variable in counts\ncounts[10]          // error  : ArrayIndexOutOfBounds",
+        "Each of these subscripted arrays is an int variable and can \n      be used in the same ways that any int variable is used."
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\ncounts[0]            // the first variable in counts\ncounts[1]            // the second variable in counts\ncounts[9]            // the last variable in counts\ncounts[10]          // error  : ArrayIndexOutOfBounds\nEach of these subscripted arrays is an int variable and can \n      be used in the same ways that any int variable is used."
+    },
+    {
+      "slide_number": 9,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Write and run a program that read 10 integers and print\n it in reverse order.",
+        "Sample program :",
+        "Example 1 :",
+        "Array Basics"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nWrite and run a program that read 10 integers and print\n it in reverse order.\nSample program :\nExample 1 :\nArray Basics"
+    },
+    {
+      "slide_number": 10,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "class Simple {\n  \n  public static void main (String[] arg) {\n    int[] counts = new int[10];\n     Scanner input = new Scanner(System.in);\n    System.out.print(\"Enter ten numbers: \");\n    counts[0]= input.nextInt(); \n    counts[1]= input.nextInt(); \n    counts[2]= input.nextInt(); \n    counts[3]= input.nextInt(); \n    counts[4]= input.nextInt(); \n    counts[5]= input.nextInt(); \n    counts[6]= input.nextInt(); \n    counts[7]= input.nextInt(); \n    counts[8]= input.nextInt(); \n    counts[9]= input.nextInt(); \n  \n    System.out.print(counts[9] + \" \" + counts[8] + \" \" + counts[7] + \" \" + \u000b    counts[6] + \" \" + counts[5] + \" \" + counts[4] + \" \" + counts[3] + \" \" + \u000b    counts[2] + \" \" + counts[1] + \" \" + counts[0] + \"\\n\");\n   }\n}",
+        "Sample program:",
+        "Array Basics"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nclass Simple {\n  \n  public static void main (String[] arg) {\n    int[] counts = new int[10];\n     Scanner input = new Scanner(System.in);\n    System.out.print(\"Enter ten numbers: \");\n    counts[0]= input.nextInt(); \n    counts[1]= input.nextInt(); \n    counts[2]= input.nextInt(); \n    counts[3]= input.nextInt(); \n    counts[4]= input.nextInt(); \n    counts[5]= input.nextInt(); \n    counts[6]= input.nextInt(); \n    counts[7]= input.nextInt(); \n    counts[8]= input.nextInt(); \n    counts[9]= input.nextInt(); \n  \n    System.out.print(counts[9] + \" \" + counts[8] + \" \" + counts[7] + \" \" + \u000b    counts[6] + \" \" + counts[5] + \" \" + counts[4] + \" \" + counts[3] + \" \" + \u000b    counts[2] + \" \" + counts[1] + \" \" + counts[0] + \"\\n\");\n   }\n}\nSample program:\nArray Basics"
+    },
+    {
+      "slide_number": 11,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "Array subscripts can be expression, not  just constant.  \nEg.",
+        "Array Features To Be Noted:"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\nArray subscripts can be expression, not  just constant.  \nEg.\nArray Features To Be Noted:"
+    },
+    {
+      "slide_number": 12,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "Arrays can be initialized by giving a list of all their elements :",
+        "int[]  primes = { 2,3,5,9,11,13,17,19,23,29 };",
+        "However, this can only be used at the time the array is declared.  Thus,"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\nArrays can be initialized by giving a list of all their elements :\nint[]  primes = { 2,3,5,9,11,13,17,19,23,29 };\nHowever, this can only be used at the time the array is declared.  Thus,"
+    },
+    {
+      "slide_number": 13,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "The above method can also be used to initialized an array of Strings such as :",
+        "Array Features To Be Noted (cont\u2019d) :",
+        "final String NAME[] = { \u201c\u201d, \u201cSunday\u201d, \u201cMonday\u201d, \u201cTuesday\u201d, \u201cWednesday\u201d, \u201cThursday\u201d, \u201cFriday\u201d, \u201cSaturday\u201d}; \nint   day=1;\nvoid printName (int  day)  {\n            while (day <=7)  {\n                    System.out.print( NAME[day] );\n                    day++;\n            }    \n}"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\nThe above method can also be used to initialized an array of Strings such as :\nArray Features To Be Noted (cont\u2019d) :\nfinal String NAME[] = { \u201c\u201d, \u201cSunday\u201d, \u201cMonday\u201d, \u201cTuesday\u201d, \u201cWednesday\u201d, \u201cThursday\u201d, \u201cFriday\u201d, \u201cSaturday\u201d}; \nint   day=1;\nvoid printName (int  day)  {\n            while (day <=7)  {\n                    System.out.print( NAME[day] );\n                    day++;\n            }    \n}"
+    },
+    {
+      "slide_number": 14,
+      "title": "Array Basics",
+      "content": [
+        "Slide <number> of 36",
+        "Array Basics",
+        "Java\u2019s array have an important instant variable : length,\u000b     which tells the no of elements in the array.",
+        "while (day <= NAME.length)  {\n                    System.out.print( NAME[day] );\n                    day++;\n            }"
+      ],
+      "notes": "",
+      "text": "Array Basics\nSlide <number> of 36\nArray Basics\nJava\u2019s array have an important instant variable : length,\u000b     which tells the no of elements in the array.\nwhile (day <= NAME.length)  {\n                    System.out.print( NAME[day] );\n                    day++;\n            }"
+    },
+    {
+      "slide_number": 15,
+      "title": "Simple Array Processing Loops",
+      "content": [
+        "Slide <number> of 36",
+        "Simple Array Processing Loops",
+        "Now, let\u2019s use for loop to generate the subscript of an array.",
+        "for (int i=0; i<10; i++)\n                         count[i] = i*10;",
+        "for (int i=0; i<count.length; i++)\n                         count[i] = i*10;",
+        "or, we can use array\u2019s length instance variable"
+      ],
+      "notes": "",
+      "text": "Simple Array Processing Loops\nSlide <number> of 36\nSimple Array Processing Loops\nNow, let\u2019s use for loop to generate the subscript of an array.\nfor (int i=0; i<10; i++)\n                         count[i] = i*10;\nfor (int i=0; i<count.length; i++)\n                         count[i] = i*10;\nor, we can use array\u2019s length instance variable"
+    },
+    {
+      "slide_number": 16,
+      "title": "Simple Array Processing Loops",
+      "content": [
+        "Slide <number> of 36",
+        "Simple Array Processing Loops",
+        "Write a more concise program for the \u201cSimple Program\u201d.",
+        "class Simple2 {\n    public static void main (String[] arg) {\n    int[] counts = new int[10];\n    Scanner input = new Scanner(System.in);\n      System.out.print(\"Enter ten numbers: \");\n    for (int i=0; i<10; i++)\n        counts[i]=input.nextInt();  \n    for (int i=0; i<10; i++)\n        System.out.print(counts[10-i] + \" \");\n    System.out.println();\n  }\n}",
+        "Sample program :",
+        "Example 2 :"
+      ],
+      "notes": "",
+      "text": "Simple Array Processing Loops\nSlide <number> of 36\nSimple Array Processing Loops\nWrite a more concise program for the \u201cSimple Program\u201d.\nclass Simple2 {\n    public static void main (String[] arg) {\n    int[] counts = new int[10];\n    Scanner input = new Scanner(System.in);\n      System.out.print(\"Enter ten numbers: \");\n    for (int i=0; i<10; i++)\n        counts[i]=input.nextInt();  \n    for (int i=0; i<10; i++)\n        System.out.print(counts[10-i] + \" \");\n    System.out.println();\n  }\n}\nSample program :\nExample 2 :"
+    },
+    {
+      "slide_number": 17,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "Encapsulate the reading & echoing of an array in a class called Collection :",
+        "class Main {\n  static final int INPUT_MAX = 1000;\n  \n  public static void main (String[] arg) {\n    Collection c = new Collection(INPUT_MAX);\n    c.readAndEcho();\n  }\n}",
+        "Sample program :",
+        "Example 3 :",
+        "The Main Program \n(The Client)\nIt can instantiate a Collection Object, providing a large no. as an argument to the constructor."
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nEncapsulate the reading & echoing of an array in a class called Collection :\nclass Main {\n  static final int INPUT_MAX = 1000;\n  \n  public static void main (String[] arg) {\n    Collection c = new Collection(INPUT_MAX);\n    c.readAndEcho();\n  }\n}\nSample program :\nExample 3 :\nThe Main Program \n(The Client)\nIt can instantiate a Collection Object, providing a large no. as an argument to the constructor."
+    },
+    {
+      "slide_number": 18,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "Collection class"
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nCollection class"
+    },
+    {
+      "slide_number": 19,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "Write a program, which reads a sequence of student names and\n scores on 2 exams and prints a listing giving the average score\n for each student.  The input for each student is in the form of a \nname (String) and 2 numbers.\nSample run of the program :",
+        "Enter name and two exam grades : Clark Kent\n57\n69\nEnter name and two exam grades : Lois Lane\n94\n86\nEnter name and two exam grades : Jimmy Olsen\n90\n97\nEnter name and two exam grades : q\n\n\tName\t                \tAverage\n\tClark Kent\t\t63\n\tLois Lane\t\t90\t\n\tJimmy Olsen\t\t83"
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nWrite a program, which reads a sequence of student names and\n scores on 2 exams and prints a listing giving the average score\n for each student.  The input for each student is in the form of a \nname (String) and 2 numbers.\nSample run of the program :\nEnter name and two exam grades : Clark Kent\n57\n69\nEnter name and two exam grades : Lois Lane\n94\n86\nEnter name and two exam grades : Jimmy Olsen\n90\n97\nEnter name and two exam grades : q\n\n\tName\t                \tAverage\n\tClark Kent\t\t63\n\tLois Lane\t\t90\t\n\tJimmy Olsen\t\t83"
+    },
+    {
+      "slide_number": 20,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "Main Program",
+        "class GradeBook {\n    String[] names, x;\n    int[]  exam1,  exam2;\n    int size = 0;\n  \n  public GradeBook(int number) {\n    names = new String[number];\n    exam1 = new int[number];\n    exam2 = new int[number];\n  }\n  \n  public void readAndAverage() {\n    // Read names and exam grades; size counts inputs\n    while (true) {\n      System.out.print(\"Enter name and two exam grades: \");\n      names[size] = keyboard.nextLine();\n      if (names[size].equals(\u201cq\u201d)) break;\n      exam1[size] = keyboard.nextInt();\n      exam2[size] = keyboard.nextInt();\n      x=keyboard.nextLine();\n      size++;\n    }\n  \n    System.out.println();\n    System.out.println(\"\\tName\\tAverage\");\n    for (int i=0; i<size; i++) {\n      System.out.println(\"\\t\" + names[i] +\n                         \"\\t\\t\" + (exam1[i] + exam2[i])/2);    }\n  }\n}",
+        "class ReadAndAvg2 {\n  static final int INPUT_MAX = 100;\n  \n  public static void main (String[] arg)  \n  {\n        GradeBook grades = new          \tGradeBook(INPUT_MAX);\n        grades.readAndAverage();\n  }\n}",
+        "Gradebook class"
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nMain Program\nclass GradeBook {\n    String[] names, x;\n    int[]  exam1,  exam2;\n    int size = 0;\n  \n  public GradeBook(int number) {\n    names = new String[number];\n    exam1 = new int[number];\n    exam2 = new int[number];\n  }\n  \n  public void readAndAverage() {\n    // Read names and exam grades; size counts inputs\n    while (true) {\n      System.out.print(\"Enter name and two exam grades: \");\n      names[size] = keyboard.nextLine();\n      if (names[size].equals(\u201cq\u201d)) break;\n      exam1[size] = keyboard.nextInt();\n      exam2[size] = keyboard.nextInt();\n      x=keyboard.nextLine();\n      size++;\n    }\n  \n    System.out.println();\n    System.out.println(\"\\tName\\tAverage\");\n    for (int i=0; i<size; i++) {\n      System.out.println(\"\\t\" + names[i] +\n                         \"\\t\\t\" + (exam1[i] + exam2[i])/2);    }\n  }\n}\nclass ReadAndAvg2 {\n  static final int INPUT_MAX = 100;\n  \n  public static void main (String[] arg)  \n  {\n        GradeBook grades = new          \tGradeBook(INPUT_MAX);\n        grades.readAndAverage();\n  }\n}\nGradebook class"
+    },
+    {
+      "slide_number": 21,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "A better structure for GradeBook would be define a class of \nobjects representing students ~ including their names and grades\nand construct an array of these objects.",
+        "class Student {\n      private String name;\n  \tprivate int exam1, exam2;\n\tpublic Student () {}\n  \tpublic void setName (String s) { name = s; }\n  \tpublic void setExam1 (int s) { exam1 = s; }\n  \tpublic void setExam2 (int s) { exam2 = s; }\n  \tpublic String getName () { return name; }\n  \tpublic int getExam1 () { return exam1; }\n  \tpublic int getExam2 () { return exam2; }\n  \tpublic int getAvg () { return (exam1+exam2)/2; }\n}",
+        "Student class"
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nA better structure for GradeBook would be define a class of \nobjects representing students ~ including their names and grades\nand construct an array of these objects.\nclass Student {\n      private String name;\n  \tprivate int exam1, exam2;\n\tpublic Student () {}\n  \tpublic void setName (String s) { name = s; }\n  \tpublic void setExam1 (int s) { exam1 = s; }\n  \tpublic void setExam2 (int s) { exam2 = s; }\n  \tpublic String getName () { return name; }\n  \tpublic int getExam1 () { return exam1; }\n  \tpublic int getExam2 () { return exam2; }\n  \tpublic int getAvg () { return (exam1+exam2)/2; }\n}\nStudent class"
+    },
+    {
+      "slide_number": 22,
+      "title": "Modular Programming Example",
+      "content": [
+        "Slide <number> of 36",
+        "Modular Programming Example",
+        "Main Program",
+        "class GradeBook {\n    Student[] students; int size = 0;\n  \n  public GradeBook(int number) {\n    students = new Student[number];\n  }\n  \n  public void readAndAverage() {\n    // Read names and exam grades\n    String nextname, x;\n    while (true) {\n      System.out.print(\"Enter name and 2 grades: \");\n      nextname = keyboard.nextLine();\n      if (nextname.equals(\"q\")) break;\n      students[size] = new Student();\n      students[size].setName(nextname);\n      students[size].setExam1(keyboard.nextInt());\n      students[size].setExam2(keyboard.nextInt());\n      x=keyboard.nextLine();\n      size++;\n    }\n   System.out.println(\u201c\\n\\tName\\tAverage\");\n    for (int i=0; i<size; i++) {\n      System.out.println(\"\\t\" + students[i].getName() +\"\\t\\t\" + students[i].getAvg());    }\n} }",
+        "class ReadAndAvg2 {\n  static final int INPUT_MAX = 100;\n  \n  public static void main (String[] arg)  \n  {\n          GradeBook grades = new          \tGradeBook(INPUT_MAX);\n          grades.readAndAverage();\n  }\n}",
+        "Gradebook class"
+      ],
+      "notes": "",
+      "text": "Modular Programming Example\nSlide <number> of 36\nModular Programming Example\nMain Program\nclass GradeBook {\n    Student[] students; int size = 0;\n  \n  public GradeBook(int number) {\n    students = new Student[number];\n  }\n  \n  public void readAndAverage() {\n    // Read names and exam grades\n    String nextname, x;\n    while (true) {\n      System.out.print(\"Enter name and 2 grades: \");\n      nextname = keyboard.nextLine();\n      if (nextname.equals(\"q\")) break;\n      students[size] = new Student();\n      students[size].setName(nextname);\n      students[size].setExam1(keyboard.nextInt());\n      students[size].setExam2(keyboard.nextInt());\n      x=keyboard.nextLine();\n      size++;\n    }\n   System.out.println(\u201c\\n\\tName\\tAverage\");\n    for (int i=0; i<size; i++) {\n      System.out.println(\"\\t\" + students[i].getName() +\"\\t\\t\" + students[i].getAvg());    }\n} }\nclass ReadAndAvg2 {\n  static final int INPUT_MAX = 100;\n  \n  public static void main (String[] arg)  \n  {\n          GradeBook grades = new          \tGradeBook(INPUT_MAX);\n          grades.readAndAverage();\n  }\n}\nGradebook class"
+    },
+    {
+      "slide_number": 23,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "A simple method of sorting an array A of n elements.  It works like this :",
+        "Selection Sort",
+        "Find the smallest element among the elements A[0] \u2026 A[n-1]; suppose it is A[min]\nMove A[min] to position 0 and A[0] to position min (swapping).  At this point, A[0] contains the smallest element in the array and the remaining elements are unsorted."
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nA simple method of sorting an array A of n elements.  It works like this :\nSelection Sort\nFind the smallest element among the elements A[0] \u2026 A[n-1]; suppose it is A[min]\nMove A[min] to position 0 and A[0] to position min (swapping).  At this point, A[0] contains the smallest element in the array and the remaining elements are unsorted."
+    },
+    {
+      "slide_number": 24,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "Next, find the smallest element among A[1] \u2026 A[n-1] and \u000b  swap it with A[i].  Now, A[0] contains the smallest element, \u000b  A[1] contains the second smallest element, and A[2]\u2026A[n-1] \u000b  are unsorted.\n Proceed similarly for A[3], A[4], and so on."
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nNext, find the smallest element among A[1] \u2026 A[n-1] and \u000b  swap it with A[i].  Now, A[0] contains the smallest element, \u000b  A[1] contains the second smallest element, and A[2]\u2026A[n-1] \u000b  are unsorted.\n Proceed similarly for A[3], A[4], and so on."
+    },
+    {
+      "slide_number": 25,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "Selection Sort (cont\u2019d)",
+        "Find the smallest element and place it at the front :",
+        "Find the next smallest element and place it in the second position :",
+        "Do the same for the third element :"
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nSelection Sort (cont\u2019d)\nFind the smallest element and place it at the front :\nFind the next smallest element and place it in the second position :\nDo the same for the third element :"
+    },
+    {
+      "slide_number": 26,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "Selection Sort (cont\u2019d)",
+        "And the fourth :",
+        "Finally, the fifth :",
+        "A is now sorted :"
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nSelection Sort (cont\u2019d)\nAnd the fourth :\nFinally, the fifth :\nA is now sorted :"
+    },
+    {
+      "slide_number": 27,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "Selection Sort (cont\u2019d)",
+        "In short, for each i from 0 to n-2 (where n is the length of the array), \n\t\t1.  Find the smallest element among A[i]\u2026A[n-1] and \n\t\t2.  Swap it with A[i]."
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nSelection Sort (cont\u2019d)\nIn short, for each i from 0 to n-2 (where n is the length of the array), \n\t\t1.  Find the smallest element among A[i]\u2026A[n-1] and \n\t\t2.  Swap it with A[i]."
+    },
+    {
+      "slide_number": 28,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "void selectionSort (double[] A) {\n    int i, j;\n    for (i=0; i<A.length; i++) {\n      // All elements in A[0]..A[i-1] are less than\n      // all elements in A[i]..A[A.length-1], and\n      // A[0]..A[i-1] is sorted.\n      int min = findMinimum(A, i);\n      swap(A, i, min);\n    }\n  }",
+        "int findMinimum (double[] A, int i) {\n    int j, min = i;\n    for (j=i+1; j<A.length; j++)\n      // A[min] <= all elements in A[i]..A[j-1]\n      if (A[j] < A[min]) min = j;\n    return min;\n  }",
+        "void swap (double[] A, int i, int j) {\n    double temp = A[i];\n    A[i] = A[j];\n    A[j] = temp;\n  }"
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nvoid selectionSort (double[] A) {\n    int i, j;\n    for (i=0; i<A.length; i++) {\n      // All elements in A[0]..A[i-1] are less than\n      // all elements in A[i]..A[A.length-1], and\n      // A[0]..A[i-1] is sorted.\n      int min = findMinimum(A, i);\n      swap(A, i, min);\n    }\n  }\nint findMinimum (double[] A, int i) {\n    int j, min = i;\n    for (j=i+1; j<A.length; j++)\n      // A[min] <= all elements in A[i]..A[j-1]\n      if (A[j] < A[min]) min = j;\n    return min;\n  }\nvoid swap (double[] A, int i, int j) {\n    double temp = A[i];\n    A[i] = A[j];\n    A[j] = temp;\n  }"
+    },
+    {
+      "slide_number": 29,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "Linear Search",
+        "A simple method of searching for an item in an array :\n    Look at every element in the array until the element\u000b      in question is found.\n    The method will return the index at which the\u000b     element was found or, if not found, it will return -1."
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nLinear Search\nA simple method of searching for an item in an array :\n    Look at every element in the array until the element\u000b      in question is found.\n    The method will return the index at which the\u000b     element was found or, if not found, it will return -1."
+    },
+    {
+      "slide_number": 30,
+      "title": "Sorting & Searching",
+      "content": [
+        "Slide <number> of 36",
+        "Sorting & Searching",
+        "int linearSearch (int[] A, int key) {\n    int i;\n    for (i=0; i<A.length; i++)\n          if (A[i] == key) return i;\n    // key not in A\n    return -1;\n  }"
+      ],
+      "notes": "",
+      "text": "Sorting & Searching\nSlide <number> of 36\nSorting & Searching\nint linearSearch (int[] A, int key) {\n    int i;\n    for (i=0; i<A.length; i++)\n          if (A[i] == key) return i;\n    // key not in A\n    return -1;\n  }"
+    },
+    {
+      "slide_number": 31,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Exercise 1",
+        "Read a sequence of numbers terminated by the end-of file character and store them in an array A and perform the following operations (where n is the number  of inputs):\nCompute & print running sums in both forward and backward directions.  Specifically, compute and print arrays B & C, where B[i]=A[0]+A[1]+...+A[i], and C[i]=A[n-1]+A[n-2]+...+A[i].\nb)  Compute pairwise differences : D[i] = A[i+1]-A[i].",
+        "Quick Review Question"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nExercise 1\nRead a sequence of numbers terminated by the end-of file character and store them in an array A and perform the following operations (where n is the number  of inputs):\nCompute & print running sums in both forward and backward directions.  Specifically, compute and print arrays B & C, where B[i]=A[0]+A[1]+...+A[i], and C[i]=A[n-1]+A[n-2]+...+A[i].\nb)  Compute pairwise differences : D[i] = A[i+1]-A[i].\nQuick Review Question"
+    },
+    {
+      "slide_number": 32,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Exercise 1",
+        "c) Compute three-way averages : \tE[i]=(A[i]+A[i+1]+A[i+2])/3\nd) Compute the increasing values within the array.  That is,  \u000b     start with F[0]=A[0].  Then compute F[1] to be the value \u000b     A[i], where i is the smallest index such that A[j]>A[0].  \u000b     Then compute F[2] to be the value A[j], where j is the \u000b     smallest index greater than i such that A[j]>A[i], and so \u000b     on.  For example, if inputs the inputs are 5, -5, 10, 13, 4, \u000b     40, 25, 6, then F should contain the values 5, 10, 13, and \u000b     40.",
+        "Quick Review Question"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nExercise 1\nc) Compute three-way averages : \tE[i]=(A[i]+A[i+1]+A[i+2])/3\nd) Compute the increasing values within the array.  That is,  \u000b     start with F[0]=A[0].  Then compute F[1] to be the value \u000b     A[i], where i is the smallest index such that A[j]>A[0].  \u000b     Then compute F[2] to be the value A[j], where j is the \u000b     smallest index greater than i such that A[j]>A[i], and so \u000b     on.  For example, if inputs the inputs are 5, -5, 10, 13, 4, \u000b     40, 25, 6, then F should contain the values 5, 10, 13, and \u000b     40.\nQuick Review Question"
+    },
+    {
+      "slide_number": 33,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Sample execution",
+        "Enter first number : 12\nEnter next number : 23\nEnter next number : 56\nEnter next number : 34\nEnter next number : 90\nEnter next number : 78\nEnter next number : -999",
+        "i\tA[i]\tB[i]\tC[i]\tD[i]\tE[i]\tF[i]\n\t0\t12\t12\t293\t11\t30\t12\n\t1\t23\t35\t281\t33\t37\t23\n\t2\t56\t91\t258\t-22\t60\t56\n\t3\t34\t125\t202\t56\t67\t90\n\t4\t90\t215\t168\t-12\n\t5\t78\t293\t78",
+        "Quick Review Question"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nSample execution\nEnter first number : 12\nEnter next number : 23\nEnter next number : 56\nEnter next number : 34\nEnter next number : 90\nEnter next number : 78\nEnter next number : -999\ni\tA[i]\tB[i]\tC[i]\tD[i]\tE[i]\tF[i]\n\t0\t12\t12\t293\t11\t30\t12\n\t1\t23\t35\t281\t33\t37\t23\n\t2\t56\t91\t258\t-22\t60\t56\n\t3\t34\t125\t202\t56\t67\t90\n\t4\t90\t215\t168\t-12\n\t5\t78\t293\t78\nQuick Review Question"
+    },
+    {
+      "slide_number": 34,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Summary of Main Teaching Points",
+        "Arrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nSummary of Main Teaching Points\nArrays\nArray basics\nSimple Array processing loops\nOne-Dimensional Arrays\nExamples of Array Programs\nSorting\nSearching"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Q & A",
+        "Question and Answer Session"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nQ & A\nQuestion and Answer Session"
+    },
+    {
+      "slide_number": 36,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Write a menu driven program with following options:\nAdd student data\nSearch a specific student record based on name and display total marks.\nDisplay the name and marks for the number of records entered. \nShow maximum, minimum and average marks.\nExit\n\n Define two arrays, one String Array and the other one as integer of 100 subscripts. Get input from the user for the arrays (i.e. student names in String array and total marks in the integer array.",
+        "Exercise: Modular Programming"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nWrite a menu driven program with following options:\nAdd student data\nSearch a specific student record based on name and display total marks.\nDisplay the name and marks for the number of records entered. \nShow maximum, minimum and average marks.\nExit\n\n Define two arrays, one String Array and the other one as integer of 100 subscripts. Get input from the user for the arrays (i.e. student names in String array and total marks in the integer array.\nExercise: Modular Programming"
+    },
+    {
+      "slide_number": 37,
+      "title": "",
+      "content": [
+        "Slide <number> of 36",
+        "Next Session",
+        "Introduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, default\nStatic/Instance members"
+      ],
+      "notes": "",
+      "text": "Slide <number> of 36\nNext Session\nIntroduction to classes and objects\nDefining a class\nDefining an object\nAdding variables and methods to a class\nVisibility control\npublic, private, protected, default\nStatic/Instance members"
+    }
+  ]
+}

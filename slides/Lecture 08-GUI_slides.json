@@ -1,0 +1,524 @@
+{
+  "filename": "Lecture 08-GUI",
+  "total_slides": 50,
+  "extraction_time": "2025-04-23 14:15:56",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Abstract Windowing Toolkit",
+      "content": [
+        "Abstract Windowing Toolkit",
+        "Copyright 2016 Asia Pacific Institute of Information Technology",
+        "Object Oriented Programming\nAAPP013-4-2"
+      ],
+      "notes": "",
+      "text": "Abstract Windowing Toolkit\nAbstract Windowing Toolkit\nCopyright 2016 Asia Pacific Institute of Information Technology\nObject Oriented Programming\nAAPP013-4-2"
+    },
+    {
+      "slide_number": 2,
+      "title": "Developing GUI for Application",
+      "content": [
+        "Developing GUI for Application",
+        "Abstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+      ],
+      "notes": "",
+      "text": "Developing GUI for Application\nDeveloping GUI for Application\nAbstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+    },
+    {
+      "slide_number": 3,
+      "title": "The java.awt package",
+      "content": [
+        "The java.awt package",
+        "Object",
+        "BorderLayout\nCardLayout\nFlowLayout\nGridLayout\nGridBagLayout\nComponent\nColor\nEvent\nToolkit\nGraphics\nDimension\nImage\n\u2026",
+        "Button\nCanvas\nContainer\nCheckbox\nChoice\nLabel\nList\nScrollbar\nTextComponent",
+        "Panel\nScrollPane\nWindow",
+        "TextArea\nTextField",
+        "Applet",
+        "Frame\nDialog"
+      ],
+      "notes": "",
+      "text": "The java.awt package\nThe java.awt package\nObject\nBorderLayout\nCardLayout\nFlowLayout\nGridLayout\nGridBagLayout\nComponent\nColor\nEvent\nToolkit\nGraphics\nDimension\nImage\n\u2026\nButton\nCanvas\nContainer\nCheckbox\nChoice\nLabel\nList\nScrollbar\nTextComponent\nPanel\nScrollPane\nWindow\nTextArea\nTextField\nApplet\nFrame\nDialog"
+    },
+    {
+      "slide_number": 4,
+      "title": "Abstract Windowing Toolkit",
+      "content": [
+        "Abstract Windowing Toolkit",
+        "A rich set of tools provided by Java to help the programmer build Graphical User Interfaces (GUI) with ease. \n\nGUIs built with AWT promises that: \nThe final interface can run anywhere! \nThis is unlike many GUI applications which are mainly hardware or operating system dependant."
+      ],
+      "notes": "",
+      "text": "Abstract Windowing Toolkit\nAbstract Windowing Toolkit\nA rich set of tools provided by Java to help the programmer build Graphical User Interfaces (GUI) with ease. \n\nGUIs built with AWT promises that: \nThe final interface can run anywhere! \nThis is unlike many GUI applications which are mainly hardware or operating system dependant."
+    },
+    {
+      "slide_number": 5,
+      "title": "AWT Basics - Frames",
+      "content": [
+        "AWT Basics - Frames",
+        "A Frame is a top-level window with a title and a border. In the Java API, it's object hierarchy looks something like this; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Window \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Frame\n\nAs you can see, the Frame inherits from a long line of superclasses, the immediate one being the Window class"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Frames\nAWT Basics - Frames\nA Frame is a top-level window with a title and a border. In the Java API, it's object hierarchy looks something like this; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Window \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Frame\n\nAs you can see, the Frame inherits from a long line of superclasses, the immediate one being the Window class"
+    },
+    {
+      "slide_number": 6,
+      "title": "AWT Basics - Frames",
+      "content": [
+        "AWT Basics - Frames",
+        "import java.awt.*; \n\npublic class MyFrame extends Frame { \u000b\n\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true); \u000b\u00a0\u00a0 \t} \u000b}"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Frames\nAWT Basics - Frames\nimport java.awt.*; \n\npublic class MyFrame extends Frame { \u000b\n\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true); \u000b\u00a0\u00a0 \t} \u000b}"
+    },
+    {
+      "slide_number": 7,
+      "title": "AWT Basics - Frames",
+      "content": [
+        "AWT Basics - Frames",
+        "setSize() \t- sets the size of the frame. \nsetLocation() \t- sets the location of the frame within the desktop. \nsetTitle() \t- sets the title of the frame.  \nsetVisible() \t- makes the frame visible to the user.",
+        "The output of the program might look something like this :"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Frames\nAWT Basics - Frames\nsetSize() \t- sets the size of the frame. \nsetLocation() \t- sets the location of the frame within the desktop. \nsetTitle() \t- sets the title of the frame.  \nsetVisible() \t- makes the frame visible to the user.\nThe output of the program might look something like this :"
+    },
+    {
+      "slide_number": 8,
+      "title": "AWT Basics - Label",
+      "content": [
+        "AWT Basics - Label",
+        "A Label object is a component for placing text in a container.\u00a0 It is used for displaying a single line of read-only text. \n\nThe text can be changed by the application, but a user cannot edit it directly.\u00a0 \n\nThe Label object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Label"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Label\nAWT Basics - Label\nA Label object is a component for placing text in a container.\u00a0 It is used for displaying a single line of read-only text. \n\nThe text can be changed by the application, but a user cannot edit it directly.\u00a0 \n\nThe Label object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Label"
+    },
+    {
+      "slide_number": 9,
+      "title": "AWT Basics - Label",
+      "content": [
+        "AWT Basics - Label",
+        "import java.awt.*; \npublic class MyFrame extends Frame { \u000b\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\t\tLabel l = new Label(\"java.awt.Label\"); \u000b\u00a0\u00a0\u00a0 \t\tadd(l); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true); \n\t}\n}"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Label\nAWT Basics - Label\nimport java.awt.*; \npublic class MyFrame extends Frame { \u000b\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\t\tLabel l = new Label(\"java.awt.Label\"); \u000b\u00a0\u00a0\u00a0 \t\tadd(l); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true); \n\t}\n}"
+    },
+    {
+      "slide_number": 10,
+      "title": "AWT Basics - Label",
+      "content": [
+        "AWT Basics - Label",
+        "The output of the program might look something like this :"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Label\nAWT Basics - Label\nThe output of the program might look something like this :"
+    },
+    {
+      "slide_number": 11,
+      "title": "AWT Basics - TextField",
+      "content": [
+        "AWT Basics - TextField",
+        "A TextField object is a text component that allows for the editing of a single line of text. \n\nThis allows for general user-input. \n\nThe TextField object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.TextField"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextField\nAWT Basics - TextField\nA TextField object is a text component that allows for the editing of a single line of text. \n\nThis allows for general user-input. \n\nThe TextField object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.TextField"
+    },
+    {
+      "slide_number": 12,
+      "title": "AWT Basics - TextField",
+      "content": [
+        "AWT Basics - TextField",
+        "TextField tf1, tf2, tf3, tf4; \u000b// a blank text field \u000btf1 = new TextField(); \u000b// blank field of 20 columns \u000btf2 = new TextField(\"\", 20); \u000b// predefined text displayed \u000btf3 = new TextField(\"Hello!\"); \u000b// predefined text in 30 columns \u000btf4 = new TextField(\"Hello\", 30);"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextField\nAWT Basics - TextField\nTextField tf1, tf2, tf3, tf4; \u000b// a blank text field \u000btf1 = new TextField(); \u000b// blank field of 20 columns \u000btf2 = new TextField(\"\", 20); \u000b// predefined text displayed \u000btf3 = new TextField(\"Hello!\"); \u000b// predefined text in 30 columns \u000btf4 = new TextField(\"Hello\", 30);"
+    },
+    {
+      "slide_number": 13,
+      "title": "AWT Basics - TextField",
+      "content": [
+        "AWT Basics - TextField",
+        "import java.awt.*; \n\npublic class MyFrame extends Frame { \u000b\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\t\tLabel l = new Label(\"java.awt.Label\"); \u000b\u00a0\u00a0\u00a0 \t\tadd(l);\n\t\tTextField tf = new TextField(\"java.awt.TextField\", 20); \u000b\u00a0\t\tadd(tf); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true);\n\t}\n  }"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextField\nAWT Basics - TextField\nimport java.awt.*; \n\npublic class MyFrame extends Frame { \u000b\u00a0\u00a0\tpublic static void main(String[] args)  { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tMyFrame me = new MyFrame(); \u000b\u00a0\u00a0 \t} \n\u00a0\u00a0 \tpublic MyFrame() { \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetSize(150,150); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLocation(100,100); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetTitle(\"My First java.awt.Frame!\"); \u000b\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetLayout(new FlowLayout()); \n\t\tLabel l = new Label(\"java.awt.Label\"); \u000b\u00a0\u00a0\u00a0 \t\tadd(l);\n\t\tTextField tf = new TextField(\"java.awt.TextField\", 20); \u000b\u00a0\t\tadd(tf); \n\u00a0\u00a0\u00a0\u00a0\u00a0 \t\tsetVisible(true);\n\t}\n  }"
+    },
+    {
+      "slide_number": 14,
+      "title": "AWT Basics - TextField",
+      "content": [
+        "AWT Basics - TextField",
+        "The output of the program might look something like this :"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextField\nAWT Basics - TextField\nThe output of the program might look something like this :"
+    },
+    {
+      "slide_number": 15,
+      "title": "AWT Basics - TextArea",
+      "content": [
+        "AWT Basics - TextArea",
+        "A TextArea object is a multi-line region that displays text. \n\nIt can be set to allow editing or to be read-only.\u00a0 \n\nThe TextArea object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.TextArea"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextArea\nAWT Basics - TextArea\nA TextArea object is a multi-line region that displays text. \n\nIt can be set to allow editing or to be read-only.\u00a0 \n\nThe TextArea object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.TextArea"
+    },
+    {
+      "slide_number": 16,
+      "title": "AWT Basics - TextArea",
+      "content": [
+        "AWT Basics - TextArea",
+        "By adding the codes above to the previous program, the output of the program might look something like this:",
+        "TextArea ta = new TextArea(\"java.awt.TextArea\", 5, 20); \u000badd(ta);"
+      ],
+      "notes": "",
+      "text": "AWT Basics - TextArea\nAWT Basics - TextArea\nBy adding the codes above to the previous program, the output of the program might look something like this:\nTextArea ta = new TextArea(\"java.awt.TextArea\", 5, 20); \u000badd(ta);"
+    },
+    {
+      "slide_number": 17,
+      "title": "AWT Basics - Button",
+      "content": [
+        "AWT Basics - Button",
+        "By adding the codes above to the previous program, the output of the program might look something like this:",
+        "Button b = new Button(\"OK\"); \u000badd(b);"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Button\nAWT Basics - Button\nBy adding the codes above to the previous program, the output of the program might look something like this:\nButton b = new Button(\"OK\"); \u000badd(b);"
+    },
+    {
+      "slide_number": 18,
+      "title": "AWT Basics - List",
+      "content": [
+        "AWT Basics - List",
+        "The List component presents the user with a scrolling list of text items\n\nThe List can be set up so that the user can choose either one item or multiple items.\u00a0  \n\nThe List object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.List"
+      ],
+      "notes": "",
+      "text": "AWT Basics - List\nAWT Basics - List\nThe List component presents the user with a scrolling list of text items\n\nThe List can be set up so that the user can choose either one item or multiple items.\u00a0  \n\nThe List object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.List"
+    },
+    {
+      "slide_number": 19,
+      "title": "AWT Basics - List",
+      "content": [
+        "AWT Basics - List",
+        "List lst = new List(4, false); \n  \u000b\u00a0 lst.add(\"Mercury\"); \u000b\u00a0 lst.add(\"Venus\"); \u000b\u00a0 lst.add(\"Earth\"); \u000b\u00a0 lst.add(\"JavaSoft\"); \u000b\u00a0 lst.add(\"Mars\"); \u000b\u00a0 lst.add(\"Jupiter\"); \u000b\u00a0 lst.add(\"Saturn\"); \u000b\u00a0 lst.add(\"Uranus\"); \u000b\u00a0 lst.add(\"Neptune\"); \u000b\u00a0 lst.add(\"Pluto\"); \n\u00a0 add(lst);"
+      ],
+      "notes": "",
+      "text": "AWT Basics - List\nAWT Basics - List\nList lst = new List(4, false); \n  \u000b\u00a0 lst.add(\"Mercury\"); \u000b\u00a0 lst.add(\"Venus\"); \u000b\u00a0 lst.add(\"Earth\"); \u000b\u00a0 lst.add(\"JavaSoft\"); \u000b\u00a0 lst.add(\"Mars\"); \u000b\u00a0 lst.add(\"Jupiter\"); \u000b\u00a0 lst.add(\"Saturn\"); \u000b\u00a0 lst.add(\"Uranus\"); \u000b\u00a0 lst.add(\"Neptune\"); \u000b\u00a0 lst.add(\"Pluto\"); \n\u00a0 add(lst);"
+    },
+    {
+      "slide_number": 20,
+      "title": "AWT Basics - List",
+      "content": [
+        "AWT Basics - List",
+        "By adding the codes above to the previous program, the output of the program might look something like this:"
+      ],
+      "notes": "",
+      "text": "AWT Basics - List\nAWT Basics - List\nBy adding the codes above to the previous program, the output of the program might look something like this:"
+    },
+    {
+      "slide_number": 21,
+      "title": "AWT Basics - Choice",
+      "content": [
+        "AWT Basics - Choice",
+        "The Choice class presents a pop-up menu of choices.\u00a0  \n\nThe Choice object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Choice"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Choice\nAWT Basics - Choice\nThe Choice class presents a pop-up menu of choices.\u00a0  \n\nThe Choice object is located in the following API hierarchy; \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Choice"
+    },
+    {
+      "slide_number": 22,
+      "title": "AWT Basics - Choice",
+      "content": [
+        "AWT Basics - Choice",
+        "Choice c = new Choice(); \n\u00a0 c.add(\"red\"); \u000b\u00a0 c.add(\"green\"); \u000b\u00a0 c.add(\"blue\"); \n  add(c);"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Choice\nAWT Basics - Choice\nChoice c = new Choice(); \n\u00a0 c.add(\"red\"); \u000b\u00a0 c.add(\"green\"); \u000b\u00a0 c.add(\"blue\"); \n  add(c);"
+    },
+    {
+      "slide_number": 23,
+      "title": "AWT Basics - Choice",
+      "content": [
+        "AWT Basics - Choice",
+        "By adding the codes above to the previous program, the output of the program might look something like this:"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Choice\nAWT Basics - Choice\nBy adding the codes above to the previous program, the output of the program might look something like this:"
+    },
+    {
+      "slide_number": 24,
+      "title": "AWT Basics - Dialog",
+      "content": [
+        "AWT Basics - Dialog",
+        "A Dialog is a top-level window with a title and a border that is typically used to take some form of input from the user. \n\nIn the API hierarchy, the Dialog inherits from the following line of objects \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Window \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Dialog"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Dialog\nAWT Basics - Dialog\nA Dialog is a top-level window with a title and a border that is typically used to take some form of input from the user. \n\nIn the API hierarchy, the Dialog inherits from the following line of objects \n\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Window \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Dialog"
+    },
+    {
+      "slide_number": 25,
+      "title": "AWT Basics - Dialog",
+      "content": [
+        "AWT Basics - Dialog",
+        "Dialogs are typically used on-top of an existing Window to capture data or display messages to the user. \nAn example of a typical dialog would be the file-open dialog;"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Dialog\nAWT Basics - Dialog\nDialogs are typically used on-top of an existing Window to capture data or display messages to the user. \nAn example of a typical dialog would be the file-open dialog;"
+    },
+    {
+      "slide_number": 26,
+      "title": "AWT Basics - Dialog",
+      "content": [
+        "AWT Basics - Dialog",
+        "A dialog must have either a frame or another dialog defined as its owner when it's constructed. \n\nA dialog can be either modeless (which is false, default) or modal (true). \n\nA modal dialog is one which blocks input to all other toplevel windows in the app context, except for any windows created with the dialog as their owner."
+      ],
+      "notes": "",
+      "text": "AWT Basics - Dialog\nAWT Basics - Dialog\nA dialog must have either a frame or another dialog defined as its owner when it's constructed. \n\nA dialog can be either modeless (which is false, default) or modal (true). \n\nA modal dialog is one which blocks input to all other toplevel windows in the app context, except for any windows created with the dialog as their owner."
+    },
+    {
+      "slide_number": 27,
+      "title": "AWT Basics - Dialog",
+      "content": [
+        "AWT Basics - Dialog",
+        "Dialog d = new Dialog(this, \"java.awt.Dialog\", true); \u000b\nd.setSize(100,100); \u000bd.setLocation(120,120); \u000bd.show();",
+        "Creating a Dialog"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Dialog\nAWT Basics - Dialog\nDialog d = new Dialog(this, \"java.awt.Dialog\", true); \u000b\nd.setSize(100,100); \u000bd.setLocation(120,120); \u000bd.show();\nCreating a Dialog"
+    },
+    {
+      "slide_number": 28,
+      "title": "AWT Basics - Dialog",
+      "content": [
+        "AWT Basics - Dialog",
+        "By adding the codes above to\nthe previous program, the \noutput of the program might \nlook something like this:"
+      ],
+      "notes": "",
+      "text": "AWT Basics - Dialog\nAWT Basics - Dialog\nBy adding the codes above to\nthe previous program, the \noutput of the program might \nlook something like this:"
+    },
+    {
+      "slide_number": 29,
+      "title": "Layout Managers",
+      "content": [
+        "Layout Managers",
+        "In previous code, you might have spotted the following line of code :\n\t\t\tsetLayout(new FlowLayout());\n\nThe setLayout() function, which sets the layout manager for a Container, is defined in the Container class; \n      java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container\n\nSince Frame class is a child of the Container class, it inherits this functionality."
+      ],
+      "notes": "",
+      "text": "Layout Managers\nLayout Managers\nIn previous code, you might have spotted the following line of code :\n\t\t\tsetLayout(new FlowLayout());\n\nThe setLayout() function, which sets the layout manager for a Container, is defined in the Container class; \n      java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container\n\nSince Frame class is a child of the Container class, it inherits this functionality."
+    },
+    {
+      "slide_number": 30,
+      "title": "Layout Managers",
+      "content": [
+        "Layout Managers",
+        "Layout Managers are tools that helps place controls on a Container object. \nThere are 5 standard layout managers \nFlow Layout \nBorder Layout \nGrid Layout \nCard Layout \nGridBag Layout\nEach of these layout managers is represented by a class of the same name.",
+        "What Are Layout Managers?"
+      ],
+      "notes": "",
+      "text": "Layout Managers\nLayout Managers\nLayout Managers are tools that helps place controls on a Container object. \nThere are 5 standard layout managers \nFlow Layout \nBorder Layout \nGrid Layout \nCard Layout \nGridBag Layout\nEach of these layout managers is represented by a class of the same name.\nWhat Are Layout Managers?"
+    },
+    {
+      "slide_number": 31,
+      "title": "Layout Managers",
+      "content": [
+        "Layout Managers",
+        "Each of all the layout managers is represented by a class of the same name. \n\nTo create a layout manager for your applet :\nCreate an instance of the appropriate layout class \nCall the setLayout() method to tell Java which layout object you want to use.",
+        "How To Use Layout Managers?"
+      ],
+      "notes": "",
+      "text": "Layout Managers\nLayout Managers\nEach of all the layout managers is represented by a class of the same name. \n\nTo create a layout manager for your applet :\nCreate an instance of the appropriate layout class \nCall the setLayout() method to tell Java which layout object you want to use.\nHow To Use Layout Managers?"
+    },
+    {
+      "slide_number": 32,
+      "title": "Layout Managers - FlowLayout",
+      "content": [
+        "The FlowLayout manager places controls, in the order in which they're added, one after the other in horizontal rows.\nIn its default state, the FlowLayout manager centers controls on each row. \nHowever, you can set the alignment when you create the layout manager for your applet, like this:\u00a0 \n\t\tFlowLayout layout = new FlowLayout(align, hor, ver); \u000b\tsetLayout(layout);\n\nThe FlowLayout constructor takes three arguments :\nthe alignment (FlowLayout.LEFT, FlowLayout.CENTER, or FlowLayout.RIGHT)\nthe horizontal spacing between components \nthe vertical spacing between components",
+        "Layout Managers - FlowLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - FlowLayout\nThe FlowLayout manager places controls, in the order in which they're added, one after the other in horizontal rows.\nIn its default state, the FlowLayout manager centers controls on each row. \nHowever, you can set the alignment when you create the layout manager for your applet, like this:\u00a0 \n\t\tFlowLayout layout = new FlowLayout(align, hor, ver); \u000b\tsetLayout(layout);\n\nThe FlowLayout constructor takes three arguments :\nthe alignment (FlowLayout.LEFT, FlowLayout.CENTER, or FlowLayout.RIGHT)\nthe horizontal spacing between components \nthe vertical spacing between components\nLayout Managers - FlowLayout"
+    },
+    {
+      "slide_number": 33,
+      "title": "Layout Managers - FlowLayout",
+      "content": [
+        "Layout Managers - FlowLayout",
+        "FlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10); \u000bsetLayout(layout); \nbutton1 = new Button(\"Button1\"); \u000bbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \nadd(button1); \u000badd(button2); \u000badd(button3);",
+        "Using A FlowLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - FlowLayout\nLayout Managers - FlowLayout\nFlowLayout layout = new FlowLayout(FlowLayout.LEFT, 10, 10); \u000bsetLayout(layout); \nbutton1 = new Button(\"Button1\"); \u000bbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \nadd(button1); \u000badd(button2); \u000badd(button3);\nUsing A FlowLayout"
+    },
+    {
+      "slide_number": 34,
+      "title": "Layout Managers - FlowLayout",
+      "content": [
+        "Output will look like this :",
+        "Layout Managers - FlowLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - FlowLayout\nOutput will look like this :\nLayout Managers - FlowLayout"
+    },
+    {
+      "slide_number": 35,
+      "title": "Layout Managers - GridLayout",
+      "content": [
+        "The GridLayout manager organizes your applet's display into a rectangular grid, similar to the grid used in a spreadsheet.\nJava then places the components you create for the applet into each cell of the grid, working from left to right and top to bottom\nYou create a GridLayout manager like this:\u00a0 \n\t\tGridLayout layout = new GridLayout(rows, cols, hor, ver); \u000b\tsetLayout(layout);\n\nThe GridLayout constructor takes four arguments :\nthe number of rows\nthe number of columns\nthe horizontal space between the grid cells\nthe vertical space between the grid cells",
+        "Layout Managers - GridLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - GridLayout\nThe GridLayout manager organizes your applet's display into a rectangular grid, similar to the grid used in a spreadsheet.\nJava then places the components you create for the applet into each cell of the grid, working from left to right and top to bottom\nYou create a GridLayout manager like this:\u00a0 \n\t\tGridLayout layout = new GridLayout(rows, cols, hor, ver); \u000b\tsetLayout(layout);\n\nThe GridLayout constructor takes four arguments :\nthe number of rows\nthe number of columns\nthe horizontal space between the grid cells\nthe vertical space between the grid cells\nLayout Managers - GridLayout"
+    },
+    {
+      "slide_number": 36,
+      "title": "Layout Managers - GridLayout",
+      "content": [
+        "Layout Managers - GridLayout",
+        "GridLayout layout = new GridLayout(2, 2, 0, 0); \u000bsetLayout(layout); \nbutton1 = new Button(\"Button1\"); \u000bbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \u000bbutton4 = new Button(\"Button4\"); \nadd(button1); \u000badd(button2); \u000badd(button3); \u000badd(button4);",
+        "Using A GridLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - GridLayout\nLayout Managers - GridLayout\nGridLayout layout = new GridLayout(2, 2, 0, 0); \u000bsetLayout(layout); \nbutton1 = new Button(\"Button1\"); \u000bbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \u000bbutton4 = new Button(\"Button4\"); \nadd(button1); \u000badd(button2); \u000badd(button3); \u000badd(button4);\nUsing A GridLayout"
+    },
+    {
+      "slide_number": 37,
+      "title": "Layout Managers - GridLayout",
+      "content": [
+        "Output will look like this :",
+        "Layout Managers - GridLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - GridLayout\nOutput will look like this :\nLayout Managers - GridLayout"
+    },
+    {
+      "slide_number": 38,
+      "title": "Layout Managers - GridLayout",
+      "content": [
+        "With horizontal and vertical spacing :",
+        "Layout Managers - GridLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - GridLayout\nWith horizontal and vertical spacing :\nLayout Managers - GridLayout"
+    },
+    {
+      "slide_number": 39,
+      "title": "Layout Managers - GridLayout",
+      "content": [
+        "With 1 row and 4 columns :",
+        "Layout Managers - GridLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - GridLayout\nWith 1 row and 4 columns :\nLayout Managers - GridLayout"
+    },
+    {
+      "slide_number": 40,
+      "title": "Layout Managers - BorderLayout",
+      "content": [
+        "The BorderLayout manager enables you to position components using the directions north, south, east, west, and center.\n\nYou create a BorderLayout manager like this:\u00a0 \n\t\tBorderLayout layout = new BorderLayout(hor, ver); \u000b\tsetLayout(layout); \n\nThe GridLayout constructor takes four arguments :\nNumber of rows\nNumber of columns\nthe horizontal spacing between the cells \nthe vertical spacing between the cells",
+        "Layout Managers - BorderLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - BorderLayout\nThe BorderLayout manager enables you to position components using the directions north, south, east, west, and center.\n\nYou create a BorderLayout manager like this:\u00a0 \n\t\tBorderLayout layout = new BorderLayout(hor, ver); \u000b\tsetLayout(layout); \n\nThe GridLayout constructor takes four arguments :\nNumber of rows\nNumber of columns\nthe horizontal spacing between the cells \nthe vertical spacing between the cells\nLayout Managers - BorderLayout"
+    },
+    {
+      "slide_number": 41,
+      "title": "Layout Managers - BorderLayout",
+      "content": [
+        "After you create the BorderLayout object, you must add the components using a different version of the add() method :\u00a0 \n\t\tadd(position, object);\n\nPosition is where to place the component and must be the string \nNorth\nSouth\nEast\nWest\nCenter\n\nObject is the component you want to add to the applet",
+        "Layout Managers - BorderLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - BorderLayout\nAfter you create the BorderLayout object, you must add the components using a different version of the add() method :\u00a0 \n\t\tadd(position, object);\n\nPosition is where to place the component and must be the string \nNorth\nSouth\nEast\nWest\nCenter\n\nObject is the component you want to add to the applet\nLayout Managers - BorderLayout"
+    },
+    {
+      "slide_number": 42,
+      "title": "Layout Managers - BorderLayout",
+      "content": [
+        "BorderLayout layout = new BorderLayout(0, 0); \u000bsetLayout(layout); button1 = new Button(\"Button1\"); \u000b\nbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \u000bbutton4 = new Button(\"Button4\"); \u000bbutton5 = new Button(\"Button5\"); \nadd(\"North\", button1); \u000badd(\"South\", button2); \u000badd(\"East\", button3); \u000badd(\"West\", button4); \u000badd(\"Center\", button5);",
+        "Using A BorderLayout",
+        "Layout Managers - BorderLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - BorderLayout\nBorderLayout layout = new BorderLayout(0, 0); \u000bsetLayout(layout); button1 = new Button(\"Button1\"); \u000b\nbutton2 = new Button(\"Button2\"); \u000bbutton3 = new Button(\"Button3\"); \u000bbutton4 = new Button(\"Button4\"); \u000bbutton5 = new Button(\"Button5\"); \nadd(\"North\", button1); \u000badd(\"South\", button2); \u000badd(\"East\", button3); \u000badd(\"West\", button4); \u000badd(\"Center\", button5);\nUsing A BorderLayout\nLayout Managers - BorderLayout"
+    },
+    {
+      "slide_number": 43,
+      "title": "Layout Managers - BorderLayout",
+      "content": [
+        "Output will look like this :",
+        "Layout Managers - BorderLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - BorderLayout\nOutput will look like this :\nLayout Managers - BorderLayout"
+    },
+    {
+      "slide_number": 44,
+      "title": "Layout Managers - BorderLayout",
+      "content": [
+        "With horizontal and vertical spacing :",
+        "Layout Managers - BorderLayout"
+      ],
+      "notes": "",
+      "text": "Layout Managers - BorderLayout\nWith horizontal and vertical spacing :\nLayout Managers - BorderLayout"
+    },
+    {
+      "slide_number": 45,
+      "title": "Panels",
+      "content": [
+        "The Panel object is located in the following API hierarchy;\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Panel \n\nA Panel is similar to a Window in that a Panel is a surface that you can place Components.\n\nBut a Panel is not a Window; it is a sibling of a Window.",
+        "Panels"
+      ],
+      "notes": "",
+      "text": "Panels\nThe Panel object is located in the following API hierarchy;\n     java.lang.Object \u000b\u00a0 | \u000b\u00a0 +--java.awt.Component \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Container \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 | \u000b\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 +--java.awt.Panel \n\nA Panel is similar to a Window in that a Panel is a surface that you can place Components.\n\nBut a Panel is not a Window; it is a sibling of a Window.\nPanels"
+    },
+    {
+      "slide_number": 46,
+      "title": "Panels",
+      "content": [
+        "For example, you can create an application using BorderLayout .  Then, within the  Center Panel, you can place a TextArea using FlowLayout, and within South Panel, you can place five Buttons using FlowLayout.",
+        "Panels"
+      ],
+      "notes": "",
+      "text": "Panels\nFor example, you can create an application using BorderLayout .  Then, within the  Center Panel, you can place a TextArea using FlowLayout, and within South Panel, you can place five Buttons using FlowLayout.\nPanels"
+    },
+    {
+      "slide_number": 47,
+      "title": "Panels",
+      "content": [
+        "setLayout(new BorderLayout());\nPanel buttonPanel = new Panel();\nbuttonPanel.setBackground(Color.blue);\nbuttonPanel.setLayout(new FlowLayout());\nButton memo1Button = new Button(\"Save Memo 1\");\nbuttonPanel.add(memo1Button);\nButton memo2Button = new Button(\"Save Memo 2\");\nbuttonPanel.add(memo2Button);\nButton clearButton = new Button(\"Clear\");\nbuttonPanel.add(clearButton);\nButton getMemo1Button = new Button(\"Get Memo 1\");\nbuttonPanel.add(getMemo1Button);\nButton getMemo2Button = new Button(\"Get Memo 2\");\nbuttonPanel.add(getMemo2Button);\nadd(buttonPanel,\"South\");\nPanel textPanel = new Panel();\ntheText = new TextArea(10,40);\ntextPanel.add(theText);\nadd(textPanel, \u201cCenter\");",
+        "Panels",
+        "The code that generate the previous GUI :"
+      ],
+      "notes": "",
+      "text": "Panels\nsetLayout(new BorderLayout());\nPanel buttonPanel = new Panel();\nbuttonPanel.setBackground(Color.blue);\nbuttonPanel.setLayout(new FlowLayout());\nButton memo1Button = new Button(\"Save Memo 1\");\nbuttonPanel.add(memo1Button);\nButton memo2Button = new Button(\"Save Memo 2\");\nbuttonPanel.add(memo2Button);\nButton clearButton = new Button(\"Clear\");\nbuttonPanel.add(clearButton);\nButton getMemo1Button = new Button(\"Get Memo 1\");\nbuttonPanel.add(getMemo1Button);\nButton getMemo2Button = new Button(\"Get Memo 2\");\nbuttonPanel.add(getMemo2Button);\nadd(buttonPanel,\"South\");\nPanel textPanel = new Panel();\ntheText = new TextArea(10,40);\ntextPanel.add(theText);\nadd(textPanel, \u201cCenter\");\nPanels\nThe code that generate the previous GUI :"
+    },
+    {
+      "slide_number": 48,
+      "title": "",
+      "content": [
+        "Summary of Main Teaching Points",
+        "Abstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+      ],
+      "notes": "",
+      "text": "Summary of Main Teaching Points\nAbstract Windowing Toolkit\nAWT Basics\nFrames\nLabel , TextField, TextArea & Button\nList & Choice\nDialog\nLayout Managers\nFlowLayout\nGridLayout \nBorderLayout\nPanels"
+    },
+    {
+      "slide_number": 49,
+      "title": "",
+      "content": [
+        "Question and Answer Session",
+        "Q & A"
+      ],
+      "notes": "",
+      "text": "Question and Answer Session\nQ & A"
+    },
+    {
+      "slide_number": 50,
+      "title": "",
+      "content": [
+        "Next Session",
+        "Event Handling\nExamples on Event Handling"
+      ],
+      "notes": "",
+      "text": "Next Session\nEvent Handling\nExamples on Event Handling"
+    }
+  ]
+}

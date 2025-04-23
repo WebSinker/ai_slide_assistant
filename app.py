@@ -109,18 +109,23 @@ def save_extracted_text(slide_data, filename):
     with open(f'slides/{filename}_slides.json', 'w', encoding='utf-8') as f:
         json.dump(presentation_data, f, indent=2)
         
+# Update the call_gemini function to always consider all slides by default
 def call_gemini(question, context, slide_number=None):
     try:
         slides = context.get("slides", [])
 
         if slide_number is not None:
+            # If a specific slide is selected, only use that slide's content
             context_text = next((slide["text"] for slide in slides if slide["slide_number"] == slide_number), "")
+            scope_notice = f"Answer based on content from Slide {slide_number}:"
         else:
+            # If no specific slide is selected, use all slides' content
             context_text = "\n\n".join([f"Slide {slide['slide_number']}:\n{slide['text']}" for slide in slides])
+            scope_notice = "Answer based on content from all slides:"
 
         prompt = f"""As an AI tutor, please answer this question based on the slide content:
 
-Context from slides:
+{scope_notice}
 {context_text}
 
 Question: {question}
@@ -187,6 +192,35 @@ Important formatting guidelines:
         print(f"Gemini API error: {str(e)}")
         return f"Error: Failed to get response from Gemini. {str(e)}"
 
+# Update the ask_question route to handle presentation-specific queries
+@app.route('/ask', methods=['POST'])
+def ask_question():
+    data = request.json
+    question = data.get("question")
+    slide_num = data.get("slide_number")  # This can be None if no specific slide is selected
+    filename = data.get("filename")
+
+    try:
+        # Check if the file exists first
+        file_path = f'slides/{filename}_slides.json'
+        if not os.path.exists(file_path):
+            return jsonify({"error": f"Presentation '{filename}' not found"}), 404
+            
+        # Load the single JSON file containing all slides for this presentation
+        with open(file_path, 'r', encoding='utf-8') as f:
+            presentation_data = json.load(f)
+
+        # Call Gemini with the presentation data
+        response = call_gemini(question, presentation_data, slide_num)
+
+        return jsonify({
+            "question": question,
+            "answer": response,
+            "source_presentation": filename
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 @app.route('/upload', methods=['POST'])
 def upload_slide():
     try:
@@ -237,28 +271,6 @@ def upload_slide():
     except Exception as e:
         print(f"Error in upload_slide: {str(e)}")
         return jsonify({"error": f"Server error: {str(e)}"}), 500
-
-@app.route('/ask', methods=['POST'])
-def ask_question():
-    data = request.json
-    question = data.get("question")
-    slide_num = data.get("slide_number")
-    filename = data.get("filename")
-
-    try:
-        # Load the single JSON file containing all slides
-        with open(f'slides/{filename}_slides.json', 'r', encoding='utf-8') as f:
-            presentation_data = json.load(f)
-
-        # Call Gemini with the entire presentation data
-        response = call_gemini(question, presentation_data, slide_num)
-
-        return jsonify({
-            "question": question,
-            "answer": response
-        })
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 @app.route('/static/<path:path>')
 def send_static(path):
