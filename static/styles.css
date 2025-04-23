@@ -700,3 +700,282 @@ canvas {
     margin: 10px 0;
     border: 1px solid #eee;
 }
+
+/* Add these styles to your existing styles.css file */
+
+/* Debug Mode Styles */
+.debug-tools {
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.debug-toggle-btn {
+    padding: 6px 12px;
+    background: #7f8c8d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.debug-toggle-btn.active {
+    background: #27ae60;
+}
+
+.debug-math-btn {
+    padding: 3px 8px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-left: 10px;
+    float: right;
+}
+
+.debug-math-btn:hover {
+    background: #2980b9;
+}
+
+/* When debug mode is on, add special styling to math content pages */
+body.debug-mode .slide-details[data-has-math="true"],
+body.debug-mode .pdf-viewer-container[data-has-math="true"] {
+    border: 2px solid #2ecc71;
+}
+
+body.debug-mode .slide-header::after {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+body.debug-mode .slide-header[data-has-math="true"]::after {
+    content: "Math Content";
+    background: #2ecc71;
+    color: white;
+}
+
+body.debug-mode .slide-header[data-has-math="false"]::after {
+    content: "No Math";
+    background: #e74c3c;
+    color: white;
+}
+
+/* Styles for PDF reprocessing button */
+.reprocess-pdf-btn {
+    padding: 8px 15px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.reprocess-pdf-btn:hover {
+    background: #8e44ad;
+}
+
+/* Upload status styling for debug mode */
+.upload-status.debug-enabled {
+    background: #27ae60;
+    color: white;
+}
+
+/* Debug container and analysis display */
+.debug-container {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    overflow: auto;
+    display: none;
+}
+
+.close-debug-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-analysis {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.page-analysis.has-math {
+    border-left: 4px solid #2ecc71;
+}
+
+.page-analysis.no-math {
+    border-left: 4px solid #e74c3c;
+}
+
+.math-indicators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.indicator {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    background: #f5f5f5;
+}
+
+.indicator.positive {
+    background: #ebfdf2;
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.indicator.negative {
+    background: #fdf2f0;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.math-analysis-summary {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.refresh-btn {
+    padding: 8px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Show indicator when page contains math */
+.math-content-indicator {
+    display: inline-block;
+    padding: 3px 8px;
+    background: #27ae60;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/* Enhanced styles for highlighting math content */
+.formula-highlighted {
+    background: rgba(46, 204, 113, 0.1);
+    border-left: 3px solid #2ecc71;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+/* Special highlight for title pages with incorrect math detection */
+.title-page-warning {
+    background: #fff4e5;
+    border-left: 3px solid #f39c12;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.title-page-warning strong {
+    color: #d35400;
+}
+
+/* Styles for the reprocess button in the presentation view */
+.presentation-summary .debug-tools {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Math content indicator for table of contents */
+.table-of-contents li.has-math-content {
+    position: relative;
+}
+
+.table-of-contents .math-indicator {
+    display: inline-block;
+    font-size: 10px;
+    background: #2ecc71;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* Additional debug styling for TOC */
+body.debug-mode .table-of-contents li.has-math-content {
+    border-left: 3px solid #2ecc71;
+    padding-left: 5px;
+    background: rgba(46, 204, 113, 0.05);
+}
+
+/* Fix for potential false positives - special styling */
+body.debug-mode .table-of-contents li.potential-false-positive .math-indicator {
+    background: #f39c12;
+}
+
+body.debug-mode .table-of-contents li.potential-false-positive {
+    border-left: 3px solid #f39c12;
+}
+
+/* Math content indicator for slide range popup */
+.popup-slide-btn.has-math {
+    background: #27ae60;
+}
+
+/* Reprocess button styling */
+.reprocess-all-btn {
+    padding: 10px 15px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.reprocess-all-btn:hover {
+    background: #8e44ad;
+}

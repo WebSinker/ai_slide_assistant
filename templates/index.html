@@ -20,6 +20,9 @@
                 <input type="file" id="fileInput" multiple accept=".ppt,.pptx,.pdf">
                 <button onclick="uploadFile()">Upload</button>
                 <div id="uploadStatus" class="upload-status"></div>
+                <div class="debug-tools">
+                    <button id="toggleDebugMode" onclick="toggleDebugMode()" class="debug-toggle-btn">Enable Debug Mode</button>
+                </div>
             </div>
             <div class="slide-content">
                 <h2 id="slideTitle">Select a Presentation</h2>
@@ -51,5 +54,102 @@
     <!-- Make sure the PDF viewer script is loaded BEFORE the main script -->
     <script src="/static/pdf-viewer.js"></script>
     <script src="/static/script.js"></script>
+    
+    <!-- Add our new math-debugger script -->
+    <script src="/static/math-debugger.js"></script>
+
+    <script>
+        // Add functionality to toggle debug mode
+        let debugModeEnabled = false;
+        
+        function toggleDebugMode() {
+            debugModeEnabled = !debugModeEnabled;
+            const btn = document.getElementById('toggleDebugMode');
+            
+            if (debugModeEnabled) {
+                btn.textContent = 'Disable Debug Mode';
+                btn.classList.add('active');
+                document.body.classList.add('debug-mode');
+                
+                // Add debug buttons to existing PDF items
+                addMathDebugButton();
+                
+                // Show debug message
+                const status = document.getElementById('uploadStatus');
+                status.textContent = 'Debug mode enabled. Math detection tools available.';
+                status.style.display = 'block';
+                status.className = 'upload-status debug-enabled';
+                
+                setTimeout(() => {
+                    status.style.display = 'none';
+                }, 3000);
+            } else {
+                btn.textContent = 'Enable Debug Mode';
+                btn.classList.remove('active');
+                document.body.classList.remove('debug-mode');
+                
+                // Remove debug buttons
+                document.querySelectorAll('.debug-math-btn').forEach(btn => {
+                    btn.remove();
+                });
+                
+                // Show debug disabled message
+                const status = document.getElementById('uploadStatus');
+                status.textContent = 'Debug mode disabled.';
+                status.style.display = 'block';
+                status.className = 'upload-status';
+                
+                setTimeout(() => {
+                    status.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Add a function to reprocess a PDF with improved math detection
+        function reprocessPDF(filename) {
+            const status = document.getElementById('uploadStatus');
+            status.textContent = `Reprocessing ${filename} with improved math detection...`;
+            status.style.display = 'block';
+            
+            fetch(`/reprocess-pdf/${filename}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        status.textContent = `Error: ${data.error}`;
+                        return;
+                    }
+                    
+                    if (data.success) {
+                        status.textContent = `${data.message}. Found math on pages: ${data.math_pages.join(', ')}`;
+                        
+                        // Reload the current presentation if it was the one reprocessed
+                        if (currentFilename === data.filename) {
+                            setTimeout(() => {
+                                // Find the presentation in the list and click it to reload
+                                const items = document.querySelectorAll('#slideList li');
+                                for (let item of items) {
+                                    if (item.textContent === data.filename) {
+                                        item.click();
+                                        break;
+                                    }
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        status.textContent = data.message;
+                    }
+                    
+                    setTimeout(() => {
+                        status.style.display = 'none';
+                    }, 5000);
+                })
+                .catch(error => {
+                    status.textContent = `Error: ${error.message}`;
+                    setTimeout(() => {
+                        status.style.display = 'none';
+                    }, 5000);
+                });
+        }
+    </script>
 </body>
 </html>

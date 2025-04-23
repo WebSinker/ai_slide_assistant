@@ -968,6 +968,355 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(document.body, { childList: true, subtree: true });
 });
 
+// Enhanced showSlideDetails function to better indicate math content
+function showSlideDetails(index) {
+    const slide = slides[index];
+    
+    document.getElementById('slideTitle').textContent = 
+        `${currentFilename} - ${currentFileType === 'pdf' ? 'Page' : 'Slide'} ${index + 1}${slide.title ? ': ' + slide.title : ''}`;
+    
+    const slideText = document.getElementById('slideText');
+    slideText.innerHTML = '';
+    
+    // Create different views based on file type
+    if (currentFileType === 'pdf') {
+        // Create a container for the PDF viewer
+        const pdfViewerContainer = document.createElement('div');
+        pdfViewerContainer.id = 'pdfViewerContainer';
+        pdfViewerContainer.className = 'pdf-viewer-container';
+        
+        // Mark if this page has math content for debug styling
+        const hasMathContent = slide.has_math_content || false;
+        if (hasMathContent) {
+            pdfViewerContainer.setAttribute('data-has-math', 'true');
+        } else {
+            pdfViewerContainer.setAttribute('data-has-math', 'false');
+        }
+        
+        slideText.appendChild(pdfViewerContainer);
+        
+        // Create a container for the extracted text and visual elements
+        const textDataContainer = document.createElement('div');
+        textDataContainer.className = 'extracted-data-container';
+        
+        // Add slide header with page number and math indicator
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'slide-header';
+        headerDiv.setAttribute('data-has-math', hasMathContent ? 'true' : 'false');
+        
+        let headerContent = `<h3>Page ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
+        
+        // In non-debug mode, still show math indicator
+        if (hasMathContent && !document.body.classList.contains('debug-mode')) {
+            headerContent += `<span class="math-content-indicator">Contains Math</span>`;
+        }
+        
+        headerDiv.innerHTML = headerContent;
+        textDataContainer.appendChild(headerDiv);
+        
+        // If we have a page image captured (for math content), show it first
+        if (hasMathContent && slide.page_image) {
+            const mathContentDiv = document.createElement('div');
+            mathContentDiv.className = 'math-content-container';
+            mathContentDiv.innerHTML = `
+                <div class="math-content-notice">
+                    <strong>Mathematical Content Detected</strong>
+                    <p>This page contains mathematical notation that may not display correctly as text. 
+                    A page image has been captured for better visualization.</p>
+                </div>
+                <div class="page-image-container">
+                    <img src="${slide.page_image}" alt="Page ${index + 1} with mathematical content" class="math-page-image">
+                </div>
+            `;
+            textDataContainer.appendChild(mathContentDiv);
+        }
+        
+        // Add extracted text content
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'slide-content-text';
+        
+        // Format text with potential math content highlighted
+        let formattedText = slide.text;
+        
+        // If debug mode is enabled and we have math content, highlight potential formulas
+        if (document.body.classList.contains('debug-mode') && hasMathContent) {
+            // Simple formula highlighting - highlight lines with potential math symbols
+            const lines = formattedText.split('\n');
+            const highlightedLines = lines.map(line => {
+                // Check if this line might contain math
+                if (/[=+\-*/^θλ√∫∑∏πα-ωΑ-Ω]/.test(line) || 
+                    /sin|cos|tan|log/.test(line) ||
+                    /\([a-z0-9]+\)/.test(line)) {
+                    return `<div class="formula-highlighted">${line}</div>`;
+                }
+                return line;
+            });
+            formattedText = highlightedLines.join('<br>');
+        } else {
+            formattedText = formattedText.replace(/\n/g, "<br>");
+        }
+        
+        contentDiv.innerHTML = `<h4>Extracted Text:</h4><div>${formattedText}</div>`;
+        textDataContainer.appendChild(contentDiv);
+        
+        // Add special warning for potential false positives in title pages
+        if (document.body.classList.contains('debug-mode') && 
+            hasMathContent && 
+            slide.title && 
+            (slide.title.includes("Chapter") || slide.title.includes("Section")) &&
+            slide.text.split('\n').length < 5) {
+            
+            const warningDiv = document.createElement('div');
+            warningDiv.className = 'title-page-warning';
+            warningDiv.innerHTML = `
+                <strong>Warning:</strong> This appears to be a title page marked as containing math content.
+                This might be a false positive in the detection algorithm.
+                <button onclick="reprocessPDF('${currentFilename}')" class="reprocess-pdf-btn">
+                    Reprocess with Improved Detection
+                </button>
+            `;
+            textDataContainer.appendChild(warningDiv);
+        }
+        
+        // Check for enhanced visual elements (formulas, images)
+        fetch(`/pdf-visual-elements/${currentFilename}/${index + 1}`)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    // Add formula section if any formulas exist
+                    if (data.formulas && data.formulas.length > 0) {
+                        const formulasDiv = document.createElement('div');
+                        formulasDiv.className = 'visual-elements formulas';
+                        formulasDiv.innerHTML = `<h4>Detected Formulas (${data.formulas.length}):</h4><ul>`;
+                        
+                        data.formulas.forEach(formula => {
+                            // Check if we have an image of the formula
+                            let formulaHtml = formula.text;
+                            if (formula.image) {
+                                formulaHtml = `
+                                    <div class="formula-with-image">
+                                        <div class="formula-text">${formula.text}</div>
+                                        <div class="formula-image">
+                                            <img src="${formula.image}" alt="Formula image">
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                            
+                            formulasDiv.innerHTML += `<li>${formulaHtml}</li>`;
+                        });
+                        
+                        formulasDiv.innerHTML += '</ul>';
+                        textDataContainer.appendChild(formulasDiv);
+                    }
+                    
+                    // Add image thumbnails if any images exist
+                    if (data.images && data.images.length > 0) {
+                        const imagesDiv = document.createElement('div');
+                        imagesDiv.className = 'visual-elements images';
+                        imagesDiv.innerHTML = `<h4>Detected Images (${data.images.length}):</h4><div class="image-grid">`;
+                        
+                        data.images.forEach(image => {
+                            imagesDiv.innerHTML += `
+                                <div class="image-thumbnail">
+                                    <img src="${image.data_uri}" alt="${image.alt_text}">
+                                </div>
+                            `;
+                        });
+                        
+                        imagesDiv.innerHTML += '</div>';
+                        textDataContainer.appendChild(imagesDiv);
+                    }
+                }
+            })
+            .catch(err => console.error('Error loading visual elements:', err));
+        
+        // Add the text container to the main slide view
+        slideText.appendChild(textDataContainer);
+        
+        // Get the original filename with extension
+        let pdfFilename = "";
+        if (currentPresentationData && currentPresentationData.filename) {
+            pdfFilename = currentPresentationData.filename;
+        } else {
+            pdfFilename = currentFilename.endsWith('.pdf') ? currentFilename : `${currentFilename}.pdf`;
+        }
+        
+        // URL encode the filename to handle spaces and special characters
+        const encodedFilename = encodeURIComponent(pdfFilename);
+        const pdfUrl = `/original-file/${encodedFilename}`;
+        
+        console.log("Loading PDF from URL:", pdfUrl, "Page:", index + 1);
+        
+        // Initialize or recreate the PDF viewer
+        pdfViewer = new PDFViewer('pdfViewerContainer');
+        
+        // Load the PDF and navigate to the correct page
+        pdfViewer.loadDocument(pdfUrl)
+            .then(success => {
+                if (success) {
+                    // Navigate to the specific page (PDF.js pages are 1-indexed)
+                    setTimeout(() => {
+                        pdfViewer.goToPage(index + 1);
+                    }, 100);
+                }
+            });
+    } else {
+        // For PowerPoint files, use the original display method (unchanged code)
+        // ...existing PowerPoint display code...
+    }
+    
+    // Add back button (common for both PDF and PowerPoint)
+    const backButtonContainer = document.createElement('div');
+    backButtonContainer.className = 'navigation-buttons';
+    
+    const backButton = document.createElement('button');
+    backButton.textContent = 'Back to Overview';
+    backButton.className = 'back-btn';
+    backButton.onclick = () => displayPresentation();
+    backButtonContainer.appendChild(backButton);
+    
+    // Add prev/next buttons
+    if (index > 0) {
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.className = 'nav-btn';
+        prevButton.onclick = () => showSlideDetails(index - 1);
+        backButtonContainer.appendChild(prevButton);
+    }
+    
+    if (index < slides.length - 1) {
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.className = 'nav-btn';
+        nextButton.onclick = () => showSlideDetails(index + 1);
+        backButtonContainer.appendChild(nextButton);
+    }
+    
+    // Add debug tools if debug mode is enabled and it's a PDF
+    if (document.body.classList.contains('debug-mode') && currentFileType === 'pdf') {
+        const debugButton = document.createElement('button');
+        debugButton.textContent = 'Debug Math Detection';
+        debugButton.className = 'debug-math-btn';
+        debugButton.onclick = () => debugMathDetection(currentFilename);
+        backButtonContainer.appendChild(debugButton);
+        
+        const reprocessButton = document.createElement('button');
+        reprocessButton.textContent = 'Reprocess PDF';
+        reprocessButton.className = 'reprocess-pdf-btn';
+        reprocessButton.onclick = () => reprocessPDF(currentFilename);
+        backButtonContainer.appendChild(reprocessButton);
+    }
+    
+    slideText.appendChild(backButtonContainer);
+
+    // Update radio button state - if on a slide, enable "current slide only" option
+    document.getElementById('scopeCurrentSlide').disabled = false;
+}
+
+// Modified displayPresentation function to show math content indicators
+function displayPresentation() {
+    // Update the title to show the presentation name
+    document.getElementById('slideTitle').textContent = `${currentFilename} (${currentFileType.toUpperCase()})`;
+    
+    // Since we're not on a specific slide, disable the "current slide only" option
+    document.getElementById('scopeCurrentSlide').disabled = true;
+    
+    // If "current slide only" was selected, switch to "current presentation only"
+    if (document.getElementById('scopeCurrentSlide').checked) {
+        document.getElementById('scopeCurrentPresentation').checked = true;
+    }
+    
+    const slideText = document.getElementById('slideText');
+    slideText.innerHTML = '';
+    
+    // Create a presentation summary
+    const summaryDiv = document.createElement('div');
+    summaryDiv.className = 'presentation-summary';
+    
+    // Count slides with math content
+    const mathSlides = slides.filter(slide => slide.has_math_content);
+    const hasMathContent = mathSlides.length > 0;
+    
+    // Add presentation info
+    const infoP = document.createElement('p');
+    infoP.innerHTML = `<strong>Presentation:</strong> ${currentFilename}<br>` +
+                      `<strong>Type:</strong> ${currentFileType.toUpperCase()}<br>` +
+                      `<strong>Total ${currentFileType === 'pdf' ? 'Pages' : 'Slides'}:</strong> ${slides.length}`;
+    
+    // Add math content info if it's a PDF
+    if (currentFileType === 'pdf') {
+        infoP.innerHTML += `<br><strong>Pages with Math Content:</strong> ${mathSlides.length}`;
+        
+        if (mathSlides.length > 0) {
+            infoP.innerHTML += ` (Pages: ${mathSlides.map(s => s.slide_number).join(', ')})`;
+        }
+    }
+    
+    summaryDiv.appendChild(infoP);
+    
+    // For PDFs, add a preview button
+    if (currentFileType === 'pdf') {
+        const previewButton = document.createElement('button');
+        previewButton.className = 'preview-pdf-btn';
+        previewButton.textContent = 'Preview Entire PDF';
+        previewButton.onclick = () => showPDFPreview(currentFilename);
+        summaryDiv.appendChild(previewButton);
+        
+        // Add debug tools if in debug mode
+        if (document.body.classList.contains('debug-mode')) {
+            const debugTools = document.createElement('div');
+            debugTools.className = 'debug-tools';
+            
+            const debugButton = document.createElement('button');
+            debugButton.textContent = 'Debug Math Detection';
+            debugButton.className = 'debug-math-btn';
+            debugButton.onclick = () => debugMathDetection(currentFilename);
+            debugTools.appendChild(debugButton);
+            
+            const reprocessButton = document.createElement('button');
+            reprocessButton.textContent = 'Reprocess with Improved Detection';
+            reprocessButton.className = 'reprocess-pdf-btn';
+            reprocessButton.onclick = () => reprocessPDF(currentFilename);
+            debugTools.appendChild(reprocessButton);
+            
+            summaryDiv.appendChild(debugTools);
+        }
+    }
+    
+    // Add a table of contents
+    const tocDiv = document.createElement('div');
+    tocDiv.className = 'table-of-contents';
+    tocDiv.innerHTML = `<h3>${currentFileType === 'pdf' ? 'Pages' : 'Slides'}</h3>`;
+    
+    const tocList = document.createElement('ol');
+    slides.forEach((slide, index) => {
+        const tocItem = document.createElement('li');
+        // Use the slide title if available, otherwise use "Slide X" or "Page X"
+        const itemLabel = currentFileType === 'pdf' ? 'Page' : 'Slide';
+        const slideTitle = slide.title ? slide.title : `${itemLabel} ${index + 1}`;
+        
+        // Mark slides with math content if it's a PDF
+        if (currentFileType === 'pdf' && slide.has_math_content) {
+            tocItem.className = 'has-math-content';
+            tocItem.innerHTML = `${slideTitle} <span class="math-indicator">Math</span>`;
+        } else {
+            tocItem.textContent = slideTitle;
+        }
+        
+        // Make each TOC item clickable to show that specific slide
+        tocItem.style.cursor = 'pointer';
+        tocItem.onclick = () => showSlideDetails(index);
+        
+        tocList.appendChild(tocItem);
+    });
+    
+    tocDiv.appendChild(tocList);
+    summaryDiv.appendChild(tocDiv);
+    
+    slideText.appendChild(summaryDiv);
+}
+
 // Add this to existing functions that update the DOM with new slide links
 function updateSlideLinks() {
     createSlideRangePopup();

@@ -7,7 +7,8 @@ import os
 import json
 import time
 import re
-from pdf_processor import extract_text_from_pdf, save_extracted_pdf_text, save_enhanced_pdf_extraction
+from pdf_processor import extract_text_from_pdf, save_extracted_pdf_text, save_enhanced_pdf_extraction, detect_math_content
+import fitz  # PyMuPDF for more advanced PDF processing
 
 # Load environment variables
 load_dotenv()
@@ -631,6 +632,155 @@ Important formatting guidelines:
     except Exception as e:
         print(f"Gemini API error: {str(e)}")
         return f"Error: Failed to get response from Gemini. {str(e)}"
+
+def analyze_math_content_in_pdf(file_path):
+    """
+    Utility function to analyze PDF pages for mathematical content.
+    Helps diagnose false positives and negatives in math content detection.
+    """
+    try:
+        # Open the PDF with PyMuPDF
+        doc = fitz.open(file_path)
+        results = []
+        
+        print(f"Analyzing {file_path} for math content...")
+        print(f"Total pages: {len(doc)}")
+        
+        for page_num in range(len(doc)):
+            page = doc[page_num]
+            page_text = page.get_text()
+            
+            # Try different detection methods
+            main_detection = detect_math_content(page_text)
+            
+            # Count math symbols
+            math_symbols = r'[=+\-*/^√∫∑∏πλθ]'
+            symbol_count = len(re.findall(math_symbols, page_text))
+            
+            # Look for Greek letters separately
+            greek_letters = r'[αβγδεζηθικλμνξοπρστυφχψω]'
+            greek_count = len(re.findall(greek_letters, page_text))
+            
+            # Look for equation patterns
+            eq_patterns = r'[a-zA-Z]\s*=\s*[a-zA-Z0-9]'
+            equation_count = len(re.findall(eq_patterns, page_text))
+            
+            # Check for specific formula patterns like λ = 2d Sin θ
+            specific_formulas = any(re.search(r'λ\s*=\s*2d\s*Sin', page_text, re.IGNORECASE))
+            
+            # Get the first few lines to check if it's a title page
+            first_lines = '\n'.join(page_text.split('\n')[:5])
+            is_title_page = bool(re.match(r'^Chapter|^\d+\.\d+\s+[A-Z]', first_lines))
+            
+            # Examine blocks for potential formulas
+            blocks = page.get_text("dict")["blocks"]
+            block_math_count = 0
+            for block in blocks:
+                if "lines" in block:
+                    for line in block["lines"]:
+                        line_text = "".join([span["text"] for span in line["spans"]])
+                        if detect_math_content(line_text):
+                            block_math_count += 1
+            
+            # Compile the results
+            page_result = {
+                "page_number": page_num + 1,
+                "math_detected": main_detection,
+                "symbol_count": symbol_count,
+                "greek_letter_count": greek_count,
+                "equation_count": equation_count,
+                "specific_formulas_found": specific_formulas,
+                "is_title_page": is_title_page,
+                "block_math_count": block_math_count,
+                "first_lines": first_lines,
+                "likely_has_math": (symbol_count > 3) or (greek_count > 0) or (equation_count > 0) or specific_formulas or (block_math_count > 1)
+            }
+            
+            results.append(page_result)
+            
+            # Print a summary
+            print(f"\nPage {page_num + 1}:")
+            print(f"  Math detected: {main_detection}")
+            print(f"  Symbol count: {symbol_count}")
+            print(f"  Greek letters: {greek_count}")
+            print(f"  Equations: {equation_count}")
+            print(f"  Block math count: {block_math_count}")
+            print(f"  First lines: {first_lines[:100]}...")
+            print(f"  CONCLUSION: {'MATH CONTENT' if page_result['likely_has_math'] else 'NO MATH CONTENT'}")
+        
+        return results
+    
+    except Exception as e:
+        print(f"Error analyzing math content: {str(e)}")
+        return []
+
+@app.route('/analyze-math/<path:filename>')
+def analyze_math(filename):
+    """API endpoint to analyze math content detection in a PDF file."""
+    try:
+        # Look for the file in original files folder
+        file_path = os.path.join(ORIGINAL_FILES_FOLDER, filename)
+        if not os.path.exists(file_path):
+            # Try with .pdf extension
+            file_path = os.path.join(ORIGINAL_FILES_FOLDER, f"{filename}.pdf")
+            if not os.path.exists(file_path):
+                return jsonify({"error": f"File not found: {filename}"}), 404
+        
+        # Use the math content analyzer from pdf_processor
+        from pdf_processor import analyze_math_content_in_pdf
+        results = analyze_math_content_in_pdf(file_path)
+        
+        return jsonify({
+            "filename": filename,
+            "total_pages": len(results),
+            "analysis": results
+        })
+    
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+# Add endpoint to reprocess PDFs with the improved detection
+@app.route('/reprocess-pdf/<path:filename>')
+def reprocess_pdf(filename):
+    """Reprocess a PDF file with improved math content detection."""
+    try:
+        # Verify the file exists
+        file_path = os.path.join(ORIGINAL_FILES_FOLDER, filename)
+        if not os.path.exists(file_path):
+            # Try with .pdf extension
+            file_path = os.path.join(ORIGINAL_FILES_FOLDER, f"{filename}.pdf")
+            if not os.path.exists(file_path):
+                return jsonify({"error": f"File not found: {filename}"}), 404
+        
+        # Get the base name without extension
+        basename = os.path.splitext(os.path.basename(file_path))[0]
+        
+        # Import updated functions from pdf_processor
+        from pdf_processor import save_enhanced_pdf_extraction
+        
+        # Reprocess the PDF with enhanced detection
+        result = save_enhanced_pdf_extraction(file_path, basename)
+        
+        if result:
+            return jsonify({
+                "success": True,
+                "filename": basename,
+                "message": f"PDF reprocessed successfully with improved math detection",
+                "math_pages": result.get("math_content_pages", [])
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "filename": basename,
+                "message": "Failed to reprocess PDF"
+            })
+    
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
 # This will help pinpoint where the PDF loading is failing
 @app.route('/original-file/<path:filename>')
