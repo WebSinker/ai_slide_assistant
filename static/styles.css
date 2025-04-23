@@ -1,6 +1,9 @@
+/* Base styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    background: #f5f7fa;
 }
 
 .container {
@@ -14,10 +17,13 @@ body {
     color: white;
     padding: 20px;
     overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
 
 .sidebar h2 {
     margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3d5871;
 }
 
 .sidebar ul {
@@ -26,29 +32,42 @@ body {
 }
 
 .sidebar ul li {
-    padding: 10px;
+    padding: 12px 15px;
     cursor: pointer;
     background: #34495e;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
 .sidebar ul li:hover {
     background: #3c5d7c;
+    transform: translateX(3px);
+}
+
+.sidebar ul li.active {
+    background: #2980b9;
+    border-left: 4px solid #1abc9c;
+    padding-left: 11px; /* Compensate for the border */
 }
 
 .sidebar ul li.pdf-file {
+    background: #c0392b;
+}
+
+.sidebar ul li.pdf-file:hover {
     background: #e74c3c;
 }
 
 .sidebar ul li.pdf-file::before {
     content: "PDF";
     background: white;
-    color: #e74c3c;
+    color: #c0392b;
     font-size: 10px;
     padding: 1px 4px;
     border-radius: 3px;
-    margin-right: 5px;
+    margin-right: 8px;
     display: inline-block;
 }
 
@@ -59,96 +78,377 @@ body {
     font-size: 10px;
     padding: 1px 4px;
     border-radius: 3px;
-    margin-right: 5px;
+    margin-right: 8px;
     display: inline-block;
 }
 
 .main {
     flex: 1;
-    padding: 20px;
+    padding: 25px;
     overflow-y: auto;
 }
 
+/* Upload section */
 .upload-section {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 5px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .upload-section h3 {
     margin-top: 0;
     color: #2c3e50;
+    font-size: 18px;
 }
 
 .file-types {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 13px;
-    color: #555;
+    color: #7f8c8d;
 }
 
 .upload-section input[type="file"] {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.slide-content {
-    margin-bottom: 20px;
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-#slideTitle {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.qa-section textarea {
-    width: 100%;
-    height: 80px;
-    margin-bottom: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.qa-section button, .slide-details button {
+.upload-section button {
     padding: 10px 20px;
     background: #3498db;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
+    font-weight: 600;
+    transition: background 0.2s;
 }
 
-.qa-section button:hover, .slide-details button:hover {
+.upload-section button:hover {
     background: #2980b9;
+}
+
+.upload-status {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    color: #2c3e50;
+    display: none;
+}
+
+/* Slide content area */
+.slide-content {
+    margin-bottom: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#slideTitle {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ecf0f1;
+    color: #2c3e50;
+    font-size: 20px;
+}
+
+/* Q&A section */
+.qa-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.qa-section textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+.qa-section textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.query-scope {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.query-scope h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.query-scope label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.query-scope input[type="radio"] {
+    margin-right: 10px;
+}
+
+.qa-section button {
+    padding: 12px 25px;
+    background: #2ecc71;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.qa-section button:hover {
+    background: #27ae60;
 }
 
 #answer {
     margin-top: 20px;
-    background: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    line-height: 1.6;
 }
 
-/* New styles for presentation view */
-.presentation-summary {
-    background: white;
-    padding: 15px;
+/* PDF Viewer Styles */
+.pdf-viewer-container {
+    width: 100%;
+    min-height: 500px;
+    margin: 20px 0;
+    background: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.pdf-viewer-container {
+    position: relative;
+    min-height: 400px;
+    background: #f0f0f0;
+}
+
+/* Make sure canvas is properly positioned */
+.pdf-viewer-container canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.pdf-full-view {
+    min-height: 800px;
+}
+
+.pdf-controls {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #34495e;
+    color: white;
+}
+
+.pdf-control-btn {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pdf-control-btn:hover {
+    background: #2980b9;
+}
+
+.pdf-page-info {
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+.loading-pdf {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-weight: bold;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.pdf-error {
+    padding: 20px;
+    color: #e74c3c;
+    text-align: center;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Visual elements display */
+.extracted-data-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.visual-elements {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.visual-elements h4 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.visual-elements.formulas ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.visual-elements.formulas li {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.image-thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+.image-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    background: #7f8c8d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: #6c7a89;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.nav-btn:hover {
+    background: #2980b9;
+}
+
+/* Presentation overview */
+.presentation-summary {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.preview-pdf-btn {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.preview-pdf-btn:hover {
+    background: #c0392b;
 }
 
 .table-of-contents {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .table-of-contents h3 {
-    margin-bottom: 10px;
     color: #2c3e50;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
 }
 
 .table-of-contents ol {
@@ -156,129 +456,70 @@ body {
 }
 
 .table-of-contents li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    padding: 5px;
     color: #3498db;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .table-of-contents li:hover {
-    text-decoration: underline;
+    color: #2980b9;
+    background: #f0f3f6;
+    border-radius: 4px;
+    transform: translateX(3px);
 }
 
-.slide-details {
+/* Search results styling */
+.search-result-section {
+    margin-bottom: 25px;
     background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.slide-header {
-    margin-bottom: 15px;
-    color: #2c3e50;
-}
-
-.slide-content-text {
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.slide-notes {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.slide-notes h4 {
-    margin-top: 0;
-    color: #2c3e50;
-}
-
-.flash {
-    animation: flash-slide 1s ease;
-}
-
-@keyframes flash-slide {
-    0% { background-color: #ffffcc; }
-    50% { background-color: #e0e0e0; }
-    100% { background-color: #f5f5f5; }
-}
-
-/* Styles for slide range view */
-.slide-range-container {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.slide-in-range {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-
-/* Styles for AI answer styling */
-#answer {
-    margin-top: 20px;
-    background: #f0f0f0;
-    padding: 15px;
-    border-radius: 5px;
-    line-height: 1.6;
-}
-
-#answer strong, #answer em {
-    color: #2c3e50;
-}
-
-#answer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-#answer a:hover {
-    text-decoration: underline;
-}
-
-#answer ul, #answer ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-#answer li {
-    margin-bottom: 5px;
-}
-
-#answer p {
-    margin-bottom: 15px;
-}
-
-.range-navigation {
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #f0f8ff;
-    border-radius: 5px;
-}
-
-.quick-nav-link {
+.search-scope-indicator {
     display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
     background: #3498db;
     color: white;
-    border-radius: 3px;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.search-result-content {
+    line-height: 1.7;
+}
+
+.search-result-content a {
+    color: #3498db;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
-.quick-nav-link:hover {
-    background: #2980b9;
+.search-result-content a:hover {
+    color: #2980b9;
+    text-decoration: underline;
 }
 
-/* Add this to styles.css */
+.search-result-content ul, 
+.search-result-content ol {
+    padding-left: 25px;
+}
+
+.search-result-content li {
+    margin-bottom: 8px;
+}
+
+/* Slide range popup */
 .slide-range-popup {
     position: absolute;
     z-index: 1000;
     background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     padding: 15px;
     min-width: 200px;
     display: none;
@@ -292,7 +533,7 @@ body {
 
 .popup-title {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #2c3e50;
     font-size: 14px;
 }
@@ -300,19 +541,19 @@ body {
 .popup-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 10px;
+    gap: 6px;
+    margin-bottom: 15px;
 }
 
 .popup-slide-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background: #3498db;
     color: white;
-    border-radius: 3px;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 13px;
     transition: background 0.2s;
@@ -320,204 +561,4 @@ body {
 
 .popup-slide-btn:hover {
     background: #2980b9;
-}
-
-.popup-view-all {
-    width: 100%;
-    padding: 8px;
-    background: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: background 0.2s;
-}
-
-.popup-view-all:hover {
-    background: #27ae60;
-}
-
-/* Update range navigation styles */
-.range-navigation {
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #f0f8ff;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.quick-nav-link {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
-    background: #3498db;
-    color: white;
-    border-radius: 3px;
-    text-decoration: none;
-}
-
-.quick-nav-link:hover {
-    background: #2980b9;
-}
-
-/* Scope */
-/* Enhanced styles for the query scope options */
-.query-scope {
-    margin: 15px 0;
-    padding: 12px;
-    background: #f5f5f5;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.query-scope h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #2c3e50;
-    font-size: 14px;
-}
-
-.query-scope label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 3px;
-    transition: background-color 0.2s;
-}
-
-.query-scope label:hover {
-    background-color: #e5e5e5;
-}
-
-.query-scope input[type="radio"] {
-    margin-right: 8px;
-}
-
-/* Style for disabled option */
-.query-scope label input[type="radio"]:disabled + span {
-    color: #999;
-    cursor: not-allowed;
-}
-
-/* Search result metadata */
-.search-scope-indicator {
-    display: inline-block;
-    background: #3498db;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-/* Searched presentations pills */
-.searched-presentations {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.searched-presentations span {
-    background: #2c3e50;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 15px;
-    font-size: 12px;
-}
-
-/* New styles for cross-presentation search results */
-.search-result-section {
-    margin-bottom: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.search-result-section h4 {
-    color: #2c3e50;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
-    margin-top: 0;
-}
-
-.search-result-content {
-    padding: 10px 0;
-}
-
-/* Add these styles to your existing styles.css file */
-
-/* Highlight the top search result */
-.search-result-section.top-result {
-    border: 2px solid #27ae60;
-    box-shadow: 0 2px 10px rgba(39, 174, 96, 0.2);
-    position: relative;
-}
-
-.highlight-top-result {
-    animation: highlight-pulse 2s ease-out;
-}
-
-@keyframes highlight-pulse {
-    0% { background-color: rgba(39, 174, 96, 0.2); }
-    100% { background-color: transparent; }
-}
-
-.top-result-badge {
-    display: inline-block;
-    background: #27ae60;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 12px;
-    margin-left: 10px;
-}
-
-/* Improve searching animation */
-.searching-status {
-    padding: 15px;
-    background: #f0f8ff;
-    border-radius: 5px;
-    text-align: center;
-    margin: 15px 0;
-}
-
-.searching-status .progress {
-    height: 8px;
-    background: #e0e0e0;
-    border-radius: 4px;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-.searching-status .progress-bar {
-    height: 100%;
-    background: #3498db;
-    width: 10%;
-    animation: progress-search 1.5s infinite ease-in-out;
-}
-
-@keyframes progress-search {
-    0% { width: 10%; transform: translateX(0); }
-    50% { width: 40%; transform: translateX(100%); }
-    100% { width: 10%; transform: translateX(250%); }
-}
-
-/* Add indicator for active presentation in the sidebar */
-.sidebar ul li.active {
-    background: #2980b9;
-    border-left: 4px solid #1abc9c;
-}
-
-/* Style for the search scope radio buttons */
-.query-scope h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #2c3e50;
-    font-size: 14px;
 }

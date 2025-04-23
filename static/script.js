@@ -2,7 +2,11 @@ let slides = [];
 let currentFilename = '';
 let currentPresentationData = null;
 let currentPresentationList = []; // Store multiple presentations
+let pdfViewer = null;
+let currentFileType = '';
 
+// Modified uploadFile function to handle PDF viewer initialization
+// Update the uploadFile function to handle the new presentation data format
 function uploadFile() {
     const input = document.getElementById('fileInput');
     const fileList = input.files;
@@ -11,6 +15,10 @@ function uploadFile() {
         alert("Please select at least one file!");
         return;
     }
+
+    // Show loading indicator
+    document.getElementById('uploadStatus').textContent = "Uploading and processing files...";
+    document.getElementById('uploadStatus').style.display = 'block';
 
     const formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
@@ -29,12 +37,22 @@ function uploadFile() {
             throw new Error(data.error);
         }
     
+        document.getElementById('uploadStatus').textContent = "Files uploaded successfully!";
+        setTimeout(() => {
+            document.getElementById('uploadStatus').style.display = 'none';
+        }, 3000);
+    
         if (Array.isArray(data.presentations)) {
             currentPresentationList = data.presentations; // Store all
             currentPresentationData = currentPresentationList[0];
             slides = currentPresentationData.slides;
-            // Extract filename without extension properly
-            currentFilename = getBaseName(currentPresentationData.filename);
+            
+            // Use basename and filename correctly
+            // basename is for display and currentFilename should be the basename for consistency
+            currentFilename = currentPresentationData.basename || getBaseName(currentPresentationData.filename);
+            currentFileType = currentPresentationData.file_type || getFileExtension(currentPresentationData.filename);
+            
+            console.log("Loaded presentation:", currentPresentationData);
     
             updatePresentationList(); // Update sidebar/list
     
@@ -45,19 +63,73 @@ function uploadFile() {
             // Fallback if server returns single file structure
             currentPresentationData = data;
             slides = data.slides;
-            currentFilename = getBaseName(currentPresentationData.filename);
+            currentFilename = data.basename || getBaseName(data.filename);
+            currentFileType = data.file_type || getFileExtension(data.filename);
             updatePresentationList();
             if (slides.length > 0) {
                 displayPresentation();
             }
         }
-    
-        alert("Files uploaded successfully!");
     })    
     .catch(err => {
         console.error('Upload error:', err);
-        alert(`Upload failed: ${err.message}`);
+        document.getElementById('uploadStatus').textContent = `Upload failed: ${err.message}`;
+        setTimeout(() => {
+            document.getElementById('uploadStatus').style.display = 'none';
+        }, 5000);
     });
+}
+
+// Update the presentation list to use the correct filename/basename
+function updatePresentationList() {
+    const list = document.getElementById('slideList');
+    list.innerHTML = '';
+
+    currentPresentationList.forEach((presentation, index) => {
+        const li = document.createElement('li');
+        
+        // Use basename for display (without extension)
+        let displayName = presentation.basename || getBaseName(presentation.filename);
+        const extension = presentation.file_type || presentation.filename.split('.').pop().toLowerCase();
+        
+        // Add class based on file type
+        if (extension === 'pdf') {
+            li.className = 'pdf-file';
+        } else {
+            li.className = 'ppt-file';
+        }
+        
+        // Add active class to the current presentation
+        if (displayName === currentFilename) {
+            li.className += ' active';
+        }
+        
+        li.textContent = displayName;
+
+        li.onclick = () => {
+            // Remove active class from all items
+            document.querySelectorAll('#slideList li').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            li.classList.add('active');
+            
+            currentPresentationData = presentation;
+            slides = presentation.slides;
+            currentFilename = displayName;
+            currentFileType = extension;
+            console.log("Selected presentation:", currentPresentationData);
+            displayPresentation();
+        };
+
+        list.appendChild(li);
+    });
+}
+
+// Helper function to get file extension
+function getFileExtension(filename) {
+    return filename.split('.').pop().toLowerCase();
 }
 
 // Helper function to get the base name without extension
@@ -66,6 +138,7 @@ function getBaseName(filename) {
     return filename.includes('.') ? filename.substring(0, filename.lastIndexOf('.')) : filename;
 }
 
+// Modified updatePresentationList function to add active class
 function updatePresentationList() {
     const list = document.getElementById('slideList');
     list.innerHTML = '';
@@ -83,12 +156,26 @@ function updatePresentationList() {
             li.className = 'ppt-file';
         }
         
+        // Add active class to the current presentation
+        if (fileBaseName === currentFilename) {
+            li.className += ' active';
+        }
+        
         li.textContent = fileBaseName;
 
         li.onclick = () => {
+            // Remove active class from all items
+            document.querySelectorAll('#slideList li').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            li.classList.add('active');
+            
             currentPresentationData = presentation;
             slides = presentation.slides;
             currentFilename = fileBaseName;
+            currentFileType = extension;
             displayPresentation();
         };
 
@@ -96,7 +183,7 @@ function updatePresentationList() {
     });
 }
 
-// Modified askQuestion function to search across all presentations
+// Modified askQuestion function to include visual elements information
 function askQuestion() {
     const question = document.getElementById('questionInput').value.trim();
     if (!question) {
@@ -117,16 +204,16 @@ function askQuestion() {
     let searchFilename = currentFilename;
     
     if (searchCurrentSlideOnly) {
-        // Get the currently displayed slide number from the title
+        // Get the currently displayed slide/page number from the title
         const titleText = document.getElementById('slideTitle').textContent;
-        const slideMatch = titleText.match(/Slide (\d+)/);
+        const slideMatch = titleText.match(/(?:Slide|Page) (\d+)/);
         
         if (slideMatch) {
             slideNumber = parseInt(slideMatch[1]);
         } else {
             // If we're not on a specific slide but "current slide only" is selected,
             // show a warning and fall back to current presentation
-            alert("You've selected 'Current slide only' but aren't viewing a specific slide. Searching current presentation instead.");
+            alert("You've selected 'Current slide/page only' but aren't viewing a specific slide/page. Searching current presentation instead.");
         }
     }
     
@@ -142,15 +229,19 @@ function askQuestion() {
     }
 }
 
-// Search through a single presentation (optionally limited to a specific slide)
+// Modified performSinglePresentationSearch to include visual elements option
 function performSinglePresentationSearch(question, slideNumber, filename) {
+    // Check if we're using a PDF which might have visual elements
+    const isPDF = currentFileType === 'pdf';
+    
     fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             question: question,
             slide_number: slideNumber,  // This will be null if searching the whole presentation
-            filename: filename
+            filename: filename,
+            include_visual_elements: isPDF // Only include visual elements for PDFs
         })
     })
     .then(res => res.json())
@@ -161,9 +252,17 @@ function performSinglePresentationSearch(question, slideNumber, filename) {
         }
         
         // Create a container with presentation source info
+        let scopeIndicator = slideNumber ? 
+            `${isPDF ? 'Page' : 'Slide'} ${slideNumber} of ${filename}` : 
+            filename;
+            
+        if (data.has_visual_elements) {
+            scopeIndicator += ' (including visual elements)';
+        }
+        
         const answerHTML = `
             <div class="search-result-section">
-                <span class="search-scope-indicator">${slideNumber ? 'Slide ' + slideNumber + ' of ' : ''}${filename}</span>
+                <span class="search-scope-indicator">${scopeIndicator}</span>
                 <div class="search-result-content">
                     ${data.answer}
                 </div>
@@ -381,67 +480,249 @@ function displayCombinedResults(question, results) {
     }
 }
 
-// Update the function that shows a slide to set up proper context
+// Modified showSlideDetails for better PDF handling
 function showSlideDetails(index) {
     const slide = slides[index];
     
     document.getElementById('slideTitle').textContent = 
-        `${currentFilename} - Slide ${index + 1}${slide.title ? ': ' + slide.title : ''}`;
+        `${currentFilename} - ${currentFileType === 'pdf' ? 'Page' : 'Slide'} ${index + 1}${slide.title ? ': ' + slide.title : ''}`;
     
     const slideText = document.getElementById('slideText');
     slideText.innerHTML = '';
     
-    // Create content for the slide
-    const slideContent = document.createElement('div');
-    slideContent.className = 'slide-details';
-    slideContent.id = `slide-${index + 1}`;
-    
-    // Add slide number and title
-    const headerDiv = document.createElement('div');
-    headerDiv.className = 'slide-header';
-    headerDiv.innerHTML = `<h3>Slide ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
-    slideContent.appendChild(headerDiv);
-    
-    // Add slide content
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'slide-content-text';
-    contentDiv.innerHTML = slide.text.replace(/\n/g, "<br>");
-    slideContent.appendChild(contentDiv);
-    
-    // Add notes if any
-    if (slide.notes) {
-        const notesDiv = document.createElement('div');
-        notesDiv.className = 'slide-notes';
-        notesDiv.innerHTML = `<h4>Notes:</h4><p>${slide.notes.replace(/\n/g, "<br>")}</p>`;
-        slideContent.appendChild(notesDiv);
+    // Create different views based on file type
+    if (currentFileType === 'pdf') {
+        // Create a container for the PDF viewer
+        const pdfViewerContainer = document.createElement('div');
+        pdfViewerContainer.id = 'pdfViewerContainer';
+        pdfViewerContainer.className = 'pdf-viewer-container';
+        slideText.appendChild(pdfViewerContainer);
+        
+        // Create a container for the extracted text and visual elements
+        const textDataContainer = document.createElement('div');
+        textDataContainer.className = 'extracted-data-container';
+        
+        // Add slide header with page number
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'slide-header';
+        headerDiv.innerHTML = `<h3>Page ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
+        textDataContainer.appendChild(headerDiv);
+        
+        // Add extracted text content
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'slide-content-text';
+        contentDiv.innerHTML = `<h4>Extracted Text:</h4><div>${slide.text.replace(/\n/g, "<br>")}</div>`;
+        textDataContainer.appendChild(contentDiv);
+        
+        // Check for enhanced visual elements (formulas, images)
+        fetch(`/pdf-visual-elements/${currentFilename}/${index + 1}`)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    // Add formula section if any formulas exist
+                    if (data.formulas && data.formulas.length > 0) {
+                        const formulasDiv = document.createElement('div');
+                        formulasDiv.className = 'visual-elements formulas';
+                        formulasDiv.innerHTML = '<h4>Detected Formulas:</h4><ul>';
+                        
+                        data.formulas.forEach(formula => {
+                            formulasDiv.innerHTML += `<li>${formula.text}</li>`;
+                        });
+                        
+                        formulasDiv.innerHTML += '</ul>';
+                        textDataContainer.appendChild(formulasDiv);
+                    }
+                    
+                    // Add image thumbnails if any images exist
+                    if (data.images && data.images.length > 0) {
+                        const imagesDiv = document.createElement('div');
+                        imagesDiv.className = 'visual-elements images';
+                        imagesDiv.innerHTML = `<h4>Detected Images (${data.images.length}):</h4><div class="image-grid">`;
+                        
+                        data.images.forEach(image => {
+                            imagesDiv.innerHTML += `
+                                <div class="image-thumbnail">
+                                    <img src="${image.data_uri}" alt="${image.alt_text}">
+                                </div>
+                            `;
+                        });
+                        
+                        imagesDiv.innerHTML += '</div>';
+                        textDataContainer.appendChild(imagesDiv);
+                    }
+                }
+            })
+            .catch(err => console.error('Error loading visual elements:', err));
+        
+        // Add the text container to the main slide view
+        slideText.appendChild(textDataContainer);
+        
+        // Get the original filename with extension
+        let pdfFilename = "";
+        if (currentPresentationData && currentPresentationData.filename) {
+            pdfFilename = currentPresentationData.filename;
+        } else {
+            pdfFilename = currentFilename.endsWith('.pdf') ? currentFilename : `${currentFilename}.pdf`;
+        }
+        
+        // URL encode the filename to handle spaces and special characters
+        const encodedFilename = encodeURIComponent(pdfFilename);
+        const pdfUrl = `/original-file/${encodedFilename}`;
+        
+        console.log("Loading PDF from URL:", pdfUrl, "Page:", index + 1);
+        
+        // Initialize or recreate the PDF viewer
+        pdfViewer = new PDFViewer('pdfViewerContainer');
+        
+        // Load the PDF and navigate to the correct page
+        pdfViewer.loadDocument(pdfUrl)
+            .then(success => {
+                if (success) {
+                    // Navigate to the specific page (PDF.js pages are 1-indexed)
+                    setTimeout(() => {
+                        pdfViewer.goToPage(index + 1);
+                    }, 100);
+                }
+            });
+    } else {
+        // For PowerPoint files, use the original display method
+        const slideContent = document.createElement('div');
+        slideContent.className = 'slide-details';
+        slideContent.id = `slide-${index + 1}`;
+        
+        // Add slide number and title
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'slide-header';
+        headerDiv.innerHTML = `<h3>Slide ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
+        slideContent.appendChild(headerDiv);
+        
+        // Add slide content
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'slide-content-text';
+        contentDiv.innerHTML = slide.text.replace(/\n/g, "<br>");
+        slideContent.appendChild(contentDiv);
+        
+        // Add notes if any
+        if (slide.notes) {
+            const notesDiv = document.createElement('div');
+            notesDiv.className = 'slide-notes';
+            notesDiv.innerHTML = `<h4>Notes:</h4><p>${slide.notes.replace(/\n/g, "<br>")}</p>`;
+            slideContent.appendChild(notesDiv);
+        }
+        
+        slideText.appendChild(slideContent);
     }
     
-    // Add back button
+    // Add back button (common for both PDF and PowerPoint)
+    const backButtonContainer = document.createElement('div');
+    backButtonContainer.className = 'navigation-buttons';
+    
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Presentation Overview';
+    backButton.textContent = 'Back to Overview';
+    backButton.className = 'back-btn';
     backButton.onclick = () => displayPresentation();
-    slideContent.appendChild(backButton);
+    backButtonContainer.appendChild(backButton);
     
-    slideText.appendChild(slideContent);
+    // Add prev/next buttons
+    if (index > 0) {
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Previous';
+        prevButton.className = 'nav-btn';
+        prevButton.onclick = () => showSlideDetails(index - 1);
+        backButtonContainer.appendChild(prevButton);
+    }
+    
+    if (index < slides.length - 1) {
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.className = 'nav-btn';
+        nextButton.onclick = () => showSlideDetails(index + 1);
+        backButtonContainer.appendChild(nextButton);
+    }
+    
+    slideText.appendChild(backButtonContainer);
 
-    // Optional: Scroll into view
-    setTimeout(() => {
-        const el = document.getElementById(`slide-${index + 1}`);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-            el.classList.add('flash');
-            setTimeout(() => el.classList.remove('flash'), 1000);
-        }
-    }, 100);
-    
     // Update radio button state - if on a slide, enable "current slide only" option
     document.getElementById('scopeCurrentSlide').disabled = false;
 }
 
-// Update the displayPresentation function to disable "current slide only" option
+// Modified showPDFPreview to better handle the PDF viewer
+function showPDFPreview(filename) {
+    const slideText = document.getElementById('slideText');
+    
+    // Clean up any existing PDF viewer before creating a new one
+    if (pdfViewer) {
+        // Just clear the container rather than destroying the PDFViewer instance
+        const container = document.getElementById('pdfViewerContainer');
+        if (container) {
+            container.innerHTML = '';
+        }
+    }
+    
+    // Update the title
+    document.getElementById('slideTitle').textContent = `${filename} - Full PDF Preview`;
+    
+    // Clear the slideText div
+    slideText.innerHTML = '';
+    
+    // Create a container for the PDF viewer
+    const pdfContainer = document.createElement('div');
+    pdfContainer.id = 'pdfViewerContainer';
+    pdfContainer.className = 'pdf-viewer-container pdf-full-view';
+    slideText.appendChild(pdfContainer);
+    
+    // Add back button
+    const backButtonContainer = document.createElement('div');
+    backButtonContainer.className = 'navigation-buttons';
+    
+    const backButton = document.createElement('button');
+    backButton.textContent = 'Back to Overview';
+    backButton.className = 'back-btn';
+    backButton.onclick = () => displayPresentation();
+    backButtonContainer.appendChild(backButton);
+    
+    slideText.appendChild(backButtonContainer);
+    
+    // Get the original filename with extension
+    let pdfFilename = "";
+    
+    // Try to get the original filename from currentPresentationData
+    if (currentPresentationData && currentPresentationData.filename) {
+        pdfFilename = currentPresentationData.filename;
+        console.log("Using filename from currentPresentationData:", pdfFilename);
+    } else {
+        // Fall back to adding .pdf extension if necessary
+        pdfFilename = filename.endsWith('.pdf') ? filename : `${filename}.pdf`;
+        console.log("Using constructed filename:", pdfFilename);
+    }
+    
+    // URL encode the filename to handle spaces and special characters
+    const encodedFilename = encodeURIComponent(pdfFilename);
+    const pdfUrl = `/original-file/${encodedFilename}`;
+    
+    console.log("Loading PDF from URL:", pdfUrl);
+    
+    // Initialize or recreate the PDF viewer
+    pdfViewer = new PDFViewer('pdfViewerContainer');
+    
+    // Load the PDF
+    pdfViewer.loadDocument(pdfUrl)
+        .then(success => {
+            if (!success) {
+                console.error("Failed to load PDF");
+                slideText.innerHTML += `<div class="pdf-error">Failed to load PDF: ${pdfFilename}. Please check if the file exists on the server.</div>`;
+            }
+        })
+        .catch(error => {
+            console.error("Error loading PDF:", error);
+            slideText.innerHTML += `<div class="pdf-error">Error loading PDF: ${error.message}</div>`;
+        });
+}
+
+// Modified displayPresentation function to add PDF-specific info
 function displayPresentation() {
     // Update the title to show the presentation name
-    document.getElementById('slideTitle').textContent = currentFilename;
+    document.getElementById('slideTitle').textContent = `${currentFilename} (${currentFileType.toUpperCase()})`;
     
     // Since we're not on a specific slide, disable the "current slide only" option
     document.getElementById('scopeCurrentSlide').disabled = true;
@@ -451,7 +732,6 @@ function displayPresentation() {
         document.getElementById('scopeCurrentPresentation').checked = true;
     }
     
-    // Rest of the function remains the same...
     const slideText = document.getElementById('slideText');
     slideText.innerHTML = '';
     
@@ -462,19 +742,30 @@ function displayPresentation() {
     // Add presentation info
     const infoP = document.createElement('p');
     infoP.innerHTML = `<strong>Presentation:</strong> ${currentFilename}<br>` +
-                      `<strong>Total Slides:</strong> ${slides.length}`;
+                      `<strong>Type:</strong> ${currentFileType.toUpperCase()}<br>` +
+                      `<strong>Total ${currentFileType === 'pdf' ? 'Pages' : 'Slides'}:</strong> ${slides.length}`;
     summaryDiv.appendChild(infoP);
+    
+    // For PDFs, add a preview button
+    if (currentFileType === 'pdf') {
+        const previewButton = document.createElement('button');
+        previewButton.className = 'preview-pdf-btn';
+        previewButton.textContent = 'Preview Entire PDF';
+        previewButton.onclick = () => showPDFPreview(currentFilename);
+        summaryDiv.appendChild(previewButton);
+    }
     
     // Add a table of contents
     const tocDiv = document.createElement('div');
     tocDiv.className = 'table-of-contents';
-    tocDiv.innerHTML = '<h3>Table of Contents</h3>';
+    tocDiv.innerHTML = `<h3>${currentFileType === 'pdf' ? 'Pages' : 'Slides'}</h3>`;
     
     const tocList = document.createElement('ol');
     slides.forEach((slide, index) => {
         const tocItem = document.createElement('li');
-        // Use the slide title if available, otherwise use "Slide X"
-        const slideTitle = slide.title ? slide.title : `Slide ${index + 1}`;
+        // Use the slide title if available, otherwise use "Slide X" or "Page X"
+        const itemLabel = currentFileType === 'pdf' ? 'Page' : 'Slide';
+        const slideTitle = slide.title ? slide.title : `${itemLabel} ${index + 1}`;
         tocItem.textContent = slideTitle;
         
         // Make each TOC item clickable to show that specific slide

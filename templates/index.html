@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>AI Slide Assistant</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <!-- PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <h2>Slides</h2>
+            <h2>Presentations</h2>
             <ul id="slideList"></ul>
         </div>
         <div class="main">
@@ -17,13 +19,14 @@
                 <p class="file-types">Supported formats: .ppt, .pptx, .pdf</p>
                 <input type="file" id="fileInput" multiple accept=".ppt,.pptx,.pdf">
                 <button onclick="uploadFile()">Upload</button>
+                <div id="uploadStatus" class="upload-status"></div>
             </div>
             <div class="slide-content">
-                <h2 id="slideTitle">Select a Slide</h2>
+                <h2 id="slideTitle">Select a Presentation</h2>
                 <div id="slideText"></div>
             </div>
             <div class="qa-section">
-                <textarea id="questionInput" placeholder="Ask a question..."></textarea>
+                <textarea id="questionInput" placeholder="Ask a question about the presentation content..."></textarea>
                 <div class="query-scope">
                     <h4>Search Scope:</h4>
                     <label>
@@ -36,7 +39,7 @@
                     </label>
                     <label>
                         <input type="radio" name="scope" id="scopeCurrentSlide" disabled> 
-                        <span>Current slide only</span>
+                        <span>Current slide/page only</span>
                     </label>
                 </div>
                 <button onclick="askQuestion()">Ask AI</button>
@@ -44,6 +47,9 @@
             </div>
         </div>
     </div>
+    
+    <!-- Make sure the PDF viewer script is loaded BEFORE the main script -->
+    <script src="/static/pdf-viewer.js"></script>
     <script src="/static/script.js"></script>
 </body>
 </html>

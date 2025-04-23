@@ -1,7 +1,7 @@
 {
   "filename": "3.0 Chapter 3  Introduction XRD - All",
   "total_slides": 50,
-  "extraction_time": "2025-04-23 20:21:43",
+  "extraction_time": "2025-04-24 00:07:28",
   "slides": [
     {
       "slide_number": 1,
@@ -15,7 +15,9 @@
         "3.6 The powder method  "
       ],
       "notes": "",
-      "text": "Chapter 3 X -ray Diffractometry  \n3.1 Introduction  \n3.2 Ewald construction  \n3.3 Diffractometer geometries  \n3.4 Moving -crystal methods  \n3.5 The Laue method  \n3.6 The powder method"
+      "text": "Chapter 3 X -ray Diffractometry  \n3.1 Introduction  \n3.2 Ewald construction  \n3.3 Diffractometer geometries  \n3.4 Moving -crystal methods  \n3.5 The Laue method  \n3.6 The powder method",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 1
     },
     {
       "slide_number": 2,
@@ -33,7 +35,9 @@
         " "
       ],
       "notes": "",
-      "text": "Learning outcomes  :  \nBy the end of this topic, student will be able to do \nthe following:  \n\u2022Identify and list down type of diffraction using X -\nray.  \n\u2022Describe and illustrate Ewald construction  \n\u2022Describe and illustrate Diffractometer \ngeometries  \n\u2022Explain and illustrate Moving -crystal methods, \nLaue method and powder method"
+      "text": "Learning outcomes  :  \nBy the end of this topic, student will be able to do \nthe following:  \n\u2022Identify and list down type of diffraction using X -\nray.  \n\u2022Describe and illustrate Ewald construction  \n\u2022Describe and illustrate Diffractometer \ngeometries  \n\u2022Explain and illustrate Moving -crystal methods, \nLaue method and powder method",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 2
     },
     {
       "slide_number": 3,
@@ -52,7 +56,9 @@
         "crystal specimen is used.  "
       ],
       "notes": "",
-      "text": "3.1  Introduction  \n\u2022There are three classes of technique which are \ncommonly used :  \n\u2013Moving -crystal technique  \n\uf0aeSingle -crystal specimen which moving it into a \nappropriate orientation  \n\u2013Laue technique  \n\uf0aeUtilizes polychromatic radiation and a \nstationary crystal  \n\u2013Powder method  \n\uf0aePolycrystalline specimen rather than single -\ncrystal specimen is used."
+      "text": "3.1  Introduction  \n\u2022There are three classes of technique which are \ncommonly used :  \n\u2013Moving -crystal technique  \n\uf0aeSingle -crystal specimen which moving it into a \nappropriate orientation  \n\u2013Laue technique  \n\uf0aeUtilizes polychromatic radiation and a \nstationary crystal  \n\u2013Powder method  \n\uf0aePolycrystalline specimen rather than single -\ncrystal specimen is used.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 3
     },
     {
       "slide_number": 4,
@@ -77,7 +83,9 @@
         "so "
       ],
       "notes": "",
-      "text": "3.2  The Ewald Construction  \n\u2022The Ewald construction is a very convenient method \nfor representing the geometrical conditions for \ndiffraction.  \n2\u02c6\n 2RCOSinOC OR\uf03d\nX R \nO C 2\uf071 O   is the origin of the \nreciprocal lattice  \nXC is the unit vector in the \ndirection of the incident \nradiation  \nR   is a point any where on the \nsurface of the sphere  \nC   is the centre of the sphere  \nhkldOR\uf06c\uf03d\n\uf071\uf06c Sind 2\uf03d\nso"
+      "text": "3.2  The Ewald Construction  \n\u2022The Ewald construction is a very convenient method \nfor representing the geometrical conditions for \ndiffraction.  \n2\u02c6\n 2RCOSinOC OR\uf03d\nX R \nO C 2\uf071 O   is the origin of the \nreciprocal lattice  \nXC is the unit vector in the \ndirection of the incident \nradiation  \nR   is a point any where on the \nsurface of the sphere  \nC   is the centre of the sphere  \nhkldOR\uf06c\uf03d\n\uf071\uf06c Sind 2\uf03d\nso",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 4
     },
     {
       "slide_number": 5,
@@ -99,7 +107,9 @@
         ""
       ],
       "notes": "",
-      "text": "3.3  Diffractometer geometry  \n\u2022A diffractometer measures the intensity of X -ray \nreflected from one stack of planes.  \n\u2022Therefore, the essential parts of such an instrument \nare a collimating system for the incoming radiation, \norienting crystal and the detector which can be \nrotated so as to point at the correct angle to accept \nthe diffracted beam.  \n\u2022A few thing are needed to be consider :  \n\u2013Reciprocal -lattice construction  \n\u2013Parafocusing  \n\u2013Goniometry  \n\u2013X-ray optic (for powder method)"
+      "text": "3.3  Diffractometer geometry  \n\u2022A diffractometer measures the intensity of X -ray \nreflected from one stack of planes.  \n\u2022Therefore, the essential parts of such an instrument \nare a collimating system for the incoming radiation, \norienting crystal and the detector which can be \nrotated so as to point at the correct angle to accept \nthe diffracted beam.  \n\u2022A few thing are needed to be consider :  \n\u2013Reciprocal -lattice construction  \n\u2013Parafocusing  \n\u2013Goniometry  \n\u2013X-ray optic (for powder method)",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 5
     },
     {
       "slide_number": 6,
@@ -116,7 +126,9 @@
         ""
       ],
       "notes": "",
-      "text": "Reciprocal -lattice construction  \n\u2022If a single crystal is \nset parallel to the \nincident X -ray beam \nthe reciprocal -lattice \nconstruction appears.  \n\u2022If the crystal rotated by \uf071, \nnow the new reciprocal -\nlattice construction appear ."
+      "text": "Reciprocal -lattice construction  \n\u2022If a single crystal is \nset parallel to the \nincident X -ray beam \nthe reciprocal -lattice \nconstruction appears.  \n\u2022If the crystal rotated by \uf071, \nnow the new reciprocal -\nlattice construction appear .",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 6
     },
     {
       "slide_number": 7,
@@ -134,7 +146,9 @@
         "to diffraction cones.  "
       ],
       "notes": "",
-      "text": "\u2022When a polycrystalline is \nplace at the center of the \nEwald sphere, the \nreciprocal -lattice \nconstruction has the \nappearance.  \n \n\u2022The concentric reciprocal -\nlattice spheres intersect the \nEwald sphere and give rise \nto diffraction cones."
+      "text": "\u2022When a polycrystalline is \nplace at the center of the \nEwald sphere, the \nreciprocal -lattice \nconstruction has the \nappearance.  \n \n\u2022The concentric reciprocal -\nlattice spheres intersect the \nEwald sphere and give rise \nto diffraction cones.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 7
     },
     {
       "slide_number": 8,
@@ -150,7 +164,9 @@
         "source  "
       ],
       "notes": "",
-      "text": "Parafocusing  \n\u2022When a large single crystal is irradiated by a \ndiverging beam of X -ray, small angular \ndisplacements \uf064 cause it to reflect slightly different \nwavelength components to the same point on a \ncircle.  \n\uf064 \nPoint X -ray \nsource"
+      "text": "Parafocusing  \n\u2022When a large single crystal is irradiated by a \ndiverging beam of X -ray, small angular \ndisplacements \uf064 cause it to reflect slightly different \nwavelength components to the same point on a \ncircle.  \n\uf064 \nPoint X -ray \nsource",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 8
     },
     {
       "slide_number": 9,
@@ -173,7 +189,9 @@
         " "
       ],
       "notes": "",
-      "text": "\u2022However, when a slightly diverging and imperfectly \nmonochromatic X -ray beam is used, this has the \neffect of \u201cfocusing\u201d the reflected rays.  \n \n\u2022This is a consequence of the finite spectral widths \nof X-ray sources.  \n \n\u2022So it should be distinguished from true optical \nfocusing by employing the term \u201c parafocusing \u201d.  \n \n\u2022Beside focusing, it is also necessary to provide a \nreorienting crystal so that many different planes can \nbe positioned to reflect the incident beam.  \n\u2022This can be done by mounting the crystal on a \ndevice, called \u201c goniometer \u201d"
+      "text": "\u2022However, when a slightly diverging and imperfectly \nmonochromatic X -ray beam is used, this has the \neffect of \u201cfocusing\u201d the reflected rays.  \n \n\u2022This is a consequence of the finite spectral widths \nof X-ray sources.  \n \n\u2022So it should be distinguished from true optical \nfocusing by employing the term \u201c parafocusing \u201d.  \n \n\u2022Beside focusing, it is also necessary to provide a \nreorienting crystal so that many different planes can \nbe positioned to reflect the incident beam.  \n\u2022This can be done by mounting the crystal on a \ndevice, called \u201c goniometer \u201d",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 9
     },
     {
       "slide_number": 10,
@@ -186,7 +204,9 @@
         ""
       ],
       "notes": "",
-      "text": "Goniometer  \n\u2022Three type of goniometer can be constructed :  \n\u2013One-circle goniometer  \n\u2013Two-circle goniometer  \n\u2013Three -circle goniometer"
+      "text": "Goniometer  \n\u2022Three type of goniometer can be constructed :  \n\u2013One-circle goniometer  \n\u2013Two-circle goniometer  \n\u2013Three -circle goniometer",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 10
     },
     {
       "slide_number": 11,
@@ -201,7 +221,9 @@
         ""
       ],
       "notes": "",
-      "text": "X-ray optics  \n\u2022Figure shows a typical X -ray system.  \n\u2022It consist of :  \n\u2013Soller slit (a stack of parallel metal foils).  \n\u2013Divergence slit  \n\u2013Receiving slit  \n\u2013Anti-Scattering slit"
+      "text": "X-ray optics  \n\u2022Figure shows a typical X -ray system.  \n\u2022It consist of :  \n\u2013Soller slit (a stack of parallel metal foils).  \n\u2013Divergence slit  \n\u2013Receiving slit  \n\u2013Anti-Scattering slit",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 11
     },
     {
       "slide_number": 12,
@@ -217,7 +239,9 @@
         "divergence.  "
       ],
       "notes": "",
-      "text": "\u2022Function of the parallel metal foils is to limit the \nangular divergence of the X -ray beam at right angles \nto focusing plane.  \n\u2022The focusing \nplane is in \nhorizontal, so \nsoller slit limit \nthe vertical \ndivergence."
+      "text": "\u2022Function of the parallel metal foils is to limit the \nangular divergence of the X -ray beam at right angles \nto focusing plane.  \n\u2022The focusing \nplane is in \nhorizontal, so \nsoller slit limit \nthe vertical \ndivergence.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 12
     },
     {
       "slide_number": 13,
@@ -235,7 +259,9 @@
         ""
       ],
       "notes": "",
-      "text": "3.4  Rotating -crystal Method  \n\u2022When a crystal is rotated about an axis oriented \nnormal to the incident -beam direction, usually called \nthe normal -beam method , the individual layer of the \nreciprocal lattice cut the Ewald sphere.  \n\u2022Each time a reciprocal -\nlattice point hkl \nintersects the sphere of \nreflection, point on the \nsphere is produced."
+      "text": "3.4  Rotating -crystal Method  \n\u2022When a crystal is rotated about an axis oriented \nnormal to the incident -beam direction, usually called \nthe normal -beam method , the individual layer of the \nreciprocal lattice cut the Ewald sphere.  \n\u2022Each time a reciprocal -\nlattice point hkl \nintersects the sphere of \nreflection, point on the \nsphere is produced.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 13
     },
     {
       "slide_number": 14,
@@ -257,7 +283,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022During a complete rotation of the crystal, the \nindividual diffracted beams form cones that are \ncoaxial about the rotation axis of the crystal.  \n\u2022Inorder to record the \nmaximum number of the \nreflections produced, \ntherefore, a film is placed \ncylindrically about the \ncrystal\u2019s rotation axis.  \n\u2022The individual reflections \nthus are recorded as \nspots lying along \nhorizontal rows on the \nfilm, called layer lines ."
+      "text": "\u2022During a complete rotation of the crystal, the \nindividual diffracted beams form cones that are \ncoaxial about the rotation axis of the crystal.  \n\u2022Inorder to record the \nmaximum number of the \nreflections produced, \ntherefore, a film is placed \ncylindrically about the \ncrystal\u2019s rotation axis.  \n\u2022The individual reflections \nthus are recorded as \nspots lying along \nhorizontal rows on the \nfilm, called layer lines .",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 14
     },
     {
       "slide_number": 15,
@@ -275,7 +303,9 @@
         "and l=1 level.  Example  "
       ],
       "notes": "",
-      "text": "\u2022A tetragonal crystal at the center of the sphere of \nreflection  \n\u2022A portion of the \nreciprocal lattice \nis shown.  \n\u2022The crystal \nrotates about c \naxis. \n\u2022A couple of \npoint in the l=0 \nand l=1 level.  Example"
+      "text": "\u2022A tetragonal crystal at the center of the sphere of \nreflection  \n\u2022A portion of the \nreciprocal lattice \nis shown.  \n\u2022The crystal \nrotates about c \naxis. \n\u2022A couple of \npoint in the l=0 \nand l=1 level.  Example",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 15
     },
     {
       "slide_number": 16,
@@ -287,7 +317,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022In this method, the reciprocal lattice of a crystal is \nrecorded directly in diffraction experiments.  \n\u2022A cylindrical film is used so that it is convenient to \nselect cylindrical coordinates."
+      "text": "\u2022In this method, the reciprocal lattice of a crystal is \nrecorded directly in diffraction experiments.  \n\u2022A cylindrical film is used so that it is convenient to \nselect cylindrical coordinates.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 16
     },
     {
       "slide_number": 17,
@@ -307,7 +339,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022The orientation of the \nreciprocal -lattice \nvector \uf073hkl is in a \nspecial orthogonal \nvectors, \uf07a along the \nrotation axis and \uf078 in \nplane containing the \nx-ray beam.  \n\u2022An angle \uf06a formed by \nthe direct beam and \nthe plane containing \uf07a \nand \uf078."
+      "text": "\u2022The orientation of the \nreciprocal -lattice \nvector \uf073hkl is in a \nspecial orthogonal \nvectors, \uf07a along the \nrotation axis and \uf078 in \nplane containing the \nx-ray beam.  \n\u2022An angle \uf06a formed by \nthe direct beam and \nthe plane containing \uf07a \nand \uf078.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 17
     },
     {
       "slide_number": 18,
@@ -320,7 +354,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022The spots is recorded using the Bernal chart as \nshown here.  \n\u2022However, due to its limited recording range, a flat -\nplat camera can be utilized in place of a cylindrical \nfilm."
+      "text": "\u2022The spots is recorded using the Bernal chart as \nshown here.  \n\u2022However, due to its limited recording range, a flat -\nplat camera can be utilized in place of a cylindrical \nfilm.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 18
     },
     {
       "slide_number": 19,
@@ -335,7 +371,9 @@
         ""
       ],
       "notes": "",
-      "text": "Collimation system  \n\u2022Collimation system is used to limit the shadow or \nblind region.  \n\u2022The reason for using a deep cone -shaped receptor \nthan a flat disk is to prevent the direct beam striking \nthe beam stopper and the scattered backward beam \nwill causes the film to become fogged."
+      "text": "Collimation system  \n\u2022Collimation system is used to limit the shadow or \nblind region.  \n\u2022The reason for using a deep cone -shaped receptor \nthan a flat disk is to prevent the direct beam striking \nthe beam stopper and the scattered backward beam \nwill causes the film to become fogged.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 19
     },
     {
       "slide_number": 20,
@@ -357,7 +395,9 @@
         ""
       ],
       "notes": "",
-      "text": "Mounting and adjustment of crystal  \n\u2022The optimum size that a crystal should have in a \ndiffraction experiment is proportional to the reciprocal of \nthe linear absorption coefficient for the radiation selected.   \n\u2022In order to ensure a uniformly exposed diffraction \nphotograph, the crystal size is usually limited to below a \nhalf millimeter in diameter.  \n\u2022This limitation is to assures that the \ncrystal will be surrounded completely \nby the incident beam during the \nexposure.  \n\u2022Then the sample is mount in such a \nway that it can be proper adjusted in \nthe X -ray beam."
+      "text": "Mounting and adjustment of crystal  \n\u2022The optimum size that a crystal should have in a \ndiffraction experiment is proportional to the reciprocal of \nthe linear absorption coefficient for the radiation selected.   \n\u2022In order to ensure a uniformly exposed diffraction \nphotograph, the crystal size is usually limited to below a \nhalf millimeter in diameter.  \n\u2022This limitation is to assures that the \ncrystal will be surrounded completely \nby the incident beam during the \nexposure.  \n\u2022Then the sample is mount in such a \nway that it can be proper adjusted in \nthe X -ray beam.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 20
     },
     {
       "slide_number": 21,
@@ -377,7 +417,9 @@
         "number of layers.  "
       ],
       "notes": "",
-      "text": "Interpretation of photographs  \n\u2022From privious discussion, the spacing between \nlayer lines in a rotation photograph is directly \nproportional to \uf07a, the reciprocal -lattice normal to the \nrotation axis.  \n \n\u2022Superimposing a rotation photograph on an \napproprately scalled Bernal chart allows the \ndetermination of this value directly.  \n \n\u2022The distance between the uppermost and \nlowermost layers is measured and divided by thr \nnumber of layers."
+      "text": "Interpretation of photographs  \n\u2022From privious discussion, the spacing between \nlayer lines in a rotation photograph is directly \nproportional to \uf07a, the reciprocal -lattice normal to the \nrotation axis.  \n \n\u2022Superimposing a rotation photograph on an \napproprately scalled Bernal chart allows the \ndetermination of this value directly.  \n \n\u2022The distance between the uppermost and \nlowermost layers is measured and divided by thr \nnumber of layers.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 21
     },
     {
       "slide_number": 22,
@@ -388,7 +430,9 @@
         "\uf07a\uf06c\uf03d001d"
       ],
       "notes": "",
-      "text": "\u2022Assuming that the crystal was mounted to rotate \nabout the normal to the (001) planes, the value of \nd001 is then given by  \n\uf07a\uf06c\uf03d001d"
+      "text": "\u2022Assuming that the crystal was mounted to rotate \nabout the normal to the (001) planes, the value of \nd001 is then given by  \n\uf07a\uf06c\uf03d001d",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 22
     },
     {
       "slide_number": 23,
@@ -410,14 +454,18 @@
         "studies.  "
       ],
       "notes": "",
-      "text": "\u2022In the cubic system, all three cell edges are the \nsame, so one rotation photograph about a is all that \nis needed.  \n\u2022In the tetragonal and hexagonal system, rotations \nabout c and a are necessary.  \n\u2022In the orthorhombic system, the three cell edges \nare distinct and mutually orthogonal, so that three \nrotations are needed to determine their lengths.  \n\u2022In the monoclinic and triclinic system, rotation \nphotographs can be used to determine the length \nof the cell, but the presence of arbitrary angles \ncomplicates their interpretation, particularly for the \ntriclinic system.  \n\u2022So, moving -film methods are preferred for such \nstudies."
+      "text": "\u2022In the cubic system, all three cell edges are the \nsame, so one rotation photograph about a is all that \nis needed.  \n\u2022In the tetragonal and hexagonal system, rotations \nabout c and a are necessary.  \n\u2022In the orthorhombic system, the three cell edges \nare distinct and mutually orthogonal, so that three \nrotations are needed to determine their lengths.  \n\u2022In the monoclinic and triclinic system, rotation \nphotographs can be used to determine the length \nof the cell, but the presence of arbitrary angles \ncomplicates their interpretation, particularly for the \ntriclinic system.  \n\u2022So, moving -film methods are preferred for such \nstudies.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 23
     },
     {
       "slide_number": 24,
       "title": "Page 24",
       "content": [],
       "notes": "",
-      "text": ""
+      "text": "",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 24
     },
     {
       "slide_number": 25,
@@ -438,7 +486,9 @@
         "\uf06c\uf070 lcK\uf03d.2"
       ],
       "notes": "",
-      "text": "3.5  Laue Method  \n\u2022In the Laue method, a single crystal is mounted so \nthat a collimated beam of white radiation can fall \nupon it.  \n \n\u2022Unlike other method, the wavelength of the X -ray \nbeam employed does not have a single value.  \n \n\u2022From previous section, it has been shows that the \ndiffraction condition is  \n\uf071\uf06c sin2d\uf03d\n\uf06c\uf070 kbK\uf03d.2\n\uf06c\uf070 haK\uf03d.2\n\uf06c\uf070 lcK\uf03d.2"
+      "text": "3.5  Laue Method  \n\u2022In the Laue method, a single crystal is mounted so \nthat a collimated beam of white radiation can fall \nupon it.  \n \n\u2022Unlike other method, the wavelength of the X -ray \nbeam employed does not have a single value.  \n \n\u2022From previous section, it has been shows that the \ndiffraction condition is  \n\uf071\uf06c sin2d\uf03d\n\uf06c\uf070 kbK\uf03d.2\n\uf06c\uf070 haK\uf03d.2\n\uf06c\uf070 lcK\uf03d.2",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 25
     },
     {
       "slide_number": 26,
@@ -452,7 +502,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022Three type of Laue photograph \ncan be obtained.  \n\u2022The spot on these photographs \nare clustered along well -defined \ncurves \uf0ae Laue cones is \nobserved."
+      "text": "\u2022Three type of Laue photograph \ncan be obtained.  \n\u2022The spot on these photographs \nare clustered along well -defined \ncurves \uf0ae Laue cones is \nobserved.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 26
     },
     {
       "slide_number": 27,
@@ -477,7 +529,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022The axis of the cone is \nnormal to the reciprocal -\nlattice plane.  \n\u2022When s symmetry element \nin the crystal is parallel to \nthe incident x -ray beam, the \ndiffraction cones \nsurrounding the beam are \nsymmetric.  \n\u2022On the other hand, if the \ncrystal is tilted slightly so \nthat symmetry -equivalent \nzone axes in the crystal no \nlonger form equal angles \nwith the x -ray beam, the \ncones are no longer \nequivalent."
+      "text": "\u2022The axis of the cone is \nnormal to the reciprocal -\nlattice plane.  \n\u2022When s symmetry element \nin the crystal is parallel to \nthe incident x -ray beam, the \ndiffraction cones \nsurrounding the beam are \nsymmetric.  \n\u2022On the other hand, if the \ncrystal is tilted slightly so \nthat symmetry -equivalent \nzone axes in the crystal no \nlonger form equal angles \nwith the x -ray beam, the \ncones are no longer \nequivalent.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 27
     },
     {
       "slide_number": 28,
@@ -498,7 +552,9 @@
         "film. "
       ],
       "notes": "",
-      "text": "\u2022A film is placed so that the diffracted radiation can \nbe recorded.  \n\u2022If the crystal is thin enough for the radiation to pass \nthrough it, the film may be placed behind the \nsample (Front -reflection).  \n\u2022The film can be placed \nbetween the radiation \nsource and sample \n(Back -reflection).  \n\u2022The incident beam \nallowed to irradiate the \nsample through a hole \ncut in the centre of the \nfilm."
+      "text": "\u2022A film is placed so that the diffracted radiation can \nbe recorded.  \n\u2022If the crystal is thin enough for the radiation to pass \nthrough it, the film may be placed behind the \nsample (Front -reflection).  \n\u2022The film can be placed \nbetween the radiation \nsource and sample \n(Back -reflection).  \n\u2022The incident beam \nallowed to irradiate the \nsample through a hole \ncut in the centre of the \nfilm.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 28
     },
     {
       "slide_number": 29,
@@ -520,7 +576,9 @@
         ""
       ],
       "notes": "",
-      "text": "Instrumentation  \n\u2022Flat-plate cameras/films  \n\u2013A flat film with a special cassette is used to \nrecord the diffraction cones produced in the \nLaue method.  \n \n \n \n\u2013The crystal -to-film distance is made quite small \n(usually fixed at 3 or 5 cm).  \n\u2013The short distance has two advantages:  \n1.Decreases the exposure time  \n2.Increases the number of reflections intercepted \nby the film."
+      "text": "Instrumentation  \n\u2022Flat-plate cameras/films  \n\u2013A flat film with a special cassette is used to \nrecord the diffraction cones produced in the \nLaue method.  \n \n \n \n\u2013The crystal -to-film distance is made quite small \n(usually fixed at 3 or 5 cm).  \n\u2013The short distance has two advantages:  \n1.Decreases the exposure time  \n2.Increases the number of reflections intercepted \nby the film.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 29
     },
     {
       "slide_number": 30,
@@ -537,7 +595,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022Collimating system  \n\u2013The main function of the collimating system is to \ndefine a narrow X -ray beam.  \n\u2013This can prevent the radiation from striking the \nfilm or leaking into the room.  \n\u2013Commonly, the system used a series of circular \napertures to form a pinhole system or a \ncombination with rectangular openings to form a \nslit system."
+      "text": "\u2022Collimating system  \n\u2013The main function of the collimating system is to \ndefine a narrow X -ray beam.  \n\u2013This can prevent the radiation from striking the \nfilm or leaking into the room.  \n\u2013Commonly, the system used a series of circular \napertures to form a pinhole system or a \ncombination with rectangular openings to form a \nslit system.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 30
     },
     {
       "slide_number": 31,
@@ -553,7 +613,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022Shape of reflections  \n\u2013It is not possible to \nobtain a parallel beam \nof X-ray by simple \ncollimation because \nthe original source \nemits X -ray uniformly \nin all directions."
+      "text": "\u2022Shape of reflections  \n\u2013It is not possible to \nobtain a parallel beam \nof X-ray by simple \ncollimation because \nthe original source \nemits X -ray uniformly \nin all directions.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 31
     },
     {
       "slide_number": 32,
@@ -577,7 +639,9 @@
         ""
       ],
       "notes": "",
-      "text": "Front -reflection  \n\u2022The reflections from a set \nof planes belonging to the \nsame zone form a cone \nabout the zone axis.  \n \n\u2022These cones intersect the \nfront-reflection \nphotograph in ellipses \n(conic sections).  \n \n\u2022Silicon crystal oriented \nwith its [111] direction \nparallel to the incident \nbeam."
+      "text": "Front -reflection  \n\u2022The reflections from a set \nof planes belonging to the \nsame zone form a cone \nabout the zone axis.  \n \n\u2022These cones intersect the \nfront-reflection \nphotograph in ellipses \n(conic sections).  \n \n\u2022Silicon crystal oriented \nwith its [111] direction \nparallel to the incident \nbeam.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 32
     },
     {
       "slide_number": 33,
@@ -598,7 +662,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022When the same \ncrystal is displaced \nslightly from proper \nalignment with the \ndirect beam, the \nellipses become \ndistorted.  \n \n\u2022Silicon crystal with \n[111] direction \ndisplaced by 10 \u00b0 from \nthat of the incident \nbeam."
+      "text": "\u2022When the same \ncrystal is displaced \nslightly from proper \nalignment with the \ndirect beam, the \nellipses become \ndistorted.  \n \n\u2022Silicon crystal with \n[111] direction \ndisplaced by 10 \u00b0 from \nthat of the incident \nbeam.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 33
     },
     {
       "slide_number": 34,
@@ -618,7 +684,9 @@
         "0"
       ],
       "notes": "",
-      "text": "Gnomonic Projection  \n\u2022Laue photograph obtained from the Laue \nmethod can be used to constructed the \nGnomonic Projection.  \n \n\u2022By fixing the specimen -to-film distance D at \nsome convenient value, it is possible to \nconstruct a ruler.  \n \n\u2022Figure shows the special ruler is used.  \n234567 2 3 4 567\n0234567 2 3 4 567\n0"
+      "text": "Gnomonic Projection  \n\u2022Laue photograph obtained from the Laue \nmethod can be used to constructed the \nGnomonic Projection.  \n \n\u2022By fixing the specimen -to-film distance D at \nsome convenient value, it is possible to \nconstruct a ruler.  \n \n\u2022Figure shows the special ruler is used.  \n234567 2 3 4 567\n0234567 2 3 4 567\n0",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 34
     },
     {
       "slide_number": 35,
@@ -640,7 +708,9 @@
         "central line.  "
       ],
       "notes": "",
-      "text": "\u2022Figure show a gnomonic projection constructed from a \ntransmission Laue photograph of a cubic MgO crystal \nshown in the central circle.  \n \n\u2022The X -ray beam parallel to a3, while a2 was vertical \nand a1 horizontal.  \n\u2022Since the a2 axis is \nvertical, the h01 poles \nare regularly spaced \nalong the central \nhorizontal line.  \n \n\u2022Similarly, the 0k1 poles \nlie along the vertical \ncentral line."
+      "text": "\u2022Figure show a gnomonic projection constructed from a \ntransmission Laue photograph of a cubic MgO crystal \nshown in the central circle.  \n \n\u2022The X -ray beam parallel to a3, while a2 was vertical \nand a1 horizontal.  \n\u2022Since the a2 axis is \nvertical, the h01 poles \nare regularly spaced \nalong the central \nhorizontal line.  \n \n\u2022Similarly, the 0k1 poles \nlie along the vertical \ncentral line.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 35
     },
     {
       "slide_number": 36,
@@ -653,7 +723,9 @@
         ""
       ],
       "notes": "",
-      "text": "Stereographic projection  \nA comparison of the figure suggests that it would be \ndesirable to be able to measure the position of \nreflections on a front -reflection photograph directly \nin terms of the two angular coordinates \uf066 and \uf064."
+      "text": "Stereographic projection  \nA comparison of the figure suggests that it would be \ndesirable to be able to measure the position of \nreflections on a front -reflection photograph directly \nin terms of the two angular coordinates \uf066 and \uf064.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 36
     },
     {
       "slide_number": 37,
@@ -669,7 +741,9 @@
         ""
       ],
       "notes": "",
-      "text": "Leonhardt chart  \n\u2022The \uf066 values are \nsketched  by the \ndashed curves  \n \n\u2022The \uf064 values are \nsketched by the \nsolid lines."
+      "text": "Leonhardt chart  \n\u2022The \uf066 values are \nsketched  by the \ndashed curves  \n \n\u2022The \uf064 values are \nsketched by the \nsolid lines.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 37
     },
     {
       "slide_number": 38,
@@ -679,7 +753,9 @@
         "the Leonhardt chart  "
       ],
       "notes": "",
-      "text": "Transferal of angular coordinates from film \nto stereographic projection with the aid of \nthe Leonhardt chart"
+      "text": "Transferal of angular coordinates from film \nto stereographic projection with the aid of \nthe Leonhardt chart",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 38
     },
     {
       "slide_number": 39,
@@ -696,7 +772,9 @@
         "orientation.  "
       ],
       "notes": "",
-      "text": "Back -reflection  \n\u2022Back -reflection Laue photograph of a silicon \ncrystal. (distance crystal to film is 3cm)  \n\u2022As in the case of \ntransmission Laue \nphotographs, it is \npossible to relate the \npositions of individual \nreflection spots to the \norientation."
+      "text": "Back -reflection  \n\u2022Back -reflection Laue photograph of a silicon \ncrystal. (distance crystal to film is 3cm)  \n\u2022As in the case of \ntransmission Laue \nphotographs, it is \npossible to relate the \npositions of individual \nreflection spots to the \norientation.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 39
     },
     {
       "slide_number": 40,
@@ -707,14 +785,18 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022Greninger chart \nfor film to crystal \ndistance D=3cm"
+      "text": "\u2022Greninger chart \nfor film to crystal \ndistance D=3cm",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 40
     },
     {
       "slide_number": 41,
       "title": "Page 41",
       "content": [],
       "notes": "",
-      "text": ""
+      "text": "",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 41
     },
     {
       "slide_number": 42,
@@ -725,7 +807,9 @@
         ""
       ],
       "notes": "",
-      "text": "Transfer of angular coordinates from a back -reflection \nphotograph to a stereographic projection with the aid \nof the Greninger chart."
+      "text": "Transfer of angular coordinates from a back -reflection \nphotograph to a stereographic projection with the aid \nof the Greninger chart.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 42
     },
     {
       "slide_number": 43,
@@ -746,7 +830,9 @@
         "comprising it.  "
       ],
       "notes": "",
-      "text": "3.6  Powder Method  \n\u2022The specimen used in the powder method is \nconsisting of large number of tiny crystallites.  \n\u2022It will be assumed that their orientations are \ncompletely random.  \n\u2022The characteristics of X -ray diffraction effects \nfrom a fine -grained crystalline aggregate were \nfirst studied by P. Debye and P. Scherrer in \nGermany in 1916.  \n\u2022The reciprocal -lattice construction \nfor a powder is self -evidently a \nsuperposition of the reciprocal \nlattice of the individual crystallites \ncomprising it."
+      "text": "3.6  Powder Method  \n\u2022The specimen used in the powder method is \nconsisting of large number of tiny crystallites.  \n\u2022It will be assumed that their orientations are \ncompletely random.  \n\u2022The characteristics of X -ray diffraction effects \nfrom a fine -grained crystalline aggregate were \nfirst studied by P. Debye and P. Scherrer in \nGermany in 1916.  \n\u2022The reciprocal -lattice construction \nfor a powder is self -evidently a \nsuperposition of the reciprocal \nlattice of the individual crystallites \ncomprising it.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 43
     },
     {
       "slide_number": 44,
@@ -768,7 +854,9 @@
         "lattice vector.  "
       ],
       "notes": "",
-      "text": "\u2022Consider the reciprocal -lattice construction of a \npolycrystalline specimen.  \n \n\u2022Each crystallite has associated with it a reciprocal \nlattice whose origin lies on the Ewald sphere.  \n \n\u2022Because there are many such crystallites present \nand their orientation are completely random.  \n \n\u2022It is no longer possible to ditinguish the individual \nlattice.  \n \n\u2022Instead, they coalesce into concentric spheres \nwhose radii are the various possible reciprocal -\nlattice vector."
+      "text": "\u2022Consider the reciprocal -lattice construction of a \npolycrystalline specimen.  \n \n\u2022Each crystallite has associated with it a reciprocal \nlattice whose origin lies on the Ewald sphere.  \n \n\u2022Because there are many such crystallites present \nand their orientation are completely random.  \n \n\u2022It is no longer possible to ditinguish the individual \nlattice.  \n \n\u2022Instead, they coalesce into concentric spheres \nwhose radii are the various possible reciprocal -\nlattice vector.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 44
     },
     {
       "slide_number": 45,
@@ -787,7 +875,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022As a result of symmetry \nor chance, many of the \nreciprocal -lattice vector \nhave the same length.  \n \n\u2022So such reciprocal -\nlattice points come to \nlie on the same sphere \nin the reciprocal -lattice \nconstruction of a \npowder.."
+      "text": "\u2022As a result of symmetry \nor chance, many of the \nreciprocal -lattice vector \nhave the same length.  \n \n\u2022So such reciprocal -\nlattice points come to \nlie on the same sphere \nin the reciprocal -lattice \nconstruction of a \npowder..",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 45
     },
     {
       "slide_number": 46,
@@ -803,7 +893,9 @@
         "Powder photograph of tungsten  "
       ],
       "notes": "",
-      "text": "\u2022Therefore, if we put \na cylinder film at the \nEwald sphere which \nconstructed the \nreciprocal -lattice, a \npattern from the \nreflected cone is \nobserved.  \nPowder photograph of tungsten"
+      "text": "\u2022Therefore, if we put \na cylinder film at the \nEwald sphere which \nconstructed the \nreciprocal -lattice, a \npattern from the \nreflected cone is \nobserved.  \nPowder photograph of tungsten",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 46
     },
     {
       "slide_number": 47,
@@ -826,7 +918,9 @@
         ""
       ],
       "notes": "",
-      "text": "Measurement of d value  \n\u2022In this method, the film is \nemployed to intercept \nthe diffraction cones.  \n \n\u2022The film is split halfway \nbetween the point where \nthe direct beam enters \nand leaves the film.  \n \n\u2022The measurement of the \ndistance between a pair \nof arcs is done using a \nspecial film -measuring \ndevices"
+      "text": "Measurement of d value  \n\u2022In this method, the film is \nemployed to intercept \nthe diffraction cones.  \n \n\u2022The film is split halfway \nbetween the point where \nthe direct beam enters \nand leaves the film.  \n \n\u2022The measurement of the \ndistance between a pair \nof arcs is done using a \nspecial film -measuring \ndevices",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 47
     },
     {
       "slide_number": 48,
@@ -840,7 +934,9 @@
         ""
       ],
       "notes": "",
-      "text": "\u2022The reading are made in succession on two \ncorresponding arcs (left and right) by placing the \ncross hair at the center of each arc and recording \nthen value to 0.1mm.  \n\u2022A table of data is made to record the value and \nobtained the 2 theta value."
+      "text": "\u2022The reading are made in succession on two \ncorresponding arcs (left and right) by placing the \ncross hair at the center of each arc and recording \nthen value to 0.1mm.  \n\u2022A table of data is made to record the value and \nobtained the 2 theta value.",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 48
     },
     {
       "slide_number": 49,
@@ -863,7 +959,9 @@
         "SP\uf0b4100"
       ],
       "notes": "",
-      "text": "Line \nno. x2 x1 Check \nx2+x1  Arc \nlength \nS=x2-x1 Correction  \n \nCorrected \narc length \nS\u2019 Sin \uf071 \n hkl \n\uf071\uf06c\nsin2\uf03dd\n21\ndQ\uf03d\n4'S\uf03d\uf071\nSP\uf0b4100"
+      "text": "Line \nno. x2 x1 Check \nx2+x1  Arc \nlength \nS=x2-x1 Correction  \n \nCorrected \narc length \nS\u2019 Sin \uf071 \n hkl \n\uf071\uf06c\nsin2\uf03dd\n21\ndQ\uf03d\n4'S\uf03d\uf071\nSP\uf0b4100",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 49
     },
     {
       "slide_number": 50,
@@ -885,7 +983,9 @@
         "2\uf071 S "
       ],
       "notes": "",
-      "text": "\u2022The relationship of the diffraction angle \uf071 to the \nmeasured arc length S is given by  \nRS\uf03d\uf0714\ndeg     41.180    rad     41\nSRSR\n\uf0f7\n\uf0f8\uf0f6\uf0e7\n\uf0e8\uf0e6\uf03d\uf0f7\n\uf0f8\uf0f6\uf0e7\n\uf0e8\uf0e6\uf03d\n\uf070\uf071\nR \nX-ray \nbeam  2\uf071 \n2\uf071 S"
+      "text": "\u2022The relationship of the diffraction angle \uf071 to the \nmeasured arc length S is given by  \nRS\uf03d\uf0714\ndeg     41.180    rad     41\nSRSR\n\uf0f7\n\uf0f8\uf0f6\uf0e7\n\uf0e8\uf0e6\uf03d\uf0f7\n\uf0f8\uf0f6\uf0e7\n\uf0e8\uf0e6\uf03d\n\uf070\uf071\nR \nX-ray \nbeam  2\uf071 \n2\uf071 S",
+      "original_file": "3.0 Chapter 3  Introduction XRD - All.pdf",
+      "page_number": 50
     }
   ]
 }
