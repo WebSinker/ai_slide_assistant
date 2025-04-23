@@ -1,0 +1,624 @@
+{
+  "filename": "3.0 Chapter 3",
+  "total_slides": 57,
+  "extraction_time": "2025-04-23 20:21:43",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "",
+      "content": [
+        "PHY3209\nTHERMODYNAMICS",
+        "SEM 2  2017/2018",
+        "CHAPTER 3 \u000bPROPERTIES OF PURE SUBSTANCES"
+      ],
+      "notes": "",
+      "text": "PHY3209\nTHERMODYNAMICS\nSEM 2  2017/2018\nCHAPTER 3 \u000bPROPERTIES OF PURE SUBSTANCES"
+    },
+    {
+      "slide_number": 2,
+      "title": "",
+      "content": [
+        "2",
+        "Objectives",
+        "Introduce the concept of a pure substance.\nDiscuss the physics of phase-change processes.\nIllustrate the P-v, T-v, and P-T property diagrams and P-v-T surfaces of pure substances.\nDemonstrate the procedures for determining thermodynamic properties of pure substances from tables of property data.\nDescribe the hypothetical substance \u201cideal gas\u201d and the ideal-gas equation of state.\nApply the ideal-gas equation of state in the solution of typical problems.\nIntroduce the compressibility factor, which accounts for the deviation of real gases from ideal-gas behavior.\nPresent some of the best-known equations of state."
+      ],
+      "notes": "",
+      "text": "2\nObjectives\nIntroduce the concept of a pure substance.\nDiscuss the physics of phase-change processes.\nIllustrate the P-v, T-v, and P-T property diagrams and P-v-T surfaces of pure substances.\nDemonstrate the procedures for determining thermodynamic properties of pure substances from tables of property data.\nDescribe the hypothetical substance \u201cideal gas\u201d and the ideal-gas equation of state.\nApply the ideal-gas equation of state in the solution of typical problems.\nIntroduce the compressibility factor, which accounts for the deviation of real gases from ideal-gas behavior.\nPresent some of the best-known equations of state."
+    },
+    {
+      "slide_number": 3,
+      "title": "PURE SUBSTANCE",
+      "content": [
+        "3",
+        "PURE SUBSTANCE",
+        "Pure substance: A substance that has a fixed chemical composition throughout.\nAir is a mixture of several gases, but it is considered to be a pure substance."
+      ],
+      "notes": "",
+      "text": "PURE SUBSTANCE\n3\nPURE SUBSTANCE\nPure substance: A substance that has a fixed chemical composition throughout.\nAir is a mixture of several gases, but it is considered to be a pure substance."
+    },
+    {
+      "slide_number": 4,
+      "title": "PHASES OF A PURE SUBSTANCE",
+      "content": [
+        "4",
+        "PHASES OF A PURE SUBSTANCE",
+        "The molecules in a solid are kept at their positions by the large springlike inter-molecular forces.",
+        "Phase \u2013a distinct molecular arrangement that is homogenous"
+      ],
+      "notes": "",
+      "text": "PHASES OF A PURE SUBSTANCE\n4\nPHASES OF A PURE SUBSTANCE\nThe molecules in a solid are kept at their positions by the large springlike inter-molecular forces.\nPhase \u2013a distinct molecular arrangement that is homogenous"
+    },
+    {
+      "slide_number": 5,
+      "title": "PHASE-CHANGE PROCESSES OF PURE SUBSTANCES",
+      "content": [
+        "5",
+        "PHASE-CHANGE PROCESSES OF PURE SUBSTANCES",
+        "Saturated liquid: A liquid that is about to vaporize",
+        "Compressed liquid (subcooled liquid): A substance that it is not about to vaporize"
+      ],
+      "notes": "",
+      "text": "PHASE-CHANGE PROCESSES OF PURE SUBSTANCES\n5\nPHASE-CHANGE PROCESSES OF PURE SUBSTANCES\nSaturated liquid: A liquid that is about to vaporize\nCompressed liquid (subcooled liquid): A substance that it is not about to vaporize"
+    },
+    {
+      "slide_number": 6,
+      "title": "",
+      "content": [
+        "6",
+        "Saturated vapor: A vapor that is about to condense.\nSaturated liquid\u2013vapor mixture: The state at which the liquid and vapor phases coexist in equilibrium.\nSuperheated vapor: A vapor that is not about to condense (i.e., not a saturated vapor).",
+        "As more heat is transferred, part of the saturated liquid vaporizes (saturated liquid\u2013vapor mixture).",
+        "At 1 atm pressure, the temperature remains constant at 100\u00b0C until the last drop of liquid is vaporized (saturated vapor).",
+        "As more heat is transferred, the temperature of the vapor starts to rise (superheated vapor)."
+      ],
+      "notes": "",
+      "text": "6\nSaturated vapor: A vapor that is about to condense.\nSaturated liquid\u2013vapor mixture: The state at which the liquid and vapor phases coexist in equilibrium.\nSuperheated vapor: A vapor that is not about to condense (i.e., not a saturated vapor).\nAs more heat is transferred, part of the saturated liquid vaporizes (saturated liquid\u2013vapor mixture).\nAt 1 atm pressure, the temperature remains constant at 100\u00b0C until the last drop of liquid is vaporized (saturated vapor).\nAs more heat is transferred, the temperature of the vapor starts to rise (superheated vapor)."
+    },
+    {
+      "slide_number": 7,
+      "title": "",
+      "content": [
+        "7",
+        "T-v diagram for the heating process of  water at constant pressure.",
+        "If the entire process between state 1 and 5 is reversed by cooling the water while maintaining the pressure at the same value, the water will go back to state 1, retracing the same path, and in so doing, the amount of heat released will exactly match the amount of heat added during the heating process."
+      ],
+      "notes": "",
+      "text": "7\nT-v diagram for the heating process of  water at constant pressure.\nIf the entire process between state 1 and 5 is reversed by cooling the water while maintaining the pressure at the same value, the water will go back to state 1, retracing the same path, and in so doing, the amount of heat released will exactly match the amount of heat added during the heating process."
+    },
+    {
+      "slide_number": 8,
+      "title": "Saturation Temperature and Saturation Pressure",
+      "content": [
+        "8",
+        "Saturation Temperature and Saturation Pressure",
+        "The temperature at which water starts boiling depends on the pressure; therefore, if the pressure is fixed, so is the boiling temperature. \nWater boils at 100\uf0b0C at 1 atm pressure.",
+        "The liquid\u2013vapor saturation curve of a pure substance (numerical values are for water).",
+        "Saturation temperature Tsat: The temperature at which a pure substance changes phase at a given pressure. \nSaturation pressure Psat: The pressure at which a pure substance changes phase at a given temperature."
+      ],
+      "notes": "",
+      "text": "Saturation Temperature and Saturation Pressure\n8\nSaturation Temperature and Saturation Pressure\nThe temperature at which water starts boiling depends on the pressure; therefore, if the pressure is fixed, so is the boiling temperature. \nWater boils at 100\uf0b0C at 1 atm pressure.\nThe liquid\u2013vapor saturation curve of a pure substance (numerical values are for water).\nSaturation temperature Tsat: The temperature at which a pure substance changes phase at a given pressure. \nSaturation pressure Psat: The pressure at which a pure substance changes phase at a given temperature."
+    },
+    {
+      "slide_number": 9,
+      "title": "",
+      "content": [
+        "9",
+        "Latent heat: The amount of energy absorbed or released during a phase-change process. \nLatent heat of fusion: The amount of energy absorbed during melting. It is equivalent to the amount of energy released during freezing. \nLatent heat of vaporization: The amount of energy absorbed during vaporization and it is equivalent to the energy released during condensation.\nThe magnitudes of the latent heats depend on the temperature or pressure at which the phase change occurs.\nAt 1 atm pressure, the latent heat of fusion of water is 333.7 kJ/kg and the latent heat of vaporization is 2256.5 kJ/kg.\nThe atmospheric pressure, and thus the boiling temperature of water, decreases with elevation."
+      ],
+      "notes": "",
+      "text": "9\nLatent heat: The amount of energy absorbed or released during a phase-change process. \nLatent heat of fusion: The amount of energy absorbed during melting. It is equivalent to the amount of energy released during freezing. \nLatent heat of vaporization: The amount of energy absorbed during vaporization and it is equivalent to the energy released during condensation.\nThe magnitudes of the latent heats depend on the temperature or pressure at which the phase change occurs.\nAt 1 atm pressure, the latent heat of fusion of water is 333.7 kJ/kg and the latent heat of vaporization is 2256.5 kJ/kg.\nThe atmospheric pressure, and thus the boiling temperature of water, decreases with elevation."
+    },
+    {
+      "slide_number": 10,
+      "title": "Some Consequences of Tsat and Psat Dependence",
+      "content": [
+        "10",
+        "Some Consequences of Tsat and Psat Dependence",
+        "Refrigerant 134a: Latent heat of \nvaporization is 217 kJ/kg at 1 atm. \nVaporization at -26 deg"
+      ],
+      "notes": "",
+      "text": "Some Consequences of Tsat and Psat Dependence\n10\nSome Consequences of Tsat and Psat Dependence\nRefrigerant 134a: Latent heat of \nvaporization is 217 kJ/kg at 1 atm. \nVaporization at -26 deg"
+    },
+    {
+      "slide_number": 11,
+      "title": "",
+      "content": [
+        "11",
+        "The variation of the temperature of fruits and vegetables with pressure during vacuum coolingfrom 25\u00b0C to 0\u00b0C.",
+        "In 1775, ice was made by evacuating the air space in a water tank.",
+        "Ice pack."
+      ],
+      "notes": "",
+      "text": "11\nThe variation of the temperature of fruits and vegetables with pressure during vacuum coolingfrom 25\u00b0C to 0\u00b0C.\nIn 1775, ice was made by evacuating the air space in a water tank.\nIce pack."
+    },
+    {
+      "slide_number": 12,
+      "title": "",
+      "content": [
+        "12"
+      ],
+      "notes": "",
+      "text": "12"
+    },
+    {
+      "slide_number": 13,
+      "title": "PROPERTY DIAGRAMS FOR PHASE-CHANGE PROCESSES",
+      "content": [
+        "13",
+        "PROPERTY DIAGRAMS FOR PHASE-CHANGE PROCESSES",
+        "The variations of properties during phase-change processes are best studied and understood with the help of property diagrams such as the T-v, P-v, and P-T diagrams for pure substances.",
+        "T-v diagram of constant-pressure phase-change processes of a pure substance at various pressures (numerical values are for water).",
+        "13",
+        "Critical point: The point at which the saturated liquid and saturated vapor states are identical."
+      ],
+      "notes": "",
+      "text": "PROPERTY DIAGRAMS FOR PHASE-CHANGE PROCESSES\n13\nPROPERTY DIAGRAMS FOR PHASE-CHANGE PROCESSES\nThe variations of properties during phase-change processes are best studied and understood with the help of property diagrams such as the T-v, P-v, and P-T diagrams for pure substances.\nT-v diagram of constant-pressure phase-change processes of a pure substance at various pressures (numerical values are for water).\n13\nCritical point: The point at which the saturated liquid and saturated vapor states are identical."
+    },
+    {
+      "slide_number": 14,
+      "title": "",
+      "content": [
+        "14"
+      ],
+      "notes": "",
+      "text": "14"
+    },
+    {
+      "slide_number": 15,
+      "title": "",
+      "content": [
+        ".",
+        "At supercritical pressures (P > Pcr), there is no distinct phase-change (boiling) process.\nSpecific volume of substance continually increases.\nSubstance at temp. above critical \u2013 superheated vapor\nSubstance at temp. below critical \u2013 compressed liquid"
+      ],
+      "notes": "",
+      "text": ".\nAt supercritical pressures (P > Pcr), there is no distinct phase-change (boiling) process.\nSpecific volume of substance continually increases.\nSubstance at temp. above critical \u2013 superheated vapor\nSubstance at temp. below critical \u2013 compressed liquid"
+    },
+    {
+      "slide_number": 16,
+      "title": "",
+      "content": [
+        "16",
+        "saturated liquid line\nsaturated vapor line\ncompressed liquid region (single phase liquid)\nsuperheated vapor region (single phase vapor)\nsaturated liquid\u2013vapor mixture region (wet region)- involved both phases"
+      ],
+      "notes": "",
+      "text": "16\nsaturated liquid line\nsaturated vapor line\ncompressed liquid region (single phase liquid)\nsuperheated vapor region (single phase vapor)\nsaturated liquid\u2013vapor mixture region (wet region)- involved both phases"
+    },
+    {
+      "slide_number": 17,
+      "title": "",
+      "content": [
+        "17"
+      ],
+      "notes": "",
+      "text": "17"
+    },
+    {
+      "slide_number": 18,
+      "title": "Extending the Diagrams to Include\u000bthe Solid Phase",
+      "content": [
+        "18",
+        "Extending the Diagrams to Include\u000bthe Solid Phase",
+        "At triple-point pressure and temperature, a substance exists in three phases in equilibrium.",
+        "For water, \nTtp = 0.01\u00b0C \nPtp = 0.6117 kPa"
+      ],
+      "notes": "",
+      "text": "Extending the Diagrams to Include\u000bthe Solid Phase\n18\nExtending the Diagrams to Include\u000bthe Solid Phase\nAt triple-point pressure and temperature, a substance exists in three phases in equilibrium.\nFor water, \nTtp = 0.01\u00b0C \nPtp = 0.6117 kPa"
+    },
+    {
+      "slide_number": 19,
+      "title": "",
+      "content": [
+        "19"
+      ],
+      "notes": "",
+      "text": "19"
+    },
+    {
+      "slide_number": 20,
+      "title": "",
+      "content": [
+        "20",
+        "Sublimation: Passing from the solid phase directly into the vapor phase.",
+        "At low pressures (below the triple-point value), solids evaporate without melting first (sublimation).",
+        "P-T diagram of pure substances.",
+        "Phase Diagram"
+      ],
+      "notes": "",
+      "text": "20\nSublimation: Passing from the solid phase directly into the vapor phase.\nAt low pressures (below the triple-point value), solids evaporate without melting first (sublimation).\nP-T diagram of pure substances.\nPhase Diagram"
+    },
+    {
+      "slide_number": 21,
+      "title": "",
+      "content": [
+        "21",
+        "The P-v-T surfaces present a great deal of information at once, but in a thermodynamic analysis it is more convenient to work with two-dimensional diagrams, such as the P-v and T-v diagrams."
+      ],
+      "notes": "",
+      "text": "21\nThe P-v-T surfaces present a great deal of information at once, but in a thermodynamic analysis it is more convenient to work with two-dimensional diagrams, such as the P-v and T-v diagrams."
+    },
+    {
+      "slide_number": 22,
+      "title": "PROPERTY TABLES",
+      "content": [
+        "22",
+        "PROPERTY TABLES",
+        "For most substances, the relationships among thermodynamic properties are too complex to be expressed by simple equations.\nTherefore, properties are frequently presented in the form of tables.\nSome thermodynamic properties can be measured easily, but others cannot and are calculated by using the relations between them and measurable properties. \nThe results of these measurements and calculations are presented in tables in a convenient format.",
+        "Enthalpy\u2014A Combination Property",
+        "The combination    u + Pv is frequently encountered in the analysis of control volumes.",
+        "The product pressure \uf0b4 volume has energy units."
+      ],
+      "notes": "",
+      "text": "PROPERTY TABLES\n22\nPROPERTY TABLES\nFor most substances, the relationships among thermodynamic properties are too complex to be expressed by simple equations.\nTherefore, properties are frequently presented in the form of tables.\nSome thermodynamic properties can be measured easily, but others cannot and are calculated by using the relations between them and measurable properties. \nThe results of these measurements and calculations are presented in tables in a convenient format.\nEnthalpy\u2014A Combination Property\nThe combination    u + Pv is frequently encountered in the analysis of control volumes.\nThe product pressure \uf0b4 volume has energy units."
+    },
+    {
+      "slide_number": 23,
+      "title": "Saturated Liquid and Saturated Vapor States",
+      "content": [
+        "23",
+        "Saturated Liquid and Saturated Vapor States",
+        "Table A\u20134: Saturation properties of water under temperature.\nTable A\u20135: Saturation properties of water under pressure.",
+        "A partial list of Table A\u20134.",
+        "Enthalpy of vaporization, hfg (Latent heat of vaporization): The amount of energy needed to vaporize a unit mass of saturated liquid at a given temperature or pressure."
+      ],
+      "notes": "",
+      "text": "Saturated Liquid and Saturated Vapor States\n23\nSaturated Liquid and Saturated Vapor States\nTable A\u20134: Saturation properties of water under temperature.\nTable A\u20135: Saturation properties of water under pressure.\nA partial list of Table A\u20134.\nEnthalpy of vaporization, hfg (Latent heat of vaporization): The amount of energy needed to vaporize a unit mass of saturated liquid at a given temperature or pressure."
+    },
+    {
+      "slide_number": 24,
+      "title": "",
+      "content": [
+        "24"
+      ],
+      "notes": "",
+      "text": "24"
+    },
+    {
+      "slide_number": 25,
+      "title": "",
+      "content": [
+        "25"
+      ],
+      "notes": "",
+      "text": "25"
+    },
+    {
+      "slide_number": 26,
+      "title": "",
+      "content": [
+        "26"
+      ],
+      "notes": "",
+      "text": "26"
+    },
+    {
+      "slide_number": 27,
+      "title": "",
+      "content": [
+        "27"
+      ],
+      "notes": "",
+      "text": "27"
+    },
+    {
+      "slide_number": 28,
+      "title": "",
+      "content": [
+        "28"
+      ],
+      "notes": "",
+      "text": "28"
+    },
+    {
+      "slide_number": 29,
+      "title": "Saturated Liquid\u2013Vapor Mixture",
+      "content": [
+        "29",
+        "Saturated Liquid\u2013Vapor Mixture",
+        "Quality, x : The ratio of the mass of vapor to the total mass of the mixture. Quality is between 0 and 1         0: sat. liquid, 1: sat. vapor.\nThe properties of the saturated liquid are the same whether it exists alone or in a mixture with saturated vapor.",
+        "The relative amounts of liquid and vapor phases in a saturated mixture are specified by the quality x.",
+        "A two-phase system can be treated as a homogeneous mixture for convenience.",
+        "Temperature and pressure are dependent properties for a mixture."
+      ],
+      "notes": "",
+      "text": "Saturated Liquid\u2013Vapor Mixture\n29\nSaturated Liquid\u2013Vapor Mixture\nQuality, x : The ratio of the mass of vapor to the total mass of the mixture. Quality is between 0 and 1         0: sat. liquid, 1: sat. vapor.\nThe properties of the saturated liquid are the same whether it exists alone or in a mixture with saturated vapor.\nThe relative amounts of liquid and vapor phases in a saturated mixture are specified by the quality x.\nA two-phase system can be treated as a homogeneous mixture for convenience.\nTemperature and pressure are dependent properties for a mixture."
+    },
+    {
+      "slide_number": 30,
+      "title": "",
+      "content": [
+        "30"
+      ],
+      "notes": "",
+      "text": "30"
+    },
+    {
+      "slide_number": 31,
+      "title": "",
+      "content": [
+        "31"
+      ],
+      "notes": "",
+      "text": "31"
+    },
+    {
+      "slide_number": 32,
+      "title": "",
+      "content": [
+        "32"
+      ],
+      "notes": "",
+      "text": "32"
+    },
+    {
+      "slide_number": 33,
+      "title": "",
+      "content": [
+        "33"
+      ],
+      "notes": "",
+      "text": "33"
+    },
+    {
+      "slide_number": 34,
+      "title": "Superheated Vapor",
+      "content": [
+        "34",
+        "Superheated Vapor",
+        "In the region to the right of the saturated vapor line and at temperatures above the critical point temperature, a substance exists as superheated vapor.\nIn this region, temperature and pressure are independent properties.",
+        "A partial listing of Table A\u20136.",
+        "Compared to saturated vapor, superheated vapor is characterized by"
+      ],
+      "notes": "",
+      "text": "Superheated Vapor\n34\nSuperheated Vapor\nIn the region to the right of the saturated vapor line and at temperatures above the critical point temperature, a substance exists as superheated vapor.\nIn this region, temperature and pressure are independent properties.\nA partial listing of Table A\u20136.\nCompared to saturated vapor, superheated vapor is characterized by"
+    },
+    {
+      "slide_number": 35,
+      "title": "",
+      "content": [
+        "35"
+      ],
+      "notes": "",
+      "text": "35"
+    },
+    {
+      "slide_number": 36,
+      "title": "",
+      "content": [
+        "36"
+      ],
+      "notes": "",
+      "text": "36"
+    },
+    {
+      "slide_number": 37,
+      "title": "Compressed Liquid",
+      "content": [
+        "37",
+        "Compressed Liquid",
+        "Compressed liquid is characterized by",
+        "y \uf0ae v, u, or h",
+        "A more accurate relation for h",
+        "A compressed liquid may be approximated as a saturated liquid at the given temperature.",
+        "The compressed liquid properties depend on temperature much more strongly than they do on pressure."
+      ],
+      "notes": "",
+      "text": "Compressed Liquid\n37\nCompressed Liquid\nCompressed liquid is characterized by\ny \uf0ae v, u, or h\nA more accurate relation for h\nA compressed liquid may be approximated as a saturated liquid at the given temperature.\nThe compressed liquid properties depend on temperature much more strongly than they do on pressure."
+    },
+    {
+      "slide_number": 38,
+      "title": "",
+      "content": [
+        "38"
+      ],
+      "notes": "",
+      "text": "38"
+    },
+    {
+      "slide_number": 39,
+      "title": "Reference State and Reference Values",
+      "content": [
+        "39",
+        "Reference State and Reference Values",
+        "The values of u, h, and s cannot be measured directly, and they are calculated from measurable properties using the relations between properties. \nHowever, those relations give the changes in properties, not the values of properties at specified states. \nTherefore, we need to choose a convenient reference state and assign a value of zero for a convenient property or properties at that state. \nThe reference state for water is 0.01\u00b0C and for R-134a is -40\u00b0C in tables.\nSome properties may have negative values as a result of the reference state chosen.\nSometimes different tables list different values for some properties at the same state as a result of using a different reference state. \nHowever, In thermodynamics we are concerned with the changes in properties, and the reference state chosen is of no consequence in calculations."
+      ],
+      "notes": "",
+      "text": "Reference State and Reference Values\n39\nReference State and Reference Values\nThe values of u, h, and s cannot be measured directly, and they are calculated from measurable properties using the relations between properties. \nHowever, those relations give the changes in properties, not the values of properties at specified states. \nTherefore, we need to choose a convenient reference state and assign a value of zero for a convenient property or properties at that state. \nThe reference state for water is 0.01\u00b0C and for R-134a is -40\u00b0C in tables.\nSome properties may have negative values as a result of the reference state chosen.\nSometimes different tables list different values for some properties at the same state as a result of using a different reference state. \nHowever, In thermodynamics we are concerned with the changes in properties, and the reference state chosen is of no consequence in calculations."
+    },
+    {
+      "slide_number": 40,
+      "title": "THE IDEAL-GAS EQUATION OF STATE",
+      "content": [
+        "40",
+        "THE IDEAL-GAS EQUATION OF STATE",
+        "Equation of state: Any equation that relates the pressure, temperature, and specific volume of a substance.\nThe simplest and best-known equation of state for substances in the gas phase is the ideal-gas equation of state. This equation predicts the P-v-T behavior of a gas quite accurately within some properly selected region.",
+        "R: gas constant\nM: molar mass (kg/kmol)\nRu: universal gas constant",
+        "Ideal gas equation of state",
+        "Different substances have different gas constants."
+      ],
+      "notes": "",
+      "text": "THE IDEAL-GAS EQUATION OF STATE\n40\nTHE IDEAL-GAS EQUATION OF STATE\nEquation of state: Any equation that relates the pressure, temperature, and specific volume of a substance.\nThe simplest and best-known equation of state for substances in the gas phase is the ideal-gas equation of state. This equation predicts the P-v-T behavior of a gas quite accurately within some properly selected region.\nR: gas constant\nM: molar mass (kg/kmol)\nRu: universal gas constant\nIdeal gas equation of state\nDifferent substances have different gas constants."
+    },
+    {
+      "slide_number": 41,
+      "title": "",
+      "content": [
+        "41",
+        "Mass = Molar mass \uf0b4 Mole number",
+        "Various expressions of ideal gas equation",
+        "Ideal gas equation at two states for a fixed mass",
+        "Real gases behave as an ideal gas at low densities (i.e., low pressure, high temperature)."
+      ],
+      "notes": "",
+      "text": "41\nMass = Molar mass \uf0b4 Mole number\nVarious expressions of ideal gas equation\nIdeal gas equation at two states for a fixed mass\nReal gases behave as an ideal gas at low densities (i.e., low pressure, high temperature)."
+    },
+    {
+      "slide_number": 42,
+      "title": "",
+      "content": [
+        "42"
+      ],
+      "notes": "",
+      "text": "42"
+    },
+    {
+      "slide_number": 43,
+      "title": "Is Water Vapor an Ideal Gas?",
+      "content": [
+        "43",
+        "Is Water Vapor an Ideal Gas?",
+        "At pressures below 10 kPa, water vapor can be treated as an ideal gas, regardless of its temperature, with negligible error (less than 0.1 percent). \nAt higher pressures, however, the ideal gas assumption yields unacceptable errors, particularly in the vicinity of the critical point and the saturated vapor line. \nIn air-conditioning applications, the water vapor in the air can be treated as an ideal gas. Why?\nIn steam power plant applications, however, the pressures involved are usually very high; therefore, ideal-gas relations should not be used."
+      ],
+      "notes": "",
+      "text": "Is Water Vapor an Ideal Gas?\n43\nIs Water Vapor an Ideal Gas?\nAt pressures below 10 kPa, water vapor can be treated as an ideal gas, regardless of its temperature, with negligible error (less than 0.1 percent). \nAt higher pressures, however, the ideal gas assumption yields unacceptable errors, particularly in the vicinity of the critical point and the saturated vapor line. \nIn air-conditioning applications, the water vapor in the air can be treated as an ideal gas. Why?\nIn steam power plant applications, however, the pressures involved are usually very high; therefore, ideal-gas relations should not be used."
+    },
+    {
+      "slide_number": 44,
+      "title": "COMPRESSIBILITY FACTOR\u2014A MEASURE\u000bOF DEVIATION FROM IDEAL-GAS BEHAVIOR",
+      "content": [
+        "44",
+        "COMPRESSIBILITY FACTOR\u2014A MEASURE\u000bOF DEVIATION FROM IDEAL-GAS BEHAVIOR",
+        "Compressibility factor Z A factor that accounts for the deviation of real gases from ideal-gas behavior at a given temperature and pressure.",
+        "The farther away Z is from unity, the more the gas deviates from ideal-gas behavior.\nGases behave as an ideal gas at low densities (i.e., low pressure, high temperature).\nQuestion: What is the criteria for low pressure and high temperature?\nAnswer: The pressure or temperature of a gas is high or low relative to its critical temperature or pressure."
+      ],
+      "notes": "",
+      "text": "COMPRESSIBILITY FACTOR\u2014A MEASURE\u000bOF DEVIATION FROM IDEAL-GAS BEHAVIOR\n44\nCOMPRESSIBILITY FACTOR\u2014A MEASURE\u000bOF DEVIATION FROM IDEAL-GAS BEHAVIOR\nCompressibility factor Z A factor that accounts for the deviation of real gases from ideal-gas behavior at a given temperature and pressure.\nThe farther away Z is from unity, the more the gas deviates from ideal-gas behavior.\nGases behave as an ideal gas at low densities (i.e., low pressure, high temperature).\nQuestion: What is the criteria for low pressure and high temperature?\nAnswer: The pressure or temperature of a gas is high or low relative to its critical temperature or pressure."
+    },
+    {
+      "slide_number": 45,
+      "title": "",
+      "content": [
+        "45",
+        "Comparison of Z factors for various gases.",
+        "Reduced temperature",
+        "Reduced pressure",
+        "- Z factor for all gases \u2013 approx. \nsameat the same reduced \npressure and temp. \u2013 principles of corresponding state.\n\nGeneralized compressibility chart (GCC) \u2013 results from curve fitting the data.\n\nObservation from GCC\nAt very low pressure, gases behave as an ideal gas regardless of temperature",
+        "2) At high temp., (TR > 2), ideal gas behavior can be assumed with good accuracy \nregardless of pressure (except for pressure >>1)",
+        "3) Deviation is greates in the vicinity of critical point"
+      ],
+      "notes": "",
+      "text": "45\nComparison of Z factors for various gases.\nReduced temperature\nReduced pressure\n- Z factor for all gases \u2013 approx. \nsameat the same reduced \npressure and temp. \u2013 principles of corresponding state.\n\nGeneralized compressibility chart (GCC) \u2013 results from curve fitting the data.\n\nObservation from GCC\nAt very low pressure, gases behave as an ideal gas regardless of temperature\n2) At high temp., (TR > 2), ideal gas behavior can be assumed with good accuracy \nregardless of pressure (except for pressure >>1)\n3) Deviation is greates in the vicinity of critical point"
+    },
+    {
+      "slide_number": 46,
+      "title": "",
+      "content": [
+        "When P and v or T and v are given instead of P and T: Need to define extra reduced property called",
+        "46",
+        "Pseudo-reduced specific volume"
+      ],
+      "notes": "",
+      "text": "When P and v or T and v are given instead of P and T: Need to define extra reduced property called\n46\nPseudo-reduced specific volume"
+    },
+    {
+      "slide_number": 47,
+      "title": "",
+      "content": [
+        "47"
+      ],
+      "notes": "",
+      "text": "47"
+    },
+    {
+      "slide_number": 48,
+      "title": "",
+      "content": [
+        "48"
+      ],
+      "notes": "",
+      "text": "48"
+    },
+    {
+      "slide_number": 49,
+      "title": "",
+      "content": [
+        "49"
+      ],
+      "notes": "",
+      "text": "49"
+    },
+    {
+      "slide_number": 50,
+      "title": "OTHER EQUATIONS OF STATE",
+      "content": [
+        "50",
+        "OTHER EQUATIONS OF STATE",
+        "Several equations have been proposed to represent the P-v-T behavior of substances accurately over a larger region with no limitations.",
+        "Van der Waals Equation of State",
+        "Critical isotherm of a pure substance has an inflection point at the critical state.",
+        "This model includes two effects not considered in the ideal-gas model: the intermolecular attraction forces and the volume occupied by the molecules themselves. The accuracy of the van der Waals equation of state is often inadequate."
+      ],
+      "notes": "",
+      "text": "OTHER EQUATIONS OF STATE\n50\nOTHER EQUATIONS OF STATE\nSeveral equations have been proposed to represent the P-v-T behavior of substances accurately over a larger region with no limitations.\nVan der Waals Equation of State\nCritical isotherm of a pure substance has an inflection point at the critical state.\nThis model includes two effects not considered in the ideal-gas model: the intermolecular attraction forces and the volume occupied by the molecules themselves. The accuracy of the van der Waals equation of state is often inadequate."
+    },
+    {
+      "slide_number": 51,
+      "title": "",
+      "content": [
+        "51",
+        "Beattie-Bridgeman Equation of State",
+        "The constants are given in Table 3\u20134 for various substances. It is known to be reasonably accurate for densities up to about 0.8\uf072cr.",
+        "Benedict-Webb-Rubin Equation of State",
+        "The constants are given in Table 3\u20134. This equation can handle substances at densities up to about 2.5 \uf072cr.",
+        "Virial Equation of State",
+        "The coefficients a(T), b(T), c(T), and so on, that are functions of temperature alone are called virial coefficients."
+      ],
+      "notes": "",
+      "text": "51\nBeattie-Bridgeman Equation of State\nThe constants are given in Table 3\u20134 for various substances. It is known to be reasonably accurate for densities up to about 0.8\uf072cr.\nBenedict-Webb-Rubin Equation of State\nThe constants are given in Table 3\u20134. This equation can handle substances at densities up to about 2.5 \uf072cr.\nVirial Equation of State\nThe coefficients a(T), b(T), c(T), and so on, that are functions of temperature alone are called virial coefficients."
+    },
+    {
+      "slide_number": 52,
+      "title": "",
+      "content": [
+        "52"
+      ],
+      "notes": "",
+      "text": "52"
+    },
+    {
+      "slide_number": 53,
+      "title": "",
+      "content": [
+        "53"
+      ],
+      "notes": "",
+      "text": "53"
+    },
+    {
+      "slide_number": 54,
+      "title": "",
+      "content": [
+        "54"
+      ],
+      "notes": "",
+      "text": "54"
+    },
+    {
+      "slide_number": 55,
+      "title": "",
+      "content": [
+        "55"
+      ],
+      "notes": "",
+      "text": "55"
+    },
+    {
+      "slide_number": 56,
+      "title": "",
+      "content": [
+        "56"
+      ],
+      "notes": "",
+      "text": "56"
+    },
+    {
+      "slide_number": 57,
+      "title": "Summary",
+      "content": [
+        "57",
+        "Summary",
+        "Pure substance\nPhases of a pure substance\nPhase-change processes of pure substances\nCompressed liquid, Saturated liquid, Saturated vapor, Superheated vapor\nSaturation temperature and Saturation pressure\nProperty diagrams for phase change processes\nThe T-v diagram, The P-v diagram, The P-T diagram, The P-v-T surface\nProperty tables\nEnthalpy\nSaturated liquid, saturated vapor, Saturated liquid vapor mixture, Superheated vapor, compressed liquid\nReference state and reference values\nThe ideal gas equation of state\nIs water vapor an ideal gas?\nCompressibility factor\nOther equations of state\nvan der Waals Equation of State, Beattie-Bridgeman Equation of State\nBenedict-Webb-Rubin Equation of State, Virial Equation of State"
+      ],
+      "notes": "",
+      "text": "Summary\n57\nSummary\nPure substance\nPhases of a pure substance\nPhase-change processes of pure substances\nCompressed liquid, Saturated liquid, Saturated vapor, Superheated vapor\nSaturation temperature and Saturation pressure\nProperty diagrams for phase change processes\nThe T-v diagram, The P-v diagram, The P-T diagram, The P-v-T surface\nProperty tables\nEnthalpy\nSaturated liquid, saturated vapor, Saturated liquid vapor mixture, Superheated vapor, compressed liquid\nReference state and reference values\nThe ideal gas equation of state\nIs water vapor an ideal gas?\nCompressibility factor\nOther equations of state\nvan der Waals Equation of State, Beattie-Bridgeman Equation of State\nBenedict-Webb-Rubin Equation of State, Virial Equation of State"
+    }
+  ]
+}

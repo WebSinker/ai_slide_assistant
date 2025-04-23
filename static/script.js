@@ -5,7 +5,7 @@ let currentPresentationList = []; // Store multiple presentations
 
 function uploadFile() {
     const input = document.getElementById('fileInput');
-    const fileList = input.files; // ← FIX: renamed 'files' to 'fileList'
+    const fileList = input.files;
 
     if (!fileList.length) {
         alert("Please select at least one file!");
@@ -33,7 +33,8 @@ function uploadFile() {
             currentPresentationList = data.presentations; // Store all
             currentPresentationData = currentPresentationList[0];
             slides = currentPresentationData.slides;
-            currentFilename = currentPresentationData.filename.split('.')[0];
+            // Extract filename without extension properly
+            currentFilename = getBaseName(currentPresentationData.filename);
     
             updatePresentationList(); // Update sidebar/list
     
@@ -44,7 +45,7 @@ function uploadFile() {
             // Fallback if server returns single file structure
             currentPresentationData = data;
             slides = data.slides;
-            currentFilename = data.filename.split('.')[0];
+            currentFilename = getBaseName(currentPresentationData.filename);
             updatePresentationList();
             if (slides.length > 0) {
                 displayPresentation();
@@ -59,19 +60,35 @@ function uploadFile() {
     });
 }
 
+// Helper function to get the base name without extension
+function getBaseName(filename) {
+    if (!filename) return '';
+    return filename.includes('.') ? filename.substring(0, filename.lastIndexOf('.')) : filename;
+}
+
 function updatePresentationList() {
     const list = document.getElementById('slideList');
     list.innerHTML = '';
 
     currentPresentationList.forEach((presentation, index) => {
         const li = document.createElement('li');
-        const filename = presentation.filename.split('.')[0];
-        li.textContent = filename;
+        const filename = presentation.filename;
+        const fileBaseName = getBaseName(filename);
+        const extension = filename.split('.').pop().toLowerCase();
+        
+        // Add class based on file type
+        if (extension === 'pdf') {
+            li.className = 'pdf-file';
+        } else {
+            li.className = 'ppt-file';
+        }
+        
+        li.textContent = fileBaseName;
 
         li.onclick = () => {
             currentPresentationData = presentation;
             slides = presentation.slides;
-            currentFilename = filename;
+            currentFilename = fileBaseName;
             displayPresentation();
         };
 
@@ -164,11 +181,11 @@ function performSinglePresentationSearch(question, slideNumber, filename) {
     });
 }
 
-// Modified function to search across all loaded presentations with ranking
+// Fixed function to search across all loaded presentations with ranking
 function performCrossPresentationSearch(question) {
     // First gather all filenames from the loaded presentations
     const filenames = currentPresentationList.map(presentation => 
-        presentation.filename.split('.')[0]);
+        getBaseName(presentation.filename));
     
     const totalPresentations = filenames.length;
     let completedQueries = 0;
@@ -203,6 +220,13 @@ function performCrossPresentationSearch(question) {
         .then(data => {
             completedQueries++;
             
+            // Update progress bar
+            const progressPercent = (completedQueries / totalPresentations) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+            if (progressBar) {
+                progressBar.style.width = `${progressPercent}%`;
+            }
+            
             if (!data.error) {
                 // Add the result with the presentation name
                 combinedResults.push({
@@ -220,8 +244,15 @@ function performCrossPresentationSearch(question) {
             }
         })
         .catch(err => {
-            console.error(err);
+            console.error('Error searching presentation:', filename, err);
             completedQueries++;
+            
+            // Update progress bar even on error
+            const progressPercent = (completedQueries / totalPresentations) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+            if (progressBar) {
+                progressBar.style.width = `${progressPercent}%`;
+            }
             
             // If all queries are complete (even with errors), display what we have
             if (completedQueries === totalPresentations) {
@@ -279,7 +310,10 @@ function calculateRelevanceScore(question, answer, filename) {
     // Factor 5: Check if answer contains phrases suggesting uncertainty
     if (answerLower.includes("not found") || 
         answerLower.includes("couldn't find") || 
-        answerLower.includes("no information")) {
+        answerLower.includes("no information") ||
+        answerLower.includes("is not explicitly") ||
+        answerLower.includes("implicitly") ||
+        answerLower.includes("no mention")) {
         score -= 20;
     }
     
@@ -516,6 +550,21 @@ function createSlideRangePopup() {
             }
         });
     });
+    
+    // Also handle individual slide links (for both PDF and PowerPoint slides)
+    document.querySelectorAll('a[href^="#slide-"]:not([data-range]):not([data-initialized])').forEach(link => {
+        link.setAttribute('data-initialized', 'true'); // Mark as initialized
+        
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const slideNum = parseInt(href.replace('#slide-', ''));
+            
+            if (!isNaN(slideNum) && slideNum > 0 && slideNum <= slides.length) {
+                showSlideDetails(slideNum - 1);
+            }
+        });
+    });
 }
 
 function showSlideRangePopup(startSlide, endSlide, event) {
@@ -601,10 +650,8 @@ function updateSlideLinks() {
 }
 
 // Call this after any function that adds new content with slide links
-// For example, after displayPresentation() or call to the AI assistant
 function callAskQuestion() {
     askQuestion();
     // Wait for the answer to be displayed
     setTimeout(createSlideRangePopup, 500);
 }
-

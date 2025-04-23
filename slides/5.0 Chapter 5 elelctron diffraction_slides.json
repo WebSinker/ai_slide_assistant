@@ -1,0 +1,660 @@
+{
+  "filename": "5.0 Chapter 5 elelctron diffraction",
+  "total_slides": 34,
+  "extraction_time": "2025-04-23 20:18:03",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Chapter 5  Electron Diffraction  ",
+      "content": [
+        "5.1 Production of electron beams  ",
+        "5.2 Electron Diffraction  ",
+        "5.3 Indexing Electron Diffraction Patterns  ",
+        "5.4 Type of  Electron Diffraction  ",
+        " "
+      ],
+      "notes": "",
+      "text": "Chapter 5  Electron Diffraction  \n5.1 Production of electron beams  \n5.2 Electron Diffraction  \n5.3 Indexing Electron Diffraction Patterns  \n5.4 Type of  Electron Diffraction"
+    },
+    {
+      "slide_number": 2,
+      "title": "Learning outcomes  :  ",
+      "content": [
+        "By the end of this topic, student will be able to do the following:  ",
+        "\u2022Define and explain the duality properties of the electron.  ",
+        "\u2022Identify and explain the production of electron.  ",
+        "\u2022Define the electron scattering/diffraction.  ",
+        "\u2022Write down the type of electron diffraction.  ",
+        "\u2022Identify and draw the diagram of each electron diffraction ",
+        "method.  ",
+        "\u2022Explain and show the basic working principle for each ",
+        "electron diffraction method.  ",
+        "\u2022Identify the diffraction pattern for each method.  ",
+        "\u2022Explain the electron diffraction pattern.  ",
+        "\u2022Relate the pattern with the crystal system.  ",
+        "\u2022Identify the crystal system using electron diffraction ",
+        "method.  "
+      ],
+      "notes": "",
+      "text": "Learning outcomes  :  \nBy the end of this topic, student will be able to do the following:  \n\u2022Define and explain the duality properties of the electron.  \n\u2022Identify and explain the production of electron.  \n\u2022Define the electron scattering/diffraction.  \n\u2022Write down the type of electron diffraction.  \n\u2022Identify and draw the diagram of each electron diffraction \nmethod.  \n\u2022Explain and show the basic working principle for each \nelectron diffraction method.  \n\u2022Identify the diffraction pattern for each method.  \n\u2022Explain the electron diffraction pattern.  \n\u2022Relate the pattern with the crystal system.  \n\u2022Identify the crystal system using electron diffraction \nmethod."
+    },
+    {
+      "slide_number": 3,
+      "title": "5.1  Production of electron beams  ",
+      "content": [
+        "\u2022An electron (beams) gun is used to produce a stream ",
+        "of electrons with a well defined kinetic energy  for ",
+        "diffraction or other purposes.  ",
+        "\u2022E-beams are mostly produced by thermionic ",
+        "emission  from a heated cathode.  ",
+        " ",
+        "\u2022An electron gun consist of two ",
+        "parts :  ",
+        "\u2013A heated filament,  ",
+        "\u2013The accelerating region, which ",
+        "is bounded by two electrodes, ",
+        "known as the cathode and the ",
+        "anode.  ",
+        " "
+      ],
+      "notes": "",
+      "text": "5.1  Production of electron beams  \n\u2022An electron (beams) gun is used to produce a stream \nof electrons with a well defined kinetic energy  for \ndiffraction or other purposes.  \n\u2022E-beams are mostly produced by thermionic \nemission  from a heated cathode.  \n \n\u2022An electron gun consist of two \nparts :  \n\u2013A heated filament,  \n\u2013The accelerating region, which \nis bounded by two electrodes, \nknown as the cathode and the \nanode."
+    },
+    {
+      "slide_number": 4,
+      "title": "Page 4",
+      "content": [
+        " \u2022The filament consists of a piece of wire, commonly ",
+        "made of a refractory material such as tungsten, ",
+        "which is heated by an electric current  ",
+        " ",
+        "\u2022They drift through a small hole in the cathode, into ",
+        "a region where there is an electric field, which ",
+        "accelerates them across the gap to the anode.  ",
+        "They then pass ",
+        "through a hole in the ",
+        "anode, with a final ",
+        "energy which is ",
+        "determined by the ",
+        "applied voltage.  "
+      ],
+      "notes": "",
+      "text": "\u2022The filament consists of a piece of wire, commonly \nmade of a refractory material such as tungsten, \nwhich is heated by an electric current  \n \n\u2022They drift through a small hole in the cathode, into \na region where there is an electric field, which \naccelerates them across the gap to the anode.  \nThey then pass \nthrough a hole in the \nanode, with a final \nenergy which is \ndetermined by the \napplied voltage."
+    },
+    {
+      "slide_number": 5,
+      "title": "\u2022Thermionic emission  is a process by which some ",
+      "content": [
+        "of the electrons inside a piece of metal can 'boil ",
+        "away ', that is leave the surface of the metal into the ",
+        "surrounding space.  ",
+        " ",
+        "\u2022Inside a metal the electrons are not stationary, but ",
+        "are constantly moving, with an average speed ",
+        "which is controlled by the temperature of the metal.  ",
+        " ",
+        "\u2022Since the speed of the electrons increases with ",
+        "temperature, the number of electrons with sufficient ",
+        "energy to escape also increases with temperature, ",
+        "in fact exponentially.  ",
+        " ",
+        "\u2022At room temperature (300  K) the number is very ",
+        "small, but if the wire is heated to 1000K the number ",
+        "of electrons escaping is dramatically increased.  "
+      ],
+      "notes": "",
+      "text": "\u2022Thermionic emission  is a process by which some \nof the electrons inside a piece of metal can 'boil \naway ', that is leave the surface of the metal into the \nsurrounding space.  \n \n\u2022Inside a metal the electrons are not stationary, but \nare constantly moving, with an average speed \nwhich is controlled by the temperature of the metal.  \n \n\u2022Since the speed of the electrons increases with \ntemperature, the number of electrons with sufficient \nenergy to escape also increases with temperature, \nin fact exponentially.  \n \n\u2022At room temperature (300  K) the number is very \nsmall, but if the wire is heated to 1000K the number \nof electrons escaping is dramatically increased."
+    },
+    {
+      "slide_number": 6,
+      "title": "\u2022The electron gun are very much the same as ",
+      "content": [
+        "those of an electron microscope.  ",
+        " ",
+        "\u2022In fact, many electron microscopes are designed ",
+        "so that they can also be used for obtained ",
+        "diffraction photographs.  "
+      ],
+      "notes": "",
+      "text": "\u2022The electron gun are very much the same as \nthose of an electron microscope.  \n \n\u2022In fact, many electron microscopes are designed \nso that they can also be used for obtained \ndiffraction photographs."
+    },
+    {
+      "slide_number": 7,
+      "title": "\u2022Electron with the energies used in diffraction are ",
+      "content": [
+        "very strongly absorbed in matter.  ",
+        " ",
+        "\u2022Specimen which are to be used in transmission ",
+        "must therefore be in the form of thin film (few ",
+        "hundreds Angstrom).  ",
+        " ",
+        "\u2022Hence, if thicker specimens is used, only the ",
+        "surface layers of the specimen contribute to the ",
+        "diffraction pattern.  ",
+        " ",
+        "\u2022The small penetration of low -energy electron ",
+        "into a crystal is exploited in the technique ",
+        "commonly know as LEED  (low-energy electron ",
+        "diffraction).  "
+      ],
+      "notes": "",
+      "text": "\u2022Electron with the energies used in diffraction are \nvery strongly absorbed in matter.  \n \n\u2022Specimen which are to be used in transmission \nmust therefore be in the form of thin film (few \nhundreds Angstrom).  \n \n\u2022Hence, if thicker specimens is used, only the \nsurface layers of the specimen contribute to the \ndiffraction pattern.  \n \n\u2022The small penetration of low -energy electron \ninto a crystal is exploited in the technique \ncommonly know as LEED  (low-energy electron \ndiffraction)."
+    },
+    {
+      "slide_number": 8,
+      "title": "LEED  ",
+      "content": [
+        "\u2022This techniques is used to study the structure of ",
+        "surface using electron in the energy range 10 -500 ",
+        "eV. ",
+        " ",
+        "\u2022The penetration of such electrons into a solid is ",
+        "limited to between 3 to 10 \u00c5 (one to three atomic ",
+        "layer).  ",
+        " ",
+        "\u2022The scattering depend very largely on the 2 -D ",
+        "structure of the solid\u2019s surface.  ",
+        " ",
+        "\u2022Electron scattered in reflection from the surface of ",
+        "the sample are detected either by a Faraday ",
+        "collector or a fluorescent screen.  "
+      ],
+      "notes": "",
+      "text": "LEED  \n\u2022This techniques is used to study the structure of \nsurface using electron in the energy range 10 -500 \neV. \n \n\u2022The penetration of such electrons into a solid is \nlimited to between 3 to 10 \u00c5 (one to three atomic \nlayer).  \n \n\u2022The scattering depend very largely on the 2 -D \nstructure of the solid\u2019s surface.  \n \n\u2022Electron scattered in reflection from the surface of \nthe sample are detected either by a Faraday \ncollector or a fluorescent screen."
+    },
+    {
+      "slide_number": 9,
+      "title": "LEED system  ",
+      "content": [
+        ""
+      ],
+      "notes": "",
+      "text": "LEED system"
+    },
+    {
+      "slide_number": 10,
+      "title": "5.2  Electron diffraction  ",
+      "content": [
+        "\u2022Electron diffraction  is the phenomenon ",
+        "associated with interference that occur when ",
+        "electrons are scattered by atom to form ",
+        "diffraction patterns.  ",
+        " ",
+        "\u2022The electrons are not only behavior as particles ",
+        "but as waves.  ",
+        " ",
+        "\u2022Range of energy (E=eV) :  ",
+        "\u2013Low energy (5 eV \u2013 500 eV)  ",
+        "\u2013Medium energy (500 eV \u2013 5 keV)  ",
+        "\u2013High energy ( 5 \u2013 500 keV)  ",
+        " ",
+        " ",
+        " "
+      ],
+      "notes": "",
+      "text": "5.2  Electron diffraction  \n\u2022Electron diffraction  is the phenomenon \nassociated with interference that occur when \nelectrons are scattered by atom to form \ndiffraction patterns.  \n \n\u2022The electrons are not only behavior as particles \nbut as waves.  \n \n\u2022Range of energy (E=eV) :  \n\u2013Low energy (5 eV \u2013 500 eV)  \n\u2013Medium energy (500 eV \u2013 5 keV)  \n\u2013High energy ( 5 \u2013 500 keV)"
+    },
+    {
+      "slide_number": 11,
+      "title": "Duality of electron  ",
+      "content": [
+        "\u2022In1924,De Broglie claimed that all matter has a wave -",
+        "like nature; he related wavelength, \u03bb, and ",
+        "momentum, p:  ",
+        " ",
+        " ",
+        "\u2022He included the particle -wave property duality theory ",
+        "of matter, based on the work of Einstein (E=h \uf06e) and ",
+        "Planck.  ",
+        " ",
+        "\u2022De Broglie's formula was confirmed three years later ",
+        "by guiding a beam of electrons through a crystalline ",
+        "grid and observing the predicted interference patterns   ",
+        "ph\uf03d\uf06c"
+      ],
+      "notes": "",
+      "text": "Duality of electron  \n\u2022In1924,De Broglie claimed that all matter has a wave -\nlike nature; he related wavelength, \u03bb, and \nmomentum, p:  \n \n \n\u2022He included the particle -wave property duality theory \nof matter, based on the work of Einstein (E=h \uf06e) and \nPlanck.  \n \n\u2022De Broglie's formula was confirmed three years later \nby guiding a beam of electrons through a crystalline \ngrid and observing the predicted interference patterns   \nph\uf03d\uf06c"
+    },
+    {
+      "slide_number": 12,
+      "title": "\u2022According to quantum theory, any particles ",
+      "content": [
+        "moving with momentum mv has a wavelength  ",
+        " ",
+        " ",
+        "where h \u2013 Planck\u2019s constant.  ",
+        " ",
+        "\u2022Therefore,  ",
+        " ",
+        "\u2022Therefore, the kinetic energy is given by  ",
+        "mvh\uf03d\uf06c",
+        "mpv\uf03d",
+        "eVmpmv E \uf03d\uf03d\uf03d2 212",
+        "2"
+      ],
+      "notes": "",
+      "text": "\u2022According to quantum theory, any particles \nmoving with momentum mv has a wavelength  \n \n \nwhere h \u2013 Planck\u2019s constant.  \n \n\u2022Therefore,  \n \n\u2022Therefore, the kinetic energy is given by  \nmvh\uf03d\uf06c\nmpv\uf03d\neVmpmv E \uf03d\uf03d\uf03d2 212\n2"
+    },
+    {
+      "slide_number": 13,
+      "title": "\u2022The technique is only used on crystal samples that ",
+      "content": [
+        "have a regularly spaced atomic lattice.  ",
+        " ",
+        "\u2022Electron diffraction has been used for phase ",
+        "identification, structure and symmetry ",
+        "determination, lattice parameter measurement.  ",
+        " ",
+        "\u2022There are three types of electron diffraction:  ",
+        "\u2013Low Energy Electron Diffraction (LEED)  ",
+        "\u2013Transmission High Energy Electron Diffraction ",
+        "(THEED)  ",
+        "\u2013Reflection High Energy Electron Diffraction ",
+        "(RHEED).  "
+      ],
+      "notes": "",
+      "text": "\u2022The technique is only used on crystal samples that \nhave a regularly spaced atomic lattice.  \n \n\u2022Electron diffraction has been used for phase \nidentification, structure and symmetry \ndetermination, lattice parameter measurement.  \n \n\u2022There are three types of electron diffraction:  \n\u2013Low Energy Electron Diffraction (LEED)  \n\u2013Transmission High Energy Electron Diffraction \n(THEED)  \n\u2013Reflection High Energy Electron Diffraction \n(RHEED)."
+    },
+    {
+      "slide_number": 14,
+      "title": "\u2022Most electron diffraction is performed with high ",
+      "content": [
+        "energy electrons whose wavelengths are orders ",
+        "of magnitude smaller than the interplanar ",
+        "spacing in most crystals.  ",
+        " ",
+        "\u2022For example, for 100 keV electrons \uf06c< 3.7 x 10-",
+        "12 m. Typical lattice parameters for crystals are ",
+        "around 0.3 nm.  ",
+        " ",
+        "\u2022Electrons are charged, light particles and their ",
+        "penetration into solids is very limited.  ",
+        " ",
+        "\u2022They lose energy by ineleastic scattering or are ",
+        "scattered elastically (diffraction).  "
+      ],
+      "notes": "",
+      "text": "\u2022Most electron diffraction is performed with high \nenergy electrons whose wavelengths are orders \nof magnitude smaller than the interplanar \nspacing in most crystals.  \n \n\u2022For example, for 100 keV electrons \uf06c< 3.7 x 10-\n12 m. Typical lattice parameters for crystals are \naround 0.3 nm.  \n \n\u2022Electrons are charged, light particles and their \npenetration into solids is very limited.  \n \n\u2022They lose energy by ineleastic scattering or are \nscattered elastically (diffraction)."
+    },
+    {
+      "slide_number": 15,
+      "title": "\u2022Therefore, both LEED and ",
+      "content": [
+        "RHEED are considered to be ",
+        "surface characterization ",
+        "techniques.  ",
+        " ",
+        "\u2022THEED is limited to specimens ",
+        "less than 1mm thick.  ",
+        " ",
+        "\u2022THEED is usually carried out in ",
+        "a transmission electron ",
+        "microscope (TEM).  e e e ",
+        "e e ",
+        "e e "
+      ],
+      "notes": "",
+      "text": "\u2022Therefore, both LEED and \nRHEED are considered to be \nsurface characterization \ntechniques.  \n \n\u2022THEED is limited to specimens \nless than 1mm thick.  \n \n\u2022THEED is usually carried out in \na transmission electron \nmicroscope (TEM).  e e e \ne e \ne e"
+    },
+    {
+      "slide_number": 16,
+      "title": "Sample  ",
+      "content": [
+        "Lens  Screen  ",
+        "\u2022The diameter of the Ewald sphere is very large ",
+        "compared to the size of the unit cell in the ",
+        "reciprocal lattice  \u2022Since \uf06c is very ",
+        "small, Bragg ",
+        "angles are also ",
+        "small, so the ",
+        "Bragg Law can ",
+        "be simplified to:  ",
+        "\uf071\uf06c d2\uf03dDiffraction beam  ",
+        "Direct beam  "
+      ],
+      "notes": "",
+      "text": "Sample  \nLens  Screen  \n\u2022The diameter of the Ewald sphere is very large \ncompared to the size of the unit cell in the \nreciprocal lattice  \u2022Since \uf06c is very \nsmall, Bragg \nangles are also \nsmall, so the \nBragg Law can \nbe simplified to:  \n\uf071\uf06c d2\uf03dDiffraction beam  \nDirect beam"
+    },
+    {
+      "slide_number": 17,
+      "title": "\u2022A typical electron ",
+      "content": [
+        "diffraction pattern ",
+        "for a crystalline ",
+        "specimen is ",
+        "shown here.  ",
+        "\u2022Lenses is used to focus the diffraction ",
+        "pattern and to change the camera length, ",
+        "which is equivalent to moving the film in an ",
+        "x-ray experiment.  "
+      ],
+      "notes": "",
+      "text": "\u2022A typical electron \ndiffraction pattern \nfor a crystalline \nspecimen is \nshown here.  \n\u2022Lenses is used to focus the diffraction \npattern and to change the camera length, \nwhich is equivalent to moving the film in an \nx-ray experiment."
+    },
+    {
+      "slide_number": 18,
+      "title": "dLr\uf06c\uf03d",
+      "content": [
+        "\uf0712\uf03dLr",
+        "\uf071\uf06c d2\uf03dGeometry of an electron diffraction experiment0  ",
+        "L r 2\uf071 From the diagram :  ",
+        "Bragg Law for small ",
+        "angles approximates to:  ",
+        "Therefore,  ",
+        "dL r1\uf0b4\uf03d\uf06c",
+        "or e ",
+        "The distance,   r, of a diffraction spot from the direct ",
+        "beam spot on the diffraction pattern, varies inversely ",
+        "with the spacing of the planes, d, that generate that ",
+        "spot.  "
+      ],
+      "notes": "",
+      "text": "dLr\uf06c\uf03d\n\uf0712\uf03dLr\n\uf071\uf06c d2\uf03dGeometry of an electron diffraction experiment0  \nL r 2\uf071 From the diagram :  \nBragg Law for small \nangles approximates to:  \nTherefore,  \ndL r1\uf0b4\uf03d\uf06c\nor e \nThe distance,   r, of a diffraction spot from the direct \nbeam spot on the diffraction pattern, varies inversely \nwith the spacing of the planes, d, that generate that \nspot."
+    },
+    {
+      "slide_number": 19,
+      "title": "5.3  Indexing Electron Diffraction pattern  ",
+      "content": [
+        "\u2022Choose one spot to be the ",
+        "origin  ",
+        " ",
+        "\u2022Measure the spacing of 1st ",
+        "spot, r1 and 2nd spot, r2. ",
+        " ",
+        "\u2022Measure the angle ",
+        "between the spots, \uf066. r1 r2 ",
+        "\uf066 ",
+        "\u2022Prepare a table giving the ratios of the ",
+        "spacings of permitted diffraction planes in ",
+        "the known structure  "
+      ],
+      "notes": "",
+      "text": "5.3  Indexing Electron Diffraction pattern  \n\u2022Choose one spot to be the \norigin  \n \n\u2022Measure the spacing of 1st \nspot, r1 and 2nd spot, r2. \n \n\u2022Measure the angle \nbetween the spots, \uf066. r1 r2 \n\uf066 \n\u2022Prepare a table giving the ratios of the \nspacings of permitted diffraction planes in \nthe known structure"
+    },
+    {
+      "slide_number": 20,
+      "title": "\u2022Take the measured ratio r1/r2 and locate a value ",
+      "content": [
+        "close to this in the table.  ",
+        " ",
+        "\u2022Assign the more widely -spaced plane (usually ",
+        "with lower indices) to the shorter r value.  ",
+        " ",
+        "\u2022Calculate the angle between pair of planes of ",
+        "the type you have indexed.   ",
+        " ",
+        "\u2022If the experimental angle, \uf066 , agrees with one of ",
+        "the possible values - accept the indexing. If not, ",
+        "revisit the table and select another possible pair ",
+        "of planes.  ",
+        " ",
+        "\u2022Finish indexing the pattern by vector addition.  "
+      ],
+      "notes": "",
+      "text": "\u2022Take the measured ratio r1/r2 and locate a value \nclose to this in the table.  \n \n\u2022Assign the more widely -spaced plane (usually \nwith lower indices) to the shorter r value.  \n \n\u2022Calculate the angle between pair of planes of \nthe type you have indexed.   \n \n\u2022If the experimental angle, \uf066 , agrees with one of \nthe possible values - accept the indexing. If not, \nrevisit the table and select another possible pair \nof planes.  \n \n\u2022Finish indexing the pattern by vector addition."
+    },
+    {
+      "slide_number": 21,
+      "title": "Interplanar spacing tables  ",
+      "content": [
+        "\u2022From early studies, interplanar spacing, d, for ",
+        "a cubic structure with lattice parameter, a,is ",
+        "given by:  ",
+        " ",
+        " ",
+        "\u2022Therefore, the ratio of interplanar spacings ",
+        "between two different planes, d1 and d2 is:    ",
+        " ",
+        "2 2 2lkhad",
+        "\uf02b\uf02b\uf03d",
+        "2",
+        "22",
+        "22",
+        "22",
+        "12",
+        "12",
+        "1",
+        "21",
+        "l k hl k h",
+        "dd",
+        "\uf02b\uf02b\uf02b\uf02b\uf03d"
+      ],
+      "notes": "",
+      "text": "Interplanar spacing tables  \n\u2022From early studies, interplanar spacing, d, for \na cubic structure with lattice parameter, a,is \ngiven by:  \n \n \n\u2022Therefore, the ratio of interplanar spacings \nbetween two different planes, d1 and d2 is:    \n \n2 2 2lkhad\n\uf02b\uf02b\uf03d\n2\n22\n22\n22\n12\n12\n1\n21\nl k hl k h\ndd\n\uf02b\uf02b\uf02b\uf02b\uf03d"
+    },
+    {
+      "slide_number": 22,
+      "title": "FCC ",
+      "content": [
+        "d1 ",
+        " ",
+        " ",
+        " ",
+        " ",
+        "d2 hkl {111}  {200}  {220}  {311}  {222}  {400}  ",
+        "{111}  1 2.31 ",
+        "{200}  1.5 1 ",
+        "{220}  0.61 0.71 1 ",
+        "{311}  0.52 1 ",
+        "{222}  1 ",
+        "{400}  1 allowed reflections only from all even or all odd h,k,l  "
+      ],
+      "notes": "",
+      "text": "FCC \nd1 \n \n \n \n \nd2 hkl {111}  {200}  {220}  {311}  {222}  {400}  \n{111}  1 2.31 \n{200}  1.5 1 \n{220}  0.61 0.71 1 \n{311}  0.52 1 \n{222}  1 \n{400}  1 allowed reflections only from all even or all odd h,k,l"
+    },
+    {
+      "slide_number": 23,
+      "title": "BCC  ",
+      "content": [
+        "d1 ",
+        " ",
+        " ",
+        " ",
+        " ",
+        "d2 hkl {110}  {200}  {211}  {220}  {310}  {222}  ",
+        "{110}  1 ",
+        "{200}  1 1.58 ",
+        "{211}  0.82 1 ",
+        "{220}  1 ",
+        "{310}  1 ",
+        "{222}  1 allowed reflections only from   h+k+l = even  "
+      ],
+      "notes": "",
+      "text": "BCC  \nd1 \n \n \n \n \nd2 hkl {110}  {200}  {211}  {220}  {310}  {222}  \n{110}  1 \n{200}  1 1.58 \n{211}  0.82 1 \n{220}  1 \n{310}  1 \n{222}  1 allowed reflections only from   h+k+l = even"
+    },
+    {
+      "slide_number": 24,
+      "title": "Calculating the angle between ",
+      "content": [
+        "two planes  ",
+        "\u2022For cubic crystals, the angle, \uf066 between ",
+        "two planes, ( h1 k1 l1) and ( h2 k2 l2) is ",
+        "given by:  ",
+        "2",
+        "22",
+        "22",
+        "22",
+        "12",
+        "12",
+        "121 21 21",
+        "l k hl k hllkkhhCos",
+        "\uf02b\uf02b\uf02b\uf02b\uf02b\uf02b\uf03d\uf066"
+      ],
+      "notes": "",
+      "text": "Calculating the angle between \ntwo planes  \n\u2022For cubic crystals, the angle, \uf066 between \ntwo planes, ( h1 k1 l1) and ( h2 k2 l2) is \ngiven by:  \n2\n22\n22\n22\n12\n12\n121 21 21\nl k hl k hllkkhhCos\n\uf02b\uf02b\uf02b\uf02b\uf02b\uf02b\uf03d\uf066"
+    },
+    {
+      "slide_number": 25,
+      "title": "004.111)01()01()21(",
+      "content": [
+        "\uf02b\uf02b\uf02b\uf02b\uf0b4\uf02b\uf0b4\uf02b\uf0b4\uf03d\uf066Cos",
+        "Example:  ",
+        "Calculate the angle between the (111) and ",
+        "(200) planes.  ",
+        "From equation above,  ",
+        "Therefore, \uf066 = 54.75  ",
+        "31\uf03d\uf066Cos"
+      ],
+      "notes": "",
+      "text": "004.111)01()01()21(\n\uf02b\uf02b\uf02b\uf02b\uf0b4\uf02b\uf0b4\uf02b\uf0b4\uf03d\uf066Cos\nExample:  \nCalculate the angle between the (111) and \n(200) planes.  \nFrom equation above,  \nTherefore, \uf066 = 54.75  \n31\uf03d\uf066Cos"
+    },
+    {
+      "slide_number": 26,
+      "title": "Indexing Electron Diffraction Patterns  ",
+      "content": [
+        "\u2022If we know the index for two diffraction ",
+        "spots it is possible to index the rest of the ",
+        "spots by using vector addition.  ",
+        "\u2022Every diffraction spot can be reached by a ",
+        "combination of these two vectors.  ",
+        ""
+      ],
+      "notes": "",
+      "text": "Indexing Electron Diffraction Patterns  \n\u2022If we know the index for two diffraction \nspots it is possible to index the rest of the \nspots by using vector addition.  \n\u2022Every diffraction spot can be reached by a \ncombination of these two vectors."
+    },
+    {
+      "slide_number": 27,
+      "title": "Why XRD is difficult to applied to ",
+      "content": [
+        "surface ?  ",
+        "\u2022X-ray photons have micron -scale ",
+        "penetration depths into solids which ",
+        "means that X -ray diffraction is not an ",
+        "inherently surface -sensitive technique.  ",
+        "\u2022Low energy electrons, however, have ",
+        "penetration depths (mean free paths) of ",
+        "the order of a few lattice spacings of the ",
+        "solid and are therefore more suited to ",
+        "surface diffraction.  "
+      ],
+      "notes": "",
+      "text": "Why XRD is difficult to applied to \nsurface ?  \n\u2022X-ray photons have micron -scale \npenetration depths into solids which \nmeans that X -ray diffraction is not an \ninherently surface -sensitive technique.  \n\u2022Low energy electrons, however, have \npenetration depths (mean free paths) of \nthe order of a few lattice spacings of the \nsolid and are therefore more suited to \nsurface diffraction."
+    },
+    {
+      "slide_number": 28,
+      "title": "5.4 Type of  Electron Diffraction  ",
+      "content": [
+        "\u2022Electron diffraction is frequently used to study the ",
+        "crystal structure of solids.  ",
+        "\u2022Experiments are usually performed in a ",
+        "transmission electron microscope (TEM), or a ",
+        "scanning electron microscope (SEM) as electron ",
+        "backscatter diffraction.  ",
+        "\u2022The periodic structure of a crystalline solid acts as ",
+        "a diffraction grating, scattering the electrons in a ",
+        "predictable manner.  ",
+        "\u2022Sometime, electron diffraction is incorporate in ",
+        "other system to determine in -situ crystal structure.  ",
+        "\u2022Two common type of electron diffraction:  ",
+        "\u2013Low energy electron diffraction  ",
+        "\u2013Reflection High Energy Electron Diffraction  "
+      ],
+      "notes": "",
+      "text": "5.4 Type of  Electron Diffraction  \n\u2022Electron diffraction is frequently used to study the \ncrystal structure of solids.  \n\u2022Experiments are usually performed in a \ntransmission electron microscope (TEM), or a \nscanning electron microscope (SEM) as electron \nbackscatter diffraction.  \n\u2022The periodic structure of a crystalline solid acts as \na diffraction grating, scattering the electrons in a \npredictable manner.  \n\u2022Sometime, electron diffraction is incorporate in \nother system to determine in -situ crystal structure.  \n\u2022Two common type of electron diffraction:  \n\u2013Low energy electron diffraction  \n\u2013Reflection High Energy Electron Diffraction"
+    },
+    {
+      "slide_number": 29,
+      "title": "Low energy electron diffraction : 1  ",
+      "content": [
+        ""
+      ],
+      "notes": "",
+      "text": "Low energy electron diffraction : 1"
+    },
+    {
+      "slide_number": 30,
+      "title": "\u2022Electrons are thermionically emitted by the ",
+      "content": [
+        "heated filament.  ",
+        "\u2022The energy with which the electrons are incident ",
+        "on the sample is determined by the acceleration ",
+        "voltage (i.e. the voltage between the filament ",
+        "and apertures A and D).  ",
+        "\u2022Apertures B and C are used to focus the ",
+        "electron beam.  ",
+        "\u2022The incident electrons are backscattered from ",
+        "the sample surface and strike the fluorescent ",
+        "screen to create the diffraction pattern.  ",
+        "\u2022The screen is at a high positive potential with ",
+        "respect to the sample surface so that the low ",
+        "energy, elastically scattered electrons are ",
+        "accelerated onto the screen.  "
+      ],
+      "notes": "",
+      "text": "\u2022Electrons are thermionically emitted by the \nheated filament.  \n\u2022The energy with which the electrons are incident \non the sample is determined by the acceleration \nvoltage (i.e. the voltage between the filament \nand apertures A and D).  \n\u2022Apertures B and C are used to focus the \nelectron beam.  \n\u2022The incident electrons are backscattered from \nthe sample surface and strike the fluorescent \nscreen to create the diffraction pattern.  \n\u2022The screen is at a high positive potential with \nrespect to the sample surface so that the low \nenergy, elastically scattered electrons are \naccelerated onto the screen."
+    },
+    {
+      "slide_number": 31,
+      "title": "\u2022If the electrons is accelerated through a ",
+      "content": [
+        "potential of 30 to 500 volts (i.e., their ",
+        "kinetic energy is around 30 to 500 eV), ",
+        "their wavelength is 2.2 \u00c5 to 0.5 \u00c5.  ",
+        "\u2022This fits nicely into the range of distances ",
+        "between atoms in solids and can therefore ",
+        "strongly diffract from them.  ",
+        "\u2022The recording and analysis of the ",
+        "diffraction pattern can tell us the ",
+        "arrangement of the atoms on the surface.  "
+      ],
+      "notes": "",
+      "text": "\u2022If the electrons is accelerated through a \npotential of 30 to 500 volts (i.e., their \nkinetic energy is around 30 to 500 eV), \ntheir wavelength is 2.2 \u00c5 to 0.5 \u00c5.  \n\u2022This fits nicely into the range of distances \nbetween atoms in solids and can therefore \nstrongly diffract from them.  \n\u2022The recording and analysis of the \ndiffraction pattern can tell us the \narrangement of the atoms on the surface."
+    },
+    {
+      "slide_number": 32,
+      "title": "Reflection High Energy Electron ",
+      "content": [
+        "Diffraction  ",
+        "\u2022RHEED performed at glancing angles of reflection ",
+        "using electrons in the 10 - 100KeV range.  ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        "\u2022The sample can be rotated about its normal axis so ",
+        "that the electron beam is incident along specific ",
+        "crystallographic directions on the surface  e ",
+        "sample  screen  "
+      ],
+      "notes": "",
+      "text": "Reflection High Energy Electron \nDiffraction  \n\u2022RHEED performed at glancing angles of reflection \nusing electrons in the 10 - 100KeV range.  \n \n \n \n \n \n\u2022The sample can be rotated about its normal axis so \nthat the electron beam is incident along specific \ncrystallographic directions on the surface  e \nsample  screen"
+    },
+    {
+      "slide_number": 33,
+      "title": "What advantages does RHEED ",
+      "content": [
+        "offer over LEED ?  ",
+        "\u2022The geometry of the experiment allows ",
+        "much better access to the sample during ",
+        "observation of the diffraction pattern.  ",
+        " ",
+        "\u2022This is particularly important if it is desired ",
+        "to make observations of the surface ",
+        "structure during growth of a surface film by ",
+        "evaporation from sources located normal ",
+        "to the sample surface.  "
+      ],
+      "notes": "",
+      "text": "What advantages does RHEED \noffer over LEED ?  \n\u2022The geometry of the experiment allows \nmuch better access to the sample during \nobservation of the diffraction pattern.  \n \n\u2022This is particularly important if it is desired \nto make observations of the surface \nstructure during growth of a surface film by \nevaporation from sources located normal \nto the sample surface."
+    },
+    {
+      "slide_number": 34,
+      "title": "\u2022Experiments have shown that it is possible ",
+      "content": [
+        "to monitor the atomic layer -by-atomic layer ",
+        "growth of epitaxial films by monitoring ",
+        "oscillations in the intensity of the diffracted ",
+        "beams in the RHEED pattern.  ",
+        " ",
+        "\u2022By using RHEED it is therefore possible to ",
+        "measure, and hence also to control, ",
+        "atomic layer growth rates in Molecular ",
+        "Beam Epitaxy (MBE) growth of electronic ",
+        "device structures.  "
+      ],
+      "notes": "",
+      "text": "\u2022Experiments have shown that it is possible \nto monitor the atomic layer -by-atomic layer \ngrowth of epitaxial films by monitoring \noscillations in the intensity of the diffracted \nbeams in the RHEED pattern.  \n \n\u2022By using RHEED it is therefore possible to \nmeasure, and hence also to control, \natomic layer growth rates in Molecular \nBeam Epitaxy (MBE) growth of electronic \ndevice structures."
+    }
+  ]
+}

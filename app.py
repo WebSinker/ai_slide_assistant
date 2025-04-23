@@ -7,6 +7,7 @@ import os
 import json
 import time
 import re
+from pdf_processor import extract_text_from_pdf, save_extracted_pdf_text
 
 # Load environment variables
 load_dotenv()
@@ -220,7 +221,7 @@ def ask_question():
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 @app.route('/upload', methods=['POST'])
 def upload_slide():
     try:
@@ -236,26 +237,44 @@ def upload_slide():
             if file.filename == '':
                 continue  # Skip empty file inputs
 
-            # Verify file extension
-            if not file.filename.lower().endswith(('.ppt', '.pptx')):
+            # Verify file extension - now include PDF
+            if not file.filename.lower().endswith(('.ppt', '.pptx', '.pdf')):
                 continue  # Skip invalid files
 
             # Save file
             save_path = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(save_path)
 
-            # Convert .ppt to .pptx if needed
-            if file.filename.lower().endswith('.ppt'):
+            # Process based on file type
+            if file.filename.lower().endswith('.pdf'):
+                # Process PDF file
+                slides = extract_text_from_pdf(save_path)
+                if not slides:
+                    continue  # Skip if extraction fails
+                    
+                # Save extracted text to JSON
+                filename = file.filename.rsplit('.', 1)[0]
+                save_extracted_pdf_text(slides, filename)
+                
+            elif file.filename.lower().endswith('.ppt'):
+                # Convert .ppt to .pptx if needed
                 converted_path = convert_ppt_to_pptx(save_path)
                 if not converted_path:
                     continue  # Skip if conversion fails
                 save_path = converted_path
-
-            # Extract text
-            slides = extract_text_from_pptx(save_path)
-
-            # Save extracted text to JSON
-            save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
+                
+                # Extract text from PowerPoint
+                slides = extract_text_from_pptx(save_path)
+                
+                # Save extracted text to JSON
+                save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
+                
+            else:  # .pptx file
+                # Extract text from PowerPoint
+                slides = extract_text_from_pptx(save_path)
+                
+                # Save extracted text to JSON
+                save_extracted_text(slides, file.filename.rsplit('.', 1)[0])
 
             # Store this presentation's data
             presentations.append({

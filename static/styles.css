@@ -37,6 +37,32 @@ body {
     background: #3c5d7c;
 }
 
+.sidebar ul li.pdf-file {
+    background: #e74c3c;
+}
+
+.sidebar ul li.pdf-file::before {
+    content: "PDF";
+    background: white;
+    color: #e74c3c;
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.sidebar ul li.ppt-file::before {
+    content: "PPT";
+    background: white;
+    color: #3498db;
+    font-size: 10px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
 .main {
     flex: 1;
     padding: 20px;
@@ -45,6 +71,25 @@ body {
 
 .upload-section {
     margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.upload-section h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.file-types {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #555;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .slide-content {
