@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Slide Assistant</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <!-- PDF.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
                 <h3>Upload Files</h3>
                 <p class="file-types">Supported formats: .ppt, .pptx, .pdf</p>
                 <input type="file" id="fileInput" multiple accept=".ppt,.pptx,.pdf">
-                <button onclick="uploadFile()">Upload</button>
+                <button class="upload-btn" onclick="uploadFile()">Upload</button>
                 <div id="uploadStatus" class="upload-status"></div>
                 <div class="debug-tools">
                     <button id="toggleDebugMode" onclick="toggleDebugMode()" class="debug-toggle-btn">Enable Debug Mode</button>
@@ -45,21 +45,31 @@
                         <span>Current slide/page only</span>
                     </label>
                 </div>
-                <button onclick="askQuestion()">Ask AI</button>
+                <button class="ask-btn" onclick="askQuestion()">Ask AI</button>
                 <div id="answer"></div>
+            </div>
+            <div class="image-generation-section">
+                <h3>Image Generation</h3>
+                <div class="controls">
+                    <textarea id="imagePromptInput" placeholder="Enter a prompt for image generation or click 'Generate from Slide' to use current slide content"></textarea>
+                    <div class="button-group">
+                        <button class="generate-btn" onclick="generateImageFromSlide()">Generate from Slide</button>
+                        <button class="generate-btn" onclick="generateImage()">Generate Custom Image</button>
+                    </div>
+                </div>
+                <div class="image-result">
+                    <div id="generatedImageContainer"></div>
+                    <div id="imageGenerationStatus"></div>
+                </div>
             </div>
         </div>
     </div>
     
-    <!-- Make sure the PDF viewer script is loaded BEFORE the main script -->
     <script src="/static/pdf-viewer.js"></script>
     <script src="/static/script.js"></script>
-    
-    <!-- Add our new math-debugger script -->
     <script src="/static/math-debugger.js"></script>
-
+    
     <script>
-        // Add functionality to toggle debug mode
         let debugModeEnabled = false;
         
         function toggleDebugMode() {
@@ -70,14 +80,9 @@
                 btn.textContent = 'Disable Debug Mode';
                 btn.classList.add('active');
                 document.body.classList.add('debug-mode');
-                
-                // Add debug buttons to existing PDF items
                 addMathDebugButton();
-                
-                // Show debug message
                 const status = document.getElementById('uploadStatus');
                 status.textContent = 'Debug mode enabled. Math detection tools available.';
-                status.style.display = 'block';
                 status.className = 'upload-status debug-enabled';
                 
                 setTimeout(() => {
@@ -87,16 +92,11 @@
                 btn.textContent = 'Enable Debug Mode';
                 btn.classList.remove('active');
                 document.body.classList.remove('debug-mode');
-                
-                // Remove debug buttons
                 document.querySelectorAll('.debug-math-btn').forEach(btn => {
                     btn.remove();
                 });
-                
-                // Show debug disabled message
                 const status = document.getElementById('uploadStatus');
                 status.textContent = 'Debug mode disabled.';
-                status.style.display = 'block';
                 status.className = 'upload-status';
                 
                 setTimeout(() => {
@@ -104,52 +104,106 @@
                 }, 3000);
             }
         }
-
-        // Add a function to reprocess a PDF with improved math detection
-        function reprocessPDF(filename) {
-            const status = document.getElementById('uploadStatus');
-            status.textContent = `Reprocessing ${filename} with improved math detection...`;
-            status.style.display = 'block';
-            
-            fetch(`/reprocess-pdf/${filename}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        status.textContent = `Error: ${data.error}`;
-                        return;
-                    }
-                    
-                    if (data.success) {
-                        status.textContent = `${data.message}. Found math on pages: ${data.math_pages.join(', ')}`;
-                        
-                        // Reload the current presentation if it was the one reprocessed
-                        if (currentFilename === data.filename) {
-                            setTimeout(() => {
-                                // Find the presentation in the list and click it to reload
-                                const items = document.querySelectorAll('#slideList li');
-                                for (let item of items) {
-                                    if (item.textContent === data.filename) {
-                                        item.click();
-                                        break;
-                                    }
-                                }
-                            }, 1000);
-                        }
-                    } else {
-                        status.textContent = data.message;
-                    }
-                    
-                    setTimeout(() => {
-                        status.style.display = 'none';
-                    }, 5000);
-                })
-                .catch(error => {
-                    status.textContent = `Error: ${error.message}`;
-                    setTimeout(() => {
-                        status.style.display = 'none';
-                    }, 5000);
-                });
-        }
     </script>
 </body>
 </html>
+ <!-- Make sure the PDF viewer script is loaded BEFORE the main script -->
+ <script src="/static/pdf-viewer.js"></script>
+ <script src="/static/script.js"></script>
+ 
+ <!-- Add our math-debugger script -->
+ <script src="/static/math-debugger.js"></script>
+
+ <script>
+     // Add functionality to toggle debug mode
+     let debugModeEnabled = false;
+     
+     function toggleDebugMode() {
+         debugModeEnabled = !debugModeEnabled;
+         const btn = document.getElementById('toggleDebugMode');
+         
+         if (debugModeEnabled) {
+             btn.textContent = 'Disable Debug Mode';
+             btn.classList.add('active');
+             document.body.classList.add('debug-mode');
+             
+             // Add debug buttons to existing PDF items
+             addMathDebugButton();
+             
+             // Show debug message
+             const status = document.getElementById('uploadStatus');
+             status.textContent = 'Debug mode enabled. Math detection tools available.';
+             status.style.display = 'block';
+             status.className = 'upload-status debug-enabled';
+             
+             setTimeout(() => {
+                 status.style.display = 'none';
+             }, 3000);
+         } else {
+             btn.textContent = 'Enable Debug Mode';
+             btn.classList.remove('active');
+             document.body.classList.remove('debug-mode');
+             
+             // Remove debug buttons
+             document.querySelectorAll('.debug-math-btn').forEach(btn => {
+                 btn.remove();
+             });
+             
+             // Show debug disabled message
+             const status = document.getElementById('uploadStatus');
+             status.textContent = 'Debug mode disabled.';
+             status.style.display = 'block';
+             status.className = 'upload-status';
+             
+             setTimeout(() => {
+                 status.style.display = 'none';
+             }, 3000);
+         }
+     }
+
+     // Add a function to reprocess a PDF with improved math detection
+     function reprocessPDF(filename) {
+         const status = document.getElementById('uploadStatus');
+         status.textContent = `Reprocessing ${filename} with improved math detection...`;
+         status.style.display = 'block';
+         
+         fetch(`/reprocess-pdf/${filename}`)
+             .then(response => response.json())
+             .then(data => {
+                 if (data.error) {
+                     status.textContent = `Error: ${data.error}`;
+                     return;
+                 }
+                 
+                 if (data.success) {
+                     status.textContent = `${data.message}. Found math on pages: ${data.math_pages.join(', ')}`;
+                     
+                     // Reload the current presentation if it was the one reprocessed
+                     if (currentFilename === data.filename) {
+                         setTimeout(() => {
+                             // Find the presentation in the list and click it to reload
+                             const items = document.querySelectorAll('#slideList li');
+                             for (let item of items) {
+                                 if (item.textContent === data.filename) {
+                                     item.click();
+                                     break;
+                                 }
+                             }
+                         }, 1000);
+                     }
+                 } else {
+                     status.textContent = data.message;
+                 }
+                 
+                 setTimeout(() => {
+                     status.style.display = 'none';
+                 }, 5000);
+             })
+             .catch(error => {
+                 status.textContent = `Error: ${error.message}`;
+                 setTimeout(() => {
+                     status.style.display = 'none';
+                 }, 5000);
+             });
+     }
+ </script>

@@ -5,8 +5,9 @@ let currentPresentationList = []; // Store multiple presentations
 let pdfViewer = null;
 let currentFileType = '';
 
-// Modified uploadFile function to handle PDF viewer initialization
-// Update the uploadFile function to handle the new presentation data format
+/**
+ * Uploads files to the server, processes them, and updates the UI.
+ */
 function uploadFile() {
     const input = document.getElementById('fileInput');
     const fileList = input.files;
@@ -17,8 +18,9 @@ function uploadFile() {
     }
 
     // Show loading indicator
-    document.getElementById('uploadStatus').textContent = "Uploading and processing files...";
-    document.getElementById('uploadStatus').style.display = 'block';
+    const uploadStatus = document.getElementById('uploadStatus');
+    uploadStatus.textContent = "Uploading and processing files...";
+    uploadStatus.style.display = 'block';
 
     const formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
@@ -36,106 +38,59 @@ function uploadFile() {
         if (data.error) {
             throw new Error(data.error);
         }
-    
-        document.getElementById('uploadStatus').textContent = "Files uploaded successfully!";
+
+        uploadStatus.textContent = "Files uploaded successfully!";
         setTimeout(() => {
-            document.getElementById('uploadStatus').style.display = 'none';
+            uploadStatus.style.display = 'none';
         }, 3000);
-    
+
+        // Handle both single and multiple presentations
         if (Array.isArray(data.presentations)) {
-            currentPresentationList = data.presentations; // Store all
+            currentPresentationList = data.presentations;
             currentPresentationData = currentPresentationList[0];
-            slides = currentPresentationData.slides;
-            
-            // Use basename and filename correctly
-            // basename is for display and currentFilename should be the basename for consistency
-            currentFilename = currentPresentationData.basename || getBaseName(currentPresentationData.filename);
-            currentFileType = currentPresentationData.file_type || getFileExtension(currentPresentationData.filename);
-            
-            console.log("Loaded presentation:", currentPresentationData);
-    
-            updatePresentationList(); // Update sidebar/list
-    
-            if (slides.length > 0) {
-                displayPresentation();
-            }
         } else {
-            // Fallback if server returns single file structure
+            currentPresentationList = [data]; // Wrap single presentation in an array for consistency
             currentPresentationData = data;
-            slides = data.slides;
-            currentFilename = data.basename || getBaseName(data.filename);
-            currentFileType = data.file_type || getFileExtension(data.filename);
-            updatePresentationList();
-            if (slides.length > 0) {
-                displayPresentation();
-            }
         }
-    })    
+
+        slides = currentPresentationData.slides;
+        currentFilename = currentPresentationData.basename || getBaseName(currentPresentationData.filename);
+        currentFileType = currentPresentationData.file_type || getFileExtension(currentPresentationData.filename);
+
+        console.log("Loaded presentation:", currentPresentationData);
+        updatePresentationList();
+
+        if (slides.length > 0) {
+            displayPresentation();
+        }
+    })
     .catch(err => {
         console.error('Upload error:', err);
-        document.getElementById('uploadStatus').textContent = `Upload failed: ${err.message}`;
+        uploadStatus.textContent = 'Upload failed: ' + err.message;
         setTimeout(() => {
-            document.getElementById('uploadStatus').style.display = 'none';
+            uploadStatus.style.display = 'none';
         }, 5000);
     });
 }
 
-// Update the presentation list to use the correct filename/basename
-function updatePresentationList() {
-    const list = document.getElementById('slideList');
-    list.innerHTML = '';
-
-    currentPresentationList.forEach((presentation, index) => {
-        const li = document.createElement('li');
-        
-        // Use basename for display (without extension)
-        let displayName = presentation.basename || getBaseName(presentation.filename);
-        const extension = presentation.file_type || presentation.filename.split('.').pop().toLowerCase();
-        
-        // Add class based on file type
-        if (extension === 'pdf') {
-            li.className = 'pdf-file';
-        } else {
-            li.className = 'ppt-file';
-        }
-        
-        // Add active class to the current presentation
-        if (displayName === currentFilename) {
-            li.className += ' active';
-        }
-        
-        li.textContent = displayName;
-
-        li.onclick = () => {
-            // Remove active class from all items
-            document.querySelectorAll('#slideList li').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Add active class to clicked item
-            li.classList.add('active');
-            
-            currentPresentationData = presentation;
-            slides = presentation.slides;
-            currentFilename = displayName;
-            currentFileType = extension;
-            console.log("Selected presentation:", currentPresentationData);
-            displayPresentation();
-        };
-
-        list.appendChild(li);
-    });
-}
-
-// Helper function to get file extension
+/**
+ * Retrieves the file extension from a filename.
+ */
 function getFileExtension(filename) {
-    return filename.split('.').pop().toLowerCase();
+    if (!filename) return '';
+    const dotIndex = filename.lastIndexOf('.');
+    return dotIndex > 0 && dotIndex < filename.length - 1
+        ? filename.substring(dotIndex + 1).toLowerCase()
+        : '';
 }
 
-// Helper function to get the base name without extension
+/**
+ * Extracts the base name (filename without extension) from a filename.
+ */
 function getBaseName(filename) {
     if (!filename) return '';
-    return filename.includes('.') ? filename.substring(0, filename.lastIndexOf('.')) : filename;
+    const dotIndex = filename.lastIndexOf('.');
+    return dotIndex > 0 ? filename.substring(0, dotIndex) : filename;
 }
 
 // Modified updatePresentationList function to add active class
@@ -679,79 +634,6 @@ function showSlideDetails(index) {
     document.getElementById('scopeCurrentSlide').disabled = false;
 }
 
-// Modified showPDFPreview to better handle the PDF viewer
-function showPDFPreview(filename) {
-    const slideText = document.getElementById('slideText');
-    
-    // Clean up any existing PDF viewer before creating a new one
-    if (pdfViewer) {
-        // Just clear the container rather than destroying the PDFViewer instance
-        const container = document.getElementById('pdfViewerContainer');
-        if (container) {
-            container.innerHTML = '';
-        }
-    }
-    
-    // Update the title
-    document.getElementById('slideTitle').textContent = `${filename} - Full PDF Preview`;
-    
-    // Clear the slideText div
-    slideText.innerHTML = '';
-    
-    // Create a container for the PDF viewer
-    const pdfContainer = document.createElement('div');
-    pdfContainer.id = 'pdfViewerContainer';
-    pdfContainer.className = 'pdf-viewer-container pdf-full-view';
-    slideText.appendChild(pdfContainer);
-    
-    // Add back button
-    const backButtonContainer = document.createElement('div');
-    backButtonContainer.className = 'navigation-buttons';
-    
-    const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Overview';
-    backButton.className = 'back-btn';
-    backButton.onclick = () => displayPresentation();
-    backButtonContainer.appendChild(backButton);
-    
-    slideText.appendChild(backButtonContainer);
-    
-    // Get the original filename with extension
-    let pdfFilename = "";
-    
-    // Try to get the original filename from currentPresentationData
-    if (currentPresentationData && currentPresentationData.filename) {
-        pdfFilename = currentPresentationData.filename;
-        console.log("Using filename from currentPresentationData:", pdfFilename);
-    } else {
-        // Fall back to adding .pdf extension if necessary
-        pdfFilename = filename.endsWith('.pdf') ? filename : `${filename}.pdf`;
-        console.log("Using constructed filename:", pdfFilename);
-    }
-    
-    // URL encode the filename to handle spaces and special characters
-    const encodedFilename = encodeURIComponent(pdfFilename);
-    const pdfUrl = `/original-file/${encodedFilename}`;
-    
-    console.log("Loading PDF from URL:", pdfUrl);
-    
-    // Initialize or recreate the PDF viewer
-    pdfViewer = new PDFViewer('pdfViewerContainer');
-    
-    // Load the PDF
-    pdfViewer.loadDocument(pdfUrl)
-        .then(success => {
-            if (!success) {
-                console.error("Failed to load PDF");
-                slideText.innerHTML += `<div class="pdf-error">Failed to load PDF: ${pdfFilename}. Please check if the file exists on the server.</div>`;
-            }
-        })
-        .catch(error => {
-            console.error("Error loading PDF:", error);
-            slideText.innerHTML += `<div class="pdf-error">Error loading PDF: ${error.message}</div>`;
-        });
-}
-
 // Modified displayPresentation function to add PDF-specific info
 function displayPresentation() {
     // Update the title to show the presentation name
@@ -968,355 +850,6 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(document.body, { childList: true, subtree: true });
 });
 
-// Enhanced showSlideDetails function to better indicate math content
-function showSlideDetails(index) {
-    const slide = slides[index];
-    
-    document.getElementById('slideTitle').textContent = 
-        `${currentFilename} - ${currentFileType === 'pdf' ? 'Page' : 'Slide'} ${index + 1}${slide.title ? ': ' + slide.title : ''}`;
-    
-    const slideText = document.getElementById('slideText');
-    slideText.innerHTML = '';
-    
-    // Create different views based on file type
-    if (currentFileType === 'pdf') {
-        // Create a container for the PDF viewer
-        const pdfViewerContainer = document.createElement('div');
-        pdfViewerContainer.id = 'pdfViewerContainer';
-        pdfViewerContainer.className = 'pdf-viewer-container';
-        
-        // Mark if this page has math content for debug styling
-        const hasMathContent = slide.has_math_content || false;
-        if (hasMathContent) {
-            pdfViewerContainer.setAttribute('data-has-math', 'true');
-        } else {
-            pdfViewerContainer.setAttribute('data-has-math', 'false');
-        }
-        
-        slideText.appendChild(pdfViewerContainer);
-        
-        // Create a container for the extracted text and visual elements
-        const textDataContainer = document.createElement('div');
-        textDataContainer.className = 'extracted-data-container';
-        
-        // Add slide header with page number and math indicator
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'slide-header';
-        headerDiv.setAttribute('data-has-math', hasMathContent ? 'true' : 'false');
-        
-        let headerContent = `<h3>Page ${index + 1}${slide.title ? ': ' + slide.title : ''}</h3>`;
-        
-        // In non-debug mode, still show math indicator
-        if (hasMathContent && !document.body.classList.contains('debug-mode')) {
-            headerContent += `<span class="math-content-indicator">Contains Math</span>`;
-        }
-        
-        headerDiv.innerHTML = headerContent;
-        textDataContainer.appendChild(headerDiv);
-        
-        // If we have a page image captured (for math content), show it first
-        if (hasMathContent && slide.page_image) {
-            const mathContentDiv = document.createElement('div');
-            mathContentDiv.className = 'math-content-container';
-            mathContentDiv.innerHTML = `
-                <div class="math-content-notice">
-                    <strong>Mathematical Content Detected</strong>
-                    <p>This page contains mathematical notation that may not display correctly as text. 
-                    A page image has been captured for better visualization.</p>
-                </div>
-                <div class="page-image-container">
-                    <img src="${slide.page_image}" alt="Page ${index + 1} with mathematical content" class="math-page-image">
-                </div>
-            `;
-            textDataContainer.appendChild(mathContentDiv);
-        }
-        
-        // Add extracted text content
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'slide-content-text';
-        
-        // Format text with potential math content highlighted
-        let formattedText = slide.text;
-        
-        // If debug mode is enabled and we have math content, highlight potential formulas
-        if (document.body.classList.contains('debug-mode') && hasMathContent) {
-            // Simple formula highlighting - highlight lines with potential math symbols
-            const lines = formattedText.split('\n');
-            const highlightedLines = lines.map(line => {
-                // Check if this line might contain math
-                if (/[=+\-*/^θλ√∫∑∏πα-ωΑ-Ω]/.test(line) || 
-                    /sin|cos|tan|log/.test(line) ||
-                    /\([a-z0-9]+\)/.test(line)) {
-                    return `<div class="formula-highlighted">${line}</div>`;
-                }
-                return line;
-            });
-            formattedText = highlightedLines.join('<br>');
-        } else {
-            formattedText = formattedText.replace(/\n/g, "<br>");
-        }
-        
-        contentDiv.innerHTML = `<h4>Extracted Text:</h4><div>${formattedText}</div>`;
-        textDataContainer.appendChild(contentDiv);
-        
-        // Add special warning for potential false positives in title pages
-        if (document.body.classList.contains('debug-mode') && 
-            hasMathContent && 
-            slide.title && 
-            (slide.title.includes("Chapter") || slide.title.includes("Section")) &&
-            slide.text.split('\n').length < 5) {
-            
-            const warningDiv = document.createElement('div');
-            warningDiv.className = 'title-page-warning';
-            warningDiv.innerHTML = `
-                <strong>Warning:</strong> This appears to be a title page marked as containing math content.
-                This might be a false positive in the detection algorithm.
-                <button onclick="reprocessPDF('${currentFilename}')" class="reprocess-pdf-btn">
-                    Reprocess with Improved Detection
-                </button>
-            `;
-            textDataContainer.appendChild(warningDiv);
-        }
-        
-        // Check for enhanced visual elements (formulas, images)
-        fetch(`/pdf-visual-elements/${currentFilename}/${index + 1}`)
-            .then(res => res.json())
-            .then(data => {
-                if (!data.error) {
-                    // Add formula section if any formulas exist
-                    if (data.formulas && data.formulas.length > 0) {
-                        const formulasDiv = document.createElement('div');
-                        formulasDiv.className = 'visual-elements formulas';
-                        formulasDiv.innerHTML = `<h4>Detected Formulas (${data.formulas.length}):</h4><ul>`;
-                        
-                        data.formulas.forEach(formula => {
-                            // Check if we have an image of the formula
-                            let formulaHtml = formula.text;
-                            if (formula.image) {
-                                formulaHtml = `
-                                    <div class="formula-with-image">
-                                        <div class="formula-text">${formula.text}</div>
-                                        <div class="formula-image">
-                                            <img src="${formula.image}" alt="Formula image">
-                                        </div>
-                                    </div>
-                                `;
-                            }
-                            
-                            formulasDiv.innerHTML += `<li>${formulaHtml}</li>`;
-                        });
-                        
-                        formulasDiv.innerHTML += '</ul>';
-                        textDataContainer.appendChild(formulasDiv);
-                    }
-                    
-                    // Add image thumbnails if any images exist
-                    if (data.images && data.images.length > 0) {
-                        const imagesDiv = document.createElement('div');
-                        imagesDiv.className = 'visual-elements images';
-                        imagesDiv.innerHTML = `<h4>Detected Images (${data.images.length}):</h4><div class="image-grid">`;
-                        
-                        data.images.forEach(image => {
-                            imagesDiv.innerHTML += `
-                                <div class="image-thumbnail">
-                                    <img src="${image.data_uri}" alt="${image.alt_text}">
-                                </div>
-                            `;
-                        });
-                        
-                        imagesDiv.innerHTML += '</div>';
-                        textDataContainer.appendChild(imagesDiv);
-                    }
-                }
-            })
-            .catch(err => console.error('Error loading visual elements:', err));
-        
-        // Add the text container to the main slide view
-        slideText.appendChild(textDataContainer);
-        
-        // Get the original filename with extension
-        let pdfFilename = "";
-        if (currentPresentationData && currentPresentationData.filename) {
-            pdfFilename = currentPresentationData.filename;
-        } else {
-            pdfFilename = currentFilename.endsWith('.pdf') ? currentFilename : `${currentFilename}.pdf`;
-        }
-        
-        // URL encode the filename to handle spaces and special characters
-        const encodedFilename = encodeURIComponent(pdfFilename);
-        const pdfUrl = `/original-file/${encodedFilename}`;
-        
-        console.log("Loading PDF from URL:", pdfUrl, "Page:", index + 1);
-        
-        // Initialize or recreate the PDF viewer
-        pdfViewer = new PDFViewer('pdfViewerContainer');
-        
-        // Load the PDF and navigate to the correct page
-        pdfViewer.loadDocument(pdfUrl)
-            .then(success => {
-                if (success) {
-                    // Navigate to the specific page (PDF.js pages are 1-indexed)
-                    setTimeout(() => {
-                        pdfViewer.goToPage(index + 1);
-                    }, 100);
-                }
-            });
-    } else {
-        // For PowerPoint files, use the original display method (unchanged code)
-        // ...existing PowerPoint display code...
-    }
-    
-    // Add back button (common for both PDF and PowerPoint)
-    const backButtonContainer = document.createElement('div');
-    backButtonContainer.className = 'navigation-buttons';
-    
-    const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Overview';
-    backButton.className = 'back-btn';
-    backButton.onclick = () => displayPresentation();
-    backButtonContainer.appendChild(backButton);
-    
-    // Add prev/next buttons
-    if (index > 0) {
-        const prevButton = document.createElement('button');
-        prevButton.textContent = 'Previous';
-        prevButton.className = 'nav-btn';
-        prevButton.onclick = () => showSlideDetails(index - 1);
-        backButtonContainer.appendChild(prevButton);
-    }
-    
-    if (index < slides.length - 1) {
-        const nextButton = document.createElement('button');
-        nextButton.textContent = 'Next';
-        nextButton.className = 'nav-btn';
-        nextButton.onclick = () => showSlideDetails(index + 1);
-        backButtonContainer.appendChild(nextButton);
-    }
-    
-    // Add debug tools if debug mode is enabled and it's a PDF
-    if (document.body.classList.contains('debug-mode') && currentFileType === 'pdf') {
-        const debugButton = document.createElement('button');
-        debugButton.textContent = 'Debug Math Detection';
-        debugButton.className = 'debug-math-btn';
-        debugButton.onclick = () => debugMathDetection(currentFilename);
-        backButtonContainer.appendChild(debugButton);
-        
-        const reprocessButton = document.createElement('button');
-        reprocessButton.textContent = 'Reprocess PDF';
-        reprocessButton.className = 'reprocess-pdf-btn';
-        reprocessButton.onclick = () => reprocessPDF(currentFilename);
-        backButtonContainer.appendChild(reprocessButton);
-    }
-    
-    slideText.appendChild(backButtonContainer);
-
-    // Update radio button state - if on a slide, enable "current slide only" option
-    document.getElementById('scopeCurrentSlide').disabled = false;
-}
-
-// Modified displayPresentation function to show math content indicators
-function displayPresentation() {
-    // Update the title to show the presentation name
-    document.getElementById('slideTitle').textContent = `${currentFilename} (${currentFileType.toUpperCase()})`;
-    
-    // Since we're not on a specific slide, disable the "current slide only" option
-    document.getElementById('scopeCurrentSlide').disabled = true;
-    
-    // If "current slide only" was selected, switch to "current presentation only"
-    if (document.getElementById('scopeCurrentSlide').checked) {
-        document.getElementById('scopeCurrentPresentation').checked = true;
-    }
-    
-    const slideText = document.getElementById('slideText');
-    slideText.innerHTML = '';
-    
-    // Create a presentation summary
-    const summaryDiv = document.createElement('div');
-    summaryDiv.className = 'presentation-summary';
-    
-    // Count slides with math content
-    const mathSlides = slides.filter(slide => slide.has_math_content);
-    const hasMathContent = mathSlides.length > 0;
-    
-    // Add presentation info
-    const infoP = document.createElement('p');
-    infoP.innerHTML = `<strong>Presentation:</strong> ${currentFilename}<br>` +
-                      `<strong>Type:</strong> ${currentFileType.toUpperCase()}<br>` +
-                      `<strong>Total ${currentFileType === 'pdf' ? 'Pages' : 'Slides'}:</strong> ${slides.length}`;
-    
-    // Add math content info if it's a PDF
-    if (currentFileType === 'pdf') {
-        infoP.innerHTML += `<br><strong>Pages with Math Content:</strong> ${mathSlides.length}`;
-        
-        if (mathSlides.length > 0) {
-            infoP.innerHTML += ` (Pages: ${mathSlides.map(s => s.slide_number).join(', ')})`;
-        }
-    }
-    
-    summaryDiv.appendChild(infoP);
-    
-    // For PDFs, add a preview button
-    if (currentFileType === 'pdf') {
-        const previewButton = document.createElement('button');
-        previewButton.className = 'preview-pdf-btn';
-        previewButton.textContent = 'Preview Entire PDF';
-        previewButton.onclick = () => showPDFPreview(currentFilename);
-        summaryDiv.appendChild(previewButton);
-        
-        // Add debug tools if in debug mode
-        if (document.body.classList.contains('debug-mode')) {
-            const debugTools = document.createElement('div');
-            debugTools.className = 'debug-tools';
-            
-            const debugButton = document.createElement('button');
-            debugButton.textContent = 'Debug Math Detection';
-            debugButton.className = 'debug-math-btn';
-            debugButton.onclick = () => debugMathDetection(currentFilename);
-            debugTools.appendChild(debugButton);
-            
-            const reprocessButton = document.createElement('button');
-            reprocessButton.textContent = 'Reprocess with Improved Detection';
-            reprocessButton.className = 'reprocess-pdf-btn';
-            reprocessButton.onclick = () => reprocessPDF(currentFilename);
-            debugTools.appendChild(reprocessButton);
-            
-            summaryDiv.appendChild(debugTools);
-        }
-    }
-    
-    // Add a table of contents
-    const tocDiv = document.createElement('div');
-    tocDiv.className = 'table-of-contents';
-    tocDiv.innerHTML = `<h3>${currentFileType === 'pdf' ? 'Pages' : 'Slides'}</h3>`;
-    
-    const tocList = document.createElement('ol');
-    slides.forEach((slide, index) => {
-        const tocItem = document.createElement('li');
-        // Use the slide title if available, otherwise use "Slide X" or "Page X"
-        const itemLabel = currentFileType === 'pdf' ? 'Page' : 'Slide';
-        const slideTitle = slide.title ? slide.title : `${itemLabel} ${index + 1}`;
-        
-        // Mark slides with math content if it's a PDF
-        if (currentFileType === 'pdf' && slide.has_math_content) {
-            tocItem.className = 'has-math-content';
-            tocItem.innerHTML = `${slideTitle} <span class="math-indicator">Math</span>`;
-        } else {
-            tocItem.textContent = slideTitle;
-        }
-        
-        // Make each TOC item clickable to show that specific slide
-        tocItem.style.cursor = 'pointer';
-        tocItem.onclick = () => showSlideDetails(index);
-        
-        tocList.appendChild(tocItem);
-    });
-    
-    tocDiv.appendChild(tocList);
-    summaryDiv.appendChild(tocDiv);
-    
-    slideText.appendChild(summaryDiv);
-}
-
 // Add this to existing functions that update the DOM with new slide links
 function updateSlideLinks() {
     createSlideRangePopup();
@@ -1327,4 +860,169 @@ function callAskQuestion() {
     askQuestion();
     // Wait for the answer to be displayed
     setTimeout(createSlideRangePopup, 500);
+}
+
+/**
+ * Shows a preview of the entire PDF document.
+ */
+function showPDFPreview(filename) {
+    const slideText = document.getElementById('slideText');
+    
+    // Clean up existing PDF viewer if present
+    if (pdfViewer) {
+        const container = document.getElementById('pdfViewerContainer');
+        if (container) {
+            container.innerHTML = '';
+        }
+    }
+    
+    // Update title
+    document.getElementById('slideTitle').textContent = `${filename} - Full PDF Preview`;
+    slideText.innerHTML = '';
+    
+    // Create new PDF viewer container
+    const pdfContainer = document.createElement('div');
+    pdfContainer.id = 'pdfViewerContainer';
+    pdfContainer.className = 'pdf-viewer-container pdf-full-view';
+    slideText.appendChild(pdfContainer);
+    
+    // Add back button
+    const backButtonContainer = document.createElement('div');
+    backButtonContainer.className = 'navigation-buttons';
+    
+    const backButton = document.createElement('button');
+    backButton.textContent = 'Back to Overview';
+    backButton.className = 'back-btn';
+    backButton.onclick = () => displayPresentation();
+    backButtonContainer.appendChild(backButton);
+    
+    slideText.appendChild(backButtonContainer);
+    
+    // Load the PDF
+    const pdfFilename = currentPresentationData?.filename || 
+        (filename.endsWith('.pdf') ? filename : filename + '.pdf');
+    const encodedFilename = encodeURIComponent(pdfFilename);
+    const pdfUrl = `/original-file/${encodedFilename}`;
+    
+    console.log("Loading PDF from URL:", pdfUrl);
+    
+    pdfViewer = new PDFViewer('pdfViewerContainer');
+    pdfViewer.loadDocument(pdfUrl);
+}
+
+/**
+ * Generates an image based on the current slide content.
+ */
+function generateImageFromSlide() {
+    // Get the currently displayed slide content
+    let slideContent = "";
+    let slideTitle = "";
+    
+    // Get the currently displayed slide number from the title
+    const titleText = document.getElementById('slideTitle').textContent;
+    const slideMatch = titleText.match(/(?:Slide|Page) (\d+)/);
+    
+    if (slideMatch) {
+        const slideNumber = parseInt(slideMatch[1]) - 1; // Convert to 0-based index
+        if (slides && slides[slideNumber]) {
+            const slide = slides[slideNumber];
+            slideTitle = slide.title || "";
+            slideContent = slide.text || "";
+        }
+    } else {
+        // If no specific slide is shown, use the presentation title
+        slideTitle = currentFilename;
+    }
+    
+    // Create a prompt based on slide content
+    let prompt = "";
+    if (slideTitle && slideContent) {
+        // Use the slide title and content to generate a relevant image
+        prompt = `Create an image that represents "${slideTitle}". Content: ${slideContent.substring(0, 200)}`;
+    } else if (slideTitle) {
+        prompt = `Create an image representing "${slideTitle}"`;
+    } else if (slideContent) {
+        prompt = `Create an image based on: ${slideContent.substring(0, 200)}`;
+    } else {
+        alert("No slide content available to generate an image from.");
+        return;
+    }
+    
+    // Set the prompt in the textarea
+    document.getElementById('imagePromptInput').value = prompt;
+    
+    // Generate the image
+    generateImage();
+}
+
+/**
+ * Generates an image based on the provided prompt.
+ */
+function generateImage() {
+    const prompt = document.getElementById('imagePromptInput').value.trim();
+    if (!prompt) {
+        alert("Please enter an image prompt!");
+        return;
+    }
+    
+    // Show loading indicator
+    const imageContainer = document.getElementById('generatedImageContainer');
+    const statusDiv = document.getElementById('imageGenerationStatus');
+    
+    // Create container elements if they don't exist
+    if (!imageContainer) {
+        const newContainer = document.createElement('div');
+        newContainer.id = 'generatedImageContainer';
+        document.querySelector('.image-result').appendChild(newContainer);
+    }
+    
+    if (!statusDiv) {
+        const newStatus = document.createElement('div');
+        newStatus.id = 'imageGenerationStatus';
+        document.querySelector('.image-result').appendChild(newStatus);
+    }
+    
+    // Update with loading state
+    document.getElementById('generatedImageContainer').innerHTML = '<div class="loading-spinner"></div>';
+    document.getElementById('imageGenerationStatus').textContent = "Generating image...";
+    
+    // Make the API call to generate the image
+    fetch('/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: prompt })
+    })
+    .then(res => {
+        if (!res.ok) throw new Error('Server returned ' + res.status + ': ' + res.statusText);
+        return res.json();
+    })
+    .then(data => {
+        const container = document.getElementById('generatedImageContainer');
+        const status = document.getElementById('imageGenerationStatus');
+        container.innerHTML = '';
+        
+        if (data.error) {
+            status.textContent = 'Error: ' + data.error;
+            return;
+        }
+        
+        const img = new Image();
+        img.src = data.image_base64.startsWith('data:image') 
+            ? data.image_base64 
+            : 'data:image/png;base64,' + data.image_base64;
+        
+        img.alt = prompt;
+        img.style.maxWidth = '100%';
+        img.style.borderRadius = '8px';
+        img.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+        
+        container.appendChild(img);
+        status.textContent = "Image generated successfully!";
+    })
+    .catch(err => {
+        console.error('Image generation error:', err);
+        document.getElementById('generatedImageContainer').innerHTML = '';
+        document.getElementById('imageGenerationStatus').textContent = 
+            'Error: ' + (err.message || "Failed to generate image");
+    });
 }

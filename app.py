@@ -3,9 +3,11 @@ from pptx import Presentation
 from dotenv import load_dotenv
 from google import genai
 import subprocess
+import base64
 import os
 import json
 import time
+import requests
 import re
 from pdf_processor import extract_text_from_pdf, save_extracted_pdf_text, save_enhanced_pdf_extraction, detect_math_content
 import fitz  # PyMuPDF for more advanced PDF processing
@@ -24,6 +26,11 @@ os.environ["API_KEY"] = os.getenv("API_KEY")  # Ensure API_KEY is set in your .e
 client = genai.Client(api_key=os.environ["API_KEY"])
 
 model = "gemini-2.0-flash"
+
+# Stability AI API
+STABILITY_API_KEY = os.getenv('STABILITY_API_KEY')
+if not STABILITY_API_KEY:
+    print("Warning: Missing STABILITY_API_KEY in .env - image generation will not work")
 
 def extract_text_from_pptx(file_path):
     prs = Presentation(file_path)
@@ -946,6 +953,82 @@ def upload_slide():
         import traceback
         traceback.print_exc()
         return jsonify({"error": f"Server error: {str(e)}"}), 500
+    
+@app.route('/generate-image', methods=['POST'])
+def generate_image():
+    """Generate images using Stability AI API."""
+    # Get Stability AI API key from environment
+    STABILITY_API_KEY = os.getenv('STABILITY_API_KEY')
+    
+    if not STABILITY_API_KEY:
+        return jsonify({"error": "Stability AI API key not configured. Set STABILITY_API_KEY in .env file."}), 500
+        
+    try:
+        data = request.get_json()
+        prompt = data.get("prompt")
+
+        if not prompt:
+            return jsonify({"error": "Prompt is required"}), 400
+
+        # Add detailed logging
+        print(f"Sending request to Stability AI API with prompt: {prompt[:50]}...")
+        
+        # Call the Stability AI API with the correct endpoint and format
+        try:
+            response = requests.post(
+                "https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image",
+                headers={
+                    "Authorization": f"Bearer {STABILITY_API_KEY}",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                json={
+                    "text_prompts": [
+                        {
+                            "text": prompt,
+                            "weight": 1
+                        }
+                    ],
+                    "cfg_scale": 7,
+                    "height": 1024,
+                    "width": 1024,
+                    "samples": 1,
+                    "steps": 30
+                },
+                timeout=60  # Add a timeout
+            )
+            
+            # Log the response status
+            print(f"Stability AI API Response status: {response.status_code}")
+            
+            if response.status_code != 200:
+                error_detail = response.json() if response.headers.get('content-type') == 'application/json' else response.text
+                print(f"Error response: {error_detail}")
+                return jsonify({
+                    "error": "Failed to generate image", 
+                    "details": error_detail,
+                    "status_code": response.status_code
+                }), 500
+            
+            # Parse the JSON response and get the base64 image data
+            response_data = response.json()
+            if "artifacts" in response_data and len(response_data["artifacts"]) > 0:
+                img_data = response_data["artifacts"][0]["base64"]
+                return jsonify({
+                    "prompt": prompt,
+                    "image_base64": f"data:image/png;base64,{img_data}"
+                })
+            else:
+                return jsonify({"error": "No image generated in response"}), 500
+            
+        except requests.RequestException as e:
+            print(f"Request exception: {str(e)}")
+            return jsonify({"error": f"Request failed: {str(e)}"}), 500
+
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
 @app.route('/static/<path:path>')
 def send_static(path):
@@ -957,4 +1040,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
